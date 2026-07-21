@@ -1,0 +1,56 @@
+{
+
+    "carnellio-boss": {
+        "name": {
+            "en_US": "Carnellio",
+            "ko_KR": "히바치"
+        },
+        "track": true,
+        "order": 121001,
+        "area": "secret",
+        "anim": false,
+        "extra": false,
+        "descriptions": [
+            {
+                "text": {
+                    "en_US": "The information has been redacted.\n \nThis mortal weapon is also not instant matter but real, but at least it doesn't look like an object related to the old war.\n \n\\c[3](DoDonPachi)\\c[0]"
+                },
+                "condition": ""
+            }
+        ],
+        "species": {
+            "en_US": "Last Demon Weapon"
+        },
+        "category": "MECHA",
+        "level": 40,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 1000,
+            "attack": 1,
+            "defense": 1,
+            "focus": 10,
+            "elemFactor": [
+                1,
+                1,
+                1,
+                1
+            ],
+            "statusEffect": [
+                0,
+                0,
+                0,
+                0
+            ],
+            "statusInflict": [
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "credit": 0,
+        "exp": 0,
+        "itemDrops": [],
+        "boss": true
+    }
+}

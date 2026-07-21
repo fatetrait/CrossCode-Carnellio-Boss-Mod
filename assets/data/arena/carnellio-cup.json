@@ -1,0 +1,66 @@
+{
+    "core": {
+        "type": "SOLO_CUSTOM",
+        "name": {
+            "en_US": "Carnellio Cup"
+        },
+        "info": {
+            "en_US": "Carnellio SBBF."
+        },
+        "creator": {
+            "en_US": "fatetraitor, inspired/stolen from SBBF"
+        },
+        "music": "challenge",
+        "rushMusic": "raidTheme",
+        "level": 40,
+        "difficulty": "5",
+        "banner": {
+            "src": "media\/gui\/arena-banners.png",
+            "offX": 0,
+            "offY": 64,
+            "width": 280,
+            "height": 64
+        }
+    },
+    "rounds": [
+        {
+            "name": {
+                "en_US": "Carnellio (Faithful)"
+            },
+            "customCode": true,
+            "camFocus": "CAM_FOCUS",
+            "platPoints": 70000,
+            "coins": 1000,
+            "objective": {
+                "en_US": "Defeat the black magic sorceror"
+            },
+            "points": 60000,
+            "type": "DEFAULT",
+            "medal": 0,
+            "bonuses": [
+                {
+                    "type": "HIT_COUNTER",
+                    "value": 5,
+                    "points": 2500
+                },
+                {
+                    "type": "TIME",
+                    "seconds": 25,
+                    "points": 5000
+                },
+                {
+                    "type": "ITEMS_USED",
+                    "amount": 2,
+                    "points": 2500
+                },
+                {
+                    "type": "EFFECTIVE_DAMAGE",
+                    "target": 10000,
+                    "points": 5000
+                }
+            ],
+            "spawn": "PLAYER_SPAWN",
+            "map": "arena.boss.carnellio-map"
+        }
+    ]
+}

@@ -1,0 +1,1952 @@
+{
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [
+            {
+                "name": "RIPOSTE_POP_CARN",
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/carn_riposte_pop.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 477,
+                    "height": 57
+                },
+                "time": 2,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "RIPOSTE_START_CARN",
+                "pivot": {
+                    "x": 0,
+                    "y": 0
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/carn_riposte_start.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 529,
+                    "height": 85
+                },
+                "time": 3,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "bd",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sigils\/bd.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "db",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/db.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "decap",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sigils\/decap.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "dr",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/dr.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ds",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/ds.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "dsh",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/dsh.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ef",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/ef.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "es",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/es.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "fh",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/fh.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "fo",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/fo.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "mwru",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/mwru.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "nr",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/nr.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "rdct",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/rdct.png",
+                    "width": 298,
+                    "height": 298
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "rmda",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/rmda.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ro",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/ro.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "sf",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/sf.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "smn",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/smn.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "sr",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/sr.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ss",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/ss.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "sv",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/sv.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "tr",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/tr.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "vv",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/vv.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "wf",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/wf.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            }
+        ]
+    },
+    "FACEANIMS": {
+        "SUB": [
+            {
+                "sheet": {
+                    "src": "media\/entity\/effects\/carn_guard.png",
+                    "width": 32,
+                    "height": 32
+                },
+                "shapeType": "Y_FLAT",
+                "dirs": 8,
+                "size": {
+                    "x": 32,
+                    "y": 0,
+                    "z": 32
+                },
+                "SUB": [
+                    {
+                        "offset": {
+                            "x": 0,
+                            "y": -16,
+                            "z": 0
+                        },
+                        "gfxOffset": {
+                            "x": 0,
+                            "y": 10
+                        },
+                        "tileOffsets": [
+                            0,
+                            8,
+                            16,
+                            48,
+                            48,
+                            48,
+                            16,
+                            8
+                        ],
+                        "flipX": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            1,
+                            1
+                        ],
+                        "SUB": [
+                            {
+                                "name": "GUARD_NEUTRAL",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAK",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    1,
+                                    0.95,
+                                    0.9,
+                                    0.85,
+                                    0.8,
+                                    0.85,
+                                    0.9,
+                                    0.95,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAKER",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.9,
+                                    0.8,
+                                    0.7,
+                                    0.8,
+                                    0.9
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAKEST",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.2
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_BLINK",
+                                "renderMode": "lighter",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "tileOffsets": [
+                            48,
+                            48,
+                            24,
+                            32,
+                            40,
+                            32,
+                            24,
+                            48
+                        ],
+                        "flipX": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            1,
+                            1,
+                            1
+                        ],
+                        "SUB": [
+                            {
+                                "name": "GUARD_NEUTRAL",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAK",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    1,
+                                    0.95,
+                                    0.9,
+                                    0.85,
+                                    0.8,
+                                    0.85,
+                                    0.9,
+                                    0.95,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAKER",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.9,
+                                    0.8,
+                                    0.7,
+                                    0.8,
+                                    0.9
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_WEAKEST",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.2
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL_BLINK",
+                                "renderMode": "lighter",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "shapeType": "Y_FLAT",
+                "size": {
+                    "x": 32,
+                    "y": 0,
+                    "z": 32
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/carn_guard.png",
+                    "xCount": 3,
+                    "offX": 96,
+                    "offY": 0,
+                    "width": 32,
+                    "height": 32
+                },
+                "dirs": "1",
+                "SUB": [
+                    {
+                        "offset": {
+                            "x": 0,
+                            "y": -16,
+                            "z": 0
+                        },
+                        "flipX": [
+                            0
+                        ],
+                        "tileOffsets": [
+                            0
+                        ],
+                        "SUB": [
+                            {
+                                "name": "GUARD_NEUTRAL2",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAK",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    1,
+                                    0.95,
+                                    0.9,
+                                    0.85,
+                                    0.8,
+                                    0.85,
+                                    0.9,
+                                    0.95,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAKER",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.9,
+                                    0.8,
+                                    0.7,
+                                    0.8,
+                                    0.9
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAKEST",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.2
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_BLINK",
+                                "renderMode": "lighter",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "flipX": [
+                            0
+                        ],
+                        "tileOffsets": [
+                            3
+                        ],
+                        "SUB": [
+                            {
+                                "name": "GUARD_NEUTRAL2",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAK",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    1,
+                                    0.95,
+                                    0.9,
+                                    0.85,
+                                    0.8,
+                                    0.85,
+                                    0.9,
+                                    0.95,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAKER",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.9,
+                                    0.8,
+                                    0.7,
+                                    0.8,
+                                    0.9
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_WEAKEST",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.2
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL2_BLINK",
+                                "renderMode": "lighter",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "shapeType": "Y_FLAT",
+                "size": {
+                    "x": 32,
+                    "y": 0,
+                    "z": 48
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/carn_guard.png",
+                    "xCount": 3,
+                    "offX": 96,
+                    "offY": 64,
+                    "width": 32,
+                    "height": 48
+                },
+                "dirs": "1",
+                "SUB": [
+                    {
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "flipX": [
+                            0
+                        ],
+                        "tileOffsets": [
+                            0
+                        ],
+                        "SUB": [
+                            {
+                                "name": "GUARD_NEUTRAL3",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL3_WEAK",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    1,
+                                    0.95,
+                                    0.9,
+                                    0.85,
+                                    0.8,
+                                    0.85,
+                                    0.9,
+                                    0.95,
+                                    1
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL3_WEAKER",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1,
+                                    0,
+                                    1,
+                                    0,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.9,
+                                    0.8,
+                                    0.7,
+                                    0.8,
+                                    0.9
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL3_WEAKEST",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    2,
+                                    1
+                                ],
+                                "framesAlpha": [
+                                    1,
+                                    0.2
+                                ]
+                            },
+                            {
+                                "name": "GUARD_NEUTRAL3_BLINK",
+                                "renderMode": "lighter",
+                                "time": 0.05,
+                                "repeat": true,
+                                "frames": [
+                                    0,
+                                    1
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "EFFECTS": {
+        "carn_guard_neutral": [
+            {
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.05,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.07,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "start": {
+                        "value": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "time": 0.05,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "time": 0.07,
+                        "spline": ""
+                    }
+                },
+                "particleDuration": -1,
+                "anim": "GUARD_NEUTRAL",
+                "type": "PLAY_FACE_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "time": 0.6,
+                "type": "WAIT"
+            }
+        ],
+        "riposteStartText": [
+            {
+                "useTargetAngle": true,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": -85,
+                    "y": 120,
+                    "z": 265
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.9,
+                        "time": 0.01,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.2,
+                        "y": 0.2
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.4,
+                            "y": 0.4
+                        },
+                        "spline": "EASE"
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3,
+                "anim": "RIPOSTE_START_CARN",
+                "type": "PLAY_ANIM"
+            }
+        ],
+        "ripostePopText": [
+            {
+                "offset": {
+                    "x": -95,
+                    "y": 120,
+                    "z": 200
+                },
+                "numParticles": 1,
+                "duration": 2,
+                "centralAngle": 1,
+                "keySpline": "EASE_OUT",
+                "rotateWithTime": true,
+                "collision": false,
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.9,
+                        "time": 0.01,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.3,
+                        "y": 0.3
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.6,
+                            "y": 0.6
+                        },
+                        "spline": "EASE"
+                    }
+                },
+                "moveWithTarget": 1,
+                "anim": "RIPOSTE_POP_CARN",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            }
+        ],
+        "bdSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "bd",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "dbSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "db",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "decapSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "decap",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "drSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "dr",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "dsSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ds",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "dshSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "dsh",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "efSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ef",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "esSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "es",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "fhSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "fh",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "foSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "fo",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "mwruSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "mwru",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "nrSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "nr",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "rdctSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.0833,
+                        "y": 0.0833
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "rdct",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "rmdaSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "rmda",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "roSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ro",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "sfSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "sf",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "smnSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "smn",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "srSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "sr",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ssSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ss",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "svSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "sv",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "trSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "tr",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "vvSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "vv",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "wfSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "wf",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ]
+    }
+}

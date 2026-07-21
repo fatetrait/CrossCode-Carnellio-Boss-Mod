@@ -1,0 +1,13 @@
+{
+	"id": "carn",
+	"title": "Carnellio Mod",
+	"version": "1.0.1",
+	"description": "carn",
+	"icons": {
+		"24": "icon-24.png"
+	},
+	"authors": "fatetraitor",
+	"tags": ["suffering", "boss", "arena", "fun"],
+	"repository": "",
+	"prestart": "prestart.js"
+}

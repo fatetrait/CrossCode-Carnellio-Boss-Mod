@@ -1,0 +1,9 @@
+{
+    "cups": [
+        {
+            "carnellio-cup": {
+                "order": 10000
+            }
+        }
+    ]
+}
