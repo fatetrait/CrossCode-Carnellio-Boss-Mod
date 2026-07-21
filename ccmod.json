@@ -9,5 +9,6 @@
 	"authors": "fatetraitor",
 	"tags": ["suffering", "boss", "arena", "fun"],
 	"repository": "",
-	"prestart": "prestart.js"
+	"prestart": "prestart.js",
+	"poststart": "poststart.js"
 }

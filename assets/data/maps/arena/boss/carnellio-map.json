@@ -18,7 +18,7 @@
             "y": 300,
             "level": 1,
             "settings": {
-                "name": "boss",
+                "name": "Carnellio",
                 "manualKill": "tmp.bossDefeated",
                 "mapId": 1,
                 "enemyInfo": {
@@ -609,10 +609,6 @@
                         "value": false
                     },
                     {
-                        "time": 0.5,
-                        "type": "WAIT"
-                    },
-                    {
                         "message": {
                             "en_US": "End of days, Shadow Riposte!"
                         },
@@ -621,6 +617,14 @@
                             "person": "antagonists.fancyguy",
                             "expression": "RAGING"
                         }
+                    },
+                    {
+                        "time": 0.5,
+                        "type": "WAIT"
+                    },
+                    {
+                        "value": 1,
+                        "type": "SET_ELEMENT_LOAD"
                     },
                     {
                         "ignoreSlowDown": true,

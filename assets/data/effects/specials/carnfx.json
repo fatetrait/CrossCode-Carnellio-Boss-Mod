@@ -16,7 +16,7 @@
                     "height": 57
                 },
                 "time": 2,
-                "repeat": true,
+                "repeat": false,
                 "frames": [
                     0
                 ]
@@ -34,8 +34,8 @@
                     "width": 529,
                     "height": 85
                 },
-                "time": 3,
-                "repeat": true,
+                "time": 2.5,
+                "repeat": false,
                 "frames": [
                     0
                 ]
@@ -1001,8 +1001,9 @@
                         "spline": "EASE"
                     }
                 },
+                "numParticles": 1,
                 "moveWithTarget": 1,
-                "particleDuration": 3,
+                "particleDuration": 2.5,
                 "anim": "RIPOSTE_START_CARN",
                 "type": "PLAY_ANIM"
             }
