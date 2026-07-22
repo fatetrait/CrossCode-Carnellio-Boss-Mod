@@ -561,6 +561,43 @@
             "y": 912,
             "level": 1,
             "settings": {
+                "name": "nrStart",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.nrUsed",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "Nightmare Reign..."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.nrUsed"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
                 "name": "riposteStart",
                 "eventType": "PARALLEL",
                 "endCondition": "false",
@@ -635,6 +672,281 @@
                 "triggerType": "ALWAYS",
                 "mapId": 41,
                 "startCondition": "tmp.riposteHit"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
+                "name": "p2Reach",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.p2Reach",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "Black Magic."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 2
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.p2Reach"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
+                "name": "p3Reach",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.p3Reach",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "Sorcerer's Ancestry..."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "Dragonborn."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 2
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.p3Reach"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
+                "name": "p4Reach",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.p4Reach",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "...Insignificant."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "Pest."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "I will not forget what I am here for."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "Remember, you brought this upon yourself."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 2
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.p4Reach"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
+                "name": "p5Reach",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.p5Reach",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "That's it."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "All of this. Shall end."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "message": {
+                            "en_US": "Right now."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 2
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.p5Reach"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 768,
+            "y": 912,
+            "level": 1,
+            "settings": {
+                "name": "funeralReach",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.funeralReach",
+                        "value": false
+                    },
+                    {
+                        "message": {
+                            "en_US": "Your funeral..."
+                        },
+                        "type": "SHOW_SIDE_MSG",
+                        "person": {
+                            "person": "antagonists.fancyguy",
+                            "expression": "RAGING"
+                        }
+                    },
+                    {
+                        "ignoreSlowDown": true,
+                        "type": "WAIT",
+                        "time": 2
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 41,
+                "startCondition": "tmp.funeralReach"
             }
         }
         
