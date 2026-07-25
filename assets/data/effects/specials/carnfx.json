@@ -3,6 +3,69 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "SWEEP_SHOCK",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sweep2.png",
+                    "width": 32,
+                    "height": 32,
+                    "offY": 96
+                },
+                "time": 0.04,
+                "repeat": false,
+                "pivot": {
+                    "x": 16,
+                    "y": 16
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
+                "name": "SWEEP_HEAT",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sweep2.png",
+                    "width": 32,
+                    "height": 32,
+                    "offY": 32
+                },
+                "time": 0.04,
+                "repeat": false,
+                "pivot": {
+                    "x": 16,
+                    "y": 16
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
+                "name": "SWEEP_WAVE",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sweep2.png",
+                    "width": 32,
+                    "height": 32,
+                    "offY": 128
+                },
+                "time": 0.04,
+                "repeat": false,
+                "pivot": {
+                    "x": 16,
+                    "y": 16
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
                 "name": "RIPOSTE_POP_CARN",
                 "pivot": {
                     "x": 0,
@@ -917,6 +980,491 @@
         ]
     },
     "EFFECTS": {
+        "sweepSeizeOut": [
+            {
+                "color": "#661100",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": 0.5,
+                "type": "SCREEN_FLASH"
+            },
+            {
+                "size": "XXXXL",
+                "fadeIn": 0,
+                "fadeOut": 0.3,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            },
+            {
+                "numParticles": 200,
+                "duration": 20,
+                "clockwise": false,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "startDist": 12,
+                "moveDuration": 20,
+                "particleRotate": true,
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 60,
+                "normalMoveDist": 60,
+                "moveRotate": 0.75,
+                "keySpline": "EASE_IN",
+                "inverse": false,
+                "collision": false,
+                "anim": "SMALL_BALL",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/close-combat-heat-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/fire-generic-attack-1.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "time": 0.3,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 200,
+                "duration": 20,
+                "clockwise": false,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "startDist": 72,
+                "particleRotate": true,
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDuration": 20,
+                "moveDist": 60,
+                "normalMoveDist": 60,
+                "moveRotate": 0.75,
+                "keySpline": "EASE_IN",
+                "inverse": true,
+                "collision": false,
+                "anim": "SMALL_BALL",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 20,
+                "type": "WAIT"
+            }
+        ],
+        "sweepSeizeIn": [
+            {
+                "color": "#661100",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": 0.5,
+                "type": "SCREEN_FLASH"
+            },
+            {
+                "size": "XXXXL",
+                "fadeIn": 0,
+                "fadeOut": 0.3,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            },
+            {
+                "numParticles": 24,
+                "duration": 3,
+                "clockwise": false,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "startDist": 12,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 100,
+                "keySpline": "EASE",
+                "inverse": false,
+                "collision": false,
+                "pAlpha": {
+                    "init": 1,
+                    "end": {
+                        "value": 0,
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.6,
+                        "y": 0.6
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.6,
+                            "y": 0.6
+                        },
+                        "time": 0.5,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.6,
+                            "y": 0.6
+                        },
+                        "time": 0.2,
+                        "spline": "JUMPY"
+                    }
+                },
+                
+                "moveWithTarget": 1,
+                "anim": "SWEEP_HEAT2",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/close-combat-heat-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/fire-generic-attack-1.ogg",
+                "type": "PLAY_SOUND"
+            }
+        ],
+        "sweepSeize": [
+            {
+                "color": "#661100",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": 0.5,
+                "type": "SCREEN_FLASH"
+            },
+            {
+                "size": "XXXXL",
+                "fadeIn": 0,
+                "fadeOut": 0.3,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            },
+            {
+                "numParticles": 24,
+                "duration": 3,
+                "clockwise": false,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "startDist": 12,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 100,
+                "keySpline": "EASE",
+                "inverse": false,
+                "collision": false,
+                "pAlpha": {
+                    "init": 1,
+                    "end": {
+                        "value": 0,
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.6,
+                        "y": 0.6
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.6,
+                            "y": 0.6
+                        },
+                        "time": 0.5,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.6,
+                            "y": 0.6
+                        },
+                        "time": 0.2,
+                        "spline": "JUMPY"
+                    }
+                },
+                
+                "moveWithTarget": 1,
+                "anim": "SWEEP_HEAT2",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/close-combat-heat-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/fire-generic-attack-1.ogg",
+                "type": "PLAY_SOUND"
+            }
+        ],
+        "NightmareReign": [
+{
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/wave\/close-combat-wave-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 360,
+                "duration": 1,
+                "clockwise": false,
+                "centralAngle": 3.5,
+                "startAngle": -0.25,
+                "startDist": 150,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_HEAT",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            }
+        ],
+        "Decapitate": [
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/wave\/close-combat-wave-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": false,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
+                "startDist": 48,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_WAVE",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": false,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
+                "startDist": 24,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_WAVE",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.33,
+                "type": "WAIT"
+            }
+        ],
+        "VioletViper1": [
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/shock\/close-combat-shock-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": false,
+                "centralAngle": 0.4,
+                "startAngle": -0.4,
+                "startDist": 64,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_SHOCK",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": false,
+                "centralAngle": 0.4,
+                "startAngle": -0.35,
+                "startDist": 32,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_SHOCK",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.33,
+                "type": "WAIT"
+            }
+        ],
+        "VioletViper2": [
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/shock\/close-combat-shock-sweep-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": true,
+                "centralAngle": 0.4,
+                "startAngle": -0.35,
+                "startDist": 32,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_SHOCK",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 25,
+                "duration": 0.3,
+                "clockwise": true,
+                "centralAngle": 0.4,
+                "startAngle": -0.3,
+                "startDist": 64,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SWEEP_SHOCK",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.33,
+                "type": "WAIT"
+            }
+        ],
         "carn_guard_neutral": [
             {
                 "pAlpha": {

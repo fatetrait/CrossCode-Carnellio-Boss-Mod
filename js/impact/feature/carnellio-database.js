@@ -1,5 +1,5 @@
 ig.module("impact.feature.carnellio-database").requires("impact.base.loader", "game.config").defines(function() {
-        ig.ArcaneLabDatabase = ig.SingleLoadable.extend({
+        ig.CarnellioDatabase = ig.SingleLoadable.extend({
             cacheType: "carnellio-database",
             data: null,
             entries: {},
@@ -37,5 +37,5 @@ ig.module("impact.feature.carnellio-database").requires("impact.base.loader", "g
                 ig.JSON_LOG && ig.log("%cLOADABLE: %cLoaded carnellio Database: \n%O", "color:#149AEB", "", b)
             }
         });
-        ig.arcaneLabDatabase = new ig.ArcaneLabDatabase
+        ig.carnellioDatabase = new ig.CarnellioDatabase
 });

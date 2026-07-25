@@ -2,77 +2,77 @@
     "level": 40,
     "params": {
         "hp": 12550000,
-        "attack": 178,
-        "defense": 200,
-        "focus": 141,
+        "attack": 600,
+        "defense": 600,
+        "focus": 0,
         "elemFactor": [
-            1.1,
-            1,
-            1,
-            0.9
+            1.10,
+            1.05,
+            1.05,
+            1.05
         ],
         "statusInflict": [
-            0.60,
-            0.3,
-            0.6,
-            0.60
+            0.12,
+            0.08,
+            0.12,
+            0.12
         ],
         "statusEffect": [
-            0.02,
+            0.015,
             0.4,
             0.02,
-            0.75
+            0.15
         ]
     },
-    "ballFactor": 0.80,
+    "ballFactor": 0.65,
     "damageFactor": 1,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
-            "attack": 178,
-            "defense": 30,
-            "focus": 141,
+            "attack": 600,
+            "defense": 600,
+            "focus": 0,
             "elemFactor": [
-                1.1,
-                1,
-                1,
-                0.9
+                1.10,
+                1.05,
+                1.05,
+                1.05
             ]
         },
         "COLD": {
             "hp": 12550000,
-            "attack": 178,
-            "defense": 30,
-            "focus": 141,
+            "attack": 600,
+            "defense": 600,
+            "focus": 0,
             "elemFactor": [
-                1.1,
-                1,
-                1,
-                0.9
+                1.10,
+                1.05,
+                1.05,
+                1.05
             ]
         },
         "SHOCK": {
             "hp": 12550000,
-            "attack": 178,
-            "defense": 30,
-            "focus": 141,
+            "attack": 600,
+            "defense": 600,
+            "focus": 0,
             "elemFactor": [
-                1.1,
-                1,
-                1,
-                0.9
+                1.10,
+                1.05,
+                1.05,
+                1.05
             ]
         },
         "WAVE": {
             "hp": 12550000,
-            "attack": 178,
-            "defense": 30,
-            "focus": 141,
+            "attack": 600,
+            "defense": 600,
+            "focus": 0,
             "elemFactor": [
-                1.1,
-                1,
-                1,
-                0.9
+                1.10,
+                1.05,
+                1.05,
+                1.05
             ]
         }
     },
@@ -206,9 +206,13 @@
                 "P3REACH",
                 "P4REACH",
                 "P5REACH",
-                "FUNERALREACH" 
+                "FUNERALREACH",
+                "KILL_HIT"
             ],
             "choices": [
+                {
+                    "action": "DEBUG"
+                },
                 {
                     "req": [
                         {
@@ -243,7 +247,7 @@
                     "req": [
                         {
                             "min": 0,
-                            "max": 100,
+                            "max": 150,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -253,7 +257,7 @@
                 {
                     "req": [
                         {
-                            "min": 110,
+                            "min": 160,
                             "max": 900,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
@@ -269,19 +273,10 @@
                 "P3REACH",
                 "P4REACH",
                 "P5REACH",
-                "FUNERALREACH" 
+                "FUNERALREACH",
+                "KILL_HIT"
             ],
             "choices": [
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "VAR_CONDITION",
-                            "condition": "pvp.brake"
-                        }
-                    ],
-                    "preSwitchState": "DEFAULT"
-                },
                 {
                     "req": [
                         {
@@ -375,16 +370,13 @@
                     "req": [
                         {
                             "min": 4,
-                            "max": 4,
+                            "max": 5,
                             "negated": false,
                             "type": "HP_BREAK"
                         }
                     ],
                     "action": "Phase5N",
                     "frequency": "NORMAL"
-                },
-                {
-                    "action": "SlowWalk"
                 }
             ]
         },
@@ -394,19 +386,10 @@
                 "P3REACH",
                 "P4REACH",
                 "P5REACH",
-                "FUNERALREACH" 
+                "FUNERALREACH",
+                "KILL_HIT"
             ],
             "choices": [
-                {
-                    "req": [
-                        {
-                            "negated": false,
-                            "type": "VAR_CONDITION",
-                            "condition": "pvp.brake"
-                        }
-                    ],
-                    "preSwitchState": "DEFAULT"
-                },
                 {
                     "req": [
                         {
@@ -490,16 +473,13 @@
                     "req": [
                         {
                             "min": 4,
-                            "max": 4,
+                            "max": 5,
                             "negated": false,
                             "type": "HP_BREAK"
                         }
                     ],
                     "action": "Phase5F",
                     "frequency": "NORMAL"
-                },
-                {
-                    "action": "SlowWalk"
                 }
             ]
         },
@@ -810,9 +790,6 @@
             "breakType": "ACTION",
             "action": [
                 {
-                    "type": "ADD_TARGET_STUN_LOCK"
-                },
-                {
                     "duration": -1,
                     "align": "CENTER",
                     "rotateFace": 0,
@@ -858,7 +835,7 @@
                         "element": "HEAT",
                         "type": "MASSIVE",
                         "fly": "MASSIVE",
-                        "damageFactor": 1,
+                        "damageFactor": 0.3,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -1061,10 +1038,44 @@
             "config": {},
             "type": "GENERIC"
         },
+        "fractureHit": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "type": "CONSUME_SP_TARGET",
+                    "sp": 0.02
+                },
+                {
+                    "value": 1,
+                    "type": "ADD_ELEMENT_LOAD"
+                },
+                {
+                    "time": 0.1,
+                    "type": "BLOCK_CONSUMABLE_EXTEND"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "TARGET",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 8
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
         "summonProxy": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
+                {
+                    "value": 1,
+                    "type": "SET_BOUNCINESS"
+                },
                 {
                     "kind": "PLAYER",
                     "type": "SET_TEMP_TARGET"
@@ -1079,7 +1090,7 @@
                     "type": "SET_FACE_TARGET_PREDICT"
                 },
                 {
-                    "value": 230,
+                    "value": 200,
                     "type": "SET_SPEED"
                 },
                 {
@@ -1107,6 +1118,32 @@
                     "type": "LABEL"
                 },
                 {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.attrib.rdct",
+                    "thenStep": [
+                        {
+                            "name": "rdct",
+                            "type": "SET_ATTRIB_BOOL",
+                            "changeConnected": "PROXY_OWNER",
+                            "value": false
+                        },
+                        {
+                            "kind": "PLAYER",
+                            "type": "SET_TEMP_TARGET"
+                        },
+                        {
+                            "value": false,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
+                        },
+                        {
+                            "projectileSpeed": 400,
+                            "type": "SET_FACE_TARGET_PREDICT"
+                        }
+                    ]
+                },
+                {
                     "withElse": true,
                     "type": "IF",
                     "condition": "tmp.mawaruCounter > 0",
@@ -1117,7 +1154,7 @@
                             "yScale": 0,
                             "zHeight": 16,
                             "centralAngle": 0.2,
-                            "duration": 2,
+                            "duration": 0.2,
                             "expandRadius": 0,
                             "alwaysFull": true,
                             "clockwise": false,
@@ -1131,10 +1168,44 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.1,
                                 "reverse": false,
                                 "spFactor": 0,
-                                "status": 999,
+                                "status": 850,
+                                "guardable": "ALWAYS",
+                                "skillBonus": "RANGED_DMG"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "align": "BOTTOM",
+                            "radius": 15,
+                            "yScale": 0,
+                            "zHeight": 16,
+                            "centralAngle": 0.2,
+                            "startAngle": -0.6,
+                            "duration": 0.2,
+                            "expandRadius": 0,
+                            "alwaysFull": true,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "rectangular": false,
+                            "repeat": false,
+                            "uniformHitDir": false,
+                            "fixPos": false,
+                            "checkCollision": true,
+                            "type": "CIRCLE_ATTACK",
+                            "attack": {
+                                "type": "LIGHT",
+                                "element": "WAVE",
+                                "damageFactor": 0.1,
+                                "reverse": false,
+                                "spFactor": 0,
+                                "status": 850,
                                 "guardable": "ALWAYS",
                                 "skillBonus": "RANGED_DMG"
                             },
@@ -1153,7 +1224,7 @@
                     ],
                     "elseStep": [
                         {
-                            "value": 230,
+                            "value": 200,
                             "type": "SET_SPEED"
                         },
                         {
@@ -1174,7 +1245,7 @@
                     "condition": "entity.owner.attrib.mawaru",
                     "thenStep": [
                         {
-                            "value": 600,
+                            "value": 500,
                             "type": "SET_SPEED"
                         },
                         {
@@ -1215,7 +1286,7 @@
                             "yScale": 0,
                             "zHeight": 16,
                             "centralAngle": 0.2,
-                            "duration": 2,
+                            "duration": 0.2,
                             "expandRadius": 0,
                             "alwaysFull": true,
                             "clockwise": false,
@@ -1229,10 +1300,10 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.1,
                                 "reverse": false,
                                 "spFactor": 0,
-                                "status": 999,
+                                "status": 850,
                                 "guardable": "ALWAYS",
                                 "skillBonus": "RANGED_DMG"
                             },
@@ -1241,32 +1312,40 @@
                                 "y": 5,
                                 "z": 0
                             }
-                        }
-                    ]
-                },
-                {
-                    "withElse": false,
-                    "type": "IF",
-                    "condition": "entity.owner.attrib.rdct",
-                    "thenStep": [
-                        {
-                            "name": "rdct",
-                            "type": "SET_ATTRIB_BOOL",
-                            "changeConnected": "PROXY_OWNER",
-                            "value": false
                         },
                         {
-                            "kind": "PLAYER",
-                            "type": "SET_TEMP_TARGET"
-                        },
-                        {
-                            "value": false,
-                            "immediately": true,
-                            "type": "FACE_TO_TARGET"
-                        },
-                        {
-                            "projectileSpeed": 400,
-                            "type": "SET_FACE_TARGET_PREDICT"
+                            "align": "BOTTOM",
+                            "radius": 15,
+                            "yScale": 0,
+                            "zHeight": 16,
+                            "centralAngle": 0.2,
+                            "startAngle": -0.6,
+                            "duration": 0.2,
+                            "expandRadius": 0,
+                            "alwaysFull": true,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "rectangular": false,
+                            "repeat": false,
+                            "uniformHitDir": false,
+                            "fixPos": false,
+                            "checkCollision": true,
+                            "type": "CIRCLE_ATTACK",
+                            "attack": {
+                                "type": "LIGHT",
+                                "element": "WAVE",
+                                "damageFactor": 0.1,
+                                "reverse": false,
+                                "spFactor": 0,
+                                "status": 850,
+                                "guardable": "ALWAYS",
+                                "skillBonus": "RANGED_DMG"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
                         }
                     ]
                 },
@@ -1313,6 +1392,10 @@
                                 "y": 0,
                                 "z": 12
                             }
+                        },
+                        {
+                            "time": 0.1,
+                            "type": "WAIT"
                         }
                     ]
                 },
@@ -1369,10 +1452,10 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "SHOCK",
-                                "damageFactor": 6,
+                                "damageFactor": 2,
                                 "reverse": false,
                                 "spFactor": 0,
-                                "status": 100,
+                                "status": 5,
                                 "guardable": "ALWAYS",
                                 "skillBonus": "MELEE_DMG"
                             },
@@ -1449,10 +1532,10 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "SHOCK",
-                                "damageFactor": 10,
+                                "damageFactor": 3,
                                 "reverse": false,
                                 "spFactor": 0,
-                                "status": 15,
+                                "status": 10,
                                 "guardable": "ALWAYS",
                                 "skillBonus": "MELEE_DMG"
                             },
@@ -1504,6 +1587,17 @@
                             }
                         },
                         {
+                            "posType": "TARGET",
+                            "align": "CENTER",
+                            "type": "SET_HIT_PROXY",
+                            "proxy": "fractureHit",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
                             "align": "BOTTOM",
                             "radius": 50,
                             "yScale": 0,
@@ -1522,15 +1616,25 @@
                             "type": "CIRCLE_ATTACK",
                             "withBranches": true,
                             "attack": {
-                                "type": "MASSIVE",
-                                "fly": "MEDIUM",
-                                "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "type": "LIGHT",
+                                "element": "COLD",
+                                "damageFactor": 0.1,
                                 "reverse": false,
                                 "spFactor": 0,
-                                "status": 1,
+                                "status": 5,
                                 "guardable": "ALWAYS",
-                                "skillBonus": "MELEE_DMG"
+                                "skillBonus": "MELEE_DMG",
+                                "stunSteps": [
+                                    {
+                                        "type": "BLOCK_XY"
+                                    },
+                                    {
+                                        "distance": 6,
+                                        "speed": 100,
+                                        "maxTime": 0.1,
+                                        "type": "PULL"
+                                    }
+                                ]
                             },
                             "offset": {
                                 "x": 0,
@@ -1541,6 +1645,9 @@
                         {
                             "time": 4,
                             "type": "WAIT"
+                        },
+                        {
+                            "type": "CLEAR_HIT_PROXY"
                         },
                         {
                             "name": "done",
@@ -1616,7 +1723,7 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "WAVE",
-                                "damageFactor": 7,
+                                "damageFactor": 3,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 12,
@@ -1694,7 +1801,7 @@
             },
             "effects": "",
             "speed": 100,
-            "maxBounce": 0,
+            "maxBounce": 100,
             "timer": 0,
             "trail": false,
             "multiHit": true,
@@ -1707,15 +1814,15 @@
             "timeBoni": null,
             "behaviors": null,
             "config": {
-                "collType": "NONE"
+                "collType": "PROJECTILE"
             },
             "type": "GENERIC"
         },
         "dragonBulletBullet": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 3,
-            "timer": 14,
+            "maxBounce": 10,
+            "timer": 10,
             "trail": true,
             "multiHit": false,
             "noLightGlow": false,
@@ -1725,7 +1832,8 @@
                 "sheet": {
                     "src": "media\/entity\/balls\/default.png",
                     "width": 24,
-                    "height": 24
+                    "height": 24,
+                    "offY": 72
                 },
                 "time": 0.05,
                 "repeat": true,
@@ -1740,7 +1848,7 @@
                 "type": "HEAVY",
                 "fly": "MEDIUM",
                 "element": "SHOCK",
-                "damageFactor": 2,
+                "damageFactor": 1.4,
                 "status": 15,
                 "reverse": false,
                 "spFactor": 1,
@@ -1795,6 +1903,85 @@
             "config": {},
             "type": "GENERIC"
         },
+        "vvSPDrainProxy": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "withElse": true,
+                    "type": "COMBAT_IF",
+                    "conditions": [
+                        {
+                            "negated": false,
+                            "type": "PLAYER_HAS_SHIELD"
+                        }
+                    ],
+                    "thenStep": [],
+                    "elseStep": [
+                        {
+                            "kind": "PLAYER",
+                            "type": "SET_TEMP_TARGET"
+                        },
+                        {
+                            "type": "CONSUME_SP_TARGET",
+                            "sp": 1
+                        },
+                        {
+                            "value": 20,
+                            "type": "ADD_ELEMENT_LOAD"
+                        },
+                        {
+                            "time": 3,
+                            "type": "BLOCK_CONSUMABLE_EXTEND"
+                        }
+                    ]
+                }
+            ],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "spdrain",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
+        "drSPDrainProxy": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "kind": "PLAYER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
+                    "type": "CONSUME_SP_TARGET",
+                    "sp": 0.1
+                },
+                {
+                    "value": 2,
+                    "type": "ADD_ELEMENT_LOAD"
+                },
+                {
+                    "time": 0.5,
+                    "type": "BLOCK_CONSUMABLE_EXTEND"
+                }
+            ],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "spdrain",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {},
+            "type": "GENERIC"
+        },
         "shadowFlameShoot": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -1820,7 +2007,7 @@
                     }
                 },
                 {
-                    "value": 500,
+                    "value": 600,
                     "type": "SET_SPEED"
                 },
                 {
@@ -1844,10 +2031,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 30,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -1882,10 +2069,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -1920,10 +2107,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -1958,10 +2145,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -1996,10 +2183,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -2034,10 +2221,200 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
+                        "guardable": "ALWAYS",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.08,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 32,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "duration": 0.02,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "damageFactor": 1.1,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "status": 17,
+                        "guardable": "ALWAYS",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.08,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 36,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "duration": 0.02,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "damageFactor": 1.1,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "status": 17,
+                        "guardable": "ALWAYS",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.08,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 40,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "duration": 0.02,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "damageFactor": 1.1,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "status": 17,
+                        "guardable": "ALWAYS",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.08,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 48,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "duration": 0.02,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "damageFactor": 1.1,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "status": 17,
+                        "guardable": "ALWAYS",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.08,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "align": "BOTTOM",
+                    "radius": 52,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "duration": 0.02,
+                    "expandRadius": 0,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "damageFactor": 1.1,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -2072,10 +2449,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -2091,7 +2468,7 @@
                 },
                 {
                     "align": "BOTTOM",
-                    "radius": 64,
+                    "radius": 60,
                     "yScale": 0,
                     "zHeight": 16,
                     "centralAngle": 1,
@@ -2110,200 +2487,10 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 2.1,
+                        "damageFactor": 1.1,
                         "reverse": false,
                         "spFactor": 0,
-                        "status": 100,
-                        "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "time": 0.08,
-                    "type": "MOVE_FORWARD"
-                },
-                {
-                    "align": "BOTTOM",
-                    "radius": 72,
-                    "yScale": 0,
-                    "zHeight": 16,
-                    "centralAngle": 1,
-                    "duration": 0.02,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": true,
-                    "type": "CIRCLE_ATTACK",
-                    "withBranches": true,
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "damageFactor": 2.1,
-                        "reverse": false,
-                        "spFactor": 0,
-                        "status": 100,
-                        "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "time": 0.08,
-                    "type": "MOVE_FORWARD"
-                },
-                {
-                    "align": "BOTTOM",
-                    "radius": 80,
-                    "yScale": 0,
-                    "zHeight": 16,
-                    "centralAngle": 1,
-                    "duration": 0.02,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": true,
-                    "type": "CIRCLE_ATTACK",
-                    "withBranches": true,
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "damageFactor": 2.1,
-                        "reverse": false,
-                        "spFactor": 0,
-                        "status": 100,
-                        "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "time": 0.08,
-                    "type": "MOVE_FORWARD"
-                },
-                {
-                    "align": "BOTTOM",
-                    "radius": 88,
-                    "yScale": 0,
-                    "zHeight": 16,
-                    "centralAngle": 1,
-                    "duration": 0.02,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": true,
-                    "type": "CIRCLE_ATTACK",
-                    "withBranches": true,
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "damageFactor": 2.1,
-                        "reverse": false,
-                        "spFactor": 0,
-                        "status": 100,
-                        "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "time": 0.08,
-                    "type": "MOVE_FORWARD"
-                },
-                {
-                    "align": "BOTTOM",
-                    "radius": 96,
-                    "yScale": 0,
-                    "zHeight": 16,
-                    "centralAngle": 1,
-                    "duration": 0.02,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": true,
-                    "type": "CIRCLE_ATTACK",
-                    "withBranches": true,
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "damageFactor": 2.1,
-                        "reverse": false,
-                        "spFactor": 0,
-                        "status": 100,
-                        "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "time": 0.08,
-                    "type": "MOVE_FORWARD"
-                },
-                {
-                    "align": "BOTTOM",
-                    "radius": 104,
-                    "yScale": 0,
-                    "zHeight": 16,
-                    "centralAngle": 1,
-                    "duration": 0.02,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": true,
-                    "type": "CIRCLE_ATTACK",
-                    "withBranches": true,
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "damageFactor": 2.1,
-                        "reverse": false,
-                        "spFactor": 0,
-                        "status": 100,
+                        "status": 17,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
                     },
@@ -2395,7 +2582,7 @@
                     "attack": {
                         "type": "MASSIVE",
                         "element": "WAVE",
-                        "damageFactor": 3,
+                        "damageFactor": 1,
                         "fly": "MASSIVE++",
                         "reverse": false,
                         "spFactor": 0,
@@ -2492,7 +2679,11 @@
                     "value": true
                 },
                 {
-                    "time": 0.02,
+                    "factor": 80,
+                    "type": "ABSORB_DAMAGE"
+                },
+                {
+                    "time": 1,
                     "type": "WAIT"
                 }
             ],
@@ -2565,7 +2756,7 @@
                 },
                 {
                     "align": "BOTTOM",
-                    "radius": 4,
+                    "radius": 2,
                     "yScale": 0,
                     "zHeight": 24,
                     "centralAngle": 1,
@@ -2585,7 +2776,8 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1,
+                        "damageFactor": 1.5,
+                        "status": 13,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -2609,7 +2801,7 @@
                     "type": "STICKY_CIRCLE_AROUND"
                 },
                 {
-                    "value": 2000,
+                    "value": 800,
                     "type": "SET_SPEED"
                 },
                 {
@@ -2658,12 +2850,22 @@
                     "type": "TACKLE",
                     "attack": {
                         "type": "HEAVY",
-                        "damageFactor": 1
+                        "damageFactor": 0,
+                        "status": 5,
+                        "element": "HEAT"
                     }
                 },
                 {
+                    "time": 0.2,
+                    "type": "WAIT"
+                },
+                {
+                    "value": 1000,
+                    "type": "SET_SPEED"
+                },
+                {
                     "align": "BOTTOM",
-                    "radius": 4,
+                    "radius": 2,
                     "yScale": 0,
                     "zHeight": 24,
                     "centralAngle": 1,
@@ -2683,8 +2885,9 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 4,
+                        "damageFactor": 1.5,
                         "reverse": false,
+                        "status": 5,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
                         "skillBonus": "MELEE_DMG"
@@ -2727,6 +2930,10 @@
                     }
                 },
                 {
+                    "value": 800,
+                    "type": "SET_SPEED"
+                },
+                {
                     "time": 0.2,
                     "type": "WAIT"
                 },
@@ -2740,7 +2947,9 @@
                     "type": "TACKLE",
                     "attack": {
                         "type": "HEAVY",
-                        "damageFactor": 4
+                        "damageFactor": 0,
+                        "element": "HEAT",
+                        "status": 5
                     }
                 },
                 {
@@ -2754,8 +2963,8 @@
             "stickFaceAlign": false,
             "group": "lightningBall",
             "size": {
-                "x": 16,
-                "y": 16,
+                "x": 2,
+                "y": 2,
                 "z": 16
             },
             "effects": "",
@@ -4588,7 +4797,7 @@
                 "z": 8
             },
             "effects": "",
-            "speed": 40000,
+            "speed": 10000,
             "maxBounce": 3,
             "timer": 1,
             "trail": false,
@@ -5459,7 +5668,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 10!"
+                        "en_US": "Attack stat multiplied by 5!"
                     },
                     "mode": "NO_LINE",
                     "color": "RED",
@@ -5494,8 +5703,15 @@
                     "name": "sergeyHax",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 100,
+                    "value": 5,
                     "type": "MOD_ACTION_BUFF_PARAM"
+                },
+                {
+                    "target": "TARGET",
+                    "timeScale": 1,
+                    "logicTimeScale": 1,
+                    "moveXYScale": 0.6,
+                    "type": "ADD_TEMP_INFLUENCE"
                 },
                 {
                     "time": 0.3,
@@ -5523,6 +5739,172 @@
                 {
                     "time": -1,
                     "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "playerWeaken": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "!tmp.playerWeaken",
+                    "thenStep": [
+                        {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.playerWeaken",
+                            "value": true
+                        },
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "scene.hacking",
+                                "name": "hackTrail"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "kind": "PLAYER",
+                            "type": "SET_TEMP_TARGET"
+                        },
+                        {
+                            "value": 1,
+                            "type": "SET_AIR_FRICTION"
+                        },
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "scene.hacking",
+                                "name": "hackTrail"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "min": 0,
+                            "max": 12,
+                            "maxTime": 10,
+                            "forceTime": false,
+                            "stopBeforeEdge": false,
+                            "type": "MOVE_TO_DISTANCE"
+                        },
+                        {
+                            "group": "slug",
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                            "text": {
+                                "en_US": "Weakened! -30% damage!"
+                            },
+                            "mode": "LINE_FILL",
+                            "color": "RED",
+                            "actionDetached": false,
+                            "hideOutsideOfScreen": false,
+                            "type": "SHOW_AR_MSG",
+                            "time": 4
+                        },
+                        {
+                            "target": "TARGET",
+                            "name": "sergeyHax",
+                            "hacked": true,
+                            "type": "ADD_ACTION_BUFF",
+                            "stats": [
+                                "HACK"
+                            ]
+                        },
+                        {
+                            "time": 0.1,
+                            "type": "WAIT"
+                        },
+                        {
+                            "target": "TARGET",
+                            "name": "sergeyHax",
+                            "param": "attack",
+                            "changeType": "mul",
+                            "value": 0.7,
+                            "type": "MOD_ACTION_BUFF_PARAM"
+                        },
+                        {
+                            "target": "TARGET",
+                            "align": "BOTTOM",
+                            "duration": 0.4,
+                            "type": "STICK_TO_TARGET",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "time": 4,
+                            "type": "WAIT"
+                        },
+                        {
+                            "target": "TARGET",
+                            "name": "sergeyHax",
+                            "param": "attack",
+                            "changeType": "set",
+                            "value": 5,
+                            "type": "MOD_ACTION_BUFF_PARAM"
+                        },
+                        {
+                            "group": "slug",
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                            "type": "CLEAR_AR_MSG"
+                        },
+                        {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.playerWeaken",
+                            "value": false
+                        }
+                    ]
                 }
             ],
             "invisible": false,
@@ -5753,15 +6135,27 @@
             "breakType": "COMBATANT",
             "action": [
                 {
-                    "type": "CONSUME_SP_TARGET",
-                    "sp": 12
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "playerVar.input.perfectShield > tmp.pShieldCheck",
+                    "thenStep": [],
+                    "elseStep": [
+                        {
+                            "type": "CONSUME_SP_TARGET",
+                            "sp": 12
+                        },
+                        {
+                            "value": 100,
+                            "type": "ADD_ELEMENT_LOAD"
+                        }
+                    ]
                 }
             ],
             "invisible": false,
             "hp": 0,
-            "stickToSource": "OWNER",
+            "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "aura",
+            "group": "riposte",
             "startAnim": "",
             "size": {
                 "x": 0,
@@ -5775,18 +6169,42 @@
         }
     },
     "actions": {
+        "PreKill": [
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.isCarn",
+                "value": false
+            }
+        ],
         "Initialize": [
             {
                 "time": 0.1,
                 "type": "WAIT"
             },
             {
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
+            },
+            {
                 "type": "SET_ENEMY_STATE",
                 "enemyState": "DEFAULT"
             },
             {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.isCarn",
+                "value": true
+            },
+            {
                 "name": "buffGiven",
                 "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.playerWeaken",
                 "value": false
             },
             {
@@ -5832,9 +6250,13 @@
                 ]
             },
             {
-                        "kind": "PLAYER",
-                        "type": "SET_TEMP_TARGET"
-                    }
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
+            },
+            {
+                "value": "THREAT",
+                "type": "SET_AGGRESSION"
+            }
         ],
         "InitStrat": [
             {
@@ -5856,12 +6278,20 @@
             {
                 "type": "SET_ENEMY_STATE",
                 "enemyState": "CLOSE"
+            },
+            {
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
             }
         ],
         "SetFState": [
             {
                 "type": "SET_ENEMY_STATE",
                 "enemyState": "DISTANCE"
+            },
+            {
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
             }
         ],
         "p2Reach": [
@@ -5902,6 +6332,133 @@
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.funeralReach",
                 "value": true
+            },
+            {
+                "name": "funeralDR",
+                "actionDetached": true,
+                "type": "ADD_SHIELD",
+                "shield": {
+                    "type": "PARTS",
+                    "settings": {
+                        "baseFactor": 0.5,
+                        "parts": [],
+                        "inverse": true
+                    }
+                }
+            }
+        ],
+        "SetPhaseSpeed": [
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 0",
+                "thenStep": [
+                    {
+                        "value": 100,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 1",
+                "thenStep": [
+                    {
+                        "value": 120,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 2",
+                "thenStep": [
+                    {
+                        "value": 140,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 3",
+                "thenStep": [
+                    {
+                        "value": 160,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak >= 4",
+                "thenStep": [
+                    {
+                        "value": 180,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            }
+        ],
+        "MovePhaseAmount": [
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 0",
+                "thenStep": [
+                    {
+                        "time": 0.5,
+                        "type": "MOVE_FORWARD"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 1",
+                "thenStep": [
+                    {
+                        "time": 0.25,
+                        "type": "MOVE_FORWARD"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 2",
+                "thenStep": [
+                    {
+                        "time": 0.2,
+                        "type": "MOVE_FORWARD"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak == 3",
+                "thenStep": [
+                    {
+                        "time": 0.15,
+                        "type": "MOVE_FORWARD"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.hpBreak >= 4",
+                "thenStep": [
+                    {
+                        "time": 0.1,
+                        "type": "MOVE_FORWARD"
+                    }
+                ]
             }
         ],
         "ExecuteCombo": [
@@ -5931,6 +6488,17 @@
             {
                 "name": "executeAction",
                 "type": "LABEL"
+            },
+            {
+                "posType": "TARGET",
+                "align": "CENTER",
+                "type": "SET_HIT_PROXY",
+                "proxy": "playerWeaken",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
             },
             {
                 "value": true,
@@ -6993,79 +7561,17 @@
                         "anim": "spinFull"
                     },
                     {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "entity.hpBreak == 0",
-                        "thenStep": [
-                            {
-                                "value": 150,
-                                "type": "SET_SPEED"
-                            },
-                            {
-                                "time": 0.5,
-                                "type": "MOVE_FORWARD"
-                            }
-                        ]
+                        "value": true,
+                        "immediately": true,
+                        "type": "FACE_TO_TARGET"
                     },
                     {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "entity.hpBreak == 1",
-                        "thenStep": [
-                            {
-                                "value": 170,
-                                "type": "SET_SPEED"
-                            },
-                            {
-                                "time": 0.4,
-                                "type": "MOVE_FORWARD"
-                            }
-                        ]
+                        "type": "DO_ENEMY_ACTION_INLINE",
+                        "actionName": "SetPhaseSpeed"
                     },
                     {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "entity.hpBreak == 2",
-                        "thenStep": [
-                            {
-                                "value": 190,
-                                "type": "SET_SPEED"
-                            },
-                            {
-                                "time": 0.3,
-                                "type": "MOVE_FORWARD"
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "entity.hpBreak == 3",
-                        "thenStep": [
-                            {
-                                "value": 210,
-                                "type": "SET_SPEED"
-                            },
-                            {
-                                "time": 0.2,
-                                "type": "MOVE_FORWARD"
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "entity.hpBreak == 4",
-                        "thenStep": [
-                            {
-                                "value": 220,
-                                "type": "SET_SPEED"
-                            },
-                            {
-                                "time": 0.1,
-                                "type": "MOVE_FORWARD"
-                            }
-                        ]
+                        "type": "DO_ENEMY_ACTION_INLINE",
+                        "actionName": "MovePhaseAmount"
                     },
                     {
                         "changeType": "add",
@@ -7081,8 +7587,11 @@
                 "elseStep": []
             },
             {
-                "time": 1,
-                "type": "WAIT"
+                "type": "CLEAR_HIT_PROXY"
+            },
+            {
+                "type": "SET_ENEMY_STATE",
+                "enemyState": "DEFAULT"
             }
         ],
         "DEBUG2": [
@@ -7096,21 +7605,19 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilCount",
-                "value": 7
+                "value": 50
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 18
+                "value": 21
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil0",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 17
             },
             {
                 "changeType": "set",
@@ -7156,6 +7663,358 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil6",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil7",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil8",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil9",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil10",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil11",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil12",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil13",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil14",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil15",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil16",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil17",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil18",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil19",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil20",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil21",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil22",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil23",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil24",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil25",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil26",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil27",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil28",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil29",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil30",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil31",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil32",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil33",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil34",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil35",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil36",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil37",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil38",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil39",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil40",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil41",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil42",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil43",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil44",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil45",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil46",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil47",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil48",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil49",
+                "value": {
+                    "varName": "tmp.oneSigil"
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil50",
                 "value": {
                     "varName": "tmp.oneSigil"
                 }
@@ -7219,7 +8078,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilCount",
-                "value": 6
+                "value": 2
             },
             {
                 "changeType": "set",
@@ -7231,31 +8090,31 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil1",
-                "value": 2
+                "value": 12
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil2",
-                "value": 2
+                "value": 13
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil3",
-                "value": 2
+                "value": 1
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil4",
-                "value": 2
+                "value": 20
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil5",
-                "value": 1
+                "value": 3
             },
             {
                 "changeType": "set",
@@ -8440,7 +9299,7 @@
                     {
                         "withElse": true,
                         "type": "IF",
-                        "condition": "!entity.attrib.funeral && entity.hpBreak == 5",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 4",
                         "thenStep": [
                             {
                                 "name": "funeral",
@@ -10328,7 +11187,7 @@
                     {
                         "withElse": true,
                         "type": "IF",
-                        "condition": "!entity.attrib.funeral && entity.hpBreak == 5",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 4",
                         "thenStep": [
                             {
                                 "name": "funeral",
@@ -12247,6 +13106,11 @@
                 "value": true
             },
             {
+                "element": "NEUTRAL",
+                "level": 1,
+                "type": "COMBAT_ART_CHARGE"
+            },
+            {
                 "align": "BOTTOM",
                 "centralAngle": 0,
                 "startAngle": 0,
@@ -12362,7 +13226,7 @@
                         "attack": {
                             "type": "MASSIVE",
                             "element": "COLD",
-                            "damageFactor": 10,
+                            "damageFactor": 3.3,
                             "reverse": false,
                             "stunSteps": [
                                 {
@@ -12484,9 +13348,21 @@
                 "anim": "spinFullRev"
             },
             {
-                "time": 0.1,
+                "value": 4,
+                "type": "SET_RELATIVE_SPEED"
+            },
+            {
+                "time": 0.2,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
+            },
+            {
+                "value": 1,
+                "type": "SET_RELATIVE_SPEED"
+            },
+            {
+                "value": 1,
+                "type": "SET_Z_GRAVITY_FACTOR"
             },
             {
                 "value": 400,
@@ -12503,7 +13379,7 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 1.5,
+                    "damageFactor": 1,
                     "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
@@ -12512,11 +13388,11 @@
                             "type": "START_LOCK"
                         },
                         {
-                            "value": 300,
+                            "value": 400,
                             "type": "Z_VEL"
                         },
                         {
-                            "accel": 2,
+                            "accel": 3,
                             "offZ": 0,
                             "maxTime": 0,
                             "type": "Z_PULL"
@@ -12534,7 +13410,7 @@
                 }
             },
             {
-                "time": 0.1,
+                "time": 0.15,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             },
@@ -12547,25 +13423,21 @@
                 "type": "STOP_Z_ZENITH"
             },
             {
-                "time": 0.2,
+                "time": 0.15,
                 "type": "WAIT"
             },
             {
-                "value": 0.6,
+                "value": 0.16,
                 "type": "SET_Z_GRAVITY_FACTOR"
             },
             {
-                "value": 0.6,
+                "value": 0.4,
                 "type": "SET_AIR_FRICTION"
             },
             {
                 "time": 0.05,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
             }
         ],
         "Deadspike": [
@@ -12640,6 +13512,11 @@
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.05,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
@@ -12681,16 +13558,51 @@
                 }
             },
             {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.2,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             },
             {
+                "type": "PLAYER_PERFECT_PARRY_PRE"
+            },
+            {
+                "followUp": "attackMirrEnd",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "attackLong"
+            },
+            {
+                "duration": 0.3,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.carnfx",
+                    "name": "Decapitate"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
                 "align": "BOTTOM",
-                "radius": 32,
+                "radius": 50,
                 "yScale": 0,
                 "zHeight": 16,
-                "centralAngle": 0.4,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
                 "duration": 0.3,
                 "expandRadius": 0,
                 "alwaysFull": true,
@@ -12698,20 +13610,18 @@
                 "flipLeftFace": 0,
                 "rectangular": false,
                 "repeat": false,
-                "uniformHitDir": true,
+                "uniformHitDir": false,
                 "fixPos": true,
                 "checkCollision": true,
                 "type": "CIRCLE_ATTACK",
-                "withBranches": true,
                 "attack": {
                     "type": "MASSIVE",
-                    "element": "WAVE",
-                    "damageFactor": 3,
                     "fly": "MASSIVE++",
+                    "element": "WAVE",
+                    "damageFactor": 0.5,
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
-                    "guardable": "ALWAYS",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG"
                 },
                 "offset": {
@@ -12721,11 +13631,9 @@
                 }
             },
             {
-                "time": 0.1,
-                "type": "WAIT"
-            },
-            {
-                "type": "CLEAR_HIT_PROXY"
+                "time": 0.3,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
             },
             {
                 "withElse": false,
@@ -12757,40 +13665,80 @@
                         }
                     },
                     {
-                        "selectType": "TARGET",
-                        "hitDir": "TOWARD",
-                        "align": "BOTTOM",
-                        "hitCount": 1,
-                        "hitDelay": 0.5,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "MASSIVE",
-                            "element": "COLD",
-                            "damageFactor": 8,
-                            "reverse": false,
-                            "stunSteps": [
-                                {
-                                    "type": "BLOCK_XY"
-                                },
-                                {
-                                    "value": 0,
-                                    "accel": 0,
-                                    "offZ": 0,
-                                    "maxTime": 0,
-                                    "type": "Z_VEL"
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": "playerVar.input.perfectShield <= tmp.pShieldCheck",
+                        "thenStep": [
+                            {
+                                "selectType": "TARGET",
+                                "hitDir": "TOWARD",
+                                "align": "BOTTOM",
+                                "hitCount": 1,
+                                "hitDelay": 0.5,
+                                "type": "DIRECT_HIT",
+                                "attack": {
+                                    "type": "MASSIVE",
+                                    "element": "COLD",
+                                    "damageFactor": 3.8,
+                                    "reverse": false,
+                                    "stunSteps": [
+                                        {
+                                            "type": "BLOCK_XY"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "accel": 0,
+                                            "offZ": 0,
+                                            "maxTime": 0.3,
+                                            "type": "Z_VEL"
+                                        },
+                                        {
+                                            "type": "END_LOCK"
+                                        }
+                                    ],
+                                    "status": 10,
+                                    "guardable": "ALWAYS",
+                                    "skillBonus": "MELEE_DMG"
                                 }
-                            ],
-                            "status": 10,
-                            "guardable": "ALWAYS",
-                            "skillBonus": "MELEE_DMG"
-                        }
-                    },
-                    {
-                        "name": "decapHit",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
+                            },
+                            {
+                                "type": "CONSUME_SP_TARGET",
+                                "sp": 12
+                            },
+                            {
+                                "value": 100,
+                                "type": "ADD_ELEMENT_LOAD"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "selectType": "TARGET",
+                                "hitDir": "TOWARD",
+                                "align": "BOTTOM",
+                                "hitCount": 1,
+                                "hitDelay": 0.5,
+                                "type": "DIRECT_HIT",
+                                "attack": {
+                                    "type": "LIGHT",
+                                    "element": "COLD",
+                                    "damageFactor": 0,
+                                    "reverse": false,
+                                    "status": 0,
+                                    "guardable": "",
+                                    "skillBonus": "MELEE_DMG"
+                                }
+                            }
+                        ]
                     }
                 ]
+            },
+            {
+                "type": "CLEAR_HIT_PROXY"
+            },
+            {
+                "name": "decapHit",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
             }
         ],
         "SweepingSeize": [
@@ -13126,7 +14074,49 @@
                 "type": "FACE_TO_TARGET"
             },
             {
+                "factor": 0.1,
                 "time": 1,
+                "keepEntityStatic": false,
+                "inversAccelerate": true,
+                "type": "ADD_SLOW_MOTION"
+            },
+            {
+                "element": "HEAT",
+                "level": 3,
+                "type": "COMBAT_ART_CHARGE"
+            },
+            {
+                "duration": 1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.carnfx",
+                    "name": "NightmareReign"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "time": 0.7,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "time": 0.3,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
+                "time": 0.3,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             },
@@ -13165,13 +14155,12 @@
                 "type": "CIRCLE_ATTACK",
                 "withBranches": true,
                 "attack": {
-                    "type": "MASSIVE",
+                    "type": "LIGHT",
                     "element": "WAVE",
                     "damageFactor": 0.01,
-                    "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
+                    "status": 0,
                     "guardable": "NEVER",
                     "skillBonus": "MELEE_DMG"
                 },
@@ -13191,6 +14180,9 @@
                 "type": "IF",
                 "condition": "entity.attrib.nrHit",
                 "thenStep": [
+                    {
+                        "type": "PLAYER_PERFECT_PARRY_PRE"
+                    },
                     {
                         "kind": "PROXY",
                         "key": "summon",
@@ -13230,15 +14222,8 @@
                         "type": "WAIT"
                     },
                     {
-                        "value": 3,
-                        "type": "SET_RELATIVE_SPEED"
-                    },
-                    {
-                        "value": 800,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "type": "ADD_TARGET_STUN_LOCK"
+                        "value": 900,
+                        "type": "SET_SPEED"
                     },
                     {
                         "duration": 2,
@@ -13282,65 +14267,7 @@
                         }
                     },
                     {
-                        "align": "CENTER",
-                        "radius": 10,
-                        "yScale": 1,
-                        "zHeight": 16,
-                        "centralAngle": 1,
-                        "duration": 3,
-                        "expandRadius": 0,
-                        "alwaysFull": true,
-                        "clockwise": false,
-                        "flipLeftFace": 0,
-                        "rectangular": false,
-                        "repeat": false,
-                        "uniformHitDir": true,
-                        "fixPos": false,
-                        "checkCollision": true,
-                        "type": "CIRCLE_ATTACK",
-                        "attack": {
-                            "type": "MASSIVE",
-                            "element": "SHOCK",
-                            "damageFactor": 1,
-                            "fly": "MASSIVE",
-                            "reverse": false,
-                            "spFactor": 0,
-                            "status": 3,
-                            "guardable": "ALWAYS",
-                            "skillBonus": "MELEE_DMG",
-                            "stunSteps": [
-                                {
-                                    "type": "BLOCK_XY"
-                                },
-                                {
-                                    "type": "START_LOCK"
-                                },
-                                {
-                                    "accel": 3,
-                                    "offZ": 48,
-                                    "maxTime": 0,
-                                    "type": "Z_PULL"
-                                },
-                                {
-                                    "align": "BOTTOM",
-                                    "offset": {
-                                        "x": 0,
-                                        "y": 0,
-                                        "z": 0
-                                    },
-                                    "maxTime": 2.6,
-                                    "type": "FORCE_POS"
-                                }
-                            ]
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "time": 1,
+                        "time": 2,
                         "rotateSpeed": 0,
                         "cancelOnHit": false,
                         "orthoDirFactor": 0,
@@ -13353,127 +14280,374 @@
                             "fly": "MASSIVE",
                             "type": "MASSIVE",
                             "element": "SHOCK",
-                            "damageFactor": 1
+                            "damageFactor": 0.01,
+                            "guardable": "ALWAYS"
                         },
                         "hit": [
                             {
-                                "value": 300,
-                                "type": "SET_SPEED"
+                                "time": 0.1,
+                                "type": "WAIT"
                             },
                             {
-                                "kind": "FIRST_HIT",
-                                "type": "SET_TEMP_TARGET"
-                            },
-                            {
-                                "accel": 3,
-                                "offZ": 48,
-                                "maxTime": 0,
-                                "type": "Z_PULL"
-                            },
-                            {
-                                "distance": 32,
-                                "speed": 200,
-                                "maxTime": 0,
-                                "type": "PULL"
-                            },
-                            {
-                                "value": 1,
-                                "type": "SET_RELATIVE_SPEED"
-                            },
-                            {
-                                "value": 2,
-                                "type": "SET_ACCEL_SPEED"
-                            },
-                            {
-                                "value": false,
-                                "immediately": true,
-                                "type": "FACE_TO_TARGET"
-                            },
-                            {
-                                "duration": 1,
-                                "align": "CENTER",
-                                "rotateFace": 8,
-                                "flipLeftFace": false,
-                                "wait": false,
-                                "waitSkip": 0,
-                                "actionDetached": false,
-                                "fixPos": false,
-                                "type": "SHOW_EFFECT",
-                                "effect": {
-                                    "sheet": "specials.heat",
-                                    "name": "flameDash"
-                                }
-                            },
-                            {
-                                "duration": 1,
-                                "align": "CENTER",
-                                "rotateFace": 8,
-                                "flipLeftFace": false,
-                                "wait": false,
-                                "waitSkip": 0,
-                                "actionDetached": false,
-                                "fixPos": false,
-                                "type": "SHOW_EFFECT",
-                                "effect": {
-                                    "sheet": "specials.heat",
-                                    "name": "flameDashCircle"
-                                }
-                            },
-                            {
-                                "min": 0,
-                                "max": 1,
-                                "maxTime": 0.7,
-                                "forceTime": true,
-                                "rotateSpeed": 40,
-                                "stopBeforeEdge": false,
-                                "type": "MOVE_TO_DISTANCE"
-                            },
-                            {
-                                "selectType": "TARGET",
-                                "hitDir": "TOWARD",
+                                "withElse": true,
+                                "type": "IF",
+                                "condition": "playerVar.input.perfectShield <= tmp.pShieldCheck",
+                                "thenStep": [
+                                    {
+                                        "value": 300,
+                                        "type": "SET_SPEED"
+                                    },
+                                    {
+                                        "kind": "FIRST_HIT",
+                                        "type": "SET_TEMP_TARGET"
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "HEAT",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 0,
+                                            "damageFactor": 0.1,
+                                            "guardable": "NEVER",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
                                 "align": "BOTTOM",
-                                "hitCount": 1,
-                                "hitDelay": 0,
-                                "type": "DIRECT_HIT",
-                                "attack": {
-                                    "type": "MASSIVE",
-                                    "element": "HEAT",
-                                    "fly": "MASSIVE",
-                                    "reverse": false,
-                                    "status": 9999,
-                                    "damageFactor": 99999,
-                                    "guardable": "",
-                                    "skillBonus": "RANGED_DMG",
-                                    "noIronStance": true,
-                                    "limiter": "",
-                                    "stunSteps": [
-                                        {
-                                            "type": "BLOCK_XY"
-                                        },
-                                        {
-                                            "type": "START_LOCK"
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "maxTime": 0.2,
+                                "type": "FORCE_POS"
+                            },
+                                                    {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
                                         }
-                                    ]
-                                }
-                            },
-                            {
-                                "min": 0,
-                                "max": 1,
-                                "maxTime": 0.3,
-                                "forceTime": true,
-                                "rotateSpeed": 40,
-                                "stopBeforeEdge": false,
-                                "type": "MOVE_TO_DISTANCE"
-                            },
-                            {
-                                "wait": false,
-                                "viaWalkConfig": false,
-                                "type": "SHOW_ANIMATION",
-                                "anim": "attackMirrEnd"
-                            },
-                            {
-                                "value": 150,
-                                "type": "SET_SPEED"
+                                    },
+                                    {
+                                        "value": false,
+                                        "immediately": true,
+                                        "type": "FACE_TO_TARGET"
+                                    },
+                                    {
+                                        "duration": 1,
+                                        "align": "CENTER",
+                                        "rotateFace": 8,
+                                        "flipLeftFace": false,
+                                        "wait": false,
+                                        "waitSkip": 0,
+                                        "actionDetached": false,
+                                        "fixPos": false,
+                                        "type": "SHOW_EFFECT",
+                                        "effect": {
+                                            "sheet": "specials.heat",
+                                            "name": "flameDash"
+                                        }
+                                    },
+                                    {
+                                        "duration": 1,
+                                        "align": "CENTER",
+                                        "rotateFace": 8,
+                                        "flipLeftFace": false,
+                                        "wait": false,
+                                        "waitSkip": 0,
+                                        "actionDetached": false,
+                                        "fixPos": false,
+                                        "type": "SHOW_EFFECT",
+                                        "effect": {
+                                            "sheet": "specials.heat",
+                                            "name": "flameDashCircle"
+                                        }
+                                    },
+                                    {
+                                        "min": 0,
+                                        "max": 1,
+                                        "maxTime": 0.7,
+                                        "forceTime": true,
+                                        "rotateSpeed": 40,
+                                        "stopBeforeEdge": false,
+                                        "type": "MOVE_TO_DISTANCE"
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "HEAT",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 9999,
+                                            "damageFactor": 3.3,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "HEAT",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 9999,
+                                            "damageFactor": 0.1,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "WAVE",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 9999,
+                                            "damageFactor": 0.1,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "SHOCK",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 9999,
+                                            "damageFactor": 0.1,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "selectType": "TARGET",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "COLD",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 9999,
+                                            "damageFactor": 0.1,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": "",
+                                            "stunSteps": [
+                                                {
+                                                    "type": "BLOCK_XY"
+                                                },
+                                                {
+                                                    "type": "START_LOCK"
+                                                },
+                                                {
+                                                    "accel": 3,
+                                                    "offZ": 48,
+                                                    "maxTime": 0,
+                                                    "type": "Z_PULL"
+                                                },
+                                                {
+                                                    "distance": 500,
+                                                    "speed": 500,
+                                                    "maxTime": 2.6,
+                                                    "type": "PULL"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "time": 99,
+                                        "type": "BLOCK_CONSUMABLE_EXTEND"
+                                    },
+                                    {
+                                        "type": "CONSUME_SP_TARGET",
+                                        "sp": 12
+                                    },
+                                    {
+                                        "value": 400,
+                                        "type": "ADD_ELEMENT_LOAD"
+                                    },
+                                    {
+                                        "type": "DO_ENEMY_ACTION_INLINE",
+                                        "actionName": "Redirect"
+                                    },
+                                    {
+                                        "min": 0,
+                                        "max": 1,
+                                        "maxTime": 0.3,
+                                        "forceTime": true,
+                                        "rotateSpeed": 40,
+                                        "stopBeforeEdge": false,
+                                        "type": "MOVE_TO_DISTANCE"
+                                    },
+                                    {
+                                        "wait": false,
+                                        "viaWalkConfig": false,
+                                        "type": "SHOW_ANIMATION",
+                                        "anim": "attackMirrEnd"
+                                    }
+                                ],
+                                "elseStep": [
+                                    {
+                                        "message": {
+                                            "en_US": "WHAT??"
+                                        },
+                                        "type": "SHOW_SIDE_MSG",
+                                        "person": {
+                                            "person": "antagonists.fancyguy",
+                                            "expression": "DUMBFOUNDED"
+                                        }
+                                    },
+                                    {
+                                        "active": "POST_ATTACK",
+                                        "passive": "VULNERABLE",
+                                        "type": "CHANGE_ENEMY_ANNOTATION"
+                                    },
+                                    {
+                                        "time": 3,
+                                        "type": "WAIT"
+                                    }
+                                ]
                             }
                         ],
                         "miss": []
@@ -13482,6 +14656,10 @@
                         "name": "nrHit",
                         "type": "SET_ATTRIB_BOOL",
                         "value": false
+                    },
+                    {
+                        "type": "DO_ENEMY_ACTION_INLINE",
+                        "actionName": "SetPhaseSpeed"
                     }
                 ]
             }
@@ -13657,8 +14835,8 @@
                 ]
             },
             {
-                "value": 1,
-                "type": "SET_RELATIVE_SPEED"
+                "value": 500,
+                "type": "SET_SPEED"
             },
             {
                 "wait": false,
@@ -13667,7 +14845,7 @@
                 "anim": "dash"
             },
             {
-                "time": 0.2,
+                "time": 0.15,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             }
@@ -13807,8 +14985,8 @@
                 ]
             },
             {
-                "value": 1,
-                "type": "SET_RELATIVE_SPEED"
+                "value": 500,
+                "type": "SET_SPEED"
             },
             {
                 "wait": false,
@@ -13817,7 +14995,7 @@
                 "anim": "dash"
             },
             {
-                "time": 0.2,
+                "time": 0.15,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             }
@@ -13865,11 +15043,1328 @@
                 "repeat": false,
                 "type": "SHOOT_PROXY_RANGE",
                 "proxy": "wanderingFlameProxy"
+            }
+        ],
+        "SetRevolverSpeed": [
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 0,
+                        "max": 10
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 90.96478196143185,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 90.71519305237607,
+                        "type": "SET_SPEED"
+                    }
+                ]
             },
             {
-                "time": 0.1,
-                "stopBeforeEdge": false,
-                "type": "MOVE_FORWARD"
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 10,
+                        "max": 20
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 102.54608788163422,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 101.88068407153887,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 20,
+                        "max": 30
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 114.37210302945672,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 113.22269753786777,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 30,
+                        "max": 40
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 126.35988937622186,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 124.68088751161885,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 40,
+                        "max": 50
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 138.46942252142304,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 136.22624808209923,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 50,
+                        "max": 60
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 150.67686875166265,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 147.84155406973102,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 60,
+                        "max": 70
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 162.96634567140288,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 159.5153511551538,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 70,
+                        "max": 80
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 175.32648653987877,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 171.2394558734439,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 80,
+                        "max": 90
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 187.74874236653838,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 183.00772242716545,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 90,
+                        "max": 100
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 200.22644346174133,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 194.81536214968827,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 100,
+                        "max": 110
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 212.75423748772968,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 206.65853653801807,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 110,
+                        "max": 120
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 225.32773197668092,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 218.53409866403112,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 120,
+                        "max": 130
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 237.94325587258518,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 230.4394208623434,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 130,
+                        "max": 140
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 250.597694263792,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 242.37227541855503,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 140,
+                        "max": 150
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 263.28837016990246,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 254.33074930054386,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 150,
+                        "max": 160
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 276.01295771638553,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 266.3131815794252,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 160,
+                        "max": 170
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 288.76941690775004,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 278.31811645182097,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 170,
+                        "max": 180
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 301.5559436636808,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 290.34426727923346,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 180,
+                        "max": 190
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 314.3709308920961,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 302.3904885888232,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 190,
+                        "max": 200
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 327.2129377054002,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 314.45575394458893,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 200,
+                        "max": 210
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 340.08066475246017,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 326.539138224787,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 210,
+                        "max": 220
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 352.972934216636,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 338.63980325928804,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 220,
+                        "max": 230
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 365.8886734244059,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 350.75698606550395,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 230,
+                        "max": 240
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 378.82690128358524,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 362.8899891197849,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 240,
+                        "max": 250
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 391.7867169647085,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 375.0381722416787,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 250,
+                        "max": 260
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 404.7672903793636,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 387.20094576964067,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 260,
+                        "max": 270
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 417.7678541118397,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 399.3777647807749,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 270,
+                        "max": 280
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 430.7876965364977,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 411.56812416202547,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 280,
+                        "max": 290
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 443.8261559103713,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 423.77155438138783,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 290,
+                        "max": 300
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 456.88261527386413,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 435.98761783895213,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 300,
+                        "max": 310
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 469.95649802568255,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 448.2159057015518,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 310,
+                        "max": 320
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 483.0472640639338,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 460.45603514335846,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 320,
+                        "max": 330
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 496.1544064054822,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 472.70764692927764,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 330,
+                        "max": 340
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 509.2774482115652,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 484.9704032894409,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 340,
+                        "max": 350
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 522.4159401603112,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 497.2439860421848,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 350,
+                        "max": 360
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 535.5694581169255,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 509.5280949301843,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 360,
+                        "max": 370
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 548.7376010604764,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 521.8224461402765,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 370,
+                        "max": 380
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 561.919989232835,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 534.1267709822714,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 380,
+                        "max": 390
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 575.1162624807371,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 546.4408147059316,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 390,
+                        "max": 400
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 588.3260787663735,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 558.7643354384948,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 400,
+                        "max": 410
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 601.5491128255893,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 571.0971032277434,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 410,
+                        "max": 420
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 614.7850549558108,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 583.4388991778187,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 420,
+                        "max": 430
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 628.0336099183683,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 595.7895146667877,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 430,
+                        "max": 440
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 641.2944959420008,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 608.148750636512,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 440,
+                        "max": 450
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 654.567443816128,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 620.5164169466383,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 450,
+                        "max": 460
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 667.8521960639849,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 632.8923317856262,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 460,
+                        "max": 470
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 681.1485061869984,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 645.2763211326445,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 470,
+                        "max": 480
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 694.456137972883,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 657.6682182649528,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 480,
+                        "max": 490
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 707.7748648608631,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 670.067863306054,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 490,
+                        "max": 500
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 721.1044693582367,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 682.4751028104828,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 500,
+                        "max": 510
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 734.4447425031806,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 694.8897893815799,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 510,
+                        "max": 520
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 747.7954833692988,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 707.3117813190421,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 520,
+                        "max": 530
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 761.1564986079279,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 719.7409422933943,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 530,
+                        "max": 540
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 774.5276020246631,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 732.177141044862,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 540,
+                        "max": 550
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 787.9086141869608,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 744.6202511043937,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 550,
+                        "max": 560
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 801.2993620600114,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 757.0701505348324,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 560,
+                        "max": 570
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 814.699678668378,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 769.5267216904456,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 570,
+                        "max": 580
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 828.1094027811571,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 781.9898509932136,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 580,
+                        "max": 590
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 841.5283786186469,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 794.4594287244374,
+                        "type": "SET_SPEED"
+                    }
+                ]
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "negated": false,
+                        "type": "TARGET_DISTANCE",
+                        "min": 590,
+                        "max": 600
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "projectileSpeed": 854.9564555787172,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "value": 806.935348830377,
+                        "type": "SET_SPEED"
+                    }
+                ]
             }
         ],
         "TyrantRevolver": [
@@ -13885,27 +16380,20 @@
                 "time": 1
             },
             {
-                "projectileSpeed": 600,
-                "type": "SET_FACE_TARGET_PREDICT"
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "SetRevolverSpeed"
             },
             {
-                "value": 200,
-                "type": "SET_SPEED"
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "dash"
             },
             {
-                "value": 2,
-                "type": "SET_RELATIVE_SPEED"
-            },
-            {
-                "value": 800,
-                "type": "SET_ACCEL_SPEED"
-            },
-            {
-                "time": 1,
+                "time": 0.8,
                 "rotateSpeed": 0,
                 "cancelOnHit": true,
                 "orthoDirFactor": 0,
-                "missReactTime": 0.2,
                 "ignoreLastHit": false,
                 "collideSlip": false,
                 "type": "TACKLE",
@@ -13915,8 +16403,12 @@
                 }
             },
             {
-                "time": 1,
-                "type": "WAIT"
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "SetPhaseSpeed"
+            },
+            {
+                "time": 0.2,
+                "type": "MOVE_FORWARD"
             }
         ],
         "DarkRevolver": [
@@ -13937,30 +16429,22 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "projectileSpeed": 600,
-                "type": "SET_FACE_TARGET_PREDICT"
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "SetRevolverSpeed"
             },
             {
-                "time": 0.1,
-                "type": "WAIT"
+                "posType": "TARGET",
+                "align": "CENTER",
+                "type": "SET_HIT_PROXY",
+                "proxy": "drSPDrainProxy",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
             },
             {
-                "value": 3,
-                "type": "SET_RELATIVE_SPEED"
-            },
-            {
-                "value": 200,
-                "type": "SET_SPEED"
-            },
-            {
-                "value": 800,
-                "type": "SET_ACCEL_SPEED"
-            },
-            {
-                "type": "ADD_TARGET_STUN_LOCK"
-            },
-            {
-                "duration": 2,
+                "duration": 1,
                 "align": "BOTTOM",
                 "rotateFace": 0,
                 "flipLeftFace": false,
@@ -13980,7 +16464,7 @@
                 }
             },
             {
-                "duration": 2,
+                "duration": 1,
                 "align": "BOTTOM",
                 "rotateFace": -1,
                 "flipLeftFace": false,
@@ -14024,7 +16508,7 @@
                     "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
+                    "status": 12,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG",
                     "stunSteps": [
@@ -14059,11 +16543,10 @@
                 }
             },
             {
-                "time": 1,
+                "time": 0.8,
                 "rotateSpeed": 0,
                 "cancelOnHit": false,
                 "orthoDirFactor": 0,
-                "missReactTime": 0.2,
                 "ignoreLastHit": false,
                 "collideSlip": false,
                 "withBranches": true,
@@ -14072,11 +16555,11 @@
                     "fly": "MASSIVE",
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 5
+                    "damageFactor": 1
                 },
                 "hit": [
                     {
-                        "value": 300,
+                        "value": 100,
                         "type": "SET_SPEED"
                     },
                     {
@@ -14088,14 +16571,6 @@
                         "speed": 200,
                         "maxTime": 0,
                         "type": "PULL"
-                    },
-                    {
-                        "value": 1,
-                        "type": "SET_RELATIVE_SPEED"
-                    },
-                    {
-                        "value": 2,
-                        "type": "SET_ACCEL_SPEED"
                     },
                     {
                         "value": false,
@@ -14144,8 +16619,8 @@
                             "element": "SHOCK",
                             "fly": "LIGHT",
                             "reverse": false,
-                            "status": 10,
-                            "damageFactor": 0.2,
+                            "status": 25,
+                            "damageFactor": 0.1,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
@@ -14164,8 +16639,8 @@
                             "element": "HEAT",
                             "fly": "MASSIVE",
                             "reverse": false,
-                            "status": 10,
-                            "damageFactor": 0.2,
+                            "status": 25,
+                            "damageFactor": 0.1,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
@@ -14193,7 +16668,7 @@
                             "element": "HEAT",
                             "fly": "MASSIVE",
                             "reverse": false,
-                            "status": 10,
+                            "status": 25,
                             "damageFactor": 0.1,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
@@ -14220,13 +16695,20 @@
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "attackMirrEnd"
-                    },
-                    {
-                        "value": 150,
-                        "type": "SET_SPEED"
                     }
                 ],
                 "miss": []
+            },
+            {
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "SetPhaseSpeed"
+            },
+            {
+                "time": 0.2,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "type": "CLEAR_HIT_PROXY"
             }
         ],
         "ShadowRiposte": [
@@ -14240,6 +16722,13 @@
                 "hideOutsideOfScreen": false,
                 "type": "SHOW_AR_MSG",
                 "time": 1
+            },
+            {
+                "type": "PLAYER_PERFECT_PARRY_PRE"
+            },
+            {
+                "name": "funeralDR",
+                "type": "REMOVE_SHIELD"
             },
             {
                 "element": "SHOCK",
@@ -14262,15 +16751,6 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "guard"
-            },
-            {
-                "type": "SET_PLAYER_ACTION_BLOCK",
-                "blockData": {
-                    "dash": 0,
-                    "action": -1,
-                    "move": -1,
-                    "reaim": -1
-                }
             },
             {
                 "duration": -1,
@@ -14518,9 +16998,9 @@
                     },
                     {
                         "name": "teleport",
-                        "searchType": "FRONT",
-                        "distance": 5,
-                        "centralAngle": 1,
+                        "searchType": "FRONT_FACE",
+                        "distance": 50,
+                        "centralAngle": 0.2,
                         "throwing": false,
                         "type": "SET_ATTRIB_CLOSE_TARGET_POS"
                     },
@@ -14540,15 +17020,19 @@
                         }
                     },
                     {
+                        "time": 0.2,
+                        "type": "WAIT"
+                    },
+                    {
                         "align": "CENTER",
-                        "radius": 64,
+                        "radius": 40,
                         "yScale": 1,
                         "zHeight": 16,
-                        "centralAngle": 0.5,
-                        "startAngle": -0.4,
+                        "centralAngle": 1,
+                        "startAngle": 0,
                         "duration": 0.2,
                         "expandRadius": 0,
-                        "alwaysFull": false,
+                        "alwaysFull": true,
                         "clockwise": false,
                         "flipLeftFace": 0,
                         "rectangular": false,
@@ -14560,11 +17044,11 @@
                         "attack": {
                             "type": "LIGHT",
                             "element": "SHOCK",
-                            "damageFactor": 5,
+                            "damageFactor": 1.5,
                             "fly": "LIGHT",
                             "reverse": false,
                             "spFactor": 0,
-                            "status": 3,
+                            "status": 15,
                             "guardable": "ALWAYS",
                             "skillBonus": "MELEE_DMG"
                         },
@@ -14608,6 +17092,17 @@
                 "type": "SET_RELATIVE_SPEED"
             },
             {
+                "posType": "TARGET",
+                "align": "CENTER",
+                "type": "SET_HIT_PROXY",
+                "proxy": "vvSPDrainProxy",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
                 "time": 0.2,
                 "type": "MOVE_FORWARD"
             },
@@ -14622,7 +17117,7 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "special-neutral",
+                    "sheet": "specials.carnfx",
                     "name": "VioletViper1"
                 },
                 "offset": {
@@ -14659,11 +17154,11 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 3,
+                    "damageFactor": 1,
                     "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
+                    "status": 11,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
@@ -14706,7 +17201,7 @@
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
-                    "sheet": "special-neutral",
+                    "sheet": "specials.carnfx",
                     "name": "VioletViper2"
                 },
                 "offset": {
@@ -14743,11 +17238,11 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 3,
+                    "damageFactor": 1,
                     "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
+                    "status": 11,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
@@ -14904,11 +17399,179 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 0.1,
+                    "damageFactor": 0.6,
                     "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 3,
+                    "status": 10,
+                    "guardable": "ALWAYS",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "stunSteps": [
+                    {
+                        "type": "BLOCK_XY"
+                    },
+                    {
+                        "accel": 1,
+                        "offZ": 24,
+                        "maxTime": 0,
+                        "type": "Z_PULL"
+                    },
+                    {
+                        "align": "BOTTOM",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "maxTime": 0,
+                        "type": "FORCE_POS"
+                    }
+                ]
+            },
+            {
+                "align": "CENTER",
+                "radius": 50,
+                "yScale": 1,
+                "zHeight": 16,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": true,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 0.7,
+                    "fly": "MASSIVE++",
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 10,
+                    "guardable": "ALWAYS",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "stunSteps": [
+                    {
+                        "type": "BLOCK_XY"
+                    },
+                    {
+                        "accel": 1,
+                        "offZ": 24,
+                        "maxTime": 0,
+                        "type": "Z_PULL"
+                    },
+                    {
+                        "align": "BOTTOM",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "maxTime": 0,
+                        "type": "FORCE_POS"
+                    }
+                ]
+            },
+            {
+                "align": "CENTER",
+                "radius": 30,
+                "yScale": 1,
+                "zHeight": 16,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": true,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 0.8,
+                    "fly": "MASSIVE++",
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 10,
+                    "guardable": "ALWAYS",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "stunSteps": [
+                    {
+                        "type": "BLOCK_XY"
+                    },
+                    {
+                        "accel": 1,
+                        "offZ": 24,
+                        "maxTime": 0,
+                        "type": "Z_PULL"
+                    },
+                    {
+                        "align": "BOTTOM",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "maxTime": 0,
+                        "type": "FORCE_POS"
+                    }
+                ]
+            },
+            {
+                "align": "CENTER",
+                "radius": 20,
+                "yScale": 1,
+                "zHeight": 16,
+                "centralAngle": 0.5,
+                "startAngle": -0.25,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": true,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 0.9,
+                    "fly": "MASSIVE++",
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 10,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
@@ -14950,7 +17613,7 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 1.5,
+                    "damageFactor": 0.7,
                     "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
@@ -15061,7 +17724,7 @@
                                 "attack": {
                                     "type": "MASSIVE",
                                     "element": "SHOCK",
-                                    "damageFactor": 2.5,
+                                    "damageFactor": 1.5,
                                     "fly": "MASSIVE+",
                                     "reverse": false,
                                     "spFactor": 0,
@@ -15116,6 +17779,9 @@
                     }
                 ],
                 "missed": []
+            },
+            {
+                "type": "CLEAR_HIT_PROXY"
             },
             {
                 "time": 1,
@@ -15888,6 +18554,19 @@
         ]
     },
     "reactions": {
+        "KILL_HIT": {
+            "hitType": "KILL_HIT",
+            "preAction": "PreKill",
+            "blockFurtherHits": false,
+            "attackType": "MASSIVE",
+            "flyLevel": "MASSIVE+",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BOSS_ZOOM",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
         "P2REACH": {
             "hitType": "HP_BREAK_HIT",
             "action": "p2Reach",
@@ -16040,7 +18719,7 @@
         "descriptions": [
             {
                 "text": {
-                    "en_US": "Seeker of the Apex Stone.",
+                    "en_US": "Former Seeker of the Track of Ancients from another universe, now turned Seeker of the Stone of Apex. Trained and reborn in the likeness of a powerful sorceror. Attacks relentlessly using deadly combos in close-quarters and lethal combos from far away. \n\nImposes the rules of his universe upon you in combat. Still, his amateurish magic leaves a gap for Sergey to assist you in battle. \n\n At the start of combat, the following rules are applied: \n-40% movement speed to player\n10x player damage dealt\n+50% player dash speed\n\n Innately resists 20% of ranged damage",
                     "langUid": 6
                 },
                 "condition": ""

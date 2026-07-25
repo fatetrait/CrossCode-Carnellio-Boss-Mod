@@ -1,0 +1,50 @@
+[{
+    "type": "ENTER",
+    "index": []
+}, {
+    "type": "SET_KEY",
+    "index": "ANIMS",
+    "content": {}
+}, {
+    "type": "ENTER",
+    "index": ["actions", "BASE", "DASH", "steps"]
+},  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "index": 0,
+    "content": 
+    {
+        "withElse": false,
+        "type": "IF",
+        "condition": "tmp.isCarn",
+        "thenStep": [
+            {
+                "value": 1.5,
+                "type": "SET_RELATIVE_SPEED"
+            }
+        ]
+    }
+
+}, {
+    "type": "EXIT",
+    "count": 4
+}, {
+    "type": "ENTER",
+    "index": ["actions", "BASE", "DASH_SLOW", "steps"]
+}, {
+    "type": "ADD_ARRAY_ELEMENT",
+    "index": 0,
+    "content": {
+        "withElse": false,
+        "type": "IF",
+        "condition": "tmp.isCarn",
+        "thenStep": [
+            {
+                "value": 1.5,
+                "type": "SET_RELATIVE_SPEED"
+            }
+        ]
+    }
+}, {
+    "type": "EXIT",
+    "count": 4
+}]

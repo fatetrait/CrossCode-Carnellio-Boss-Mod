@@ -5,5 +5,146 @@
                 "order": 10000
             }
         }
-    ]
+    ],
+    "enemies": {
+        "carnellio-boss": {
+            "name": {
+                "en_US": "Carnollo",
+                "langUid": 44
+            },
+            "track": true,
+            "kills": 1,
+            "order": -5,
+            "area": "autumn-area",
+            "anim": "pointing",
+            "extra": "pondering",
+            "category": "PLAYERS",
+            "species": {
+                "en_US": "Dragonborn Seeker",
+                "langUid": 4
+            },
+            "boostedLevel": 55,
+            "descriptions": [
+                {
+                    "text": {
+                        "en_US": "Former Seeker of the Track of Ancients from another universe, now turned Seeker of the Stone of Apex. Trained and reborn in the likeness of a powerful sorceror. Attacks relentlessly using deadly combos in close-quarters and lethal combos from far away. ",
+                        "langUid": 6
+                    },
+                    "condition": ""
+                },
+                {
+                    "text": {
+                        "en_US": "Imposes the rules of his universe upon you in combat: \n\n-40% player movement speed \n+400% player damage dealt\n+50% player dash speed\n\nInnately resists 35% of ranged damage\n12,550,000 HP",
+                        "langUid": 6
+                    },
+                    "condition": ""
+                }
+            ],
+            "level": 40,
+            "params": {
+                "hp": 12550000,
+                "attack": 600,
+                "defense": 600,
+                "focus": 0,
+                "elemFactor": [
+                    1.10,
+                    1.05,
+                    1.05,
+                    1.05
+                ],
+                "statusInflict": [
+                    0.12,
+                    0.08,
+                    0.12,
+                    0.12
+                ],
+                "statusEffect": [
+                    0.015,
+                    0.4,
+                    0.02,
+                    0.15
+                ]
+            },
+            "ballFactor": 0.65,
+            "damageFactor": 1,
+            "elementModes": {
+                "HEAT": {
+                    "hp": 12550000,
+                    "attack": 100,
+                    "defense": 30,
+                    "focus": 141,
+                    "elemFactor": [
+                        1.1,
+                        1,
+                        1,
+                        0.9
+                    ]
+                },
+                "COLD": {
+                    "hp": 12550000,
+                    "attack": 100,
+                    "defense": 30,
+                    "focus": 141,
+                    "elemFactor": [
+                        1.1,
+                        1,
+                        1,
+                        0.9
+                    ]
+                },
+                "SHOCK": {
+                    "hp": 12550000,
+                    "attack": 100,
+                    "defense": 30,
+                    "focus": 141,
+                    "elemFactor": [
+                        1.1,
+                        1,
+                        1,
+                        0.9
+                    ]
+                },
+                "WAVE": {
+                    "hp": 12550000,
+                    "attack": 100,
+                    "defense": 30,
+                    "focus": 141,
+                    "elemFactor": [
+                        1.1,
+                        1,
+                        1,
+                        0.9
+                    ]
+                }
+            },
+            "modifiers": {
+                "RANGED_DMG": 0.18,
+                "MELEE_DMG": 0.22,
+                "CRITICAL_DMG": 0.3,
+                "ASSAULT": 0.2,
+                "COND_HEALING": 0.15
+            },
+            "credit": 400000,
+            "exp": 4000,
+            "maxSp": 8,
+            "enduranceScale": 2000,
+            "healDropRate": 0,
+            "boss": true,
+            "bossOrder": 0,
+            "headIdx": 4,
+            "padding": {
+                "x": 2,
+                "y": 2
+            },
+            "material": "ORGANIC",
+            "aiGroup": "",
+            "aiLearnType": "REGULAR",
+            "itemDrops": [],
+            "targetDetect": {
+                "detectDistance": 120,
+                "loseDistance": 320,
+                "notifyNeighbourRadius": 100
+            }
+        }
+    }
 }
