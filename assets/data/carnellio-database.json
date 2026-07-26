@@ -34,7 +34,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Imposes the rules of his universe upon you in combat: \n\n-40% player movement speed \n+400% player damage dealt\n+50% player dash speed\n\nInnately resists 35% of ranged damage\n12,550,000 HP",
+                        "en_US": "Imposes the rules of his universe upon you in combat: \n\n-40% movement speed \n+50% dash speed\n*170% damage dealt for up to 3 party members (stacks to 5x damage mult in solo!) \nInnately resists 35% of ranged damage\n12,550,000 HP",
                         "langUid": 6
                     },
                     "condition": ""

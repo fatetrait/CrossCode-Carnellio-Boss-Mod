@@ -121,8 +121,17 @@ ig.module("game.feature.player.player-steps.carn").requires("impact.base.animati
     init: function (a) {
       this.value = a.value || 0
     },
-    start: function () {
-      sc.model.player.addElementLoad(this.value)
+    start: function (a) {
+      console.log("ADD_ELEMENT_LOAD: " + this.value, a);
+      var b = a;
+      console.log("b: ", b);
+      if (!b) return true;
+      var comb = b.combo || b.combatant.combo;
+      if (!b || !comb || !comb.hitCombatants) return true;
+      for (var c = 0; c < comb.hitCombatants.length; c++) {
+        var m = comb.hitCombatants[c]; 
+        m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.addElementLoad(this.value)
+      }
     }
   });
 })
@@ -228,7 +237,14 @@ ig.module("game.feature.msg.msg-steps.carn").requires("impact.base.action", "imp
       this.time = a.time;
     },
     start: function (a) {
-      sc.model.player.itemBlockTimer += this.time;
+      var b = a;
+      if (!b) return true;
+      var comb = b.combo || b.combatant.combo;
+      if (!b || !comb || !comb.hitCombatants) return true;
+      for (var c = 0; c < comb.hitCombatants.length; c++) {
+        var m = comb.hitCombatants[c]; 
+        m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.itemBlockTimer ? b.itemBlockTimer += this.time : null;
+      }
     },
   });
 })
