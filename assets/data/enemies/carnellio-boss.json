@@ -2,8 +2,8 @@
     "level": 40,
     "params": {
         "hp": 12550000,
-        "attack": 600,
-        "defense": 400,
+        "attack": 220,
+        "defense": 220,
         "focus": 0,
         "elemFactor": [
             1.10,
@@ -12,10 +12,10 @@
             1.05
         ],
         "statusInflict": [
-            0.12,
-            0.08,
-            0.12,
-            0.12
+            0.24,
+            0.20,
+            0.24,
+            0.24
         ],
         "statusEffect": [
             0.015,
@@ -29,8 +29,8 @@
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
-            "attack": 600,
-            "defense": 400,
+            "attack": 220,
+            "defense": 220,
             "focus": 0,
             "elemFactor": [
                 1.10,
@@ -41,8 +41,8 @@
         },
         "COLD": {
             "hp": 12550000,
-            "attack": 600,
-            "defense": 400,
+            "attack": 220,
+            "defense": 220,
             "focus": 0,
             "elemFactor": [
                 1.10,
@@ -53,8 +53,8 @@
         },
         "SHOCK": {
             "hp": 12550000,
-            "attack": 600,
-            "defense": 400,
+            "attack": 220,
+            "defense": 220,
             "focus": 0,
             "elemFactor": [
                 1.10,
@@ -65,8 +65,8 @@
         },
         "WAVE": {
             "hp": 12550000,
-            "attack": 600,
-            "defense": 400,
+            "attack": 220,
+            "defense": 220,
             "focus": 0,
             "elemFactor": [
                 1.10,
@@ -129,7 +129,7 @@
     "size": {
         "x": 24,
         "y": 24,
-        "z": 32
+        "z": 16
     },
     "anims": "carnanims",
     "defaultState": "INITIAL_BALANCE",
@@ -1062,6 +1062,39 @@
             "breakType": "COMBATANT",
             "action": [
                 {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player002SPDrainDisplay",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player01SConsumableDisplay",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player1OverloadDisplay",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
                     "type": "CONSUME_SP_TARGET",
                     "sp": 0.02
                 },
@@ -1096,7 +1129,7 @@
                     "type": "SET_BOUNCINESS"
                 },
                 {
-                    "kind": "CLOSEST_ENEMY",
+                    "kind": "PLAYER",
                     "type": "SET_TEMP_TARGET"
                 },
                 {
@@ -1148,7 +1181,7 @@
                             "value": false
                         },
                         {
-                            "kind": "CLOSEST_ENEMY",
+                            "kind": "PLAYER",
                             "type": "SET_TEMP_TARGET"
                         },
                         {
@@ -1169,11 +1202,11 @@
                     "thenStep": [
                         {
                             "align": "BOTTOM",
-                            "radius": 16,
+                            "radius": 6,
                             "yScale": 0,
                             "zHeight": 16,
                             "centralAngle": 1,
-                            "duration": 0.3,
+                            "duration": 0.2,
                             "expandRadius": 0,
                             "alwaysFull": true,
                             "clockwise": false,
@@ -1187,7 +1220,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.2,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -1208,6 +1241,26 @@
                         }
                     ],
                     "elseStep": [
+                        {
+                            "duration": -1,
+                            "align": "CENTER",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.wave",
+                                "name": "waveBlockBall"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
                         {
                             "value": 200,
                             "type": "SET_SPEED"
@@ -1280,12 +1333,12 @@
                             "type": "SHOW_EFFECT",
                             "effect": {
                                 "sheet": "specials.carnfx",
-                                "name": "smallSweep"
+                                "name": "Mawaru"
                             }
                         },
                         {
                             "align": "BOTTOM",
-                            "radius": 16,
+                            "radius": 6,
                             "yScale": 0,
                             "zHeight": 16,
                             "centralAngle": 1,
@@ -1303,7 +1356,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.2,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -1536,7 +1589,7 @@
                             "value": false
                         },
                         {
-                            "duration": 1.5,
+                            "duration": 4,
                             "align": "BOTTOM",
                             "rotateFace": 0,
                             "flipLeftFace": false,
@@ -1546,8 +1599,8 @@
                             "fixPos": false,
                             "type": "SHOW_EFFECT",
                             "effect": {
-                                "sheet": "combatant",
-                                "name": "boom_medium"
+                                "sheet": "specials.carnfx",
+                                "name": "EvilFracture"
                             },
                             "offset": {
                                 "x": 0,
@@ -1572,7 +1625,7 @@
                             "yScale": 0,
                             "zHeight": 16,
                             "centralAngle": 1,
-                            "duration": 0.1,
+                            "duration": 0.03,
                             "expandRadius": 0,
                             "alwaysFull": true,
                             "clockwise": false,
@@ -1612,7 +1665,7 @@
                             }
                         },
                         {
-                            "time": 4,
+                            "time": 6.5,
                             "type": "WAIT"
                         },
                         {
@@ -1848,7 +1901,7 @@
                     }
                 },
                 {
-                    "kind": "CLOSEST_ENEMY",
+                    "kind": "PLAYER",
                     "type": "SET_TEMP_TARGET"
                 },
                 {
@@ -1909,6 +1962,39 @@
                             }
                         },
                         {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player1SPDrainDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player3SConsumableDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player20OverloadDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
                             "type": "CONSUME_SP_TARGET",
                             "sp": 1
                         },
@@ -1943,6 +2029,49 @@
                     "align": "BOTTOM",
                     "type": "SHOOT_PROXY",
                     "proxy": "playerWeaken",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "playerWeaken",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player01SPDrainDisplay",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player05SConsumableDisplay",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "align": "CENTER",
+                    "posType": "TARGET",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "player2OverloadDisplay",
                     "offset": {
                         "x": 0,
                         "y": 0,
@@ -2555,7 +2684,7 @@
                 },
                 {
                     "align": "BOTTOM",
-                    "radius": 25,
+                    "radius": 27,
                     "yScale": 0,
                     "zHeight": 16,
                     "centralAngle": 1,
@@ -5583,6 +5712,1094 @@
             },
             "type": "GENERIC"
         },
+        "z3Hack": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "time": 2,
+                    "type": "WAIT"
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "value": 1,
+                    "type": "SET_AIR_FRICTION"
+                },
+                {
+                    "text": {
+                        "en_US": "Activating z3 hacker panel"
+                    },
+                    "mode": "LINE_FILL",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 3
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "min": 0,
+                    "max": 12,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 3,
+                    "type": "WAIT"
+                },
+                {
+                    "text": {
+                        "en_US": "Attack stat multiplied by 300!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 6
+                },
+                {
+                    "volume": 1.5,
+                    "global": false,
+                    "loop": false,
+                    "speed": 0.8,
+                    "type": "PLAY_SOUND",
+                    "sound": "media\/sound\/upgrade\/blow-fast.ogg"
+                },
+                {
+                    "target": "TARGET",
+                    "name": "z3panel",
+                    "hacked": true,
+                    "type": "ADD_ACTION_BUFF",
+                    "stats": [
+                        "HACK"
+                    ]
+                },
+                {
+                    "time": 0.5,
+                    "type": "WAIT"
+                },
+                {
+                    "target": "TARGET",
+                    "name": "z3panel",
+                    "param": "attack",
+                    "changeType": "set",
+                    "value": 300,
+                    "type": "MOD_ACTION_BUFF_PARAM"
+                },
+                {
+                    "target": "TARGET",
+                    "align": "BOTTOM",
+                    "duration": 0.4,
+                    "type": "STICK_TO_TARGET",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": -1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player60SConsumableDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "NORTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+60s consumable CD!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player100OverloadDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+100% overload"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player12SPDrainDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "SOUTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "-12 SP"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player3SConsumableDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "NORTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+3s consumable CD!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player20OverloadDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+20% overload"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player1SPDrainDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "SOUTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "-1 SP"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player05SConsumableDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "NORTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+0.5s consumable CD!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player2OverloadDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+2% overload"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player01SPDrainDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "SOUTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "-0.1 SP"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player01SConsumableDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "NORTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+0.1s consumable CD!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player1OverloadDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "+1% overload"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "player002SPDrainDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "SOUTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "-0.02 SP"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "nothing": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "aggroRing",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "aggroRing": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": true,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.carnfx",
+                        "name": "NearRing"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": -1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "aggroRing",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
         "playerHack": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -5663,7 +6880,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 1.71!"
+                        "en_US": "Attack stat multiplied by 2.154!"
                     },
                     "mode": "NO_LINE",
                     "color": "RED",
@@ -5698,7 +6915,7 @@
                     "name": "sergeyHax",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 1.710,
+                    "value": 2.154,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -6132,12 +7349,49 @@
                     "thenStep": [],
                     "elseStep": [
                         {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player12SPDrainDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player60SConsumableDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player100OverloadDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
                             "type": "CONSUME_SP_TARGET",
                             "sp": 12
                         },
                         {
                             "value": 100,
                             "type": "ADD_ELEMENT_LOAD"
+                        },
+                        {
+                            "time": 60,
+                            "type": "BLOCK_CONSUMABLE_EXTEND"
                         }
                     ]
                 }
@@ -6173,6 +7427,9 @@
                 "active": "ATTACK",
                 "passive": "WEAK",
                 "type": "CHANGE_ENEMY_ANNOTATION"
+            },
+            {
+                "type": "INITIALIZE_CARN"
             },
             {
                 "time": 0.1,
@@ -6286,6 +7543,18 @@
             {
                 "value": "THREAT",
                 "type": "SET_AGGRESSION"
+            },
+            {
+                "align": "CENTER",
+                "posType": "TARGET",
+                "type": "SHOOT_PROXY",
+                "proxy": "nothing",
+                "oldProxy": "aggroRing",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
             }
         ],
         "InitStrat": [
@@ -6310,7 +7579,7 @@
                 "enemyState": "CLOSE"
             },
             {
-                "kind": "CLOSEST_ENEMY",
+                "kind": "PLAYER",
                 "type": "SET_TEMP_TARGET"
             }
         ],
@@ -6320,7 +7589,7 @@
                 "enemyState": "DISTANCE"
             },
             {
-                "kind": "CLOSEST_ENEMY",
+                "kind": "PLAYER",
                 "type": "SET_TEMP_TARGET"
             }
         ],
@@ -6516,12 +7785,16 @@
                 "type": "SET_JUMPING"
             },
             {
-                "kind": "CLOSEST_ENEMY",
+                "kind": "PLAYER",
                 "type": "SET_TEMP_TARGET"
             },
             {
                 "name": "executeAction",
                 "type": "LABEL"
+            },
+            {
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
             },
             {
                 "posType": "TARGET",
@@ -6536,7 +7809,7 @@
             },
             {
                 "value": true,
-                "immediately": true,
+                "immediately": false,
                 "type": "FACE_TO_TARGET"
             },
             {
@@ -7610,6 +8883,9 @@
                         "value": 1
                     },
                     {
+                        "type": "CLEAR_HIT_PROXY"
+                    },
+                    {
                         "name": "executeAction",
                         "type": "GOTO_LABEL"
                     }
@@ -7641,7 +8917,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 11
+                "value": 12
             },
             {
                 "changeType": "set",
@@ -8202,17 +9478,6 @@
         ],
         "Phase1F": [
             {
-                "text": {
-                    "en_US": "Far Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -8221,6 +9486,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Far Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -8340,17 +9618,6 @@
         ],
         "Phase2F": [
             {
-                "text": {
-                    "en_US": "Far Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -8359,6 +9626,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Far Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -8524,17 +9804,6 @@
         ],
         "Phase3F": [
             {
-                "text": {
-                    "en_US": "Far Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -8543,6 +9812,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Far Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -8768,17 +10050,6 @@
         ],
         "Phase4F": [
             {
-                "text": {
-                    "en_US": "Far Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -8787,6 +10058,41 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.attrib.p4Initial",
+                "thenStep": [
+                    {
+                        "text": {
+                            "en_US": "Phase 4 Initial Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "text": {
+                            "en_US": "Far Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    }
+                ]
             },
             {
                 "withElse": true,
@@ -9198,36 +10504,14 @@
         ],
         "Phase5F": [
             {
-                "text": {
-                    "en_US": "Far Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilDrawTime",
-                "value": 2
             },
             {
                 "withElse": true,
                 "type": "IF",
                 "condition": "!entity.attrib.p5Initial",
                 "thenStep": [
-                    {
-                        "name": "p5Initial",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": true
-                    },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
@@ -9329,13 +10613,8 @@
                     {
                         "withElse": true,
                         "type": "IF",
-                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 4",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
                         "thenStep": [
-                            {
-                                "name": "funeral",
-                                "type": "SET_ATTRIB_BOOL",
-                                "value": true
-                            },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
@@ -10018,6 +11297,102 @@
                 ]
             },
             {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.sigilCount > 8",
+                "thenStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": {
+                            "varName": "tmp.sigilCount"
+                        }
+                    },
+                    {
+                        "changeType": "div",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 3.5
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.attrib.p5Initial",
+                "thenStep": [
+                    {
+                        "text": {
+                            "en_US": "Phase 5 Initial Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    },
+                    {
+                        "name": "p5Initial",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": true
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "withElse": true,
+                        "type": "IF",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
+                        "thenStep": [
+                            {
+                                "text": {
+                                    "en_US": "Funeral Combo"
+                                },
+                                "mode": "LINE_FILL",
+                                "color": "darkviolet",
+                                "actionDetached": true,
+                                "hideOutsideOfScreen": false,
+                                "type": "SHOW_AR_MSG",
+                                "time": {
+                                    "varName": "tmp.sigilDrawTime"
+                                }
+                            },
+                                                        {
+                                "name": "funeral",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "text": {
+                                    "en_US": "Far Combo"
+                                },
+                                "mode": "LINE_FILL",
+                                "color": "darkviolet",
+                                "actionDetached": true,
+                                "hideOutsideOfScreen": false,
+                                "type": "SHOW_AR_MSG",
+                                "time": {
+                                    "varName": "tmp.sigilDrawTime"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "align": "BOTTOM",
                 "centralAngle": 0,
                 "angleVary": 0,
@@ -10064,17 +11439,6 @@
         ],
         "Phase1N": [
             {
-                "text": {
-                    "en_US": "Near Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -10083,6 +11447,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Near Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -10202,17 +11579,6 @@
         ],
         "Phase2N": [
             {
-                "text": {
-                    "en_US": "Near Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -10221,6 +11587,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Near Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -10386,17 +11765,6 @@
         ],
         "Phase3N": [
             {
-                "text": {
-                    "en_US": "Near Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -10405,6 +11773,19 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "text": {
+                    "en_US": "Near Combo"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": {
+                    "varName": "tmp.sigilDrawTime"
+                }
             },
             {
                 "type": "SELECT_RANDOM",
@@ -10662,17 +12043,6 @@
         ],
         "Phase4N": [
             {
-                "text": {
-                    "en_US": "Near Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -10681,6 +12051,41 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilDrawTime",
                 "value": 2
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.attrib.p4Initial",
+                "thenStep": [
+                    {
+                        "text": {
+                            "en_US": "Phase 4 Initial Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "text": {
+                            "en_US": "Near Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    }
+                ]
             },
             {
                 "withElse": true,
@@ -11086,36 +12491,15 @@
         ],
         "Phase5N": [
             {
-                "text": {
-                    "en_US": "Near Combo"
-                },
-                "mode": "NO_LINE",
-                "color": "darkviolet",
-                "actionDetached": true,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": 1
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilDrawTime",
-                "value": 2
             },
             {
                 "withElse": true,
                 "type": "IF",
                 "condition": "!entity.attrib.p5Initial",
                 "thenStep": [
-                    {
-                        "name": "p5Initial",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": true
-                    },
+                    
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
@@ -11217,13 +12601,9 @@
                     {
                         "withElse": true,
                         "type": "IF",
-                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 4",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
                         "thenStep": [
-                            {
-                                "name": "funeral",
-                                "type": "SET_ATTRIB_BOOL",
-                                "value": true
-                            },
+                            
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
@@ -11974,6 +13354,102 @@
                                         "value": 1
                                     }
                                 ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.sigilCount > 8",
+                "thenStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": {
+                            "varName": "tmp.sigilCount"
+                        }
+                    },
+                    {
+                        "changeType": "div",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 3.5
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "!entity.attrib.p5Initial",
+                "thenStep": [
+                    {
+                        "text": {
+                            "en_US": "Phase 5 Initial Combo"
+                        },
+                        "mode": "LINE_FILL",
+                        "color": "darkviolet",
+                        "actionDetached": true,
+                        "hideOutsideOfScreen": false,
+                        "type": "SHOW_AR_MSG",
+                        "time": {
+                            "varName": "tmp.sigilDrawTime"
+                        }
+                    },
+                    {
+                        "name": "p5Initial",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": true
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "withElse": true,
+                        "type": "IF",
+                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
+                        "thenStep": [
+                            {
+                                "text": {
+                                    "en_US": "Funeral Combo"
+                                },
+                                "mode": "LINE_FILL",
+                                "color": "darkviolet",
+                                "actionDetached": true,
+                                "hideOutsideOfScreen": false,
+                                "type": "SHOW_AR_MSG",
+                                "time": {
+                                    "varName": "tmp.sigilDrawTime"
+                                }
+                            },
+                            {
+                                "name": "funeral",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "text": {
+                                    "en_US": "Near Combo"
+                                },
+                                "mode": "LINE_FILL",
+                                "color": "darkviolet",
+                                "actionDetached": true,
+                                "hideOutsideOfScreen": false,
+                                "type": "SHOW_AR_MSG",
+                                "time": {
+                                    "varName": "tmp.sigilDrawTime"
+                                }
                             }
                         ]
                     }
@@ -13146,7 +14622,7 @@
                 "startAngle": 0,
                 "angleVary": 0,
                 "startDistCollide": "NONE",
-                "startDist": 85,
+                "startDist": 80,
                 "count": 1,
                 "duration": 1,
                 "clockwise": false,
@@ -13542,6 +15018,9 @@
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
             {
+                "type": "CLEAR_FIRST_HIT"
+            },
+            {
                 "value": true,
                 "immediately": true,
                 "type": "FACE_TO_TARGET"
@@ -13733,12 +15212,49 @@
                                 }
                             },
                             {
+                                "align": "CENTER",
+                                "posType": "TARGET",
+                                "type": "SHOOT_PROXY",
+                                "proxy": "player12SPDrainDisplay",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            },
+                            {
+                                "align": "CENTER",
+                                "posType": "TARGET",
+                                "type": "SHOOT_PROXY",
+                                "proxy": "player60SConsumableDisplay",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            },
+                            {
+                                "align": "CENTER",
+                                "posType": "TARGET",
+                                "type": "SHOOT_PROXY",
+                                "proxy": "player100OverloadDisplay",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            },
+                            {
                                 "type": "CONSUME_SP_TARGET",
                                 "sp": 12
                             },
                             {
                                 "value": 100,
                                 "type": "ADD_ELEMENT_LOAD"
+                            },
+                            {
+                                "time": 60,
+                                "type": "BLOCK_CONSUMABLE_EXTEND"
                             }
                         ],
                         "elseStep": [
@@ -14055,6 +15571,9 @@
                 "value": true
             },
             {
+                "type": "SAVE_TARGET"
+            },
+            {
                 "kind": "PROXY",
                 "key": "summon",
                 "type": "SET_TEMP_TARGET"
@@ -14072,8 +15591,7 @@
                 "type": "TELEPORT_TO_ATTRIB_POS"
             },
             {
-                "kind": "CLOSEST_ENEMY",
-                "type": "SET_TEMP_TARGET"
+                "type": "LOAD_TARGET"
             }
         ],
         "NightmareReign": [
@@ -14100,8 +15618,11 @@
                 "value": true
             },
             {
+                "type": "SAVE_TARGET"
+            },
+            {
                 "value": true,
-                "immediately": true,
+                "immediately": false,
                 "type": "FACE_TO_TARGET"
             },
             {
@@ -14117,7 +15638,7 @@
                 "type": "COMBAT_ART_CHARGE"
             },
             {
-                "duration": 1,
+                "duration": 0,
                 "align": "CENTER",
                 "rotateFace": 0,
                 "flipLeftFace": false,
@@ -14137,7 +15658,7 @@
                 }
             },
             {
-                "time": 0.8,
+                "time": 1.2,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             },
@@ -14184,6 +15705,9 @@
                         "type": "TELEPORT_TO_ATTRIB_POS"
                     },
                     {
+                        "type": "LOAD_TARGET"
+                    },
+                    {
                         "time": 0.05,
                         "type": "WAIT"
                     },
@@ -14203,6 +15727,9 @@
                     {
                         "value": 1400,
                         "type": "SET_SPEED"
+                    },
+                    {
+                        "type": "CLEAR_FIRST_HIT"
                     },
                     {
                         "duration": 1,
@@ -14326,6 +15853,9 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
                                         }
@@ -14410,6 +15940,9 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
                                         }
@@ -14450,6 +15983,9 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
                                         }
@@ -14490,6 +16026,9 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
                                         }
@@ -14530,6 +16069,9 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
                                         }
@@ -14570,8 +16112,44 @@
                                                     "speed": 500,
                                                     "maxTime": 2.6,
                                                     "type": "PULL"
+                                                },
+                                                {
+                                                    "type": "END_LOCK"
                                                 }
                                             ]
+                                        }
+                                    },
+                                    {
+                                        "align": "CENTER",
+                                        "posType": "TARGET",
+                                        "type": "SHOOT_PROXY",
+                                        "proxy": "player12SPDrainDisplay",
+                                        "offset": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0
+                                        }
+                                    },
+                                    {
+                                        "align": "CENTER",
+                                        "posType": "TARGET",
+                                        "type": "SHOOT_PROXY",
+                                        "proxy": "player60SConsumableDisplay",
+                                        "offset": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0
+                                        }
+                                    },
+                                    {
+                                        "align": "CENTER",
+                                        "posType": "TARGET",
+                                        "type": "SHOOT_PROXY",
+                                        "proxy": "player100OverloadDisplay",
+                                        "offset": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0
                                         }
                                     },
                                     {
@@ -15026,1324 +16604,10 @@
         ],
         "SetRevolverSpeed": [
             {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 0,
-                        "max": 10
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 217.78279410038922,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 217.78279410038922,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 10,
-                        "max": 20
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 242.29485053762255,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 242.29485053762255,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 20,
-                        "max": 30
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 270.2104195796215,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 270.2104195796215,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 30,
-                        "max": 40
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 300.59467437463485,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 300.59467437463485,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 40,
-                        "max": 50
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 332.9573974236247,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 332.9573974236247,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 50,
-                        "max": 60
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 366.98946102282446,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 366.98946102282446,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 60,
-                        "max": 70
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 402.4755325963355,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 402.4755325963355,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 70,
-                        "max": 80
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 439.2558049953953,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 439.2558049953953,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 80,
-                        "max": 90
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 477.20632594169206,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 477.20632594169206,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 90,
-                        "max": 100
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 516.2277660168379,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 516.2277660168379,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 100,
-                        "max": 110
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 556.2385024510803,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 556.2385024510803,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 110,
-                        "max": 120
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 597.1701103576247,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 597.1701103576247,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 120,
-                        "max": 130
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 638.9642888000735,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 638.9642888000735,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 130,
-                        "max": 140
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 681.5706879550551,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 681.5706879550551,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 140,
-                        "max": 150
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 724.9453267370875,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 724.9453267370875,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 150,
-                        "max": 160
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 769.0494112124553,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 769.0494112124553,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 160,
-                        "max": 170
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 813.8484332640371,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 813.8484332640371,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 170,
-                        "max": 180
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 859.3114702672472,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 859.3114702672472,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 180,
-                        "max": 190
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 905.4106321501379,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 905.4106321501379,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 190,
-                        "max": 200
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 952.1206186172788,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 952.1206186172788,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 200,
-                        "max": 210
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 999.4183601262572,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 999.4183601262572,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 210,
-                        "max": 220
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1047.2827235054779,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1047.2827235054779,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 220,
-                        "max": 230
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1095.694268141007,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1095.694268141007,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 230,
-                        "max": 240
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1144.6350422074065,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1144.6350422074065,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 240,
-                        "max": 250
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1194.0884109588133,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1194.0884109588133,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 250,
-                        "max": 260
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1244.0389109463133,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1244.0389109463133,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 260,
-                        "max": 270
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1294.4721253936978,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1294.4721253936978,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 270,
-                        "max": 280
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1345.3745769858133,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1345.3745769858133,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 280,
-                        "max": 290
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1396.7336350978067,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1396.7336350978067,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 290,
-                        "max": 300
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1448.537435086345,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1448.537435086345,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 300,
-                        "max": 310
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1500.7748077224708,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1500.7748077224708,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 310,
-                        "max": 320
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1553.435217203922,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1553.435217203922,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 320,
-                        "max": 330
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1606.5087064669387,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1606.5087064669387,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 330,
-                        "max": 340
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1659.985848741732,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1659.985848741732,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 340,
-                        "max": 350
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1713.8577044752387,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1713.8577044752387,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 350,
-                        "max": 360
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1768.1157828894306,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1768.1157828894306,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 360,
-                        "max": 370
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1822.7520075608618,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1822.7520075608618,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 370,
-                        "max": 380
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1877.7586855030222,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1877.7586855030222,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 380,
-                        "max": 390
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1933.1284793118487,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1933.1284793118487,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 390,
-                        "max": 400
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 1988.8543819998317,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 1988.8543819998317,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 400,
-                        "max": 410
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2044.9296941982147,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2044.9296941982147,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 410,
-                        "max": 420
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2101.3480034519052,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2101.3480034519052,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 420,
-                        "max": 430
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2158.1031653695613,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2158.1031653695613,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 430,
-                        "max": 440
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2215.189286423195,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2215.189286423195,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 440,
-                        "max": 450
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2272.6007082186084,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2272.6007082186084,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 450,
-                        "max": 460
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2330.331993080881,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2330.331993080881,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 460,
-                        "max": 470
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2388.3779108186836,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2388.3779108186836,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 470,
-                        "max": 480
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2446.733426547887,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2446.733426547887,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 480,
-                        "max": 490
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2505.393689469327,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2505.393689469327,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 490,
-                        "max": 500
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2564.3540225079396,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2564.3540225079396,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 500,
-                        "max": 510
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2623.609912731205,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2623.609912731205,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 510,
-                        "max": 520
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2683.157002474096,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2683.157002474096,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 520,
-                        "max": 530
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2742.9910811058203,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2742.9910811058203,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 530,
-                        "max": 540
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2803.1080773806716,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2803.1080773806716,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 540,
-                        "max": 550
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2863.5040523214784,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2863.5040523214784,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 550,
-                        "max": 560
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2924.175192589522,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2924.175192589522,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 560,
-                        "max": 570
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 2985.117804299559,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 2985.117804299559,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 570,
-                        "max": 580
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 3046.328307242764,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 3046.328307242764,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 580,
-                        "max": 590
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 3107.8032294840923,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 3107.8032294840923,
-                        "type": "SET_SPEED"
-                    }
-                ]
-            },
-            {
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "conditions": [
-                    {
-                        "negated": false,
-                        "type": "TARGET_DISTANCE",
-                        "min": 590,
-                        "max": 600
-                    }
-                ],
-                "thenStep": [
-                    {
-                        "projectileSpeed": 3169.5392023038594,
-                        "type": "SET_FACE_TARGET_PREDICT"
-                    },
-                    {
-                        "value": 3169.5392023038594,
-                        "type": "SET_SPEED"
-                    }
-                ]
+                "speedTime": 0.5,
+                "moveTime": 0.5,
+                "type": "SET_FACE_SPEED_PREDICT",
+                "dontSlower": true
             }
         ],
         "TyrantRevolver": [
@@ -16369,7 +16633,7 @@
                 "anim": "dash"
             },
             {
-                "time": 0.25,
+                "time": 0.5,
                 "rotateSpeed": 0,
                 "cancelOnHit": true,
                 "orthoDirFactor": 0,
@@ -16386,7 +16650,12 @@
                 "actionName": "SetPhaseSpeed"
             },
             {
-                "time": 0.75,
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "time": 0.5,
                 "type": "MOVE_FORWARD"
             }
         ],
@@ -16401,6 +16670,9 @@
                 "hideOutsideOfScreen": false,
                 "type": "SHOW_AR_MSG",
                 "time": 1
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
             },
             {
                 "value": false,
@@ -16522,7 +16794,7 @@
                 }
             },
             {
-                "time": 0.25,
+                "time": 0.5,
                 "rotateSpeed": 0,
                 "cancelOnHit": false,
                 "orthoDirFactor": 0,
@@ -16682,7 +16954,7 @@
                         "actionName": "SetPhaseSpeed"
                     },
                     {
-                        "time": 0.75,
+                        "time": 0.5,
                         "rotateSpeed": 0,
                         "cancelOnHit": false,
                         "orthoDirFactor": 0,
@@ -16845,7 +17117,7 @@
                 "actionName": "SetPhaseSpeed"
             },
             {
-                "time": 0.2,
+                "time": 0.4,
                 "type": "MOVE_FORWARD"
             },
             {
@@ -16988,6 +17260,9 @@
                 "attribName": "riposteTemp",
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 15
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
             },
             {
                 "name": "riposteLoop",
@@ -17423,6 +17698,9 @@
                 "value": true,
                 "immediately": true,
                 "type": "FACE_TO_TARGET"
+            },
+            {
+                "type": "SAVE_TARGET"
             },
             {
                 "time": 0.2,
@@ -17956,7 +18234,7 @@
                 "type": "WAIT"
             },
             {
-                "type": "CLEAR_TEMP_TARGET"
+                "type": "LOAD_TARGET"
             },
             {
                 "value": 100,

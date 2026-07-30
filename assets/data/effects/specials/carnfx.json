@@ -3,6 +3,25 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "SANDWHIRL",
+                "size": {
+                    "x": 304,
+                    "y": 304,
+                    "z": 0
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/sand-whirl.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 304,
+                    "height": 304
+                },
+                "centerPivot": false,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "SWEEP_NEUTRAL",
                 "sheet": {
                     "src": "media\/entity\/effects\/sweep2.png",
@@ -23,78 +42,78 @@
                 ]
             },
             {
-                        "name": "EXPLOSION_BIG",
-                        "sheet": {
-                            "src": "media\/entity\/effects\/heat.png",
-                            "width": 48,
-                            "height": 48,
-                            "xCount": 6
-                        },
-                        "time": 0.04,
-                        "repeat": false,
-                        "pivot": {
-                            "x": 24,
-                            "y": 24
-                        },
-                        "frames": [
-                            0,
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8,
-                            9,
-                            10,
-                            11
-                        ]
-                    },
+                "name": "EXPLOSION_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/heat.png",
+                    "width": 48,
+                    "height": 48,
+                    "xCount": 6
+                },
+                "time": 0.04,
+                "repeat": false,
+                "pivot": {
+                    "x": 24,
+                    "y": 24
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ]
+            },
             {
-                        "name": "BIG_BALL",
-                        "sheet": {
-                            "src": "media\/entity\/effects\/heat.png",
-                            "width": 32,
-                            "height": 32,
-                            "offX": 288,
-                            "offY": 32
-                        },
-                        "time": 0.04,
-                        "repeat": true,
-                        "frames": [
-                            0,
-                            1,
-                            2,
-                            1
-                        ]
-                    },
+                "name": "BIG_BALL",
+                "sheet": {
+                    "src": "media\/entity\/effects\/heat.png",
+                    "width": 32,
+                    "height": 32,
+                    "offX": 288,
+                    "offY": 32
+                },
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    1
+                ]
+            },
             {
-                        "name": "FIRE_BALL_FLY",
-                        "sheet": {
-                            "src": "media\/entity\/effects\/heat.png",
-                            "width": 16,
-                            "height": 32,
-                            "offX": 368,
-                            "xCount": 8
-                        },
-                        "time": 0.04,
-                        "repeat": true,
-                        "pivot": {
-                            "x": 8,
-                            "y": 8
-                        },
-                        "frames": [
-                            0,
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6
-                        ],
-                        "flipY": true
-                    },
+                "name": "FIRE_BALL_FLY",
+                "sheet": {
+                    "src": "media\/entity\/effects\/heat.png",
+                    "width": 16,
+                    "height": 32,
+                    "offX": 368,
+                    "xCount": 8
+                },
+                "time": 0.04,
+                "repeat": true,
+                "pivot": {
+                    "x": 8,
+                    "y": 8
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "flipY": true
+            },
             {
                 "name": "BIGFIRE",
                 "sheet": {
@@ -181,6 +200,23 @@
                 "sheet": {
                     "src": "media\/entity\/effects\/lighter-particle-big.png",
                     "offX": 96,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "COLD_WAVE_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 288,
                     "offY": 0,
                     "width": 96,
                     "height": 96
@@ -1171,7 +1207,176 @@
         ]
     },
     "EFFECTS": {
-        "smallSweep": [
+        "NearRing": [
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.02,
+                    "start": {
+                        "value": 0.2,
+                        "time": 2.5,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.02,
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.63,
+                        "y": 1.63
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 5,
+                "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 5,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "EvilFracture": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": -152,
+                    "z": 0
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.1,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.4,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.107,
+                        "y": 0.107
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.428,
+                            "y": 0.428
+                        },
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 0.9,
+                "anim": "SANDWHIRL",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": -152,
+                    "z": 0
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.7,
+                        "time": 0.5,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.5,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.428,
+                        "y": 0.428
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.107,
+                            "y": 0.107
+                        },
+                        "spline": "EASE_IN"
+                    }
+                },
+                "moveWithTarget": 0.5,
+                "particleDuration": 3,
+                "cancelable": true,
+                "anim": "SANDWHIRL",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 1,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": -152,
+                    "z": 0
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.1,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.4,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.107,
+                        "y": 0.107
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.428,
+                            "y": 0.428
+                        },
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 0.9,
+                "anim": "SANDWHIRL",
+                "type": "PLAY_ANIM"
+            }
+        ],
+        "Mawaru": [
             {
                 "size": "XL",
                 "fadeIn": 0,
@@ -1198,6 +1403,12 @@
                     "y": 0,
                     "z": 0
                 },
+                "pScale": {
+                    "init": {
+                        "x": 0.4,
+                        "y": 0.4
+                    }
+                },
                 "moveDist": 0,
                 "keySpline": "EASE",
                 "collision": false,
@@ -1211,12 +1422,12 @@
                 "keepAngleSync": false,
                 "offset": {
                     "x": 0,
-                    "y": 30,
-                    "z": 28
+                    "y": 0,
+                    "z": 0
                 },
                 "rotOffset": {
                     "x": 0,
-                    "y": -8,
+                    "y": 0,
                     "z": 0
                 },
                 "pAlpha": {
@@ -1368,7 +1579,6 @@
                 "anim": "SMALL_BALL",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
-            
             {
                 "volume": 1,
                 "global": false,
@@ -1483,7 +1693,6 @@
                         "spline": "JUMPY"
                     }
                 },
-                
                 "moveWithTarget": 1,
                 "anim": "SWEEP_HEAT2",
                 "type": "OFFSET_PARTICLE_CIRCLE"
@@ -1571,7 +1780,6 @@
                         "spline": "JUMPY"
                     }
                 },
-                
                 "moveWithTarget": 1,
                 "anim": "SWEEP_HEAT2",
                 "type": "OFFSET_PARTICLE_CIRCLE"
@@ -1592,11 +1800,11 @@
             }
         ],
         "NightmareReign": [
-{
+            {
                 "volume": 1,
                 "global": false,
                 "loop": false,
-                "sound": "media\/sound\/battle\/airon\/wave\/close-combat-wave-sweep-massive.ogg",
+                "sound": "media\/sound\/carn\/nr.ogg",
                 "type": "PLAY_SOUND"
             },
             {
@@ -1718,9 +1926,6 @@
                 "anim": "SMALL_BALL",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
-            
-
-
             {
                 "numParticles": 1,
                 "duration": 1,
@@ -1846,6 +2051,10 @@
                 "particleDuration": 1,
                 "anim": "HEAT_WAVE_BIG",
                 "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.33,
+                "type": "WAIT"
             }
         ],
         "Decapitate": [
@@ -1853,7 +2062,7 @@
                 "volume": 1,
                 "global": false,
                 "loop": false,
-                "sound": "media\/sound\/battle\/airon\/wave\/close-combat-wave-sweep-massive.ogg",
+                "sound": "media\/sound\/carn\/decap.ogg",
                 "type": "PLAY_SOUND"
             },
             {
