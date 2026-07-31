@@ -776,7 +776,7 @@
                         "element": "COLD",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1,
+                        "damageFactor": 0.8,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -7576,7 +7576,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "playerHack",
+                        "proxy": "z3Hack",
                         "offset": {
                             "x": 0,
                             "y": 0,
