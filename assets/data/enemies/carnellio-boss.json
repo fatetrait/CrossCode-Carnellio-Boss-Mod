@@ -214,6 +214,16 @@
                     "req": [
                         {
                             "negated": false,
+                            "type": "VAR_CONDITION",
+                            "condition": "tmp.continueCombo"
+                        }
+                    ],
+                    "action": "ExecuteCombo"
+                },
+                {
+                    "req": [
+                        {
+                            "negated": false,
                             "type": "ENTERED_STATE"
                         }
                     ],
@@ -274,6 +284,16 @@
                 "KILL_HIT"
             ],
             "choices": [
+                {
+                    "req": [
+                        {
+                            "negated": false,
+                            "type": "VAR_CONDITION",
+                            "condition": "tmp.continueCombo"
+                        }
+                    ],
+                    "action": "ExecuteCombo"
+                },
                 {
                     "req": [
                         {
@@ -387,6 +407,16 @@
                 "KILL_HIT"
             ],
             "choices": [
+                {
+                    "req": [
+                        {
+                            "negated": false,
+                            "type": "VAR_CONDITION",
+                            "condition": "tmp.continueCombo"
+                        }
+                    ],
+                    "action": "ExecuteCombo"
+                },
                 {
                     "req": [
                         {
@@ -1509,7 +1539,7 @@
                             "value": false
                         },
                         {
-                            "duration": 1.5,
+                            "duration": 0.5,
                             "align": "BOTTOM",
                             "rotateFace": 0,
                             "flipLeftFace": false,
@@ -1533,6 +1563,26 @@
                             "type": "WAIT"
                         },
                         {
+                            "duration": 0.7,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.carnfx",
+                                "name": "Romeida"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
                             "align": "BOTTOM",
                             "radius": 60,
                             "yScale": 0,
@@ -1553,7 +1603,7 @@
                             "attack": {
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
-                                "element": "SHOCK",
+                                "element": "HEAT",
                                 "damageFactor": 3,
                                 "reverse": false,
                                 "spFactor": 0,
@@ -1568,7 +1618,7 @@
                             }
                         },
                         {
-                            "time": 0.08,
+                            "time": 0.5,
                             "type": "WAIT"
                         },
                         {
@@ -5717,7 +5767,7 @@
             "breakType": "COMBATANT",
             "action": [
                 {
-                    "time": 2,
+                    "time": 1,
                     "type": "WAIT"
                 },
                 {
@@ -5753,7 +5803,7 @@
                     "actionDetached": false,
                     "hideOutsideOfScreen": false,
                     "type": "SHOW_AR_MSG",
-                    "time": 3
+                    "time": 1
                 },
                 {
                     "duration": 2,
@@ -5784,7 +5834,7 @@
                     "type": "MOVE_TO_DISTANCE"
                 },
                 {
-                    "time": 3,
+                    "time": 1,
                     "type": "WAIT"
                 },
                 {
@@ -6922,7 +6972,7 @@
                     "target": "TARGET",
                     "timeScale": 1,
                     "logicTimeScale": 1,
-                    "moveXYScale": 0.6,
+                    "moveXYScale": 0.8434,
                     "type": "ADD_TEMP_INFLUENCE"
                 },
                 {
@@ -7639,7 +7689,7 @@
                 "shield": {
                     "type": "PARTS",
                     "settings": {
-                        "baseFactor": 0.5,
+                        "baseFactor": 0.2,
                         "parts": [],
                         "inverse": true
                     }
@@ -7762,15 +7812,28 @@
         ],
         "ExecuteCombo": [
             {
-                "sticking": false,
-                "group": "summon",
-                "type": "REMOVE_PROXIES"
+                "withElse": false,
+                "type": "IF",
+                "condition": "!tmp.continueCombo",
+                "thenStep": [
+                    {
+                        "sticking": false,
+                        "group": "summon",
+                        "type": "REMOVE_PROXIES"
+                    },
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.exeIndex",
+                        "value": 0
+                    }
+                ]
             },
             {
                 "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.exeIndex",
-                "value": 0
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.continueCombo",
+                "value": false
             },
             {
                 "value": 2,
@@ -7821,10 +7884,38 @@
                 "type": "SET_ACCEL_SPEED"
             },
             {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AdvanceAndDoSigil"
             },
             {
-                "withElse": true,
+                "followUp": "meleeEndRev",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinShortRev"
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.exeIndex < tmp.sigilCount && !tmp.continueCombo",
+                "thenStep": [
+                    {
+                        "name": "executeAction",
+                        "type": "GOTO_LABEL"
+                    }
+                ]
+            },
+            {
+                "type": "CLEAR_HIT_PROXY"
+            },
+            {
+                "type": "SET_ENEMY_STATE",
+                "enemyState": "DEFAULT"
+            }
+        ],
+        "AdvanceAndDoSigil": [
+            {
+                "withElse": false,
                 "type": "IF",
                 "condition": "tmp.exeIndex < tmp.sigilCount",
                 "thenStep": [
@@ -7854,754 +7945,7 @@
                         ]
                     },
                     {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 1",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil1"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 2",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil2"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 3",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil3"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 4",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil4"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 5",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil5"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 6",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil6"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 7",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil7"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 8",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil8"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 9",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil9"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 10",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil10"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 11",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil11"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 12",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil12"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 13",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil13"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 14",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil14"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 15",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil15"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 16",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil16"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 17",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil17"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 18",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil18"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 19",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil19"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 20",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil20"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 21",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil21"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 22",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil22"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 23",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil23"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 24",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil24"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 25",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil25"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 26",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil26"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 27",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil27"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 28",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil28"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 29",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil29"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 30",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil30"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 31",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil31"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 32",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil32"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 33",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil33"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 34",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil34"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 35",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil35"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 36",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil36"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 37",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil37"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 38",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil38"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 39",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil39"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 40",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil40"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 41",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil41"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 42",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil42"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 43",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil43"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 44",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil44"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 45",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil45"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 46",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil46"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 47",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil47"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 48",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil48"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 49",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil49"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "withElse": false,
-                        "type": "IF",
-                        "condition": "tmp.exeIndex == 50",
-                        "thenStep": [
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.currentExe",
-                                "value": {
-                                    "varName": "tmp.sigil50"
-                                }
-                            }
-                        ]
+                        "type": "SET_CURRENT_EXE_SIGIL"
                     },
                     {
                         "withElse": false,
@@ -8883,21 +8227,12 @@
                         "value": 1
                     },
                     {
-                        "type": "CLEAR_HIT_PROXY"
-                    },
-                    {
-                        "name": "executeAction",
-                        "type": "GOTO_LABEL"
-                    }
-                ],
-                "elseStep": []
-            },
-            {
-                "type": "CLEAR_HIT_PROXY"
-            },
-            {
-                "type": "SET_ENEMY_STATE",
-                "enemyState": "DEFAULT"
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_BOOL",
+                                "varName": "tmp.continueCombo",
+                                "value": true
+                            }
+                ]
             }
         ],
         "DEBUG2": [
@@ -9369,7 +8704,8 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
             }
         ],
@@ -9472,7 +8808,8 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
             }
         ],
@@ -9602,18 +8939,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase2F": [
@@ -9788,18 +9116,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase3F": [
@@ -10034,18 +9353,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase4F": [
@@ -10488,18 +9798,25 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
+            }
+        ],
+        "FuneralDEBUG": [
+            {
+                "name": "p5Initial",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             },
             {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
+                "name": "alwaysFuneral",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             },
             {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "Phase5F"
             }
         ],
         "Phase5F": [
@@ -10613,7 +9930,7 @@
                     {
                         "withElse": true,
                         "type": "IF",
-                        "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
+                        "condition": "entity.attrib.alwaysFuneral || (!entity.attrib.funeral && entity.hpBreak >= 5)",
                         "thenStep": [
                             {
                                 "changeType": "set",
@@ -11368,7 +10685,7 @@
                                     "varName": "tmp.sigilDrawTime"
                                 }
                             },
-                                                        {
+                            {
                                 "name": "funeral",
                                 "type": "SET_ATTRIB_BOOL",
                                 "value": true
@@ -11423,18 +10740,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase1N": [
@@ -11563,18 +10871,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase2N": [
@@ -11749,18 +11048,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase3N": [
@@ -12027,18 +11317,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase4N": [
@@ -12475,18 +11756,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "Phase5N": [
@@ -12499,7 +11771,6 @@
                 "type": "IF",
                 "condition": "!entity.attrib.p5Initial",
                 "thenStep": [
-                    
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
@@ -12603,7 +11874,6 @@
                         "type": "IF",
                         "condition": "!entity.attrib.funeral && entity.hpBreak >= 5",
                         "thenStep": [
-                            
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
@@ -13486,18 +12756,9 @@
                 "type": "WAIT"
             },
             {
-                "type": "DO_ENEMY_ACTION_INLINE",
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
                 "actionName": "ExecuteCombo"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "followUp": "meleeEndRev",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShortRev"
             }
         ],
         "RingOfFire": [
@@ -14419,80 +13680,6 @@
             {
                 "time": 0.05,
                 "type": "WAIT"
-            }
-        ],
-        "P1F_FATE_COMBOS": [
-            {
-                "value": 0,
-                "type": "SET_SPEED"
-            },
-            {
-                "time": 0.5,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "SweepingSeize"
-            },
-            {
-                "value": 400,
-                "type": "SET_SPEED"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "CalamityTrigger"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "RingOfFire"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "IndigoStrike"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "IndigoRush"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "TyrantRevolver"
-            },
-            {
-                "time": 0.2,
-                "type": "WAIT"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "Decapitate"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "EtherSnipe"
             }
         ],
         "ShadowFlame": [
@@ -15626,13 +14813,6 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "factor": 0.8,
-                "time": 1,
-                "keepEntityStatic": false,
-                "inversAccelerate": true,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "element": "HEAT",
                 "level": 3,
                 "type": "COMBAT_ART_CHARGE"
@@ -15661,11 +14841,6 @@
                 "time": 1.2,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
-            },
-            {
-                "time": 0.2,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "time": 0.2,
@@ -17225,22 +16400,6 @@
                 }
             },
             {
-                "duration": 0,
-                "align": "CENTER",
-                "rotateFace": 0,
-                "flipLeftFace": false,
-                "wait": false,
-                "waitSkip": 0,
-                "actionDetached": false,
-                "fixPos": false,
-                "type": "SHOW_EFFECT",
-                "target": "TARGET",
-                "effect": {
-                    "sheet": "specials.carnfx",
-                    "name": "riposteStartText"
-                }
-            },
-            {
                 "duration": 3,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -17355,11 +16514,6 @@
                                 "group": "aura",
                                 "ignoreSelf": false,
                                 "type": "REMOVE_PROXIES"
-                            },
-                            {
-                                "name": "slowDownWeak",
-                                "type": "SET_ATTRIB_BOOL",
-                                "value": true
                             }
                         ],
                         "elseStep": [
@@ -17372,11 +16526,6 @@
                                     }
                                 ],
                                 "thenStep": []
-                            },
-                            {
-                                "name": "slowDownWeak",
-                                "type": "SET_ATTRIB_BOOL",
-                                "value": false
                             },
                             {
                                 "sticking": false,

@@ -30,6 +30,18 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       ig.vars.set("tmp.pShieldCheck", ig.vars.storage.playerVar.input.perfectShield);
     }
   });
+
+  ig.ACTION_STEP.SET_CURRENT_EXE_SIGIL = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+    },
+    start: function (a) {
+      ig.vars.set("tmp.currentExe", ig.vars.storage.tmp["sigil"+ig.vars.storage.tmp.exeIndex]);
+    }
+  });
 });
 
 ig.module("impact.feature.navigation.navigation-steps.carn").requires("impact.feature.navigation.navigation", "impact.base.action", "impact.base.event").defines(function () {
@@ -461,6 +473,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       attributes: {}
     }),
     getAverageStat: function(a, d) {
+      
       for (var a = a > 99 ? 99 : a, c = b.length; c--;) {
         var e =
           b[c];
@@ -488,7 +501,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     adaptParams: function(a, b, c) {
       var e = this.getFactor(b, c, "base"),
         a = ig.copy(a);
-      console.log(a, "a.attack: " + a.attack + ", e: " + e);
+      //console.log(a, "a.attack: " + a.attack + ", e: " + e);
       a.attack = Math.round(a.attack || a.baseParams.attack * e).limit(1, 999);
       a.defense = Math.round(a.defense || a.baseParams.defense * e).limit(1, 999);
       a.focus = Math.round(a.focus || a.baseParams.focus * e).limit(1, 999);
@@ -521,12 +534,12 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     init: function (a) { },
     start: function (a) {
       let newLevel = ig.Event.getExpressionValue(sc.model.player.getParamAvgLevel(4));
-      console.log("INITIALIZE_CARN: newLevel: " + newLevel, a);
+      //console.log("INITIALIZE_CARN: newLevel: " + newLevel, a);
       if (newLevel > 45) {
         //let oldHp = a.params.baseParams.hp - 1;
         newLevel = newLevel ** 0.99;
         a.level.overrideCarn = 1 * newLevel;
-        console.log("overrideCarn: " + a.level.overrideCarn, a);
+        //console.log("overrideCarn: " + a.level.overrideCarn, a);
         //a.setLevelOverride();
         this.updateParams(a);
         //a.level = Number.parseInt(newLevel);

@@ -3,6 +3,30 @@
     "ANIMS": {
         "SUB": [
             {
+                        "name": "FLAME3",
+                        "sheet": {
+                            "src": "media\/entity\/effects\/heat.png",
+                            "offX": 0,
+                            "offY": 272,
+                            "width": 24,
+                            "height": 24
+                        },
+                        "guiSprites": true,
+                        "time": 0.04,
+                        "repeat": false,
+                        "frames": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    },
+            {
                 "name": "SANDWHIRL",
                 "size": {
                     "x": 304,
@@ -1207,6 +1231,41 @@
         ]
     },
     "EFFECTS": {
+        "Romeida": [
+            {
+                "volume": 1.2,
+                "global": false,
+                "loop": false,
+                "sound": "media\/sound\/battle\/airon\/fire-generic-attack-1.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 20,
+                "duration": 0.15,
+                "centralAngle": 1,
+                "startDist": 32,
+                "moveDist": 30,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "time": 0.05,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 0,
+                "anim": "FLAME3",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            }
+        ],
         "NearRing": [
             {
                 "type": "LOOP_START"
@@ -2481,9 +2540,6 @@
                 "particleDuration": -1,
                 "anim": "GUARD_NEUTRAL",
                 "type": "PLAY_FACE_ANIM"
-            },
-            {
-                "type": "LOOP_START"
             },
             {
                 "time": 0.6,
