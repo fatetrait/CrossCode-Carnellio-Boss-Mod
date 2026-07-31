@@ -7986,17 +7986,6 @@
                         }
                     },
                     {
-                        "align": "CENTER",
-                        "posType": "TARGET",
-                        "type": "SHOOT_PROXY",
-                        "proxy": "z3Hack",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
                         "name": "buffGiven",
                         "type": "SET_ATTRIB_BOOL",
                         "value": true
