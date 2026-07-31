@@ -1,0 +1,81 @@
+[
+    {
+        "type": "ENTER",
+        "index": "items"
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320001,
+            "customItem": "berzerker-memory",
+            "name": {
+                "en_US": "Berzerker Memory"
+            },
+            "description": {
+                "en_US": "(WIP) Awarded for defeating Carnollo"
+            },
+            "type": "TRADE",
+            "rarity": 3,
+            "cost": 400000,
+            "level": 1,
+            "icon": "item-trade",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320002,
+            "customItem": "draconic-memory",
+            "name": {
+                "en_US": "Draconic Memory"
+            },
+            "description": {
+                "en_US": "(WIP) Awarded for defeating unfair versions of Carnollo"
+            },
+            "type": "TRADE",
+            "rarity": 3,
+            "cost": 800000,
+            "level": 1,
+            "icon": "item-trade",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "EXIT"
+    }
+]

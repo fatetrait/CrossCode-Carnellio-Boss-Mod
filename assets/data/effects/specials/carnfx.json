@@ -3,6 +3,34 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "SHOCK_SWEEP",
+                "pivot": {
+                    "x": 48,
+                    "y": 28
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/shock.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 64,
+                    "height": 56
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.016,
+                "repeat": false,
+                "tileOffset": 0,
+                "frames": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ]
+            },
+            {
                         "name": "FLAME3",
                         "sheet": {
                             "src": "media\/entity\/effects\/heat.png",
@@ -652,6 +680,19 @@
                     0
                 ],
                 "renderMode": "source-over"
+            },
+            {
+                "name": "supernova",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/supernova.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
             }
         ]
     },
@@ -1231,6 +1272,44 @@
         ]
     },
     "EFFECTS": {
+        "Supernova": [
+            {
+                "numParticles": 200,
+                "duration": 0.6,
+                "centralAngle": 5.5,
+                "startAngle": -0.5,
+                "startDist": 90,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "volume": 0.6,
+                "global": false,
+                "loop": false,
+                "speed": 1.2,
+                "sound": "media\/sound\/battle\/dash-strong-1.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "volume": 0.4,
+                "global": false,
+                "loop": false,
+                "variance": 0.1,
+                "speed": 0.9,
+                "sound": "media\/sound\/puzzle\/shock-snap.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "time": 1,
+                "type": "WAIT"
+            }
+        ],
         "Romeida": [
             {
                 "volume": 1.2,
@@ -3522,6 +3601,45 @@
                 "particleDuration": 2,
                 "cancelable": true,
                 "anim": "wf",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "supernovaSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "supernova",
                 "type": "PLAY_ANIM"
             },
             {

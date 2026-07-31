@@ -120,6 +120,15 @@ ig.module("impact.feature.navigation.navigation-steps.carn").requires("impact.fe
 
 
 ig.module("game.feature.player.player-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.player.player-config", "game.feature.combat.model.combat-params", "impact.feature.camera.camera", "game.feature.combat.entities.food-icon", "game.feature.party.party").defines(function () {
+  ig.ACTION_STEP.FORCE_START_S_RANK = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function() {},
+    start: function() {
+      sc.model.forceStartSRank()
+    }
+  });
   ig.ACTION_STEP.ADD_ELEMENT_LOAD = ig.ActionStepBase.extend({
     value: null,
     _wm: new ig.Config({
@@ -351,12 +360,13 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     start: function (a) {
       var b = a;
       if (!b) return true;
-      var comb = b.combo || b.combatant.combo;
-      if (!b || !comb || !comb.hitCombatants) return true;
-      for (var c = 0; c < comb.hitCombatants.length; c++) {
-        var m = comb.hitCombatants[c];
-        m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.itemBlockTimer ? b.itemBlockTimer += this.time : null;
-      }
+      b.itemBlockTimer += this.time
+      // var comb = b.combo || b.combatant.combo;
+      // if (!b || !comb || !comb.hitCombatants) return true;
+      // for (var c = 0; c < comb.hitCombatants.length; c++) {
+      //   var m = comb.hitCombatants[c];
+      //   m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.itemBlockTimer ? b.itemBlockTimer += this.time : null;
+      // }
     },
   });
 
@@ -504,7 +514,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       //console.log(a, "a.attack: " + a.attack + ", e: " + e);
       a.attack = Math.round(a.attack || a.baseParams.attack * e).limit(1, 999);
       a.defense = Math.round(a.defense || a.baseParams.defense * e).limit(1, 999);
-      a.focus = Math.round(a.focus || a.baseParams.focus * e).limit(1, 999);
+      a.focus = 1
       return a
     },
     updateParams: function(a) {

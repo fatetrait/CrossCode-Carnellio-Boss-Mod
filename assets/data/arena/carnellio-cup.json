@@ -2,7 +2,7 @@
     "core": {
         "type": "SOLO_CUSTOM",
         "name": {
-            "en_US": "Carnellio Cup"
+            "en_US": "Carnollo Cup"
         },
         "info": {
             "en_US": "Carnellio SBBF."
@@ -15,17 +15,17 @@
         "level": 40,
         "difficulty": "5",
         "banner": {
-            "src": "media\/gui\/arena-banners.png",
+            "src": "media\/gui\/carn-banner.png",
             "offX": 0,
-            "offY": 64,
-            "width": 280,
+            "offY": 0,
+            "width": 64,
             "height": 64
         }
     },
     "rounds": [
         {
             "name": {
-                "en_US": "Carnellio (Faithful)"
+                "en_US": "Carnollo (Faithful)"
             },
             "customCode": true,
             "camFocus": "CAM_FOCUS",

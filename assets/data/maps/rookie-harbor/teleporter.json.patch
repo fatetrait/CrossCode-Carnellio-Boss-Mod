@@ -1,0 +1,158 @@
+[
+  {
+    "type": "ENTER",
+    "index": "entities"
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "type": "NPC",
+      "x": 840,
+      "y": 688,
+      "level": 2,
+      "settings": {
+        "mapId": 706,
+        "npcStates": [
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH",
+            "action": [],
+            "hidden": false,
+            "config": "normal",
+            "event": {
+              "quest": [
+                {
+                  "person": {
+                    "person": "antagonists.fancyguy",
+                    "expression": "PONDERING"
+                  },
+                  "type": "ADD_MSG_PERSON",
+                  "side": "LEFT"
+                },
+                {
+                  "person": {
+                    "person": "main.lea",
+                    "expression": "DEFAULT"
+                  },
+                  "type": "ADD_MSG_PERSON",
+                  "side": "RIGHT"
+                },
+                {
+                  "person": {
+                    "person": "antagonists.fancyguy",
+                    "expression": "SHOUTING"
+                  },
+                  "message": {
+                    "en_US": "SBBF \\c[3]Carnellio\\c[0]?"
+                  },
+                  "type": "SHOW_MSG"
+                },
+                {
+                  "0": [
+                    {
+                      "person": {
+                        "person": "main.lea",
+                        "expression": "NOD"
+                      },
+                      "message": {
+                        "en_US": "[nods]"
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "person": {
+                        "person": "antagonists.fancyguy",
+                        "expression": "LECTURING"
+                      },
+                      "message": {
+                        "en_US": "Please \\c[2]save\\c[0] your game before the fight."
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "person": {
+                        "person": "antagonists.fancyguy",
+                        "expression": "POINTING"
+                      },
+                      "message": {
+                        "en_US": "The teleporter will \\c[1]lock your auto-save\\c[0] in the arena."
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "person": {
+                        "person": "antagonists.fancyguy",
+                        "expression": "CONTENT"
+                      },
+                      "message": {
+                        "en_US": "Youre funeral"
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "map": "carn-lobby",
+                      "marker": "start",
+                      "type": "TELEPORT"
+                    }
+                  ],
+                  "1": [
+                    {
+                      "person": {
+                        "person": "main.lea",
+                        "expression": "SHAKE"
+                      },
+                      "message": {
+                        "en_US": "[shakes head]"
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "person": {
+                        "person": "antagonists.fancyguy",
+                        "expression": "DOWN"
+                      },
+                      "message": {
+                        "en_US": "what gg"
+                      },
+                      "type": "SHOW_MSG"
+                    }
+                  ],
+                  "type": "SHOW_CHOICE",
+                  "person": {
+                    "person": "main.lea",
+                    "expression": "DEFAULT"
+                  },
+                  "options": [
+                    {
+                      "0": " ",
+                      "label": {
+                        "en_US": "[Yes]"
+                      }
+                    },
+                    {
+                      "0": " ",
+                      "label": {
+                        "en_US": "[No]"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "characterName": "antagonists.fancyguy",
+        "analyzable": {
+          "text": {
+            "en_US": "Linked (real)"
+          },
+          "active": ""
+        },
+        "name": "Linked"
+      }
+    }
+  },
+  {
+    "type": "EXIT"
+  }
+]
