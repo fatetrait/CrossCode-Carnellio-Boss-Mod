@@ -127,8 +127,8 @@
         }
     ],
     "size": {
-        "x": 24,
-        "y": 24,
+        "x": 12,
+        "y": 12,
         "z": 16
     },
     "anims": "carnanims",
@@ -986,6 +986,13 @@
                 {
                     "time": 1,
                     "type": "WAIT"
+                },
+                {
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                    "time": 0.4,
+                    "type": "WAIT"
                 }
             ],
             "invisible": false,
@@ -1271,6 +1278,9 @@
                         }
                     ],
                     "elseStep": [
+                        {
+                            "type": "CLEAR_EFFECTS"
+                        },
                         {
                             "duration": -1,
                             "align": "CENTER",
@@ -3137,7 +3147,11 @@
                 {
                     "time": 0.2,
                     "type": "WAIT"
-                }
+                },
+                {
+                            "type": "CLEAR_EFFECTS"
+                        }
+                
             ],
             "invisible": false,
             "hp": 0,
@@ -4789,7 +4803,14 @@
                     "min": 0,
                     "max": 0,
                     "maxTime": 1.6
-                }
+                },
+                {
+                    "time": 2,
+                    "type": "WAIT"
+                },
+                {
+                            "type": "CLEAR_EFFECTS"
+                        }
             ],
             "invisible": false,
             "hp": 0,
@@ -7576,7 +7597,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "z3Hack",
+                        "proxy": "playerHack",
                         "offset": {
                             "x": 0,
                             "y": 0,
@@ -16723,7 +16744,7 @@
                     "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 11,
+                    "status": 3,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
@@ -16807,7 +16828,7 @@
                     "fly": "MASSIVE++",
                     "reverse": false,
                     "spFactor": 0,
-                    "status": 11,
+                    "status": 3,
                     "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
