@@ -15,8 +15,8 @@
                 "en_US": "(WIP) Awarded for defeating Carnollo"
             },
             "type": "TRADE",
-            "rarity": 3,
-            "cost": 400000,
+            "rarity": 2,
+            "cost": 10000,
             "level": 1,
             "icon": "item-trade",
             "effect": {
@@ -52,7 +52,79 @@
             },
             "type": "TRADE",
             "rarity": 3,
-            "cost": 800000,
+            "cost": 10000,
+            "level": 1,
+            "icon": "item-trade",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320003,
+            "customItem": "draconic-circuit",
+            "name": {
+                "en_US": "Black Magic Circuit"
+            },
+            "description": {
+                "en_US": "(WIP) Unlocks Draconic for Lea"
+            },
+            "type": "TRADE",
+            "rarity": 3,
+            "cost": 5000,
+            "level": 1,
+            "icon": "item-trade",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320004,
+            "customItem": "bum-admission",
+            "name": {
+                "en_US": "Im a bum"
+            },
+            "description": {
+                "en_US": "Unlock Draconic for free. However, you are a bum."
+            },
+            "type": "TRADE",
+            "rarity": 1,
+            "cost": 1,
             "level": 1,
             "icon": "item-trade",
             "effect": {

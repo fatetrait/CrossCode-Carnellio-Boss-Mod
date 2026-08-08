@@ -602,3 +602,129 @@ ig.module("game.feature.combat.entities.hit-number.carn").requires("impact.base.
       })
     };
 })
+
+ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", "impact.base.event", "impact.base.action").defines(function() {
+ig.EVENT_STEP.CHANGE_VAR_NUMBER_CARN = ig.EventStepBase.extend({
+    varName: null,
+    changeType: null,
+    value: 0,
+    _wm: new ig.Config({
+      attributes: {
+        varName: {
+          _type: "VarName",
+          _info: "Variable to change"
+        },
+        changeType: {
+          _type: "String",
+          _info: "Type of modification",
+          _select: {
+            set: 1,
+            add: 1,
+            sub: 1,
+            mul: 1,
+            div: 1,
+            mod: 1
+          }
+        },
+        value: {
+          _type: "NumberExpression",
+          _info: "Value to modify with"
+        },
+        map: {
+          _type: "Maps",
+          _info: "Change Var from within this map. Will replace map. prefix",
+          _context: "Map",
+          _optional: true
+        }
+      }
+    }),
+    init: function(a) {
+      assertContent(a, "varName", "changeType",
+        "value");
+      this.varName = a.varName;
+      this.changeType = a.changeType;
+      this.value = a.value;
+      this.map = a.map
+    },
+    start: function() {
+      var a = ig.Event.getVarName(this.varName);
+      if (this.map) {
+        a.startsWith("map.") && (a = a.substr(4));
+        a = "maps." + this.map.toPath("", "").toCamel() + "." + a
+      }
+      var b = ig.Event.getExpressionValue(this.value);
+      ig.carnAddedValues = ig.carnAddedValues || [];
+      ig.carnAddedValues.push(a);
+      if (a) {
+        b = b * 1;
+        if (isNaN(b)) ig.log("CHANGE_VAR_NUMBER: Invalid value!");
+        else if (this.changeType == "add"){ 
+          ig[a] = (ig[a] || 0) + b;
+        } else if (this.changeType == "sub") {
+          ig[a] = (ig[a] || 0) - b;
+        } else if (this.changeType == "mul") {
+          ig[a] = (ig[a] || 0) * b;
+        } else if (this.changeType == "set") {
+          ig[a] = b;
+        }
+        else ig.log("CHANGE_VAR_NUMBER: Invalid change type")
+      } else ig.log("CHANGE_VAR_NUMBER: Variable Name is not a String!")
+    }
+  });
+
+
+  ig.EVENT_STEP.RESET_VAR_NUMBER_CARN = ig.EventStepBase.extend({
+    varName: null,
+    changeType: null,
+    value: 0,
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function(a) {
+    },
+    start: function() {
+      if (ig.carnAddedValues) {
+        for (var i = 0; i < ig.carnAddedValues.length; i++) {
+          var a = ig.carnAddedValues[i];
+          if (a) {
+            ig.vars.storage.tmp[a] = ig[a];
+            ig[a] = 0;
+          }
+        }
+        ig.carnAddedValues = [];
+      }
+    }
+  });
+
+  ig.EVENT_STEP.PAYOUT_CARN = ig.EventStepBase.extend({
+    varName: null,
+    changeType: null,
+    value: 0,
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function(a) {
+    },
+    start: function(a, b) {
+      this.entity = {
+          "player": true
+      }
+      if (ig.berzRewards) {
+        let item = "berzerker-memory"
+        let amount = ig.berzRewards;
+        var c = ig.Event.getEntity(this.entity, b);
+        sc.ItemDropEntity.spawnDrops(c, ig.ENTITY_ALIGN.CENTER, ig.game.playerEntity, item, amount, sc.ITEM_DROP_TYPE.EVENT_PROP)
+      }
+      if (ig.dracRewards) {
+        let item = "draconic-memory"
+        let amount = ig.dracRewards;
+        var c = ig.Event.getEntity(this.entity, b);
+        sc.ItemDropEntity.spawnDrops(c, ig.ENTITY_ALIGN.CENTER, ig.game.playerEntity, item, amount, sc.ITEM_DROP_TYPE.EVENT_PROP)
+      }
+      ig.berzRewards = 0;
+      ig.dracRewards = 0;
+    }
+  });
+})

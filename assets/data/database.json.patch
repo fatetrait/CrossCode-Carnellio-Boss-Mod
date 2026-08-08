@@ -1,0 +1,13 @@
+[
+    {
+        "type": "ENTER",
+        "index": "traders"
+    },
+    {
+        "type": "IMPORT",
+        "src": "mod:patches/data/database/traders.json"
+    },
+    {
+        "type": "EXIT"
+    }
+]

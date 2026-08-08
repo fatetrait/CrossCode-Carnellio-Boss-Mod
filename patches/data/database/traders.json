@@ -1,0 +1,72 @@
+{
+    "carnFrags": {
+        "name": {
+            "en_US": "Carnollo Fragments",
+            "langUid": 5143
+        },
+        "order": 0,
+        "options": [
+            {
+                "get": [
+                    {
+                        "id": "draconic-memory",
+                        "amount": 1
+                    }
+                ],
+                "require": [
+                    {
+                        "id": "berzerker-memory",
+                        "amount": 5
+                    }
+                ],
+                "scale": 1
+            },
+            {
+                "get": [
+                    {
+                        "id": "draconic-circuit",
+                        "amount": 1
+                    }
+                ],
+                "require": [
+                    {
+                        "id": "draconic-memory",
+                        "amount": 55
+                    },
+                    {
+                        "id": "berzerker-memory",
+                        "amount": 40
+                    }
+                ],
+                "scale": 1
+            },
+            {
+                "get": [
+                    {
+                        "id": "draconic-circuit",
+                        "amount": 1
+                    }
+                ],
+                "require": [
+                    {
+                        "id": "bum-admission",
+                        "amount": 1
+                    }
+                ],
+                "scale": 1
+            },
+            {
+                "get": [
+                    {
+                        "id": "bum-admission",
+                        "amount": 99
+                    }
+                ],
+                "require": [
+                ],
+                "scale": 1
+            }
+        ],
+        "area": "bergen"
+    }
+}

@@ -65,17 +65,29 @@
                         "expression": "LECTURING"
                       },
                       "message": {
-                        "en_US": "Please \\c[2]save\\c[0] your game before the fight."
+                        "en_US": "Do not be alarmed, but your \\c[1]auto-save will be set\\c[0] in the arena."
                       },
+                      
                       "type": "SHOW_MSG"
                     },
+                    
                     {
                       "person": {
                         "person": "antagonists.fancyguy",
                         "expression": "POINTING"
                       },
                       "message": {
-                        "en_US": "The teleporter will \\c[1]lock your auto-save\\c[0] in the arena."
+                        "en_US": "You may exit at any point by dying and \\c[2]entering the teleporter\\c[0] behind the boss (or by winning)"
+                      },
+                      "type": "SHOW_MSG"
+                    },
+                    {
+                      "person": {
+                        "person": "antagonists.fancyguy",
+                        "expression": "SHOUTING"
+                      },
+                      "message": {
+                        "en_US": "When you \\c[2]escape\\c[0] you will \\c[2]claim your pending rewards!\\c[0]"
                       },
                       "type": "SHOW_MSG"
                     },

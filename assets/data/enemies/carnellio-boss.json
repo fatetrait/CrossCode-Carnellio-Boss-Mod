@@ -7181,6 +7181,42 @@
             },
             "type": "GENERIC"
         },
+        "destroyEscape": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "type": "WAIT",
+                    "time": 5,
+                    "ignoreSlowDown": true
+                },
+                {
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "map.escapePossible",
+                    "changeType": "set",
+                    "value": false
+                }
+            ],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
         "aggroRing": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -7876,11 +7912,11 @@
             {
                 "withElse": false,
                 "type": "IF",
-                "condition": "open-world.isGwas",
+                "condition": "global.isGwas",
                 "thenStep": [
                     {
                         "type": "CHANGE_VAR_BOOL",
-                        "varName": "open-world.isGwas",
+                        "varName": "global.isGwas",
                         "changeType": "set",
                         "value": false
                     },
@@ -7978,7 +8014,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "playerHack",
+                        "proxy": "z3Hack",
                         "offset": {
                             "x": 0,
                             "y": 0,
@@ -7989,6 +8025,17 @@
                         "name": "buffGiven",
                         "type": "SET_ATTRIB_BOOL",
                         "value": true
+                    },
+                    {
+                        "align": "CENTER",
+                        "posType": "TARGET",
+                        "type": "SHOOT_PROXY",
+                        "proxy": "destroyEscape",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
                     }
                 ]
             },

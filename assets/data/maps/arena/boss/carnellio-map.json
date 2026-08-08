@@ -173,8 +173,15 @@
                         "marker": "start"
                     },
                     {
+                        "type": "RESET_VAR_NUMBER_CARN"
+                    },
+                    {
                         "value": false,
                         "type": "SET_FORCE_COMBAT"
+                    },
+                    {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
                     }
                 ],
                 "triggerType": "ONCE_PER_ENTRY",
@@ -227,8 +234,8 @@
                         "type": "DO_ACTION"
                     },
                     {
-                        "withElse": false,
                         "type": "IF",
+                        "withElse": false,
                         "condition": "!arena.isRush",
                         "thenStep": [
                             {
@@ -327,12 +334,12 @@
                         "time": 1
                     },
                     {
-                        "withElse": false,
                         "type": "IF",
+                        "withElse": false,
                         "condition": "!arena.isRush",
                         "thenStep": [
                             {
-                                "bgm": "challenge2",
+                                "bgm": "apolloTheme",
                                 "volume": 1,
                                 "mode": "IMMEDIATELY",
                                 "type": "PUSH_BGM"
@@ -362,6 +369,12 @@
                             "name": "Carnellio"
                         },
                         "type": "ADD_PLAYER_CAMERA_TARGET"
+                    },
+                    {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.escapePossible",
+                        "changeType": "set",
+                        "value": true
                     }
                 ],
                 "triggerType": "ONCE_PER_ENTRY",
@@ -374,35 +387,37 @@
             "y": 1232,
             "level": 1,
             "settings": {
-                "name": "fatalHowlActivate",
+                "name": "removeEscape",
                 "eventType": "PARALLEL",
                 "endCondition": "false",
                 "event": [
                     {
-                        "changeType": "set",
                         "type": "CHANGE_VAR_BOOL",
-                        "varName": "tmp.fatalHowlUsed",
+                        "varName": "map.escapePossible",
+                        "changeType": "set",
+                        "value": true
+                    },
+                    {
+                        "type": "WAIT",
+                        "time": 5,
+                        "ignoreSlowDown": true
+                    },
+                    {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.escapePossible",
+                        "changeType": "set",
                         "value": false
                     },
                     {
-                        "message": {
-                            "en_US": "I've had enough of this..."
-                        },
-                        "type": "SHOW_SIDE_MSG",
-                        "person": {
-                            "person": "antagonists.fancyguy",
-                            "expression": "RAGING"
-                        }
-                    },
-                    {
-                        "ignoreSlowDown": true,
-                        "type": "WAIT",
-                        "time": 2
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "map.matchStarted",
+                        "changeType": "set",
+                        "value": false
                     }
                 ],
                 "triggerType": "ALWAYS",
                 "mapId": 41,
-                "startCondition": "tmp.fatalHowlUsed"
+                "startCondition": "map.matchStarted"
             }
         },
         {
@@ -598,6 +613,55 @@
                         }
                     },
                     {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "bgm": "intro",
+                        "volume": 2,
+                        "mode": "IMMEDIATELY",
+                        "type": "PUSH_BGM"
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "global.isGwas || tmp.isGwas",
+                        "thenStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "berzerker-memory",
+                                "amount": 2,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "berzRewards",
+                                "value": 1
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "berzerker-memory",
+                                "amount": 1,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "berzRewards",
+                                "value": 1
+                            }
+                        ]
+                    },
+                    {
                         "ignoreSlowDown": true,
                         "type": "WAIT",
                         "time": 2
@@ -623,6 +687,55 @@
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.p3Reach",
                         "value": false
+                    },
+                    {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "bgm": "fieldBattle",
+                        "volume": 1.1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PUSH_BGM"
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "global.isGwas || tmp.isGwas",
+                        "thenStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 1,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 1
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "berzerker-memory",
+                                "amount": 3,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "berzRewards",
+                                "value": 3
+                            }
+                        ]
                     },
                     {
                         "message": {
@@ -675,6 +788,70 @@
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.p4Reach",
                         "value": false
+                    },
+                    {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "global.isGwas || tmp.isGwas",
+                        "thenStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 6,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 6
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 2,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 2
+                            },
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "berzerker-memory",
+                                "amount": 4,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "berzRewards",
+                                "value": 4
+                            }
+                        ]
+                    },
+                    {
+                        "bgm": "godBoss",
+                        "volume": 1.4,
+                        "mode": "IMMEDIATELY",
+                        "type": "PUSH_BGM"
                     },
                     {
                         "message": {
@@ -759,6 +936,55 @@
                         "value": false
                     },
                     {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "global.isGwas || tmp.isGwas",
+                        "thenStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 12,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 12
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 6,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 6
+                            }
+                        ]
+                    },
+                    {
+                        "bgm": "s-rank",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PUSH_BGM"
+                    },
+                    {
                         "message": {
                             "en_US": "That's it."
                         },
@@ -826,6 +1052,45 @@
                         "value": false
                     },
                     {
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "global.isGwas || tmp.isGwas",
+                        "thenStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "draconic-memory",
+                                "amount": 4,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "dracRewards",
+                                "value": 4
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "entity": {
+                                    "global": true,
+                                    "name": "Carnellio"
+                                },
+                                "item": "berzerker-memory",
+                                "amount": 15,
+                                "type": "DROP_ITEM_ENTITY"
+                            },
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER_CARN",
+                                "varName": "berzRewards",
+                                "value": 15
+                            }
+                        ]
+                    },
+                    {
                         "message": {
                             "en_US": "Your funeral..."
                         },
@@ -847,9 +1112,58 @@
             }
         },
         {
+            "type": "TeleportField",
+            "x": 944,
+            "y": 357,
+            "level": 0,
+            "settings": {
+                "central": {
+                    "global": true,
+                    "name": "carnLobby"
+                },
+                "dir": "SOUTH",
+                "map": "carn-lobby",
+                "spawnCondition": "map.escapePossible",
+                "teleportLabel": {
+                    "en_US": "Escape",
+                    "de_DE": "",
+                    "ja_JP": "",
+                    "ko_KR": "",
+                    "zh_CN": "",
+                    "zh_TW": ""
+                },
+                "longTelCond": "false",
+                "blockEvent": [
+                    {
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "value": false,
+                        "type": "SET_FORCE_COMBAT"
+                    },
+                    {
+                        "type": "TELEPORT",
+                        "map": "carn-lobby",
+                        "marker": "start"
+                    },
+                    {
+                        "type": "PAYOUT_CARN"
+                    },
+                    {
+                        "type": "RESET_VAR_NUMBER_CARN"
+                    }
+                ],
+                "gfxType": "SOLID",
+                "mapId": 62,
+                "name": "carnEscape",
+                "marker": "start"
+            }
+        },
+        {
             "type": "WallHorizontal",
             "x": 480,
-            "y": 960,
+            "y": 950,
             "level": 0,
             "settings": {
                 "name": "",
@@ -13091,66 +13405,66 @@
                     0,
                     0,
                     0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
                     0,
                     0,
                     0,
@@ -13214,64 +13528,64 @@
                     0,
                     0,
                     2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
-                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
                     2,
                     0,
                     0,
