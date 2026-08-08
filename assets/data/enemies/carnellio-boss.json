@@ -8014,7 +8014,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "z3Hack",
+                        "proxy": "playerHack",
                         "offset": {
                             "x": 0,
                             "y": 0,
@@ -8299,6 +8299,21 @@
             {
                 "kind": "PLAYER",
                 "type": "SET_TEMP_TARGET"
+            },
+            {
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "conditions": [
+                    {
+                        "type": "NEED_NEW_TARGET"
+                    }
+                ],
+                "thenStep": [
+                    {
+                        "kind": "PLAYER",
+                        "type": "SET_TEMP_TARGET"
+                    }
+                ]
             },
             {
                 "name": "executeAction",
