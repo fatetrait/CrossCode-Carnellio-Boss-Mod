@@ -103,7 +103,15 @@
             "prob": 1,
             "min": 40,
             "max": 40,
+            "condition": "!tmp.isGwas",
             "item": "berzerker-memory"
+        },
+        {
+            "prob": 1,
+            "min": 1,
+            "max": 1,
+            "condition": "!tmp.isGwas",
+            "item": "carn-badge-base"
         },
         {
             "prob": 1,
@@ -112,6 +120,20 @@
             "item": "draconic-memory",
             "condition": "tmp.isGwas",
             "rank": "S"
+        },
+        {
+            "prob": 1,
+            "min": 1,
+            "max": 1,
+            "item": "carn-badge-gwas",
+            "condition": "tmp.isGwas",
+            "rank": "S"
+        },
+        {
+            "prob": 1,
+            "min": 1,
+            "max": 1,
+            "item": "draconic-circuit"
         }
     ],
     "targetDetect": {
@@ -8708,6 +8730,47 @@
                         "value": true
                     }
                 ]
+            }
+        ],
+        "DEBUG3": [
+            {
+                "text": {
+                    "en_US": "FATE COMBOS."
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": false,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": 2
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            },
+            {
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AnchorThrow"
+            },
+            {
+                "value": 180,
+                "type": "SET_SPEED"
+            },
+            {
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AnchorThrow"
+            },
+            {
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AnchorThrow"
+            },
+            {
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AnchorRetrieve"
             }
         ],
         "DEBUG2": [
@@ -21110,6 +21173,80 @@
                 "name": "decapHit",
                 "type": "SET_ATTRIB_BOOL",
                 "value": false
+            }
+        ],
+        "AnchorThrow": [
+            {
+                "text": {
+                    "en_US": "ANCHOR THROW."
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": false,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": 1
+            },
+            {
+                "align": "BOTTOM",
+                "dir": {
+                    "x": 0,
+                    "y": 1
+                },
+                "pushVel": 600,
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "duration": 1,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SPAWN_ENEMIES",
+                "count": 1,
+                "enemyInfo": {
+                    "group": "",
+                    "party": "",
+                    "face": null,
+                    "type": "reality_anchor",
+                    "attribs": {
+                        "hidden": false
+                    }
+                }
+            },
+            {
+                "time": 1,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }
+        ],
+        "AnchorRetrieve": [
+            {
+                "text": {
+                    "en_US": "ANCHOR RETRIEVE."
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": false,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": 1
+            },
+            {
+                "enemyType": "reality_anchor",
+                "noRumble": true,
+                "type": "KILL_ENEMIES"
+            },
+            {
+                "time": 0.3,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "Decapitate"
             }
         ],
         "SweepingSeize": [

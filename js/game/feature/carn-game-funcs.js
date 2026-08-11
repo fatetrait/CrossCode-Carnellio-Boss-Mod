@@ -543,9 +543,11 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     },
     init: function (a) { },
     start: function (a) {
+
+
       let newLevel = ig.Event.getExpressionValue(sc.model.player.getParamAvgLevel(4));
       //console.log("INITIALIZE_CARN: newLevel: " + newLevel, a);
-      if (newLevel > 45) {
+      if (newLevel > 45 && !sc.newgame.get("scale-enemies")) {
         //let oldHp = a.params.baseParams.hp - 1;
         newLevel = newLevel ** 0.99;
         a.level.overrideCarn = 1 * newLevel;

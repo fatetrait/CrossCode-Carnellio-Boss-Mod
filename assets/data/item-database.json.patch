@@ -90,7 +90,7 @@
             "rarity": 3,
             "cost": 5000,
             "level": 1,
-            "icon": "item-trade",
+            "icon": "item-key",
             "effect": {
                 "sheet": "",
                 "name": null
@@ -127,6 +127,114 @@
             "cost": 1,
             "level": 1,
             "icon": "item-trade",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320005,
+            "customItem": "carn-badge-base",
+            "name": {
+                "en_US": "Badge: Black Magic"
+            },
+            "description": {
+                "en_US": "Proof that you defeated Carnollo. Congratulations!"
+            },
+            "type": "TRADE",
+            "rarity": 1,
+            "cost": 1,
+            "level": 1,
+            "icon": "item-key",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320006,
+            "customItem": "carn-badge-gwas",
+            "name": {
+                "en_US": "Badge: Gwas Combos"
+            },
+            "description": {
+                "en_US": "Proof that you defeated Gwas Combos Carnollo. HOW?!?!"
+            },
+            "type": "TRADE",
+            "rarity": 1,
+            "cost": 1,
+            "level": 1,
+            "icon": "item-key",
+            "effect": {
+                "sheet": "",
+                "name": null
+            },
+            "noTrack": true,
+            "sources": [
+                {
+                    "type": "OTHER",
+                    "value": {
+                        "icon": "ENEMY",
+                        "text": {
+                            "en_US": "Carnollo (Challenges)"
+                        },
+                        "type": "ENEMY",
+                        "value": "hedgehog"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "ADD_ARRAY_ELEMENT",
+        "content": {
+            "order": 4320007,
+            "customItem": "carn-badge-fate",
+            "name": {
+                "en_US": "Badge: Fate Combos"
+            },
+            "description": {
+                "en_US": "Proof that you defeated Fate Combos Carnollo. YOU MUST BE CHEATING!!!!"
+            },
+            "type": "TRADE",
+            "rarity": 1,
+            "cost": 1,
+            "level": 1,
+            "icon": "item-key",
             "effect": {
                 "sheet": "",
                 "name": null
