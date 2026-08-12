@@ -6,9 +6,9 @@
         "defense": 220,
         "focus": 0,
         "elemFactor": [
-            1.10,
-            1.05,
-            1.05,
+            1.12,
+            0.95,
+            1.20,
             1.05
         ],
         "statusInflict": [
@@ -24,8 +24,8 @@
             0.15
         ]
     },
-    "ballFactor": 0.65,
-    "damageFactor": 1,
+    "ballFactor": 0.82,
+    "damageFactor": 0.83,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
@@ -33,9 +33,9 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.10,
-                1.05,
-                1.05,
+                1.12,
+                0.95,
+                1.20,
                 1.05
             ]
         },
@@ -45,9 +45,9 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.10,
-                1.05,
-                1.05,
+                1.12,
+                0.95,
+                1.20,
                 1.05
             ]
         },
@@ -57,9 +57,9 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.10,
-                1.05,
-                1.05,
+                1.12,
+                0.95,
+                1.20,
                 1.05
             ]
         },
@@ -69,9 +69,9 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.10,
-                1.05,
-                1.05,
+                1.12,
+                0.95,
+                1.20,
                 1.05
             ]
         }
@@ -164,8 +164,8 @@
         }
     ],
     "size": {
-        "x": 1,
-        "y": 1,
+        "x": 16,
+        "y": 16,
         "z": 16
     },
     "anims": "carnanims",
@@ -23771,8 +23771,8 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 1,
-                    "fly": "MASSIVE++",
+                    "damageFactor": 0.8,
+                    "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
@@ -23855,8 +23855,8 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 1,
-                    "fly": "MASSIVE++",
+                    "damageFactor": 0.8,
+                    "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
