@@ -1385,6 +1385,10 @@
             }
         ],
         "EvilFracture": [
+            
+            {
+                "type": "LOOP_START"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -1419,13 +1423,11 @@
                         "spline": "EASE_OUT"
                     }
                 },
+                "numParticles": 2,
                 "moveWithTarget": 1,
                 "particleDuration": 0.9,
                 "anim": "SANDWHIRL",
                 "type": "PLAY_ANIM"
-            },
-            {
-                "type": "LOOP_START"
             },
             {
                 "useTargetAngle": false,
@@ -1461,6 +1463,7 @@
                         "spline": "EASE_IN"
                     }
                 },
+                "numParticles": 2,
                 "moveWithTarget": 0.5,
                 "particleDuration": 3,
                 "cancelable": true,
@@ -1468,7 +1471,7 @@
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 1,
+                "time": 0.1,
                 "type": "WAIT"
             },
             {
@@ -1508,6 +1511,7 @@
                         "spline": "EASE_OUT"
                     }
                 },
+                "numParticles": 2,
                 "moveWithTarget": 1,
                 "particleDuration": 0.9,
                 "anim": "SANDWHIRL",

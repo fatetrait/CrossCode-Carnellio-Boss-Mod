@@ -14,8 +14,10 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     },
     start: function (a) {
       var b = a.getTarget();
+      //console.log("CONSUME_SP_TARGET: " + this.sp, a, b);
       if (!b) return true;
-      b.params.consumeSp(this.sp)
+      if(b.params.consumeSp) return b.params.consumeSp(this.sp)
+      b.model && b.model.params && b.model.params.consumeSp && b.model.params.consumeSp(this.sp)
     }
   });
 
@@ -143,16 +145,21 @@ ig.module("game.feature.player.player-steps.carn").requires("impact.base.animati
       this.value = a.value || 0
     },
     start: function (a) {
+      
       //console.log("ADD_ELEMENT_LOAD: " + this.value, a);
-      var b = a;
-      //console.log("b: ", b);
-      if (!b) return true;
-      var comb = b.combo || b.combatant.combo;
-      if (!b || !comb || !comb.hitCombatants) return true;
-      for (var c = 0; c < comb.hitCombatants.length; c++) {
-        var m = comb.hitCombatants[c];
-        m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.addElementLoad(this.value)
-      }
+
+      var b = a.getTarget();
+      if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
+      sc.model.player.addElementLoad(this.value)
+      // var b = a;
+      // //console.log("b: ", b);
+      // if (!b) return true;
+      // var comb = b.combo || b.combatant.combo;
+      // if (!b || !comb || !comb.hitCombatants) return true;
+      // for (var c = 0; c < comb.hitCombatants.length; c++) {
+      //   var m = comb.hitCombatants[c];
+      //   m && (m.name == "Lea" || m.animSheet.cacheKey == "player") && sc.model.player.addElementLoad(this.value)
+      // }
     }
   });
 })
@@ -292,6 +299,21 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     }
   });
 
+  ig.ACTION_STEP.SET_TEMP_TARGET_GUARDED_ALL = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function() {
+    },
+    start: function(a) {
+      let x = a.combo.guardedEntity;
+      if (x && (x.isBall || !x.animSheet || !x.animSheet.cacheKey)) {
+        x = x.attackInfo.attackerParams.combatant;
+      }
+      a.tmpTarget = x;
+    }
+  });
   ig.ACTION_STEP.SAVE_TARGET = ig.ActionStepBase.extend({
     _wm: new ig.Config({
       attributes: {}
@@ -309,18 +331,28 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     init: function (a) { },
     start: function (a) {
       if (ig.vars.storage.tmp.savedTarget) {
-        //var updatedTarget = sc.combat.activeCombatants[1].find(c => c.animSheet.cacheKey == ig.vars.storage.tmp.savedTarget.animSheet.cacheKey);
-        //if (updatedTarget && !updatedTarget.isDefeated()) {
-          // a.setTarget(updatedTarget);
-          // a.tmpTarget = updatedTarget;
-        //}
-          a.setTarget(ig.vars.storage.tmp.savedTarget);
-          a.tmpTarget = ig.vars.storage.tmp.savedTarget;
+        var updatedTarget = sc.combat.activeCombatants[1].find(c => c.animSheet.cacheKey == ig.vars.storage.tmp.savedTarget.animSheet.cacheKey);
+        if (updatedTarget && !updatedTarget.isDefeated()) {
+          a.setTarget(updatedTarget);
+          a.tmpTarget = updatedTarget;
+        }
+         // a.setTarget(ig.vars.storage.tmp.savedTarget);
+          //a.tmpTarget = ig.vars.storage.tmp.savedTarget;
       }
     }
   });
 
-  var tempTarg = null;
+  ig.ACTION_STEP.ACTUALIZE_TARGET = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function () { },
+    start: function (a) {
+      //console.log("ACTUAL WAS CLALLED");
+      a.tmpTarget && a.setTarget(a.tmpTarget);
+    }
+  });
+
   sc.COMBAT_CONDITION.NEED_NEW_TARGET = ig.Class.extend({
     _wm: new ig.Config({
       attributes: {}
@@ -328,8 +360,10 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     init: function () { },
     check: function (a) {
       //return false;
-      tempTarg = a.getTarget();
-      return (!tempTarg || tempTarg.params.defeated)
+      let tempTarg = a.getTarget();
+      let returner = (!tempTarg || tempTarg.params.defeated);
+      //console.log(returner, a, tempTarg)
+      return returner
     }
   });
 
@@ -341,6 +375,16 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     start: function (a) {
       a.combo.hitCombatants = [];
       a.combo.guardedHits = 0;
+    }
+  });
+
+  ig.ACTION_STEP.CARN_DEBUG = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function () { },
+    start: function (a) {
+      console.log("WAS CLALLED");
     }
   });
 
@@ -358,9 +402,19 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       this.time = a.time;
     },
     start: function (a) {
-      var b = a;
-      if (!b) return true;
-      b.itemBlockTimer += this.time
+
+
+      var b = a.getTarget();
+      // console.log("BLOCK CONSUME: " + this.sp, a, b);
+      if( b && b.model && b.model.healing) b.model.healing.cooldown += this.time
+      if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
+       sc.model.player.itemBlockTimer += this.time
+      
+
+
+      // var b = a;
+      // if (!b) return true;
+      // b.itemBlockTimer += this.time
       // var comb = b.combo || b.combatant.combo;
       // if (!b || !comb || !comb.hitCombatants) return true;
       // for (var c = 0; c < comb.hitCombatants.length; c++) {
@@ -512,14 +566,14 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       var e = this.getFactor(b, c, "base"),
         a = ig.copy(a);
       //console.log(a, "a.attack: " + a.attack + ", e: " + e);
-      a.attack = Math.round(a.attack || a.baseParams.attack * e).limit(1, 999);
-      a.defense = Math.round(a.defense || a.baseParams.defense * e).limit(1, 999);
+      a.attack = Math.round(a.attack || a.baseParams.attack * e);
+      a.defense = Math.round(a.defense || a.baseParams.defense * e);
       a.focus = 1
       return a
     },
     updateParams: function(a) {
       var b = a.params;
-      a.level.overrideCarn && (b = this.adaptParams(a.params, a.level, a.level.overrideCarn));
+      a.level.overrideCarn && (b = this.adaptParams(a.params, 40, a.level.overrideCarn));
       if (a.elementModes) {
         var c = [];
         c[sc.ELEMENT.NEUTRAL] = ig.copy(b);
@@ -549,11 +603,12 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       //console.log("INITIALIZE_CARN: newLevel: " + newLevel, a);
       if (newLevel > 45 && !sc.newgame.get("scale-enemies")) {
         //let oldHp = a.params.baseParams.hp - 1;
-        newLevel = newLevel ** 0.99;
+        newLevel = newLevel / 1.04;
         a.level.overrideCarn = 1 * newLevel;
         //console.log("overrideCarn: " + a.level.overrideCarn, a);
         //a.setLevelOverride();
         this.updateParams(a);
+        a.level.override = 1 * newLevel;
         //a.level = Number.parseInt(newLevel);
         a.params.tmpElemFactor = a.params.baseParams.elemFactor;
         a.params.tmpStatusInflict = a.params.baseParams.statusInflict;
@@ -729,4 +784,16 @@ ig.EVENT_STEP.CHANGE_VAR_NUMBER_CARN = ig.EventStepBase.extend({
       ig.dracRewards = 0;
     }
   });
+})
+
+
+ig.module("game.feature.party.entities.party-member-entity.carn").requires("game.feature.player.entities.player-base").defines(function() {
+sc.PartyMemberEntity.inject({
+  getDodgeProbability: function(a) {
+      var b = 0.5;
+      (a = a.getCombatant()) && (b = sc.EnemyAnno.getUnderstandFactor(a, this, 1));
+      a = sc.party.getStrategy("BEHAVIOUR");
+      return ((1 - b) * a.dodgeMin + b * a.dodgeMax) * (ig.vars.storage.tmp.isCarn ? 0.3 : 1)
+    },
+  })
 })

@@ -1112,6 +1112,29 @@
             }
         },
         {
+            "type": "Enemy",
+            "x": 940,
+            "y": 560,
+            "level": 1,
+            "settings": {
+                "name": "Carnellio",
+                "manualKill": "tmp.bossDefeated",
+                "mapId": 1,
+                "enemyInfo": {
+                    "group": "",
+                    "party": "",
+                    "state": "INITIAL_BALANCE",
+                    "targetOnSpawn": false,
+                    "level": 0,
+                    "type": "carnellio-boss",
+                    "attribs": {
+                        "summon": ""
+                    }
+                },
+                "spawnCondition": ""
+            }
+        },
+        {
             "type": "TeleportField",
             "x": 944,
             "y": 357,
@@ -1176,7 +1199,8 @@
                 "condition": null,
                 "collType": "BLOCK",
                 "wallZHeight": 128,
-                "mapId": 4
+                "mapId": 4,
+                "skipRender": true
             }
         },
         {
@@ -1195,7 +1219,8 @@
                 "condition": null,
                 "collType": "BLOCK",
                 "wallZHeight": 192,
-                "mapId": 4
+                "mapId": 4,
+                "skipRender": false
             }
         },
         {
@@ -1214,7 +1239,8 @@
                 "condition": null,
                 "collType": "BLOCK",
                 "wallZHeight": 192,
-                "mapId": 3
+                "mapId": 3,
+                "skipRender": false
             }
         },
         {
@@ -1233,30 +1259,8 @@
                 "condition": null,
                 "collType": "BLOCK",
                 "wallZHeight": 192,
-                "mapId": 3
-            }
-        },
-        {
-            "type": "Enemy",
-            "x": 940,
-            "y": 560,
-            "level": 1,
-            "settings": {
-                "name": "Carnellio",
-                "manualKill": "tmp.bossDefeated",
-                "mapId": 1,
-                "enemyInfo": {
-                    "group": "",
-                    "party": "",
-                    "state": "INITIAL_BALANCE",
-                    "targetOnSpawn": false,
-                    "level": 0,
-                    "type": "carnellio-boss",
-                    "attribs": {
-                        "summon": ""
-                    }
-                },
-                "spawnCondition": ""
+                "mapId": 3,
+                "skipRender": false
             }
         }
     ],

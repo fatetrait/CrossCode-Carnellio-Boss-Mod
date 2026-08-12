@@ -164,8 +164,8 @@
         }
     ],
     "size": {
-        "x": 12,
-        "y": 12,
+        "x": 1,
+        "y": 1,
         "z": 16
     },
     "anims": "carnanims",
@@ -247,6 +247,16 @@
                 "KILL_HIT"
             ],
             "choices": [
+                 {
+                    "req": [
+                        {
+                            "negated": false,
+                            "type": "VAR_CONDITION",
+                            "condition": "false"
+                        }
+                    ],
+                    "action": "DEBUG2"
+                },
                 {
                     "req": [
                         {
@@ -1088,8 +1098,8 @@
                         "visualType": "LIGHT",
                         "element": "HEAT",
                         "type": "MASSIVE",
-                        "fly": "MASSIVE",
-                        "damageFactor": 0.3,
+                        "fly": "MASSIVE++",
+                        "damageFactor": 0.7,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -1303,6 +1313,7 @@
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
+                
                 {
                     "align": "CENTER",
                     "posType": "TARGET",
@@ -1371,10 +1382,6 @@
                     "type": "SET_BOUNCINESS"
                 },
                 {
-                    "kind": "PLAYER",
-                    "type": "SET_TEMP_TARGET"
-                },
-                {
                     "value": false,
                     "immediately": true,
                     "type": "FACE_TO_TARGET"
@@ -1423,7 +1430,7 @@
                             "value": false
                         },
                         {
-                            "kind": "PLAYER",
+                            "kind": "ENEMY_OWNER",
                             "type": "SET_TEMP_TARGET"
                         },
                         {
@@ -1854,7 +1861,7 @@
                             "value": false
                         },
                         {
-                            "duration": 4,
+                            "duration": 7,
                             "align": "BOTTOM",
                             "rotateFace": 0,
                             "flipLeftFace": false,
@@ -1883,6 +1890,21 @@
                                 "y": 0,
                                 "z": 0
                             }
+                        },
+                        {
+                            "strength": "WALK_ESCAPE",
+                            "pull": true,
+                            "radius": 40,
+                            "fadeRadius": 30,
+                            "minRadius": 0,
+                            "zHeight": 32,
+                            "duration": -1,
+                            "effect": {
+                                "sheet": "enemies.jungle",
+                                "name": "catPull"
+                            },
+                            "align": "BOTTOM",
+                            "type": "PUSH_PULL_FORCE"
                         },
                         {
                             "align": "BOTTOM",
@@ -2164,10 +2186,6 @@
                         "y": 0,
                         "z": 0
                     }
-                },
-                {
-                    "kind": "PLAYER",
-                    "type": "SET_TEMP_TARGET"
                 },
                 {
                     "value": false,
@@ -3069,6 +3087,18 @@
                     "type": "ABSORB_DAMAGE"
                 },
                 {
+                    "type": "CONSUME_SP_TARGET",
+                    "sp": 12
+                },
+                {
+                    "value": 100,
+                    "type": "ADD_ELEMENT_LOAD"
+                },
+                {
+                    "time": 60,
+                    "type": "BLOCK_CONSUMABLE_EXTEND"
+                },
+                {
                     "time": 1,
                     "type": "WAIT"
                 }
@@ -3249,7 +3279,7 @@
                     }
                 },
                 {
-                    "kind": "TARGET",
+                    "kind": "ENEMY_OWNER",
                     "type": "SET_TEMP_TARGET"
                 },
                 {
@@ -6169,6 +6199,10 @@
             "breakType": "COMBATANT",
             "action": [
                 {
+                    "kind": "PLAYER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
                     "time": 1,
                     "type": "WAIT"
                 },
@@ -6277,6 +6311,161 @@
                     "param": "attack",
                     "changeType": "set",
                     "value": 100,
+                    "type": "MOD_ACTION_BUFF_PARAM"
+                },
+                {
+                    "target": "TARGET",
+                    "align": "BOTTOM",
+                    "duration": 0.4,
+                    "type": "STICK_TO_TARGET",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": -1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
+        "debugHack": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "kind": "PLAYER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "value": 1,
+                    "type": "SET_AIR_FRICTION"
+                },
+                {
+                    "text": {
+                        "en_US": "Activating z3 hacker panel"
+                    },
+                    "mode": "LINE_FILL",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "min": 0,
+                    "max": 12,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                },
+                {
+                    "text": {
+                        "en_US": "Attack stat multiplied by 300!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 6
+                },
+                {
+                    "volume": 1.5,
+                    "global": false,
+                    "loop": false,
+                    "speed": 0.8,
+                    "type": "PLAY_SOUND",
+                    "sound": "media\/sound\/upgrade\/blow-fast.ogg"
+                },
+                {
+                    "target": "TARGET",
+                    "name": "z3panel",
+                    "hacked": true,
+                    "type": "ADD_ACTION_BUFF",
+                    "stats": [
+                        "HACK"
+                    ]
+                },
+                {
+                    "time": 0.5,
+                    "type": "WAIT"
+                },
+                {
+                    "target": "TARGET",
+                    "name": "z3panel",
+                    "param": "attack",
+                    "changeType": "set",
+                    "value": 300,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -7924,7 +8113,7 @@
                 "type": "WAIT"
             },
             {
-                "kind": "PLAYER",
+                "kind": "CLOSEST_ENEMY",
                 "type": "SET_TEMP_TARGET"
             },
             {
@@ -8062,6 +8251,10 @@
                 ]
             },
             {
+                "kind": "CLOSEST_ENEMY",
+                "type": "SET_TEMP_TARGET"
+            },
+            {
                 "value": "THREAT",
                 "type": "SET_AGGRESSION"
             },
@@ -8100,8 +8293,11 @@
                 "enemyState": "CLOSE"
             },
             {
-                "kind": "PLAYER",
+                "kind": "CLOSEST_ENEMY",
                 "type": "SET_TEMP_TARGET"
+            },
+            {
+                "type": "ACTUALIZE_TARGET"
             }
         ],
         "SetFState": [
@@ -8110,8 +8306,11 @@
                 "enemyState": "DISTANCE"
             },
             {
-                "kind": "PLAYER",
+                "kind": "CLOSEST_ENEMY",
                 "type": "SET_TEMP_TARGET"
+            },
+            {
+                "type": "ACTUALIZE_TARGET"
             }
         ],
         "p2Reach": [
@@ -8293,12 +8492,20 @@
                         "type": "REMOVE_PROXIES"
                     },
                     {
+                        "sticking": false,
+                        "group": "sigils",
+                        "type": "REMOVE_PROXIES"
+                    },
+                    {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.exeIndex",
                         "value": 0
                     }
                 ]
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
             },
             {
                 "changeType": "set",
@@ -8319,8 +8526,8 @@
                 "type": "SET_JUMPING"
             },
             {
-                "kind": "PLAYER",
-                "type": "SET_TEMP_TARGET"
+                "name": "executeAction",
+                "type": "LABEL"
             },
             {
                 "withElse": false,
@@ -8332,18 +8539,13 @@
                 ],
                 "thenStep": [
                     {
-                        "kind": "PLAYER",
+                        "kind": "CLOSEST_ENEMY",
                         "type": "SET_TEMP_TARGET"
+                    },
+                    {
+                        "type": "ACTUALIZE_TARGET"
                     }
                 ]
-            },
-            {
-                "name": "executeAction",
-                "type": "LABEL"
-            },
-            {
-                "kind": "PLAYER",
-                "type": "SET_TEMP_TARGET"
             },
             {
                 "posType": "TARGET",
@@ -8393,6 +8595,10 @@
             },
             {
                 "type": "CLEAR_HIT_PROXY"
+            },
+            {
+                "time": 0.3,
+                "type": "MOVE_FORWARD"
             },
             {
                 "type": "SET_ENEMY_STATE",
@@ -8727,7 +8933,7 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.continueCombo",
-                        "value": true
+                        "value": false
                     }
                 ]
             }
@@ -8790,7 +8996,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 12
+                "value": 7
             },
             {
                 "changeType": "set",
@@ -20610,7 +20816,7 @@
                         }
                     },
                     {
-                        "selectType": "TARGET",
+                        "selectType": "PREVIOUSLY_HIT",
                         "hitDir": "TOWARD",
                         "align": "BOTTOM",
                         "hitCount": 1,
@@ -20820,7 +21026,7 @@
                 "type": "WAIT"
             },
             {
-                "value": 0.18,
+                "value": 0.21,
                 "type": "SET_Z_GRAVITY_FACTOR"
             },
             {
@@ -21067,7 +21273,7 @@
                         "condition": "playerVar.input.perfectShield <= tmp.pShieldCheck",
                         "thenStep": [
                             {
-                                "selectType": "TARGET",
+                                "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
                                 "hitCount": 1,
@@ -21130,23 +21336,11 @@
                                     "y": 0,
                                     "z": 0
                                 }
-                            },
-                            {
-                                "type": "CONSUME_SP_TARGET",
-                                "sp": 12
-                            },
-                            {
-                                "value": 100,
-                                "type": "ADD_ELEMENT_LOAD"
-                            },
-                            {
-                                "time": 60,
-                                "type": "BLOCK_CONSUMABLE_EXTEND"
                             }
                         ],
                         "elseStep": [
                             {
-                                "selectType": "TARGET",
+                                "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
                                 "hitCount": 1,
@@ -21753,11 +21947,7 @@
                                         "type": "SET_SPEED"
                                     },
                                     {
-                                        "kind": "FIRST_HIT",
-                                        "type": "SET_TEMP_TARGET"
-                                    },
-                                    {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -21854,7 +22044,7 @@
                                         "type": "MOVE_TO_DISTANCE"
                                     },
                                     {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -21897,7 +22087,7 @@
                                         }
                                     },
                                     {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -21940,7 +22130,7 @@
                                         }
                                     },
                                     {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -21983,7 +22173,7 @@
                                         }
                                     },
                                     {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -22026,7 +22216,7 @@
                                         }
                                     },
                                     {
-                                        "selectType": "TARGET",
+                                        "selectType": "PREVIOUSLY_HIT",
                                         "hitDir": "TOWARD",
                                         "align": "BOTTOM",
                                         "hitCount": 1,
@@ -22850,10 +23040,6 @@
                         "type": "SET_SPEED"
                     },
                     {
-                        "kind": "FIRST_HIT",
-                        "type": "SET_TEMP_TARGET"
-                    },
-                    {
                         "distance": 32,
                         "speed": 200,
                         "maxTime": 0,
@@ -22895,7 +23081,7 @@
                         }
                     },
                     {
-                        "selectType": "TARGET",
+                        "selectType": "PREVIOUSLY_HIT",
                         "hitDir": "TOWARD",
                         "align": "BOTTOM",
                         "hitCount": 10,
@@ -22915,7 +23101,7 @@
                         }
                     },
                     {
-                        "selectType": "TARGET",
+                        "selectType": "PREVIOUSLY_HIT",
                         "hitDir": "TOWARD",
                         "align": "BOTTOM",
                         "hitCount": 10,
@@ -22944,7 +23130,7 @@
                         "type": "MOVE_TO_DISTANCE"
                     },
                     {
-                        "selectType": "TARGET",
+                        "selectType": "PREVIOUSLY_HIT",
                         "hitDir": "TOWARD",
                         "align": "BOTTOM",
                         "hitCount": 1,
@@ -23010,10 +23196,6 @@
                                 "type": "SET_SPEED"
                             },
                             {
-                                "kind": "FIRST_HIT",
-                                "type": "SET_TEMP_TARGET"
-                            },
-                            {
                                 "distance": 32,
                                 "speed": 200,
                                 "maxTime": 0,
@@ -23055,7 +23237,7 @@
                                 }
                             },
                             {
-                                "selectType": "TARGET",
+                                "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
                                 "hitCount": 10,
@@ -23075,7 +23257,7 @@
                                 }
                             },
                             {
-                                "selectType": "TARGET",
+                                "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
                                 "hitCount": 10,
@@ -23104,7 +23286,7 @@
                                 "type": "MOVE_TO_DISTANCE"
                             },
                             {
-                                "selectType": "TARGET",
+                                "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
                                 "hitCount": 1,
@@ -23397,6 +23579,12 @@
                         ]
                     },
                     {
+                        "type": "SAVE_TARGET"
+                    },
+                    {
+                        "type": "SET_TEMP_TARGET_GUARDED_ALL"
+                    },
+                    {
                         "changeType": "set",
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.riposteHit",
@@ -23425,7 +23613,7 @@
                     {
                         "name": "teleport",
                         "searchType": "FRONT_FACE",
-                        "distance": 50,
+                        "distance": 5,
                         "centralAngle": 0.2,
                         "throwing": false,
                         "type": "SET_ATTRIB_CLOSE_TARGET_POS"
@@ -23487,6 +23675,9 @@
                     {
                         "time": 0.2,
                         "type": "WAIT"
+                    },
+                    {
+                        "type": "LOAD_TARGET"
                     }
                 ]
             }
@@ -24053,7 +24244,7 @@
             },
             {
                 "time": 0.4,
-                "cancelOnHit": true,
+                "cancelOnHit": false,
                 "withBranches": true,
                 "orthoDirFactor": 0,
                 "ignoreLastHit": false,
@@ -24082,10 +24273,6 @@
                     "skillBonus": "MELEE_DMG"
                 },
                 "hit": [
-                    {
-                        "kind": "FIRST_HIT",
-                        "type": "SET_TEMP_TARGET"
-                    },
                     {
                         "duration": 0,
                         "align": "CENTER",
