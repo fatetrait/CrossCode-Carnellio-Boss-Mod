@@ -7,8 +7,13 @@
 		"24": "icon-24.png"
 	},
 	"authors": "fatetraitor",
-	"tags": ["suffering", "boss", "arena", "fun"],
+	"tags": ["boss", "arena", "fun"],
 	"repository": "https://github.com/fatetrait/CrossCode-Carnellio-Boss-Mod",
 	"prestart": "prestart.js",
-	"poststart": "poststart.js"
+	"poststart": "poststart.js",
+	"dependencies": {
+		"ccloader": ">=2.24.0",
+		"crosscode": ">=1.4.0",
+		"item-api": "^0.4.0"
+	}
 }
