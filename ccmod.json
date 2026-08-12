@@ -1,14 +1,14 @@
 {
 	"id": "carn",
 	"title": "Carnellio Mod",
-	"version": "1.0.2",
-	"description": "(BOSS @ROOKIE HARBOR TELEPORTER) Adds a series of highly difficult bosses as a crossover with Skill Based Boss Fights",
+	"version": "0.6.1",
+	"description": "Adds a series of optional, challenging bosses utilizing a unique combo system. Crossover with Skill Based Boss Fights!",
 	"icons": {
 		"24": "icon-24.png"
 	},
 	"authors": "fatetraitor",
 	"tags": ["suffering", "boss", "arena", "fun"],
-	"repository": "",
+	"repository": "https://github.com/fatetrait/CrossCode-Carnellio-Boss-Mod",
 	"prestart": "prestart.js",
 	"poststart": "poststart.js"
 }

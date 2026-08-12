@@ -9,5 +9,16 @@
     },
     {
         "type": "EXIT"
+    },
+    {
+        "type": "ENTER",
+        "index": "commonEvents"
+    },
+       {
+        "type": "INCLUDE",
+        "src": "mod:patches/data/database/extra-commonEvents.json"
+    },
+    {
+        "type": "EXIT"
     }
 ]

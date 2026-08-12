@@ -1,0 +1,53 @@
+[
+  {
+    "type": "SET_KEY",
+    "_comment": "This shows the tip when you exist",
+    "index": "carnollo-unlock",
+    "content": {
+      "frequency": "ALWAYS",
+      "repeat": "ONCE",
+      "condition": "true",
+      "eventType": "CUTSCENE",
+      "overrideSideMessage": false,
+      "event": [
+        { "type": "START_PRIVATE_MSG" },
+        {
+          "person": { "person": "misc.blank", "expression": "GLASS" },
+          "type": "ADD_MSG_PERSON",
+          "side": "LEFT",
+          "name": { "en_US": "Fate Traitor"}
+        },
+        {
+          "person": { "person": "main.lea", "expression": "SURPRISED_TOWARD" },
+          "type": "ADD_MSG_PERSON",
+          "side": "RIGHT"
+        },
+        {
+          "person": { "person": "misc.blank", "expression": "GLASS" },
+          "message": { "en_US": "Thank you for installing the Carnellio mod!" },
+          "type": "SHOW_MSG"
+        },
+        {
+          "person": { "person": "misc.blank", "expression": "GLASS" },
+          "message": { "en_US": "You will find the NPC teleporter to the boss in Rookie Harbor, at the Harbour Waypoint in Beginners Arc!" },
+          "type": "SHOW_MSG"
+        },
+        {
+          "person": { "person": "misc.blank", "expression": "GLASS" },
+          "message": { "en_US": "GOOD LUCK!! Read relevant NPC dialogue for more information!"},
+          "type": "SHOW_MSG"
+        },
+        {
+          "person": { "person": "misc.blank", "expression": "GLASS" },
+          "message": { "en_US": "POST YOUR SOLOS OR ANY QUESTIONS AT https://discord.gg/5xd2e5mHMq"},
+          "type": "SHOW_MSG"
+        },
+        { "type": "REMOVE_MSG_PERSON", "person": "misc.blank" },
+        { "type": "REMOVE_MSG_PERSON", "person": "main.lea" },
+        { "ignoreSlowDown": false, "type": "WAIT", "time": 0.3 }
+      ],
+      "loopCount": 1,
+      "type": { "type": "MAP_ENTERED" }
+    }
+  }
+]
