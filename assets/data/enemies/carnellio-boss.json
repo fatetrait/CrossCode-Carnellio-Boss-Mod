@@ -252,7 +252,7 @@
                         {
                             "negated": false,
                             "type": "VAR_CONDITION",
-                            "condition": "false"
+                            "condition": "true"
                         }
                     ],
                     "action": "DEBUG2"
@@ -7557,7 +7557,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 2.154!"
+                        "en_US": "Attack stat multiplied by 2!"
                     },
                     "mode": "NO_LINE",
                     "color": "RED",
@@ -7592,7 +7592,7 @@
                     "name": "sergeyHax",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 2.154,
+                    "value": 2,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -8996,7 +8996,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 7
+                "value": 16
             },
             {
                 "changeType": "set",
@@ -25362,7 +25362,7 @@
         "descriptions": [
             {
                 "text": {
-                    "en_US": "Former Seeker of the Track of Ancients from another universe, now turned Seeker of the Stone of Apex. Trained and reborn in the likeness of a powerful sorceror. Attacks relentlessly using deadly combos in close-quarters and lethal combos from far away. \n\nImposes the rules of his universe upon you in combat. Still, his amateurish magic leaves a gap for Sergey to assist you in battle. \n\n At the start of combat, the following rules are applied: \n-40% movement speed to player\n10x player damage dealt\n+50% player dash speed\n\n Innately resists 20% of ranged damage",
+                    "en_US": "Former Seeker of the Track of Ancients from another universe, now turned Seeker of the Stone of Apex. Trained and reborn in the likeness of a powerful sorceror. Attacks relentlessly using deadly combos in close-quarters and lethal combos from far away. \n\nImposes the rules of his universe upon you in combat. Still, his amateurish magic leaves a gap for Sergey to assist you in battle. \n\n At the start of combat, the following rules are applied: \n-40% movement speed to player\n8x player damage dealt\n+50% player dash speed\n\n Innately resists 20% of ranged damage",
                     "langUid": 6
                 },
                 "condition": ""

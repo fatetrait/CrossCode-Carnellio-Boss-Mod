@@ -4512,7 +4512,7 @@
                                         "expression": "DEFAULT"
                                     },
                                     "message": {
-                                        "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]10x\\c[0] at the start of the fight"
+                                        "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]8x\\c[0] at the start of the fight"
                                     },
                                     "type": "SHOW_MSG"
                                 },
@@ -4562,7 +4562,7 @@
                                         "expression": "DEFAULT"
                                     },
                                     "message": {
-                                        "en_US": "Carnollo innately \\c[1]resists 35% of ranged damage\\c[0] to encourage risky close-range plays "
+                                        "en_US": "Carnollo innately \\c[1]resists 20% of ranged damage\\c[0] to encourage risky close-range plays "
                                     },
                                     "type": "SHOW_MSG"
                                 }
