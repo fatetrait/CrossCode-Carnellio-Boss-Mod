@@ -779,21 +779,7 @@
                     "value": true,
                     "type": "SET_FACE_FIX"
                 },
-                {
-                    "strength": "WALK_ESCAPE",
-                    "pull": true,
-                    "radius": 200,
-                    "fadeRadius": 40,
-                    "minRadius": 0,
-                    "zHeight": 32,
-                    "duration": -1,
-                    "effect": {
-                        "sheet": "enemies.jungle",
-                        "name": "catPull"
-                    },
-                    "align": "BOTTOM",
-                    "type": "PUSH_PULL_FORCE"
-                },
+                
                 {
                     "name": "loop",
                     "type": "LABEL"
