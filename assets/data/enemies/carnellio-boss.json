@@ -7896,14 +7896,14 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack multiplied by 2 for 15s!"
+                        "en_US": "Attack multiplied by 2!"
                     },
-                    "mode": "NO_FILL",
+                    "mode": "LINE_FILL",
                     "color": "RED",
                     "actionDetached": false,
                     "hideOutsideOfScreen": false,
                     "type": "SHOW_AR_MSG",
-                    "time": 2
+                    "time": 15
                 },
                 {
                     "volume": 1.5,
