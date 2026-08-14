@@ -252,7 +252,7 @@
                         {
                             "negated": false,
                             "type": "VAR_CONDITION",
-                            "condition": "true"
+                            "condition": "false"
                         }
                     ],
                     "action": "DEBUG2"
