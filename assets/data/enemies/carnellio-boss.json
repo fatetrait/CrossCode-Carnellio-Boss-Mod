@@ -7896,14 +7896,14 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 2!"
+                        "en_US": "Attack multiplied by 2 for 15s!"
                     },
-                    "mode": "NO_LINE",
+                    "mode": "NO_FILL",
                     "color": "RED",
                     "actionDetached": false,
                     "hideOutsideOfScreen": false,
                     "type": "SHOW_AR_MSG",
-                    "time": 0
+                    "time": 2
                 },
                 {
                     "volume": 1.5,
@@ -7942,17 +7942,13 @@
                 {
                     "target": "TARGET",
                     "align": "BOTTOM",
-                    "duration": 0.4,
+                    "duration": 15,
                     "type": "STICK_TO_TARGET",
                     "offset": {
                         "x": 0,
                         "y": 0,
                         "z": 0
                     }
-                },
-                {
-                    "time": 15,
-                    "type": "WAIT"
                 },
                 {
                     "group": "fh",
@@ -8225,7 +8221,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "playerHack",
+                        "proxy": "debugHack",
                         "offset": {
                             "x": 0,
                             "y": 0,
