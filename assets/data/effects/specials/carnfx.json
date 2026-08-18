@@ -1375,10 +1375,10 @@
         "Supernova": [
             {
                 "numParticles": 200,
-                "duration": 0.6,
-                "centralAngle": 5.5,
+                "duration": 1.5,
+                "centralAngle": 3,
                 "startAngle": -0.5,
-                "startDist": 90,
+                "startDist": 50,
                 "particleRotate": true,
                 "moveDist": 10,
                 "moveVariance": 2,
@@ -1406,7 +1406,47 @@
                 "type": "PLAY_SOUND"
             },
             {
-                "time": 1,
+                "time": 0.3,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 200,
+                "duration": 1,
+                "centralAngle": 6,
+                "startAngle": -0.5,
+                "startDist": 100,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+            
+                "time": 0.7,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 200,
+                "duration": 0.2,
+                "centralAngle": 10,
+                "startAngle": -0.5,
+                "startDist": 150,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+            
+                "time": 0.3,
                 "type": "WAIT"
             }
         ],
