@@ -364,13 +364,6 @@
                         "type": "DO_ACTION"
                     },
                     {
-                        "entity": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "type": "ADD_PLAYER_CAMERA_TARGET"
-                    },
-                    {
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "map.escapePossible",
                         "changeType": "set",

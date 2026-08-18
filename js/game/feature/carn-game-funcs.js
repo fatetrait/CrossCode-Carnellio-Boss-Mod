@@ -323,6 +323,16 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       !ig.vars.storage.tmp.savedTarget && (ig.vars.storage.tmp.savedTarget = a.getTarget());
     }
   });
+  ig.ACTION_STEP._LOAD_CURRENT_SIGIL = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function () { },
+    start: function (a) {
+      if (ig.vars.storage.tmp.sigilIndex < 0 ) return;
+      ig.vars.storage.tmp.currentSigil = ig.vars.storage.tmp["sigil"+ig.vars.storage.tmp.sigilIndex];
+    }
+  });
 
   ig.ACTION_STEP.LOAD_TARGET = ig.ActionStepBase.extend({
     _wm: new ig.Config({
