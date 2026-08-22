@@ -68,8 +68,6 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
       var c = b.combatant.face;
       if (this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
       Vec2.assign(b.face, c);
-      console.log("saved face: ", ig.vars.storage.tmp.saveFace)
-      console.log("set face: ", b.face)
       return true
     }
   });
@@ -102,7 +100,6 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
     run: function(b) {
       Vec2.assignC(b.coll.accelDir, 0, 0);
       var c = ig.vars.storage.tmp.saveFace;
-      console.log("using saved face: ", c)
       if (this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
       Vec2.assign(b.face, c);
       return true

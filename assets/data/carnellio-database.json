@@ -34,7 +34,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Imposes the rules of his universe upon you in combat:\n\n-40% movement speed \n+50% dash speed\n*200% damage dealt for up to 3 party members (stacks to 8x damage mult in solo!)\nAttacks may weaken you, add overload, drain SP, and increase consumable CD \n12,550,000 HP, Innately resists 30% of ranged damage",
+                        "en_US": "Imposes the rules of his universe upon you in combat:\n\n-40% movement speed \n+50% dash speed\n*181% damage dealt for up to 3 party members (stacks to 6x damage mult in solo!)\nAttacks may weaken you, add overload, drain SP, and increase consumable CD \n12,550,000 HP, Innately resists 30% of ranged damage",
                         "langUid": 6
                     },
                     "condition": ""

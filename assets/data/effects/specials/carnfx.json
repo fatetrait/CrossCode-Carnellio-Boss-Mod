@@ -1832,8 +1832,8 @@
                     },
                     "start": {
                         "value": {
-                            "x": 0.7,
-                            "y": 0.7
+                            "x": 0.9,
+                            "y": 0.9
                         },
                         "time": 0.2,
                         "spline": "EASE_OUT"
@@ -1854,6 +1854,32 @@
                 "type": "PLAY_ANIM"
             },
             {
+                "noLighter": false,
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.8,
+                        "time": 0.1,
+                        "spline": "EASE_IN_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "start": {
+                        "value": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "particleDuration": 1,
+                "type": "COPY_SPRITE"
+            },
+            {
                 "time": 0.2,
                 "type": "WAIT"
             },
@@ -1872,8 +1898,8 @@
                 },
                 "pScale": {
                     "init": {
-                        "x": 0.7,
-                        "y": 0.7
+                        "x": 0.9,
+                        "y": 0.9
                     },
                     "start": {
                         "value": {

@@ -4304,7 +4304,7 @@
                                         "expression": "DEFAULT"
                                     },
                                     "message": {
-                                        "en_US": "Being grabbed by this attack will deal \\c[1]enormous\\c[0] damage and \\c[1]apply every possible debuff\\c[0] at once."
+                                        "en_US": "Being grabbed by this attack will deal \\c[1]enormous\\c[0] damage and \\c[1]halve your max HP for the rest of the fight\\c[0] "
                                     },
                                     "type": "SHOW_MSG"
                                 },
@@ -4512,7 +4512,8 @@
                                         "expression": "DEFAULT"
                                     },
                                     "message": {
-                                        "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]8x\\c[0] at the start of the fight"
+
+                                        "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]6x\\c[0] at the start of the fight"
                                     },
                                     "type": "SHOW_MSG"
                                 },

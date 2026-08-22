@@ -44,7 +44,12 @@
         },
         { "type": "REMOVE_MSG_PERSON", "person": "misc.blank" },
         { "type": "REMOVE_MSG_PERSON", "person": "main.lea" },
-        { "ignoreSlowDown": false, "type": "WAIT", "time": 0.3 }
+        { "ignoreSlowDown": false, "type": "WAIT", "time": 0.3 },
+        {
+            "asSpecial": true,
+            "type": "UNLOCK_ENEMY",
+            "enemy": "carnellio-boss"
+        }
       ],
       "loopCount": 1,
       "type": { "type": "MAP_ENTERED" }

@@ -56,140 +56,6 @@
             }
         },
         {
-            "type": "EventTrigger",
-            "x": 1290,
-            "y": 470,
-            "level": 0,
-            "settings": {
-                "name": "BossKill",
-                "eventType": "CUTSCENE",
-                "endCondition": "false",
-                "event": [
-                    {
-                        "entity": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "FAST",
-                        "transition": "EASE_IN_OUT",
-                        "wait": true,
-                        "waitSkip": 0,
-                        "zoom": 1,
-                        "type": "SET_CAMERA_TARGET"
-                    },
-                    {
-                        "entity": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "type": "REMOVE_PLAYER_CAMERA_TARGET"
-                    },
-                    {
-                        "entity": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "duration": 0,
-                        "align": "CENTER",
-                        "group": "",
-                        "wait": true,
-                        "waitSkip": 0,
-                        "effect": {
-                            "sheet": "enemies.crab-boss",
-                            "name": "dieExplosion"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        },
-                        "type": "SHOW_EFFECT"
-                    },
-                    {
-                        "ignoreSlowDown": false,
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "entity": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "type": "MANUAL_COMBATANT_KILL"
-                    },
-                    {
-                        "ignoreSlowDown": false,
-                        "type": "WAIT",
-                        "time": 0.3
-                    },
-                    {
-                        "color": "BLACK",
-                        "alpha": 0.5,
-                        "time": 1,
-                        "type": "SET_OVERLAY_CORNER"
-                    },
-                    {
-                        "speed": "FAST",
-                        "transition": "EASE_IN_OUT",
-                        "wait": true,
-                        "waitSkip": 0.5,
-                        "type": "RESET_CAMERA"
-                    },
-                    {
-                        "zoomType": "MEDIUM",
-                        "fadeIn": 0.1,
-                        "duration": 0.2,
-                        "fadeOut": 0.5,
-                        "type": "SET_ZOOM_BLUR"
-                    },
-                    {
-                        "entity": {
-                            "player": true
-                        },
-                        "action": [
-                            {
-                                "followUp": "levelUpStand",
-                                "wait": false,
-                                "viaWalkConfig": false,
-                                "type": "SHOW_ANIMATION",
-                                "anim": "levelUpPre"
-                            },
-                            {
-                                "type": "WAIT",
-                                "time": -1
-                            }
-                        ],
-                        "repeating": false,
-                        "wait": false,
-                        "keepState": true,
-                        "immediately": false,
-                        "type": "DO_ACTION"
-                    },
-                    {
-                        "type": "TELEPORT",
-                        "map": "carn-lobby",
-                        "marker": "start"
-                    },
-                    {
-                        "type": "RESET_VAR_NUMBER_CARN"
-                    },
-                    {
-                        "value": false,
-                        "type": "SET_FORCE_COMBAT"
-                    },
-                    {
-                        "mode": "MEDIUM_OUT",
-                        "type": "PAUSE_BGM"
-                    }
-                ],
-                "triggerType": "ONCE_PER_ENTRY",
-                "mapId": 59,
-                "startCondition": "tmp.bossDefeated"
-            }
-        },
-        {
             "type": "Marker",
             "x": 940,
             "y": 830,
@@ -210,6 +76,12 @@
                 "eventType": "CUTSCENE",
                 "endCondition": "false",
                 "event": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.isCarn",
+                        "value": true
+                    },
                     {
                         "entity": {
                             "global": true,
@@ -232,6 +104,11 @@
                         "keepState": false,
                         "immediately": false,
                         "type": "DO_ACTION"
+                    },
+                    {
+                        "asSpecial": true,
+                        "type": "UNLOCK_ENEMY",
+                        "enemy": "carnellio-boss"
                     },
                     {
                         "type": "IF",
@@ -284,20 +161,6 @@
                         "waitSkip": 0.4,
                         "zoom": 1,
                         "type": "SET_CAMERA_POS"
-                    },
-                    {
-                        "value": true,
-                        "type": "SET_FORCE_COMBAT"
-                    },
-                    {
-                        "enemy": {
-                            "global": true,
-                            "name": "Carnellio"
-                        },
-                        "target": {
-                            "player": true
-                        },
-                        "type": "SET_ENEMY_TARGET"
                     },
                     {
                         "ignoreSlowDown": false,
@@ -362,6 +225,20 @@
                         "keepState": false,
                         "immediately": false,
                         "type": "DO_ACTION"
+                    },
+                    {
+                        "winPoints": 5,
+                        "type": "START_PVP_BATTLE",
+                        "enemies": [
+                            {
+                                "global": true,
+                                "name": "Carnellio"
+                            }
+                        ]
+                    },
+                    {
+                        "autoContinue": true,
+                        "type": "PREPARE_PVP_ROUND"
                     },
                     {
                         "type": "CHANGE_VAR_BOOL",
@@ -1151,17 +1028,28 @@
                 "longTelCond": "false",
                 "blockEvent": [
                     {
-                        "mode": "MEDIUM_OUT",
-                        "type": "PAUSE_BGM"
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.isEscaping",
+                        "value": true
                     },
                     {
-                        "value": false,
-                        "type": "SET_FORCE_COMBAT"
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
                     },
                     {
                         "type": "TELEPORT",
                         "map": "carn-lobby",
                         "marker": "start"
+                    },
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.isCarn",
+                        "value": false
+                    },
+                    {
+                        "type": "STOP_PVP_BATTLE"
                     },
                     {
                         "type": "PAYOUT_CARN"
@@ -1254,6 +1142,321 @@
                 "wallZHeight": 192,
                 "mapId": 3,
                 "skipRender": false
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 784,
+            "y": 1100,
+            "level": 1,
+            "settings": {
+                "name": "pvpBrake",
+                "eventType": "PARALLEL",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "withElse": true,
+                        "type": "IF",
+                        "condition": "pvp.lastWinPlayer",
+                        "thenStep": [],
+                        "elseStep": []
+                    },
+                    {
+                        "entity": {
+                            "player": true
+                        },
+                        "action": [
+                            {
+                                "time": -1,
+                                "type": "WAIT"
+                            }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": true,
+                        "immediately": false,
+                        "type": "DO_ACTION"
+                    },
+                    {
+                        "entity": {
+                            "global": true,
+                            "name": "Carnellio"
+                        },
+                        "action": [
+                            {
+                                "type": "SET_ENEMY_STATE",
+                                "enemyState": "BRAKE_RESOLUTION"
+                            },
+                            {
+                                "time": 0,
+                                "type": "WAIT"
+                            }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": false,
+                        "immediately": true,
+                        "type": "DO_ACTION"
+                    },
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.continueCombo",
+                        "value": false
+                    },
+                    {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.4,
+                        "comment": "they usually fix positioning here"
+                    },
+                    {
+                        "autoContinue": false,
+                        "type": "PREPARE_PVP_ROUND"
+                    },
+                    {
+                        "entity": {
+                            "player": true
+                        },
+                        "action": [
+                            {
+                                "type": "SET_RELATIVE_SPEED",
+                                "value": 2.2
+                            },
+                            {
+                                "target": {
+                                    "x": 940,
+                                    "y": 750,
+                                    "lvl": "1"
+                                },
+                                "maxTime": 0,
+                                "distance": 0,
+                                "precise": false,
+                                "planOnly": false,
+                                "type": "NAVIGATE_TO_POINT"
+                            },
+                            {
+                                "face": "NORTH",
+                                "rotate": true,
+                                "rotateSpeed": 3,
+                                "type": "SET_FACE"
+                            }
+                        ],
+                        "repeating": false,
+                        "wait": true,
+                        "keepState": false,
+                        "immediately": false,
+                        "type": "DO_ACTION"
+                    },
+                    {
+                        "entity": {
+                            "player": true
+                        },
+                        "action": [
+                            {
+                                "time": 0,
+                                "type": "WAIT"
+                            }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": false,
+                        "immediately": false,
+                        "type": "DO_ACTION"
+                    },
+                    {
+                        "entity": {
+                            "global": true,
+                            "name": "Carnellio"
+                        },
+                        "action": [
+                            {
+                                "time": 0,
+                                "type": "WAIT"
+                            }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": false,
+                        "immediately": true,
+                        "type": "DO_ACTION"
+                    },
+                    {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 1
+                    },
+                    {
+                        "type": "START_PVP_ROUND"
+                    },
+                    {
+                        "type": "APPLY_LIFEBLEED"
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 603,
+                "startCondition": "pvp.brake"
+            }
+        },
+        {
+            "type": "EventTrigger",
+            "x": 788,
+            "y": 1128,
+            "level": 1,
+            "settings": {
+                "name": "pvpEnd",
+                "eventType": "CUTSCENE",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "ignoreSlowDown": false,
+                        "type": "WAIT",
+                        "time": 0.1
+                    },
+                    {
+                        "type": "STOP_PVP_BATTLE"
+                    },
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": "pvp.playerPoints == 5 || pvp.enemyPoints == 5",
+                        "thenStep": [
+                            {
+                                "withElse": true,
+                                "type": "IF",
+                                "condition": "pvp.lastWinPlayer",
+                                "thenStep": [
+                                    {
+                                        "entity": {
+                                            "global": true,
+                                            "name": "Carnellio"
+                                        },
+                                        "offsetX": 0,
+                                        "offsetY": 0,
+                                        "speed": "FAST",
+                                        "transition": "EASE_IN_OUT",
+                                        "wait": true,
+                                        "waitSkip": 0,
+                                        "zoom": 1,
+                                        "type": "SET_CAMERA_TARGET"
+                                    },
+                                    {
+                                        "entity": {
+                                            "global": true,
+                                            "name": "Carnellio"
+                                        },
+                                        "duration": 0,
+                                        "align": "CENTER",
+                                        "group": "",
+                                        "wait": true,
+                                        "waitSkip": 0,
+                                        "effect": {
+                                            "sheet": "enemies.crab-boss",
+                                            "name": "dieExplosion"
+                                        },
+                                        "offset": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "z": 0
+                                        },
+                                        "type": "SHOW_EFFECT"
+                                    },
+                                    {
+                                        "ignoreSlowDown": false,
+                                        "time": 0.2,
+                                        "type": "WAIT"
+                                    },
+                                    {
+                                        "ignoreSlowDown": false,
+                                        "type": "WAIT",
+                                        "time": 0.3
+                                    },
+                                    {
+                                        "color": "BLACK",
+                                        "alpha": 0.5,
+                                        "time": 1,
+                                        "type": "SET_OVERLAY_CORNER"
+                                    },
+                                    {
+                                        "speed": "FAST",
+                                        "transition": "EASE_IN_OUT",
+                                        "wait": true,
+                                        "waitSkip": 0.5,
+                                        "type": "RESET_CAMERA"
+                                    },
+                                    {
+                                        "zoomType": "MEDIUM",
+                                        "fadeIn": 0.1,
+                                        "duration": 0.2,
+                                        "fadeOut": 0.5,
+                                        "type": "SET_ZOOM_BLUR"
+                                    },
+                                    {
+                                        "entity": {
+                                            "player": true
+                                        },
+                                        "action": [
+                                            {
+                                                "followUp": "levelUpStand",
+                                                "wait": false,
+                                                "viaWalkConfig": false,
+                                                "type": "SHOW_ANIMATION",
+                                                "anim": "levelUpPre"
+                                            },
+                                            {
+                                                "type": "WAIT",
+                                                "time": -1
+                                            }
+                                        ],
+                                        "repeating": false,
+                                        "wait": false,
+                                        "keepState": true,
+                                        "immediately": false,
+                                        "type": "DO_ACTION"
+                                    },
+                                    {
+                                        "ignoreSlowDown": false,
+                                        "type": "WAIT",
+                                        "time": 1
+                                    },
+                                    {
+                                        "type": "TELEPORT",
+                                        "map": "carn-lobby",
+                                        "marker": "start"
+                                    },
+                                    {
+                                        "type": "RESET_VAR_NUMBER_CARN"
+                                    },
+                                    {
+                                        "mode": "MEDIUM_OUT",
+                                        "type": "PAUSE_BGM"
+                                    },
+                                    {
+                                        "ignoreSlowDown": false,
+                                        "type": "WAIT",
+                                        "time": 0.3
+                                    }
+                                ],
+                                "elseStep": [
+                                    {
+                                        "entity": {
+                                            "player": true
+                                        },
+                                        "type": "MANUAL_COMBATANT_KILL"
+                                    },
+                                    {
+                                        "ignoreSlowDown": false,
+                                        "type": "WAIT",
+                                        "time": 0.3
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 604,
+                "startCondition": "pvp.finished"
             }
         }
     ],
