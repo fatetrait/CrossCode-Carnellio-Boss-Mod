@@ -768,7 +768,7 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
     },
     start: function (a, b) {
 
-      var p = ig.game.namedEntities.Lea, e = p, f = 3;
+      var p = ig.game.playerEntity || ig.game.namedEntities.Lea, e = p, f = 3;
 
 
       let c = a._actionEntity ? a._actionEntity : a;
@@ -777,25 +777,25 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
       let originalOverkill = p.stunData.overkill;
       ig.game.namedEntities.Carnellio.cancelAction();
 
-      let livesLost = Math.floor(p.stunData.overkill / ig.game.namedEntities.Lea.params.baseParams.hp);
-      p.stunData.overkill -= livesLost * ig.game.namedEntities.Lea.params.baseParams.hp;
-      let extraDmg = Math.min(p.stunData.overkill, ig.game.namedEntities.Lea.params.currentHp - 1);
+      let livesLost = Math.floor(p.stunData.overkill / p.params.baseParams.hp);
+      p.stunData.overkill -= livesLost * p.params.baseParams.hp;
+      let extraDmg = Math.min(p.stunData.overkill, p.params.currentHp - 1);
       e = new ig.GUI.ARBox(e, `Overkill Damage: ${originalOverkill}\nExtra Lives Lost: ${livesLost}\nExtra Damage Taken: ${extraDmg}`, f, "NO_FILL", "RED");
       ig.gui.addGuiElement(e);
       e.setAttachedEntity(p)
       p.stunData.overkill -= extraDmg;
       sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] = Math.min(sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] + livesLost, 5);
-      ig.game.namedEntities.Lea.params.reduceHp(extraDmg);
+      p.params.reduceHp(extraDmg);
       if (sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] >= 5) {
         sc.pvp.state = 5;
       }
-      // if (ig.game.namedEntities.Lea.params.currentHp <= 0) {
+      // if (p.params.currentHp <= 0) {
 
       //   // sc.pvp.state = 4;
       //   // //ig.vars.storage.tmp.loopBleed = true;
-      //   // ig.game.namedEntities.Lea.params.setDefeated();
-      //   // ig.game.namedEntities.Lea.cancelAction();
-      //   // ig.game.namedEntities.Lea._onDeathHit(c);
+      //   // p.params.setDefeated();
+      //   // p.cancelAction();
+      //   // p._onDeathHit(c);
       // } else {
       //   //ig.vars.storage.tmp.loopBleed = false;
       // }
