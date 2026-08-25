@@ -1,7 +1,7 @@
 {
 	"id": "carn",
 	"title": "Carnellio SBBF Crossover",
-	"version": "0.7.0",
+	"version": "0.7.2",
 	"description": "Adds a series of optional, challenging bosses utilizing a unique combo system. Crossover with Skill Based Boss Fights!",
 	"icons": {
 		"24": "icon-24.png"
