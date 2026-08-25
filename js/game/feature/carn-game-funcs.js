@@ -610,7 +610,8 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       sc.pvp.points[sc.COMBATANT_PARTY.PLAYER] = 4;
       let newLevel = ig.Event.getExpressionValue(sc.model.player.getParamAvgLevel(4));
       //console.log("INITIALIZE_CARN: newLevel: " + newLevel, a);
-      if (newLevel > 45 && !sc.newgame.get("scale-enemies")) {
+      //if (newLevel > 45 && !sc.newgame.get("scale-enemies")) {
+      if (newLevel > 45) {
         //let oldHp = a.params.baseParams.hp - 1;
         newLevel = Math.floor(newLevel / 1.02);
         a.level.overrideCarn = 1 * newLevel;
@@ -771,8 +772,8 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
 
 
       let c = a._actionEntity ? a._actionEntity : a;
-      console.log("APPLY_LIFEBLEED: " + p.stunData.overkill, a, b, c, p);
-      if (!p.stunData.overkill) return
+      //console.log("APPLY_LIFEBLEED: " + p.stunData.overkill, a, b, c, p);
+      if (!p.stunData || !p.stunData.overkill) return
       let originalOverkill = p.stunData.overkill;
       ig.game.namedEntities.Carnellio.cancelAction();
 
@@ -936,19 +937,19 @@ ig.module("game.feature.combat.gui.status-bar.carn").requires("impact.feature.gu
 
 
 
-ig.module("game.feature.combat.combat.carn").requires("impact.base.game", "impact.feature.effect.effect-sheet", "impact.feature.database.database", "impact.feature.navigation.navigation", "game.feature.model.game-model").defines(function () {
-  sc.Combat.inject({
-    onCombatantDeathHit: function (a, b) {
-      let holder = 0;
+// ig.module("game.feature.combat.combat.carn").requires("impact.base.game", "impact.feature.effect.effect-sheet", "impact.feature.database.database", "impact.feature.navigation.navigation", "game.feature.model.game-model").defines(function () {
+//   sc.Combat.inject({
+//     onCombatantDeathHit: function (a, b) {
+//       let holder = 0;
 
-      holder = ig.game.namedEntities.Lea.stunData.damageSum;
+//       holder = ig.game.namedEntities.Lea.stunData.damageSum;
 
-      this.parent(a, b);
-      if (ig.vars.storage.tmp.isCarn) {
-      }
-    }
-  })
-})
+//       this.parent(a, b);
+//       if (ig.vars.storage.tmp.isCarn) {
+//       }
+//     }
+//   })
+// })
 
 
 ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature.model.base-model").defines(function () {

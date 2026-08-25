@@ -131,29 +131,29 @@
                 ]
             },
             {
-                        "name": "FLAME3",
-                        "sheet": {
-                            "src": "media\/entity\/effects\/heat.png",
-                            "offX": 0,
-                            "offY": 272,
-                            "width": 24,
-                            "height": 24
-                        },
-                        "guiSprites": true,
-                        "time": 0.04,
-                        "repeat": false,
-                        "frames": [
-                            0,
-                            1,
-                            2,
-                            3,
-                            4,
-                            5,
-                            6,
-                            7,
-                            8
-                        ]
-                    },
+                "name": "FLAME3",
+                "sheet": {
+                    "src": "media\/entity\/effects\/heat.png",
+                    "offX": 0,
+                    "offY": 272,
+                    "width": 24,
+                    "height": 24
+                },
+                "guiSprites": true,
+                "time": 0.04,
+                "repeat": false,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ]
+            },
             {
                 "name": "SANDWHIRL",
                 "size": {
@@ -793,6 +793,1159 @@
                     0
                 ],
                 "renderMode": "source-over"
+            },
+            {
+                "name": "timeFreeze",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/timeFreeze.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Burn",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FlareBurn",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FireWhirl",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FlameJab",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CalamityTrigger",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "BlazingDragon",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Ragnarok",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "VermillionEcho",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "AshenMine",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CrimsonStrike",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 216,
+                    "offY": 144,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "MineValley",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CrimsonStream",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ScarletRain",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "RecoilTrumpet",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "RingOfFire",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "KindlingFanfare",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "BurningPulse",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IgniteEmbers",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "AncientSun",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 168,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "HailFlurry",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "SnowFlawke",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "HailStorm",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FrigidFlawke",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "GatlingArctillery",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IceTwirl",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FrozenStar",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IceTornado",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "BlizzardHawk",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "PolarPirouette",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 216,
+                    "offY": 192,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "EternalWinter",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IndigoStrike",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IndigoRush",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "BriskBarrier",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FrozenStance",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "IcyBastion",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FreezeFrame",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Fimbulvetr",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CrystalKeeper",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 216,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "HomingWisp",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "DivingSpark",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "RadiantSwarm",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ChainBlitz",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CelestialLegion",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Mjolnir",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "TeslaTwist",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "PlasmaSpike",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "TeslaWaltz",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "BatteryAssault",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 216,
+                    "offY": 240,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "SongOfStorms",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "AmberStrike",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ThunderDart",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "AmberBreaker",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "StormWalker",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FlickeringStars",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "LightningProphecy",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ClockBlock",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "GlitchTime",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 264,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "EssenceDrain",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "FaeRound",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "VitalPulse",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ElvenOrb",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "WaveMotionBeam",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "EtherSnipe",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "KiThrust",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "SpiritBlast",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "WarpDecoy",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "VerdantStrike",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 216,
+                    "offY": 288,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "ToxicRevenant",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 0,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "VerdantStream",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 24,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Gungnir",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 48,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "VortexTide",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "PainGrip",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 96,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "GuardingGale",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "CircleOfValor",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 144,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "Poltergeist",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 168,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "KarmaScale",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 192,
+                    "offY": 312,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
             }
         ]
     },
@@ -1425,7 +2578,6 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-            
                 "time": 0.7,
                 "type": "WAIT"
             },
@@ -1445,7 +2597,6 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-            
                 "time": 0.3,
                 "type": "WAIT"
             }
@@ -1720,7 +2871,6 @@
                 "type": "LOOP_END"
             }
         ],
-
         "vvTarget": [
             {
                 "useTargetAngle": true,
@@ -1812,7 +2962,6 @@
                 "type": "LOOP_END"
             }
         ],
-        
         "WanderingFlame": [
             {
                 "useTargetAngle": false,
@@ -1923,7 +3072,6 @@
             }
         ],
         "EvilFracture": [
-            
             {
                 "type": "LOOP_START"
             },
@@ -2141,14 +3289,6 @@
         ],
         "shadowFlame": [
             {
-                "volume": 0.7,
-                "global": false,
-                "loop": false,
-                "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
-                "type": "PLAY_SOUND"
-            },
-            {
                 "size": "XL",
                 "fadeIn": 0,
                 "fadeOut": 0.1,
@@ -2157,10 +3297,18 @@
                 "type": "LIGHT"
             },
             {
-                "numParticles": 6,
-                "duration": 0,
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 12,
+                "startDist": 10,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -2174,14 +3322,39 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.04,
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 15,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
                 "type": "WAIT"
             },
             {
-                "numParticles": 8,
-                "duration": 0,
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 24,
+                "startDist": 10,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -2195,14 +3368,39 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.04,
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 22,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
                 "type": "WAIT"
             },
             {
-                "numParticles": 4,
-                "duration": 0,
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 40,
+                "startDist": 10,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -2216,7 +3414,530 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.04,
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 29,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 36,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 43,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 50,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 57,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 64,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 69,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 76,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 80,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 80,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 80,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
+                "type": "WAIT"
+            },
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1.3,
+                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "numParticles": 12,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 10,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 16,
+                "particleDuration": 0.3,
+                "centralAngle": 1,
+                "startDist": 80,
+                "uniformRandom": 0.7,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "anim": "EXPLOSION_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.14,
                 "type": "WAIT"
             }
         ],
@@ -2290,7 +4011,6 @@
                 "type": "WAIT"
             }
         ],
-
         "NightmareReign": [
             {
                 "volume": 1,
@@ -3994,6 +5714,3009 @@
                 "particleDuration": 2,
                 "cancelable": true,
                 "anim": "supernova",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "TimeFreezeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "timeFreeze",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BurnSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Burn",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FlareBurnSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FlareBurn",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FireWhirlSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FireWhirl",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FlameJabSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FlameJab",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CalamityTriggerSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CalamityTrigger",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BlazingDragonSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "BlazingDragon",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "RagnarokSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Ragnarok",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "VermillionEchoSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "VermillionEcho",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "AshenMineSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "AshenMine",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CrimsonStrikeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CrimsonStrike",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "MineValleySigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "MineValley",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CrimsonStreamSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CrimsonStream",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ScarletRainSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ScarletRain",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "RecoilTrumpetSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "RecoilTrumpet",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "RingOfFireSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "RingOfFire",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "KindlingFanfareSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "KindlingFanfare",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BurningPulseSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "BurningPulse",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IgniteEmbersSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IgniteEmbers",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "AncientSunSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "AncientSun",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "HailFlurrySigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "HailFlurry",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "SnowFlawkeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "SnowFlawke",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "HailStormSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "HailStorm",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FrigidFlawkeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FrigidFlawke",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "GatlingArctillerySigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "GatlingArctillery",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IceTwirlSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IceTwirl",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FrozenStarSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FrozenStar",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IceTornadoSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IceTornado",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BlizzardHawkSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "BlizzardHawk",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "PolarPirouetteSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "PolarPirouette",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "EternalWinterSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "EternalWinter",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IndigoStrikeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IndigoStrike",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IndigoRushSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IndigoRush",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BriskBarrierSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "BriskBarrier",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FrozenStanceSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FrozenStance",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "IcyBastionSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "IcyBastion",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FreezeFrameSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FreezeFrame",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FimbulvetrSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Fimbulvetr",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CrystalKeeperSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CrystalKeeper",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "HomingWispSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "HomingWisp",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "DivingSparkSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "DivingSpark",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "RadiantSwarmSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "RadiantSwarm",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ChainBlitzSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ChainBlitz",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CelestialLegionSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CelestialLegion",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "MjolnirSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Mjolnir",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "TeslaTwistSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "TeslaTwist",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "PlasmaSpikeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "PlasmaSpike",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "TeslaWaltzSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "TeslaWaltz",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "BatteryAssaultSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "BatteryAssault",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "SongOfStormsSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "SongOfStorms",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "AmberStrikeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "AmberStrike",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ThunderDartSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ThunderDart",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "AmberBreakerSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "AmberBreaker",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "StormWalkerSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "StormWalker",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FlickeringStarsSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FlickeringStars",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "LightningProphecySigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "LightningProphecy",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ClockBlockSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ClockBlock",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "GlitchTimeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "GlitchTime",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "EssenceDrainSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "EssenceDrain",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "FaeRoundSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "FaeRound",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "VitalPulseSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "VitalPulse",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ElvenOrbSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ElvenOrb",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "WaveMotionBeamSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "WaveMotionBeam",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "EtherSnipeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "EtherSnipe",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "KiThrustSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "KiThrust",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "SpiritBlastSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "SpiritBlast",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "WarpDecoySigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "WarpDecoy",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "VerdantStrikeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "VerdantStrike",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ToxicRevenantSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "ToxicRevenant",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "VerdantStreamSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "VerdantStream",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "GungnirSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Gungnir",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "VortexTideSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "VortexTide",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "PainGripSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "PainGrip",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "GuardingGaleSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "GuardingGale",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "CircleOfValorSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "CircleOfValor",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "PoltergeistSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "Poltergeist",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "KarmaScaleSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "KarmaScale",
                 "type": "PLAY_ANIM"
             },
             {

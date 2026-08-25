@@ -991,6 +991,7 @@
                 "manualKill": "tmp.bossDefeated",
                 "mapId": 1,
                 "enemyInfo": {
+                    "disableNoScale": true,
                     "group": "",
                     "party": "",
                     "state": "INITIAL_BALANCE",
