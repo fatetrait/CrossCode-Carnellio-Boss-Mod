@@ -2,12 +2,12 @@
     "level": 40,
     "params": {
         "hp": 12550000,
-        "attack": 440,
+        "attack": 220,
         "defense": 220,
         "focus": 0,
         "elemFactor": [
             1.10,
-            0.95,
+            1.05,
             1.10,
             1.05
         ],
@@ -1174,7 +1174,7 @@
                         "element": "COLD",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1,
+                        "damageFactor": 2,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -1286,7 +1286,7 @@
                         "element": "HEAT",
                         "type": "MASSIVE",
                         "fly": "MASSIVE++",
-                        "damageFactor": 0.8,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -1651,7 +1651,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.2,
+                                "damageFactor": 0.3,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -1790,7 +1790,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.2,
+                                "damageFactor": 0.3,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -1908,7 +1908,7 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "SHOCK",
-                                "damageFactor": 2,
+                                "damageFactor": 4,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 5,
@@ -2012,7 +2012,7 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "HEAT",
-                                "damageFactor": 2.5,
+                                "damageFactor": 5,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 10,
@@ -2113,7 +2113,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "COLD",
-                                "damageFactor": 0.1,
+                                "damageFactor": 0.2,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 5,
@@ -2218,7 +2218,7 @@
                                 "type": "MASSIVE",
                                 "fly": "MASSIVE",
                                 "element": "WAVE",
-                                "damageFactor": 3,
+                                "damageFactor": 6,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 12,
@@ -2343,7 +2343,7 @@
                 "type": "HEAVY",
                 "fly": "MEDIUM",
                 "element": "SHOCK",
-                "damageFactor": 1,
+                "damageFactor": 2,
                 "status": 15,
                 "reverse": false,
                 "spFactor": 1,
@@ -2621,7 +2621,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2663,7 +2663,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2705,7 +2705,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2747,7 +2747,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2789,7 +2789,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2831,7 +2831,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2873,7 +2873,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2915,7 +2915,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2957,7 +2957,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -2999,7 +2999,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -3041,7 +3041,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -3083,7 +3083,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -3125,7 +3125,7 @@
                     "attack": {
                         "type": "LIGHT",
                         "element": "HEAT",
-                        "damageFactor": 0.85,
+                        "damageFactor": 1.6,
                         "reverse": false,
                         "spFactor": 0,
                         "status": 55,
@@ -3220,7 +3220,7 @@
                     "attack": {
                         "type": "MASSIVE",
                         "element": "WAVE",
-                        "damageFactor": 0.5,
+                        "damageFactor": 1,
                         "fly": "MASSIVE++",
                         "reverse": false,
                         "spFactor": 0,
@@ -3461,12 +3461,12 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1.3,
+                        "damageFactor": 2.5,
                         "status": 13,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
+                        "skillBonus": "RAMGED_DMG"
                     },
                     "offset": {
                         "x": 0,
@@ -3570,12 +3570,12 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1.3,
+                        "damageFactor": 2.5,
                         "reverse": false,
                         "status": 5,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
-                        "skillBonus": "MELEE_DMG"
+                        "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
                         "x": 0,
@@ -9315,23 +9315,6 @@
                 },
                 {
                     "target": "TARGET",
-                    "name": "sergeyHaxDef",
-                    "hacked": true,
-                    "type": "ADD_ACTION_BUFF",
-                    "stats": [
-                        "HACK"
-                    ]
-                },
-                {
-                    "target": "TARGET",
-                    "name": "sergeyHaxDef",
-                    "param": "defense",
-                    "changeType": "set",
-                    "value": 1.3,
-                    "type": "MOD_ACTION_BUFF_PARAM"
-                },
-                {
-                    "target": "TARGET",
                     "timeScale": 1,
                     "logicTimeScale": 1,
                     "moveXYScale": 0.6,
@@ -13845,7 +13828,7 @@
             "attack": {
                 "type": "MEDIUM",
                 "element": "COLD",
-                "damageFactor": 0.85,
+                "damageFactor": 1.6,
                 "reverse": false,
                 "spFactor": 0,
                 "status": 0.75,
@@ -25300,7 +25283,7 @@
                         "attack": {
                             "type": "MASSIVE",
                             "element": "COLD",
-                            "damageFactor": 7,
+                            "damageFactor": 14,
                             "reverse": false,
                             "stunSteps": [
                                 {
@@ -25469,7 +25452,7 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 0.5,
+                    "damageFactor": 1,
                     "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
@@ -25716,7 +25699,7 @@
                     "type": "MASSIVE",
                     "fly": "MASSIVE++",
                     "element": "WAVE",
-                    "damageFactor": 0.5,
+                    "damageFactor": 1,
                     "reverse": false,
                     "spFactor": 0,
                     "guardable": "",
@@ -25811,7 +25794,7 @@
                                 "attack": {
                                     "type": "MASSIVE",
                                     "element": "COLD",
-                                    "damageFactor": 7.7,
+                                    "damageFactor": 15.4,
                                     "reverse": false,
                                     "stunSteps": [
                                         {
@@ -27314,7 +27297,7 @@
                 "attack": {
                     "type": "LIGHT",
                     "element": "SHOCK",
-                    "damageFactor": 5,
+                    "damageFactor": 18,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -27541,7 +27524,7 @@
                     "fly": "MASSIVE",
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 0.7
+                    "damageFactor": 1.4
                 },
                 "hit": [
                     {
@@ -27697,7 +27680,7 @@
                             "fly": "MASSIVE",
                             "type": "MASSIVE",
                             "element": "SHOCK",
-                            "damageFactor": 0.7
+                            "damageFactor": 1.4
                         },
                         "hit": [
                             {
@@ -28180,7 +28163,7 @@
                         "attack": {
                             "type": "LIGHT",
                             "element": "SHOCK",
-                            "damageFactor": 2,
+                            "damageFactor": 4,
                             "fly": "LIGHT",
                             "reverse": false,
                             "spFactor": 0,
@@ -28297,7 +28280,7 @@
                 "attack": {
                     "type": "LIGHT",
                     "element": "SHOCK",
-                    "damageFactor": 0.7,
+                    "damageFactor": 1.4,
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
@@ -28380,7 +28363,7 @@
                 "attack": {
                     "type": "LIGHT",
                     "element": "SHOCK",
-                    "damageFactor": 0.7,
+                    "damageFactor": 1.4,
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
@@ -28589,7 +28572,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.5,
+                    "damageFactor": 1,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28645,7 +28628,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.4,
+                    "damageFactor": 0.8,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28701,7 +28684,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.6,
+                    "damageFactor": 1.2,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28757,7 +28740,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.5,
+                    "damageFactor": 1,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28813,7 +28796,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.6,
+                    "damageFactor": 1.2,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28869,7 +28852,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.7,
+                    "damageFactor": 1.4,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28925,7 +28908,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.8,
+                    "damageFactor": 1.6,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -28971,7 +28954,7 @@
                 "attack": {
                     "type": "MEDIUM",
                     "element": "SHOCK",
-                    "damageFactor": 0.7,
+                    "damageFactor": 1.4,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
