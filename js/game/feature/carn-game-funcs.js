@@ -1,5 +1,19 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
+  ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
+    start: function(a) {
+      //console.log(this.target(a))
+      //return this.parent(a);
+      if (!ig.vars.storage.tmp.isCarn) return this.parent(a);
+      let baseAttack = Object.values(sc.model.player.elementConfigs).reduce((sum, cur) => { return cur.baseParams.attack + sum }, 0) / Object.values(sc.model.player.elementConfigs).length;
+      let dif = baseAttack - 600;
+      if (this.param == "attack" && this.name == "sergeyHax" && dif > 0){
+        let virtualAttack = dif / 3 + 600;
+        this.value = this.value * (virtualAttack / baseAttack) ** 0.333333
+      } 
+      return this.parent(a);
+    }
+  })
   ig.ACTION_STEP.CONSUME_SP_TARGET = ig.ActionStepBase.extend({
     _wm: new ig.Config({
       attributes: {
@@ -149,7 +163,7 @@ ig.module("game.feature.player.player-steps.carn").requires("impact.base.animati
       //console.log("ADD_ELEMENT_LOAD: " + this.value, a);
 
       var b = a.getTarget();
-      if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
+      if (!b || !b.hidePets === undefined) return true;
       sc.model.player.addElementLoad(this.value)
       // var b = a;
       // //console.log("b: ", b);
@@ -417,7 +431,8 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       var b = a.getTarget();
       // console.log("BLOCK CONSUME: " + this.sp, a, b);
       if (b && b.model && b.model.healing) b.model.healing.cooldown += this.time
-      if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
+      if (!b || !b.hidePets === undefined) return true;
+      //if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
       sc.model.player.itemBlockTimer += this.time
 
 
@@ -1034,7 +1049,7 @@ ig.module("game.feature.combat.combat-sweep.carn").requires("impact.feature.effe
       duration: 0.1,
       attack: {
         type: "MEDIUM",
-        damageFactor: 0.09,
+        damageFactor: 0.2,
         spFactor: 1,
         skillBonus: "MELEE_DMG"
       },
@@ -1071,3 +1086,19 @@ sc.QuickRingMenu.inject({
 //     },
 // })
 // })
+
+ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.feature.gui.base.box", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "game.feature.combat.gui.enemy-display-gui", "game.feature.menu.gui.menu-misc", "game.feature.gui.base.misc").defines(function() {
+sc.EnemyBaseParamLine.inject({
+  init: function(a, b) {
+      this.parent(a, b);
+      this.removeChildGui(this.number);
+      this.number = new sc.NumberGui(99999999, {
+        transitionTime: 0.15
+      });
+      this.number.setAlign(ig.GUI_ALIGN.X_RIGHT, ig.GUI_ALIGN.Y_TOP);
+      this.number.setPos(0, 4);
+      this.addChildGui(this.number);
+      this.doStateTransition("HIDDEN", true)
+    },
+})
+})
