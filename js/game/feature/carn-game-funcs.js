@@ -7,12 +7,16 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       if (!ig.vars.storage.tmp.isCarn) return this.parent(a);
       let baseAttack = Object.values(sc.model.player.elementConfigs).reduce((sum, cur) => { return cur.baseParams.attack + sum }, 0) / Object.values(sc.model.player.elementConfigs).length;
       let dif = baseAttack - 600;
-      if (this.param == "attack" && this.name == "sergeyHax" && dif > 0 && this.value >= 1.817){
+      if (this.param == "attack" && this.name.includes("sergeyHax") && dif > 0 && this.value >= 1.7){
         let virtualAttack = dif / 3 + 600;
         //console.log('old value', this.value, virtualAttack, dif)
         this.value = this.value * (virtualAttack / baseAttack) ** 0.333333
         //console.log('the value', this.value, baseAttack)
-      } 
+      } else {
+        let virtualAttack = dif / 3 + 600;
+        // console.log('aaold value', this.value, virtualAttack, dif)
+        // console.log('aathe value', this.value, baseAttack)
+      }
       
       return this.parent(a);
     }
@@ -325,7 +329,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     },
     start: function (a) {
       let x = a.combo.guardedEntity;
-      if (x && (x.isBall || !x.animSheet || !x.animSheet.cacheKey)) {
+      if (x && (x.isBall || !x.animSheet || !x.animSheet.cacheKey) && x.attackInfo && x.attackInfo.attackerParams) {
         x = x.attackInfo.attackerParams.combatant;
       }
       a.tmpTarget = x;
