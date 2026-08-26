@@ -9313,13 +9313,7 @@
                     "value": 1.817,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
-                {
-                    "target": "TARGET",
-                    "timeScale": 1,
-                    "logicTimeScale": 1,
-                    "moveXYScale": 0.6,
-                    "type": "ADD_TEMP_INFLUENCE"
-                },
+                
                 {
                     "time": 0.3,
                     "removeEntityStatic": false,
@@ -9486,13 +9480,7 @@
                     "value": 1.817,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
-                {
-                    "target": "TARGET",
-                    "timeScale": 1,
-                    "logicTimeScale": 1,
-                    "moveXYScale": 0.6,
-                    "type": "ADD_TEMP_INFLUENCE"
-                },
+                
                 {
                     "time": 0.3,
                     "removeEntityStatic": false,
@@ -9659,13 +9647,7 @@
                     "value": 1.817,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
-                {
-                    "target": "TARGET",
-                    "timeScale": 1,
-                    "logicTimeScale": 1,
-                    "moveXYScale": 0.6,
-                    "type": "ADD_TEMP_INFLUENCE"
-                },
+                
                 {
                     "time": 0.3,
                     "removeEntityStatic": false,
@@ -21842,6 +21824,17 @@
                         }
                     },
                     {
+                "align": "CENTER",
+                "posType": "TARGET",
+                "type": "SHOOT_PROXY",
+                "proxy": "playerSpeedCorrection",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+                    {
                         "time": 0.5,
                         "type": "WAIT"
                     },
@@ -21861,6 +21854,17 @@
                         }
                     },
                     {
+                "align": "CENTER",
+                "posType": "TARGET",
+                "type": "SHOOT_PROXY",
+                "proxy": "playerSpeedCorrection",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+                    {
                         "time": 0.5,
                         "type": "WAIT"
                     },
@@ -21879,6 +21883,17 @@
                             "z": 0
                         }
                     },
+                    {
+                "align": "CENTER",
+                "posType": "TARGET",
+                "type": "SHOOT_PROXY",
+                "proxy": "playerSpeedCorrection",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
                     {
                         "name": "buffGiven",
                         "type": "SET_ATTRIB_BOOL",
