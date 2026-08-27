@@ -99,34 +99,6 @@
     "aiGroup": "",
     "aiLearnType": "REGULAR",
     "itemDrops": [
-        {
-            "prob": 1,
-            "min": 40,
-            "max": 40,
-            "condition": "!tmp.isGwas && !tmp.isFate",
-            "item": "berzerker-memory"
-        },
-        {
-            "prob": 1,
-            "min": 1,
-            "max": 1,
-            "condition": "!tmp.isGwas && !tmp.isFate",
-            "item": "carn-badge-base"
-        },
-        {
-            "prob": 1,
-            "min": 55,
-            "max": 55,
-            "item": "draconic-memory",
-            "condition": "tmp.isGwas || (tmp.isFate && false)",
-            "rank": "S"
-        },
-        {
-            "prob": 1,
-            "min": 1,
-            "max": 1,
-            "item": "draconic-circuit"
-        }
     ],
     "targetDetect": {
         "detectDistance": 120,
@@ -264,7 +236,7 @@
                             "condition": "false"
                         }
                     ],
-                    "action": "FateFuneral"
+                    "action": "DEBUG2"
                 },
                 {
                     "req": [
@@ -21750,24 +21722,6 @@
             "breakType": "ACTION",
             "action": [
                 {
-                    "kind": "PROXY_OWNER",
-                    "type": "SET_TEMP_TARGET"
-                },
-                {
-                    "offsetX": 0,
-                    "offsetY": 0,
-                    "speed": "FAST",
-                    "transition": "EASE_OUT",
-                    "wait": false,
-                    "waitSkip": 0,
-                    "zoom": 1.5,
-                    "focusType": "BETWEEN_TARGET",
-                    "type": "FOCUS_CAMERA"
-                },
-                {
-                    "type": "CLEAR_TEMP_TARGET"
-                },
-                {
                     "align": "BOTTOM",
                     "type": "SHOOT_PROXY",
                     "proxy": "targetMarker",
@@ -21839,12 +21793,23 @@
                     ]
                 },
                 {
-                    "selectType": "TARGET",
-                    "hitDir": "AWAY",
                     "align": "BOTTOM",
-                    "hitCount": 1,
-                    "hitDelay": 0,
-                    "type": "DIRECT_HIT",
+                    "radius": 40,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "startAngle": -0.25,
+                    "duration": 0.2,
+                    "expandRadius": 0,
+                    "alwaysFull": false,
+                    "clockwise": false,
+                    "flipLeftFace": 8,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
                     "attack": {
                         "type": "MEDIUM",
                         "element": "SHOCK",
@@ -21855,14 +21820,19 @@
                         "guardable": "",
                         "skillBonus": "MELEE_DMG",
                         "limiter": ""
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
                     }
                 },
                 {
-                    "followUp": "attackMirrEndRev",
+                    "followUp": "attackEndRev",
                     "wait": false,
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
-                    "anim": "attackMirrRev"
+                    "anim": "spinShortRev"
                 },
                 {
                     "time": 0.05,
@@ -21874,12 +21844,23 @@
                     "type": "WAIT"
                 },
                 {
-                    "selectType": "TARGET",
-                    "hitDir": "AWAY",
                     "align": "BOTTOM",
-                    "hitCount": 1,
-                    "hitDelay": 0,
-                    "type": "DIRECT_HIT",
+                    "radius": 40,
+                    "yScale": 0,
+                    "zHeight": 16,
+                    "centralAngle": 1,
+                    "startAngle": -0.25,
+                    "duration": 0.2,
+                    "expandRadius": 0,
+                    "alwaysFull": false,
+                    "clockwise": false,
+                    "flipLeftFace": 8,
+                    "rectangular": false,
+                    "repeat": false,
+                    "uniformHitDir": false,
+                    "fixPos": false,
+                    "checkCollision": true,
+                    "type": "CIRCLE_ATTACK",
                     "attack": {
                         "type": "MEDIUM",
                         "element": "SHOCK",
@@ -21890,10 +21871,15 @@
                         "guardable": "",
                         "skillBonus": "MELEE_DMG",
                         "limiter": ""
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
                     }
                 },
                 {
-                    "followUp": "attackMirrEnd",
+                    "followUp": "attackEnd",
                     "wait": false,
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
@@ -21918,18 +21904,6 @@
                             "type": "GOTO_LABEL"
                         }
                     ]
-                },
-                {
-                    "speed": "FAST",
-                    "transition": "EASE_OUT",
-                    "wait": false,
-                    "waitSkip": 0,
-                    "type": "RESET_CAMERA"
-                },
-                {
-                    "kind": "ACTION_PROXY",
-                    "key": "marker",
-                    "type": "SET_TEMP_TARGET"
                 },
                 {
                     "value": 0.5,
@@ -21972,7 +21946,7 @@
                 {
                     "wait": false,
                     "type": "SHOW_ANIMATION",
-                    "anim": "saltoBack"
+                    "anim": "spinFull"
                 },
                 {
                     "stopType": "LANDED",
@@ -22005,10 +21979,7 @@
                 {
                     "wait": false,
                     "type": "SHOW_ANIMATION",
-                    "anim": "landOnGround"
-                },
-                {
-                    "type": "CLEAR_TEMP_TARGET"
+                    "anim": "attackEndRev"
                 },
                 {
                     "newPos": {
@@ -22117,17 +22088,6 @@
                     "missileMode": 0,
                     "cancelIfBelowFall": true,
                     "type": "JUMP_TARGET_MOVEMENT"
-                },
-                {
-                    "offsetX": 0,
-                    "offsetY": 0,
-                    "speed": "FASTEST",
-                    "transition": "EASE_IN_OUT",
-                    "wait": false,
-                    "waitSkip": 0,
-                    "zoom": 2,
-                    "focusType": "SELF",
-                    "type": "FOCUS_CAMERA"
                 },
                 {
                     "alsoBelowTarget": true,
@@ -22265,13 +22225,6 @@
                     "type": "SET_TEMP_TARGET"
                 },
                 {
-                    "speed": "FAST",
-                    "transition": "EASE_OUT",
-                    "wait": false,
-                    "waitSkip": 0,
-                    "type": "RESET_CAMERA"
-                },
-                {
                     "value": 0.5,
                     "type": "FACE_TO_TARGET_OFFSET"
                 },
@@ -22319,7 +22272,7 @@
                 {
                     "wait": false,
                     "type": "SHOW_ANIMATION",
-                    "anim": "saltoBack"
+                    "anim": "spinFull"
                 },
                 {
                     "stopType": "LANDED",
@@ -23149,8 +23102,15 @@
                             }
                         ]
                     },
+                    
                     {
                         "type": "SET_CURRENT_EXE_SIGIL"
+                    },
+                    {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.exeIndex",
+                        "value": 1
                     },
                     {
                         "withElse": false,
@@ -24458,12 +24418,6 @@
                     {
                         "type": "DO_ENEMY_ACTION_INLINE",
                         "actionName": "MovePhaseAmount"
-                    },
-                    {
-                        "changeType": "add",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.exeIndex",
-                        "value": 1
                     }
                 ]
             }
@@ -24526,7 +24480,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 11003
+                "value": 30003
             },
             {
                 "changeType": "set",
@@ -27322,8 +27276,8 @@
                 "anim": "spinFullRev"
             },
             {
-                "value": 4,
-                "type": "SET_RELATIVE_SPEED"
+                "value": 300,
+                "type": "SET_SPEED"
             },
             {
                 "value": 1,
@@ -27377,6 +27331,10 @@
                     "guardable": "",
                     "skillBonus": "MELEE_DMG"
                 }
+            },
+            {
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "SetPhaseSpeed"
             },
             {
                 "time": 0.15,
@@ -27547,11 +27505,11 @@
                 "type": "PLAYER_PERFECT_PARRY_PRE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLong"
+                "anim": "spinFull"
             },
             {
                 "duration": 0.3,
@@ -28703,7 +28661,7 @@
                                         "wait": false,
                                         "viaWalkConfig": false,
                                         "type": "SHOW_ANIMATION",
-                                        "anim": "attackMirrEnd"
+                                        "anim": "attackEnd"
                                     }
                                 ],
                                 "elseStep": [
@@ -28921,7 +28879,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "time": 0.15,
@@ -29071,7 +29029,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "time": 0.15,
@@ -29238,7 +29196,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "time": 0.5,
@@ -29553,7 +29511,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     }
                 ],
                 "miss": [
@@ -29709,7 +29667,7 @@
                                 "wait": false,
                                 "viaWalkConfig": false,
                                 "type": "SHOW_ANIMATION",
-                                "anim": "attackMirrEnd"
+                                "anim": "attackEnd"
                             }
                         ],
                         "miss": [
@@ -30371,7 +30329,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "duration": 1,
@@ -30888,13 +30846,13 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "type": "CLEAR_STUN_LOCKED"
@@ -42788,11 +42746,11 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLong"
+                "anim": "spinFull"
             },
             {
                 "duration": 0.5,
@@ -42912,11 +42870,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "value": false,
@@ -43143,7 +43101,7 @@
                 "type": "SET_SPEED"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -43273,11 +43231,11 @@
                 }
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrRev"
+                "anim": "spinShortRev"
             },
             {
                 "duration": 0,
@@ -43377,11 +43335,11 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLong"
+                "anim": "spinFull"
             },
             {
                 "duration": 0.5,
@@ -43503,11 +43461,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "value": false,
@@ -43607,11 +43565,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "throwMirrEndRev",
+                "followUp": "spinShort",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShortRev"
+                "anim": "spinShortRev"
             },
             {
                 "type": "PLAYER_ADJUST_MOVE_DIR"
@@ -43749,7 +43707,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -43861,7 +43819,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEndAir"
+                "anim": "attackEnd"
             },
             {
                 "time": 0.15,
@@ -43871,11 +43829,11 @@
                 "type": "PLAYER_ADJUST_MOVE_DIR"
             },
             {
-                "followUp": "attackMirrEndAirRev",
+                "followUp": "spinFullRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrRev"
+                "anim": "spinShortRev"
             },
             {
                 "duration": 0,
@@ -44997,11 +44955,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "value": false,
@@ -45105,11 +45063,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "throwMirrEndRev",
+                "followUp": "spinShort",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShortRev"
+                "anim": "spinShortRev"
             },
             {
                 "type": "PLAYER_ADJUST_MOVE_DIR"
@@ -45186,11 +45144,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "type": "PLAYER_ADJUST_MOVE_DIR"
@@ -45343,7 +45301,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "duration": 0.9,
@@ -45857,7 +45815,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "value": "BREAK",
@@ -45978,7 +45936,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "landOnGround"
+                "anim": "attackEndRev"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",
@@ -46031,7 +45989,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -46180,7 +46138,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -46246,7 +46204,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -46493,7 +46451,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -46614,7 +46572,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -46817,7 +46775,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "duration": -1,
@@ -47103,11 +47061,11 @@
                         }
                     },
                     {
-                        "followUp": "throwMirrEnd",
+                        "followUp": "spinShortRev",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShort"
+                        "anim": "spinShort"
                     },
                     {
                         "value": false,
@@ -47332,11 +47290,11 @@
                         "type": "FACE_TO_TARGET"
                     },
                     {
-                        "followUp": "throwMirrEndRev",
+                        "followUp": "spinShort",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShortRev"
+                        "anim": "spinShortRev"
                     },
                     {
                         "selectType": "TARGET",
@@ -47391,7 +47349,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackLoopFast"
+                        "anim": "spinFull"
                     },
                     {
                         "value": "BREAK",
@@ -47521,7 +47479,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "landOnGround"
+                        "anim": "attackEndRev"
                     },
                     {
                         "type": "SET_PLAYER_ACTION_BLOCK",
@@ -47853,11 +47811,11 @@
                         "value": 1
                     },
                     {
-                        "followUp": "throwMirrEnd",
+                        "followUp": "spinShortRev",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShort"
+                        "anim": "spinShort"
                     },
                     {
                         "value": false,
@@ -47946,11 +47904,11 @@
                         "type": "WAIT"
                     },
                     {
-                        "followUp": "throwMirrEndRev",
+                        "followUp": "spinShort",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShortRev"
+                        "anim": "spinShortRev"
                     },
                     {
                         "type": "PLAYER_ADJUST_MOVE_DIR"
@@ -48102,7 +48060,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackLoopFast"
+                        "anim": "spinFull"
                     },
                     {
                         "duration": 0.7,
@@ -48207,7 +48165,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEndAir"
+                        "anim": "attackEnd"
                     },
                     {
                         "minWait": 0,
@@ -48521,7 +48479,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "landOnGround"
+                        "anim": "attackEndRev"
                     },
                     {
                         "type": "SET_PLAYER_ACTION_BLOCK",
@@ -48787,11 +48745,11 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMedium"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -48944,11 +48902,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "zoomType": "LIGHT",
@@ -49292,7 +49250,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoop"
+                "anim": "spinFullLong"
             },
             {
                 "value": "HEAVY",
@@ -49383,7 +49341,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "time": 0.05,
@@ -49450,11 +49408,11 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "duration": 0,
@@ -49659,11 +49617,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "throwEnd",
+                "followUp": "spinFullRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throw"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -49925,11 +49883,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMedium"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -50019,11 +49977,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "duration": 0,
@@ -50113,11 +50071,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMedium"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -50207,11 +50165,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMedium"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -50304,7 +50262,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoop"
+                "anim": "spinFullLong"
             },
             {
                 "value": "HEAVY",
@@ -50404,7 +50362,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "time": 0.05,
@@ -50471,11 +50429,11 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "duration": 0,
@@ -50594,7 +50552,7 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -50654,11 +50612,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "align": "BOTTOM",
@@ -50701,11 +50659,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "align": "BOTTOM",
@@ -50748,11 +50706,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "align": "BOTTOM",
@@ -50782,11 +50740,11 @@
                 "time": 0.7
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "factor": 0.1,
@@ -51082,7 +51040,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -51246,7 +51204,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -51538,11 +51496,11 @@
                         "type": "FACE_TO_TARGET"
                     },
                     {
-                        "followUp": "throwMirrEndRev",
+                        "followUp": "spinShort",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShortRev"
+                        "anim": "spinShortRev"
                     },
                     {
                         "posType": "TARGET",
@@ -52093,7 +52051,7 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -52492,11 +52450,11 @@
                         "type": "FACE_TO_TARGET"
                     },
                     {
-                        "followUp": "throwMirrEnd",
+                        "followUp": "spinShortRev",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShort"
+                        "anim": "spinShort"
                     },
                     {
                         "value": false,
@@ -52700,11 +52658,11 @@
                         }
                     },
                     {
-                        "followUp": "throwMirrEndRev",
+                        "followUp": "spinShort",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "throwMirrShortRev"
+                        "anim": "spinShortRev"
                     },
                     {
                         "time": 0.05,
@@ -52850,7 +52808,7 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -53065,7 +53023,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "duration": 0.8,
@@ -53150,7 +53108,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "time": 0.29,
@@ -53199,7 +53157,7 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -53416,7 +53374,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "duration": -1,
@@ -53524,7 +53482,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "type": "CLEAR_EFFECTS"
@@ -53598,11 +53556,11 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "duration": 0,
@@ -53710,7 +53668,7 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -53826,11 +53784,11 @@
                         }
                     },
                     {
-                        "followUp": "attackMirrEndRev",
+                        "followUp": "attackEndRev",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrRev"
+                        "anim": "spinShortRev"
                     },
                     {
                         "time": 0.05,
@@ -53867,7 +53825,7 @@
                         }
                     },
                     {
-                        "followUp": "attackMirrEnd",
+                        "followUp": "attackEnd",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
@@ -54042,7 +54000,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "type": "SET_PLAYER_ACTION_BLOCK",
@@ -54095,7 +54053,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEndAirRev"
+                        "anim": "spinFullRev"
                     },
                     {
                         "selectType": "TARGET",
@@ -54251,7 +54209,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "landOnGround"
+                        "anim": "attackEndRev"
                     }
                 ],
                 "missed": []
@@ -54294,6 +54252,9 @@
                 "time": 0.7
             },
             {
+                "type": "CLEAR_FIRST_HIT"
+            },
+            {
                 "type": "SET_PLAYER_ACTION_BLOCK",
                 "blockData": {
                     "dash": 0,
@@ -54303,7 +54264,7 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -54355,911 +54316,928 @@
                     "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "limiter": ""
+                }
+            },
+            {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "dummy",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "dummyAura"
                 },
-                "hit": [
-                    {
-                        "duration": -1,
-                        "align": "CENTER",
-                        "rotateFace": 0,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "dummy",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "dummyAura"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "factor": 0.8,
+                "time": 0,
+                "keepEntityStatic": false,
+                "inversAccelerate": true,
+                "type": "ADD_SLOW_MOTION"
+            },
+            {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "duration": -1,
+                "target": "TARGET",
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "black",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "mjolAura"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "value": 180,
+                "type": "SET_SPEED"
+            },
+            {
+                "changeType": "set",
+                "attribName": "hits",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 3
+            },
+            {
+                "time": 0.05,
+                "stopBeforeEdge": true,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "time": 0.033,
+                "type": "WAIT"
+            },
+            {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
+                "changeType": "set",
+                "attribName": "step",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 0
+            },
+            {
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "shockDummy",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "type": "WAIT_UNTIL",
+                "condition": "entity.attrib.step == 1"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinFull"
+            },
+            {
+                "value": false,
+                "type": "SET_JUMPING"
+            },
+            {
+                "value": 400,
+                "type": "SET_SPEED"
+            },
+            {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            },
+            {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
+                "min": 0,
+                "max": 24,
+                "maxTime": 0.2,
+                "forceTime": true,
+                "stopBeforeEdge": false,
+                "type": "MOVE_TO_DISTANCE"
+            },
+            {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 8,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "spin",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "swirlFastPerma"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "value": 150,
+                "type": "SET_SPEED"
+            },
+            {
+                "align": "BOTTOM",
+                "radius": 40,
+                "yScale": 0,
+                "zHeight": 24,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "duration": 0.145,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0.7,
+                    "fly": "MEDIUM",
+                    "reverse": false,
+                    "spFactor": 0,
+                    "stunSteps": [
+                        {
+                            "type": "BLOCK_XY"
                         }
-                    },
-                    {
-                        "factor": 0.5,
-                        "time": 0,
-                        "keepEntityStatic": false,
-                        "inversAccelerate": true,
-                        "type": "ADD_SLOW_MOTION"
-                    },
-                    {
-                        "kind": "FIRST_HIT",
-                        "type": "SET_TEMP_TARGET"
-                    },
-                    {
-                        "value": true,
-                        "immediately": true,
-                        "type": "FACE_TO_TARGET"
-                    },
-                    {
-                        "duration": -1,
-                        "target": "TARGET",
-                        "align": "CENTER",
-                        "rotateFace": 0,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "black",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "mjolAura"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                    ],
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "value": 0,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "value": 0,
+                "type": "SET_Z_VEL"
+            },
+            {
+                "minTime": 1,
+                "maxTime": 1,
+                "keepFaceDirection": true,
+                "towardsRotate": 1,
+                "towardsMinDist": 40,
+                "stopBeforeEdge": true,
+                "type": "CIRCLE_TARGET"
+            },
+            {
+                "changeType": "set",
+                "attribName": "step",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 2
+            },
+            {
+                "minTime": 0.5,
+                "maxTime": 0.5,
+                "keepFaceDirection": true,
+                "towardsRotate": 1,
+                "towardsMinDist": 40,
+                "stopBeforeEdge": true,
+                "type": "CIRCLE_TARGET"
+            },
+            {
+                "value": "VIRTUAL",
+                "type": "SET_COLL_TYPE"
+            },
+            {
+                "group": "spin",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "type": "STOP_REPEATING_FORCE"
+            },
+            {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "dummyTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinFull"
+            },
+            {
+                "value": 1,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "value": 200,
+                "type": "SET_SPEED"
+            },
+            {
+                "value": 120,
+                "type": "SET_Z_VEL"
+            },
+            {
+                "maxTime": 0.2,
+                "forceTime": false,
+                "distance": 64,
+                "throwing": true,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "type": "NAVIGATE_ESCAPE_TARGET"
+            },
+            {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            },
+            {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "attackEndRev"
+            },
+            {
+                "type": "WAIT_UNTIL",
+                "condition": "entity.attrib.step == 3"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "followUp": "charge",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "startCharge"
+            },
+            {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
+                "factor": 0.5,
+                "time": 0.1,
+                "keepEntityStatic": false,
+                "inversAccelerate": true,
+                "type": "ADD_SLOW_MOTION"
+            },
+            {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            },
+            {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "duration": 0.6,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "shockSubCharge"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "time": 0.4,
+                "type": "WAIT"
+            },
+            {
+                "group": "dummy",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "time": 0.1,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            },
+            {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "aura",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "dashHyper"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "meleeAura"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinFull"
+            },
+            {
+                "type": "SET_PLAYER_ACTION_BLOCK",
+                "blockData": {
+                    "dash": -1,
+                    "action": -1,
+                    "move": -1,
+                    "reaim": -1
+                }
+            },
+            {
+                "value": 0,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "value": 0,
+                "type": "SET_Z_VEL"
+            },
+            {
+                "value": 400,
+                "type": "SET_SPEED"
+            },
+            {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "dummyTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "min": 0,
+                "max": 24,
+                "maxTime": 0.3,
+                "forceTime": false,
+                "stopBeforeEdge": false,
+                "type": "MOVE_TO_DISTANCE"
+            },
+            {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.2,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "attackEndRev"
+            },
+            {
+                "align": "BOTTOM",
+                "radius": 40,
+                "yScale": 0,
+                "zHeight": 24,
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "duration": 0.145,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 2,
+                    "reverse": false,
+                    "stunSteps": [
+                        {
+                            "accel": 1,
+                            "offZ": 4,
+                            "maxTime": 0,
+                            "type": "Z_PULL"
                         }
-                    },
-                    {
-                        "value": 180,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "changeType": "set",
-                        "attribName": "hits",
-                        "proxyOwner": false,
-                        "type": "SET_ATTRIB_NUMBER",
-                        "value": 3
-                    },
-                    {
-                        "time": 0.05,
-                        "stopBeforeEdge": true,
-                        "type": "MOVE_FORWARD"
-                    },
-                    {
-                        "time": 0.033,
-                        "type": "WAIT"
-                    },
-                    {
-                        "value": "IGNORE",
-                        "type": "SET_COLL_TYPE"
-                    },
-                    {
-                        "changeType": "set",
-                        "attribName": "step",
-                        "type": "SET_ATTRIB_NUMBER",
-                        "value": 0
-                    },
-                    {
-                        "align": "BOTTOM",
-                        "type": "SHOOT_PROXY",
-                        "proxy": "shockDummy",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                    ],
+                    "status": 0.75,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "group": "aura",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "factor": 0.1,
+                "time": 0,
+                "keepEntityStatic": false,
+                "inversAccelerate": true,
+                "type": "ADD_SLOW_MOTION"
+            },
+            {
+                "duration": -1,
+                "target": "TARGET",
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "slow",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slowMotion3"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "time": 0.5,
+                "type": "WAIT"
+            },
+            {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slomoHit1"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
+            },
+            {
+                "align": "BOTTOM",
+                "radius": 40,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 2.5,
+                "startAngle": -0.25,
+                "duration": 0.5,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 8,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "LIGHT",
+                    "element": "SHOCK",
+                    "damageFactor": 0.1,
+                    "reverse": false,
+                    "stunSteps": [
+                        {
+                            "value": 0,
+                            "type": "Z_VEL"
                         }
-                    },
-                    {
-                        "time": 0.1,
-                        "type": "WAIT"
-                    },
-                    {
-                        "type": "WAIT_UNTIL",
-                        "condition": "entity.attrib.step == 1"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackLoopFast"
-                    },
-                    {
-                        "value": false,
-                        "type": "SET_JUMPING"
-                    },
-                    {
-                        "value": 400,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "value": 3,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "value": "IGNORE",
-                        "type": "SET_COLL_TYPE"
-                    },
-                    {
-                        "min": 0,
-                        "max": 24,
-                        "maxTime": 0.2,
-                        "forceTime": true,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DISTANCE"
-                    },
-                    {
-                        "duration": -1,
-                        "align": "CENTER",
-                        "rotateFace": 8,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "spin",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "swirlFastPerma"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                    ],
+                    "status": 0,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "followUp": "attackEnd",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "attackMirr"
+            },
+            {
+                "time": 0.133,
+                "type": "WAIT"
+            },
+            {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slomoHit2"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            },
+            {
+                "followUp": "attackEndRev",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinShortRev"
+            },
+            {
+                "time": 0.133,
+                "type": "WAIT"
+            },
+            {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slomoHit1"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            },
+            {
+                "followUp": "attackEnd",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "attackMirr"
+            },
+            {
+                "time": 0.133,
+                "type": "WAIT"
+            },
+            {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slomoHit2"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            },
+            {
+                "followUp": "attackEndRev",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinShortRev"
+            },
+            {
+                "time": 0.133,
+                "type": "WAIT"
+            },
+            {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 8,
+                "flipLeftFace": true,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.shock",
+                    "name": "slomoHitFinal"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            },
+            {
+                "followUp": "attackEnd",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinFull"
+            },
+            {
+                "time": 0.3,
+                "type": "WAIT"
+            },
+            {
+                "group": "slow",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "time": 1,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
+                "align": "BOTTOM",
+                "radius": 40,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 2.5,
+                "startAngle": -0.25,
+                "duration": 0.5,
+                "expandRadius": 0,
+                "alwaysFull": false,
+                "clockwise": false,
+                "flipLeftFace": 8,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MEDIUM",
+                    "element": "SHOCK",
+                    "damageFactor": 1.5,
+                    "reverse": false,
+                    "stunSteps": [
+                        {
+                            "value": 0,
+                            "type": "Z_VEL"
                         }
-                    },
-                    {
-                        "align": "BOTTOM",
-                        "radius": 40,
-                        "yScale": 0,
-                        "zHeight": 24,
-                        "centralAngle": 1,
-                        "startAngle": -0.25,
-                        "duration": 0.145,
-                        "expandRadius": 0,
-                        "alwaysFull": true,
-                        "clockwise": false,
-                        "flipLeftFace": 0,
-                        "rectangular": false,
-                        "repeat": true,
-                        "uniformHitDir": false,
-                        "fixPos": false,
-                        "checkCollision": true,
-                        "type": "CIRCLE_ATTACK",
-                        "attack": {
-                            "type": "HEAVY",
-                            "element": "SHOCK",
-                            "damageFactor": 0.7,
-                            "fly": "MEDIUM",
-                            "reverse": false,
-                            "spFactor": 0,
-                            "stunSteps": [
-                                {
-                                    "type": "BLOCK_XY"
-                                }
-                            ],
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG",
-                            "limiter": ""
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                    ],
+                    "status": 0.75,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "time": 0.533,
+                "type": "WAIT"
+            },
+            {
+                "selectType": "PREVIOUSLY_HIT",
+                "hitDir": "AWAY",
+                "align": "BOTTOM",
+                "hitCount": 2,
+                "hitDelay": 0.1,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 2,
+                    "fly": "MASSIVE",
+                    "reverse": false,
+                    "stunSteps": [
+                        {
+                            "value": 0,
+                            "type": "Z_VEL"
                         }
-                    },
-                    {
-                        "value": 100,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "value": false,
-                        "type": "FACE_TO_TARGET"
-                    },
-                    {
-                        "value": 0,
-                        "type": "SET_Z_GRAVITY_FACTOR"
-                    },
-                    {
-                        "value": 0,
-                        "type": "SET_Z_VEL"
-                    },
-                    {
-                        "minTime": 1,
-                        "maxTime": 1,
-                        "keepFaceDirection": true,
-                        "towardsRotate": 0,
-                        "stopBeforeEdge": true,
-                        "type": "CIRCLE_TARGET"
-                    },
-                    {
-                        "changeType": "set",
-                        "attribName": "step",
-                        "type": "SET_ATTRIB_NUMBER",
-                        "value": 2
-                    },
-                    {
-                        "minTime": 0.5,
-                        "maxTime": 0.5,
-                        "keepFaceDirection": true,
-                        "towardsRotate": 0,
-                        "stopBeforeEdge": true,
-                        "type": "CIRCLE_TARGET"
-                    },
-                    {
-                        "value": "VIRTUAL",
-                        "type": "SET_COLL_TYPE"
-                    },
-                    {
-                        "group": "spin",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "type": "STOP_REPEATING_FORCE"
-                    },
-                    {
-                        "value": true,
-                        "immediately": true,
-                        "type": "FACE_TO_TARGET"
-                    },
-                    {
-                        "duration": -1,
-                        "align": "CENTER",
-                        "rotateFace": 0,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "trail",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "dummyTrail"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
+                    ],
+                    "status": 0.75,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                }
+            },
+            
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.2,
+                "type": "SET_ZOOM_BLUR"
+            },
+            {
+                "selectType": "PREVIOUSLY_HIT",
+                "hitDir": "AWAY",
+                "align": "BOTTOM",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "damageFactor": 3,
+                    "fly": "MASSIVE++",
+                    "reverse": false,
+                    "stunSteps": [
+                        {
+                            "type": "END_LOCK"
                         }
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "saltoBack"
-                    },
-                    {
-                        "value": 1,
-                        "type": "SET_Z_GRAVITY_FACTOR"
-                    },
-                    {
-                        "value": 200,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "value": 120,
-                        "type": "SET_Z_VEL"
-                    },
-                    {
-                        "maxTime": 0.2,
-                        "forceTime": false,
-                        "distance": 64,
-                        "throwing": true,
-                        "planOnly": false,
-                        "targetType": "ENEMY",
-                        "type": "NAVIGATE_ESCAPE_TARGET"
-                    },
-                    {
-                        "type": "WAIT_UNTIL_ON_GROUND"
-                    },
-                    {
-                        "group": "trail",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "landOnGround"
-                    },
-                    {
-                        "type": "WAIT_UNTIL",
-                        "condition": "entity.attrib.step == 3"
-                    },
-                    {
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "followUp": "charge",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "startCharge"
-                    },
-                    {
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "FAST",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 1.25,
-                        "focusType": "SELF",
-                        "type": "FOCUS_CAMERA"
-                    },
-                    {
-                        "time": 0,
-                        "removeEntityStatic": false,
-                        "type": "CLEAR_SLOW_MOTION"
-                    },
-                    {
-                        "factor": 0.2,
-                        "time": 0.1,
-                        "keepEntityStatic": false,
-                        "inversAccelerate": true,
-                        "type": "ADD_SLOW_MOTION"
-                    },
-                    {
-                        "zoomType": "LIGHT",
-                        "fadeIn": 0,
-                        "duration": 0.2,
-                        "fadeOut": 0.2,
-                        "type": "SET_ZOOM_BLUR"
-                    },
-                    {
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "FASTEST",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 1.5,
-                        "focusType": "SELF",
-                        "type": "FOCUS_CAMERA"
-                    },
-                    {
-                        "value": true,
-                        "immediately": true,
-                        "type": "FACE_TO_TARGET"
-                    },
-                    {
-                        "duration": 0.6,
-                        "align": "BOTTOM",
-                        "rotateFace": 0,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "shockSubCharge"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "time": 0.4,
-                        "type": "WAIT"
-                    },
-                    {
-                        "group": "dummy",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "time": 0.1,
-                        "removeEntityStatic": false,
-                        "type": "CLEAR_SLOW_MOTION"
-                    },
-                    {
-                        "zoomType": "LIGHT",
-                        "fadeIn": 0,
-                        "duration": 0.2,
-                        "fadeOut": 0.2,
-                        "type": "SET_ZOOM_BLUR"
-                    },
-                    {
-                        "zoom": 1.25,
-                        "duration": 0,
-                        "transition": "EASE_IN_OUT",
-                        "type": "SET_CAMERA_ZOOM"
-                    },
-                    {
-                        "duration": -1,
-                        "align": "BOTTOM",
-                        "rotateFace": 0,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "aura",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "dashHyper"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "duration": -1,
-                        "align": "BOTTOM",
-                        "rotateFace": 0,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "trail",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "meleeAura"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "dash"
-                    },
-                    {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": -1,
-                            "action": -1,
-                            "move": -1,
-                            "reaim": -1
-                        }
-                    },
-                    {
-                        "value": 0,
-                        "type": "SET_Z_GRAVITY_FACTOR"
-                    },
-                    {
-                        "value": 0,
-                        "type": "SET_Z_VEL"
-                    },
-                    {
-                        "value": 400,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "duration": -1,
-                        "align": "CENTER",
-                        "rotateFace": 0,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "trail",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "dummyTrail"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "min": 0,
-                        "max": 24,
-                        "maxTime": 0.3,
-                        "forceTime": false,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DISTANCE"
-                    },
-                    {
-                        "group": "trail",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "zoomType": "LIGHT",
-                        "fadeIn": 0,
-                        "duration": 0.2,
-                        "fadeOut": 0.2,
-                        "type": "SET_ZOOM_BLUR"
-                    },
-                    {
-                        "zoom": 1.5,
-                        "duration": 0,
-                        "transition": "EASE_IN_OUT",
-                        "type": "SET_CAMERA_ZOOM"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEndRev"
-                    },
-                    {
-                        "selectType": "TARGET",
-                        "hitDir": "AWAY",
-                        "align": "BOTTOM",
-                        "hitCount": 1,
-                        "hitDelay": 0,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "HEAVY",
-                            "element": "SHOCK",
-                            "damageFactor": 2,
-                            "reverse": false,
-                            "stunSteps": [
-                                {
-                                    "accel": 1,
-                                    "offZ": 4,
-                                    "maxTime": 0,
-                                    "type": "Z_PULL"
-                                }
-                            ],
-                            "status": 0.75,
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG",
-                            "limiter": ""
-                        }
-                    },
-                    {
-                        "group": "aura",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "group": "trail",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "factor": 0.0001,
-                        "time": 0,
-                        "keepEntityStatic": false,
-                        "inversAccelerate": true,
-                        "type": "ADD_SLOW_MOTION"
-                    },
-                    {
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "SLOW",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 2,
-                        "focusType": "BETWEEN_TARGET",
-                        "type": "FOCUS_CAMERA"
-                    },
-                    {
-                        "duration": -1,
-                        "target": "TARGET",
-                        "align": "BOTTOM",
-                        "rotateFace": 0,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "group": "slow",
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slowMotion3"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "time": 0.5,
-                        "type": "WAIT"
-                    },
-                    {
-                        "duration": 0,
-                        "align": "BOTTOM",
-                        "rotateFace": 8,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slomoHit1"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },
-                    {
-                        "followUp": "attackMirrEnd",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirr"
-                    },
-                    {
-                        "time": 0.133,
-                        "type": "WAIT"
-                    },
-                    {
-                        "duration": 0,
-                        "align": "BOTTOM",
-                        "rotateFace": 8,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slomoHit2"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },
-                    {
-                        "followUp": "attackMirrEndRev",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrRev"
-                    },
-                    {
-                        "time": 0.133,
-                        "type": "WAIT"
-                    },
-                    {
-                        "duration": 0,
-                        "align": "BOTTOM",
-                        "rotateFace": 8,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slomoHit1"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },
-                    {
-                        "followUp": "attackMirrEnd",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirr"
-                    },
-                    {
-                        "time": 0.133,
-                        "type": "WAIT"
-                    },
-                    {
-                        "duration": 0,
-                        "align": "BOTTOM",
-                        "rotateFace": 8,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slomoHit2"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },
-                    {
-                        "followUp": "attackMirrEndRev",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrRev"
-                    },
-                    {
-                        "time": 0.133,
-                        "type": "WAIT"
-                    },
-                    {
-                        "duration": 0,
-                        "align": "BOTTOM",
-                        "rotateFace": 8,
-                        "flipLeftFace": true,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "specials.shock",
-                            "name": "slomoHitFinal"
-                        },
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },
-                    {
-                        "followUp": "attackMirrEnd",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackLong"
-                    },
-                    {
-                        "time": 0.3,
-                        "type": "WAIT"
-                    },
-                    {
-                        "group": "slow",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "time": 0.1,
-                        "type": "WAIT"
-                    },
-                    {
-                        "time": 1,
-                        "removeEntityStatic": false,
-                        "type": "CLEAR_SLOW_MOTION"
-                    },
-                    {
-                        "zoom": 1,
-                        "duration": 1,
-                        "transition": "EASE_IN_OUT",
-                        "type": "SET_CAMERA_ZOOM"
-                    },
-                    {
-                        "selectType": "TARGET",
-                        "hitDir": "AWAY",
-                        "align": "BOTTOM",
-                        "hitCount": 4,
-                        "hitDelay": 0.133,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "MEDIUM",
-                            "element": "SHOCK",
-                            "damageFactor": 1.5,
-                            "fly": "HEAVY",
-                            "reverse": false,
-                            "stunSteps": [
-                                {
-                                    "value": 0,
-                                    "type": "Z_VEL"
-                                }
-                            ],
-                            "status": 0.75,
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG",
-                            "limiter": ""
-                        }
-                    },
-                    {
-                        "time": 0.533,
-                        "type": "WAIT"
-                    },
-                    {
-                        "selectType": "TARGET",
-                        "hitDir": "AWAY",
-                        "align": "BOTTOM",
-                        "hitCount": 2,
-                        "hitDelay": 0.1,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "HEAVY",
-                            "element": "SHOCK",
-                            "damageFactor": 2,
-                            "fly": "MASSIVE",
-                            "reverse": false,
-                            "stunSteps": [
-                                {
-                                    "value": 0,
-                                    "type": "Z_VEL"
-                                }
-                            ],
-                            "status": 0.75,
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG",
-                            "limiter": ""
-                        }
-                    },
-                    {
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "zoomType": "LIGHT",
-                        "fadeIn": 0,
-                        "duration": 0.3,
-                        "fadeOut": 0.2,
-                        "type": "SET_ZOOM_BLUR"
-                    },
-                    {
-                        "selectType": "TARGET",
-                        "hitDir": "AWAY",
-                        "align": "BOTTOM",
-                        "hitCount": 1,
-                        "hitDelay": 0,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "MASSIVE",
-                            "element": "SHOCK",
-                            "damageFactor": 3,
-                            "fly": "MASSIVE++",
-                            "reverse": false,
-                            "stunSteps": [
-                                {
-                                    "type": "END_LOCK"
-                                }
-                            ],
-                            "status": 0.75,
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG",
-                            "limiter": ""
-                        }
-                    },
-                    {
-                        "value": 1,
-                        "type": "SET_Z_GRAVITY_FACTOR"
-                    },
-                    {
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "group": "black",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "speed": "NORMAL",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "type": "RESET_CAMERA"
-                    }
-                ],
-                "missed": []
+                    ],
+                    "status": 0.75,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                }
+            },
+            {
+                "value": 1,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "group": "black",
+                "type": "CLEAR_EFFECTS"
+            },
+            {
+                "speed": "NORMAL",
+                "transition": "EASE_IN_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "type": "RESET_CAMERA"
             },
             {
                 "time": 0.3,
@@ -55323,11 +55301,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -55374,7 +55352,7 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -55440,11 +55418,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -55553,11 +55531,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -55672,7 +55650,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "duration": -1,
@@ -55821,7 +55799,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "changeType": "sub",
@@ -55858,7 +55836,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "withElse": true,
@@ -56032,7 +56010,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -56157,7 +56135,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -56253,7 +56231,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "duration": -1,
@@ -56374,7 +56352,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "factor": 0.2,
@@ -56518,7 +56496,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "name": "start",
@@ -56670,7 +56648,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "type": "STOP_XY"
@@ -56779,7 +56757,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": 0.4,
@@ -56887,7 +56865,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -57049,7 +57027,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "duration": -1,
@@ -57185,7 +57163,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "factor": 0.2,
@@ -57366,7 +57344,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "name": "start",
@@ -57436,7 +57414,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
+                        "anim": "attackEnd"
                     },
                     {
                         "time": 0.1,
@@ -57511,7 +57489,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "value": 180,
@@ -57869,7 +57847,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "dash"
+                        "anim": "spinFull"
                     },
                     {
                         "value": 2000,
@@ -58091,7 +58069,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "saltoBack"
+                        "anim": "spinFull"
                     },
                     {
                         "zoom": 1.5,
@@ -58120,7 +58098,7 @@
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
-                        "anim": "landOnGround"
+                        "anim": "attackEndRev"
                     },
                     {
                         "kind": "FIRST_HIT",
@@ -58278,7 +58256,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": 0.4,
@@ -58316,7 +58294,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -58433,7 +58411,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": 0.4,
@@ -58541,7 +58519,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -59165,11 +59143,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "offsetX": 0,
@@ -59289,11 +59267,11 @@
                 "type": "PLAYER_ADJUST_MOVE_DIR"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "duration": 0.8,
@@ -59450,11 +59428,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -59608,11 +59586,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -59786,11 +59764,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": false,
@@ -60042,11 +60020,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -61346,7 +61324,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -61532,7 +61510,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -61625,7 +61603,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -61810,7 +61788,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "type": "CLEAR_EFFECTS"
@@ -61964,7 +61942,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -62260,7 +62238,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "time": 0.4,
@@ -62326,7 +62304,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -62416,7 +62394,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "type": "CLEAR_EFFECTS"
@@ -62452,11 +62430,11 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLong"
+                "anim": "spinFull"
             },
             {
                 "duration": 0,
@@ -62557,11 +62535,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "value": 200,
@@ -62770,11 +62748,11 @@
                 }
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLong"
+                "anim": "spinFull"
             },
             {
                 "duration": -1,
@@ -62945,11 +62923,11 @@
                 "type": "PLAYER_ADJUST_MOVE_DIR"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "zoom": 1,
@@ -63076,11 +63054,11 @@
                 }
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrShort"
+                "anim": "spinShort"
             },
             {
                 "value": "LIGHT",
@@ -63329,7 +63307,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "value": "BREAK",
@@ -63362,7 +63340,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirrEndAirRev"
+                "anim": "spinShortRevAirRev"
             },
             {
                 "duration": 0.6,
@@ -63500,7 +63478,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackLoopFast"
+                "anim": "spinFull"
             },
             {
                 "value": 1,
@@ -63521,7 +63499,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "zoomType": "LIGHT",
@@ -63676,11 +63654,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 80,
@@ -63727,7 +63705,7 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -63762,11 +63740,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrRev"
+                "anim": "spinShortRev"
             },
             {
                 "align": "BOTTOM",
@@ -63797,7 +63775,7 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -63854,11 +63832,11 @@
                 "type": "SHOOT_PROXY_PLAYER"
             },
             {
-                "followUp": "throwMirrEnd",
+                "followUp": "spinShortRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "throwMirr"
+                "anim": "spinShort"
             },
             {
                 "value": 120,
@@ -63911,7 +63889,7 @@
                 "type": "SET_CLOSE_TEMP_TARGET"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -63969,11 +63947,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrRev"
+                "anim": "spinShortRev"
             },
             {
                 "duration": 0,
@@ -64033,7 +64011,7 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -64097,11 +64075,11 @@
                 "type": "PLAYER_ADJUST_FACE"
             },
             {
-                "followUp": "attackMirrEndRev",
+                "followUp": "attackEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMediumRev"
+                "anim": "spinFullRev"
             },
             {
                 "zoomType": "LIGHT",
@@ -64217,7 +64195,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -64362,7 +64340,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -64441,7 +64419,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -64521,7 +64499,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -64693,7 +64671,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "dash"
+                "anim": "spinFull"
             },
             {
                 "value": false,
@@ -64963,7 +64941,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "attackMirrEnd"
+                "anim": "attackEnd"
             },
             {
                 "value": "VIRTUAL",
@@ -65042,7 +65020,7 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -65263,7 +65241,7 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "attackMirrEnd",
+                "followUp": "attackEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",

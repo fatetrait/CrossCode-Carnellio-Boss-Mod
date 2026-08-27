@@ -495,7 +495,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || global.isFate || tmp.isFate",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                         "thenStep": [
                             {
                                 "entity": {
@@ -571,7 +571,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || global.isFate || tmp.isFate",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                         "thenStep": [
                             {
                                 "entity": {
@@ -666,7 +666,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || global.isFate || tmp.isFate",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                         "thenStep": [
                             {
                                 "entity": {
@@ -817,8 +817,8 @@
                     },
                     {
                         "type": "IF",
-                        "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || global.isFate || tmp.isFate",
+                        "withElse": false,
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                         "thenStep": [
                             {
                                 "entity": {
@@ -835,8 +835,13 @@
                                 "varName": "dracRewards",
                                 "value": 12
                             }
-                        ],
-                        "elseStep": [
+                        ]
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": false,
+                        "condition": "!(global.isGwas || tmp.isGwas) && !(global.isFate || tmp.isFate)",
+                        "thenStep": [
                             {
                                 "entity": {
                                     "global": true,
@@ -946,8 +951,8 @@
                     },
                     {
                         "type": "IF",
-                        "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || global.isFate || tmp.isFate",
+                        "withElse": false,
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                         "thenStep": [
                             {
                                 "entity": {
@@ -955,17 +960,22 @@
                                     "name": "Carnellio"
                                 },
                                 "item": "draconic-memory",
-                                "amount": 4,
+                                "amount": 5,
                                 "type": "DROP_ITEM_ENTITY"
                             },
                             {
                                 "changeType": "add",
                                 "type": "CHANGE_VAR_NUMBER_CARN",
                                 "varName": "dracRewards",
-                                "value": 4
+                                "value": 5
                             }
-                        ],
-                        "elseStep": [
+                        ]
+                    },
+                    {
+                        "type": "IF",
+                        "withElse": false,
+                        "condition": "!(global.isGwas || tmp.isGwas) && !(global.isFate || tmp.isFate)",
+                        "thenStep": [
                             {
                                 "entity": {
                                     "global": true,
@@ -1199,13 +1209,31 @@
                                                 "item": "carn-badge-gwas",
                                                 "amount": 1,
                                                 "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "draconic-memory",
+                                                "amount": 55,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "draconic-circuit",
+                                                "amount": 1,
+                                                "type": "DROP_ITEM_ENTITY"
                                             }
                                         ]
                                     },
                                     {
                                         "type": "IF",
                                         "withElse": false,
-                                        "condition": " global.isFate || tmp.isFate",
+                                        "condition": " ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
                                         "thenStep": [
                                             {
                                                 "entity": {
@@ -1213,6 +1241,58 @@
                                                     "name": "Carnellio"
                                                 },
                                                 "item": "carn-badge-fate",
+                                                "amount": 1,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "draconic-memory",
+                                                "amount": 55,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "draconic-circuit",
+                                                "amount": 1,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "IF",
+                                        "withElse": false,
+                                        "condition": "!(global.isGwas || tmp.isGwas) && !(global.isFate || tmp.isFate)",
+                                        "thenStep": [
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "carn-badge-base",
+                                                "amount": 1,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "berzerker-memory",
+                                                "amount": 40,
+                                                "type": "DROP_ITEM_ENTITY"
+                                            },
+                                            {
+                                                "entity": {
+                                                    "global": true,
+                                                    "name": "Carnellio"
+                                                },
+                                                "item": "draconic-circuit",
                                                 "amount": 1,
                                                 "type": "DROP_ITEM_ENTITY"
                                             }

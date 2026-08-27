@@ -50,7 +50,7 @@
                 "require": [
                     {
                         "id": "bum-admission",
-                        "amount": 1
+                        "amount": 98
                     }
                 ],
                 "scale": 1
