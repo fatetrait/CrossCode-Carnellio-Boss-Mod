@@ -118,21 +118,8 @@
             "min": 55,
             "max": 55,
             "item": "draconic-memory",
-            "condition": "tmp.isGwas || (tmp.isFate && false)"
-        },
-        {
-            "prob": 1,
-            "min": 1,
-            "max": 1,
-            "item": "carn-badge-gwas",
-            "condition": "tmp.isGwas"
-        },
-        {
-            "prob": 1,
-            "min": 1,
-            "max": 1,
-            "item": "carn-badge-fate",
-            "condition": "tmp.isFate && false"
+            "condition": "tmp.isGwas || (tmp.isFate && false)",
+            "rank": "S"
         },
         {
             "prob": 1,
@@ -29770,10 +29757,6 @@
                 "type": "PLAYER_PERFECT_PARRY_PRE"
             },
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "element": "SHOCK",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
@@ -32917,6 +32900,10 @@
         ],
         "Phase5F": [
             {
+                "name": "funeralDR",
+                "type": "REMOVE_SHIELD"
+            },
+            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -35099,6 +35086,10 @@
             }
         ],
         "Phase5N": [
+            {
+                "name": "funeralDR",
+                "type": "REMOVE_SHIELD"
+            },
             {
                 "value": 0,
                 "type": "SET_SPEED"
@@ -37874,6 +37865,10 @@
             }
         ],
         "Phase5F_GWAS": [
+            {
+                "name": "funeralDR",
+                "type": "REMOVE_SHIELD"
+            },
             {
                 "value": 0,
                 "type": "SET_SPEED"
@@ -41223,6 +41218,10 @@
             }
         ],
         "Phase5N_GWAS": [
+            {
+                "name": "funeralDR",
+                "type": "REMOVE_SHIELD"
+            },
             {
                 "value": 0,
                 "type": "SET_SPEED"
@@ -46006,6 +46005,11 @@
                 "hideOutsideOfScreen": false,
                 "type": "SHOW_AR_MSG",
                 "time": 1
+            },
+            {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",

@@ -1292,7 +1292,7 @@
                 "name": "BriskBarrier",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 72,
+                    "offX": 96,
                     "offY": 216,
                     "width": 24,
                     "height": 24
@@ -1307,7 +1307,7 @@
                 "name": "FrozenStance",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 96,
+                    "offX": 72,
                     "offY": 216,
                     "width": 24,
                     "height": 24
@@ -1322,7 +1322,7 @@
                 "name": "IcyBastion",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 120,
+                    "offX": 144,
                     "offY": 216,
                     "width": 24,
                     "height": 24
@@ -1337,7 +1337,7 @@
                 "name": "FreezeFrame",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 144,
+                    "offX": 120,
                     "offY": 216,
                     "width": 24,
                     "height": 24
@@ -1352,7 +1352,7 @@
                 "name": "Fimbulvetr",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 168,
+                    "offX": 192,
                     "offY": 216,
                     "width": 24,
                     "height": 24
@@ -1367,7 +1367,7 @@
                 "name": "CrystalKeeper",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 192,
+                    "offX": 168,
                     "offY": 216,
                     "width": 24,
                     "height": 24
