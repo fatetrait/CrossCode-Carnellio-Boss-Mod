@@ -1,5 +1,7 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
+  
+  
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
     start: function(a) {
       //console.log(this.target(a))
@@ -9,8 +11,11 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       let dif = baseAttack - 600;
       if (this.param == "attack" && this.name.includes("sergeyHax") && dif > 0 && this.value >= 1.7){
         let virtualAttack = dif / 3 + 600;
+        //final = virtual * 1.817
+        // baseAttack * someBuff = final
+        // someBuff = virtual * 1.817 / baseAttack
         //console.log('old value', this.value, virtualAttack, dif)
-        this.value = this.value * (virtualAttack / baseAttack) ** 0.333333
+        this.value = this.value * (virtualAttack / baseAttack) //** 0.333333
         //console.log('the value', this.value, baseAttack)
       } else {
         let virtualAttack = dif / 3 + 600;
@@ -39,6 +44,31 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       if (!b) return true;
       if (b.params.consumeSp) return b.params.consumeSp(this.sp)
       b.model && b.model.params && b.model.params.consumeSp && b.model.params.consumeSp(this.sp)
+    }
+  });
+
+  ig.ACTION_STEP.IMMEDIATE_PARAM_UPDATE = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+    },
+    start: function () {
+      ig.game.playerEntity.params.setBaseParams(ig.game.playerEntity.params.baseParams)
+    }
+  });
+
+  ig.ACTION_STEP.PVP_GAIN_LIFE = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+    },
+    start: function () {
+      if (sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] <= 0) return;
+      sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] -= 1;
     }
   });
 
@@ -170,7 +200,7 @@ ig.module("game.feature.player.player-steps.carn").requires("impact.base.animati
       //console.log("ADD_ELEMENT_LOAD: " + this.value, a);
 
       var b = a.getTarget();
-      if (!b || !b.hidePets === undefined) return true;
+      if (!b || b.hidePets === undefined) return true;
       sc.model.player.addElementLoad(this.value)
       // var b = a;
       // //console.log("b: ", b);
@@ -438,7 +468,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       var b = a.getTarget();
       // console.log("BLOCK CONSUME: " + this.sp, a, b);
       if (b && b.model && b.model.healing) b.model.healing.cooldown += this.time
-      if (!b || !b.hidePets === undefined) return true;
+      if (!b || b.hidePets === undefined) return true;
       //if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
       sc.model.player.itemBlockTimer += this.time
 
@@ -695,7 +725,7 @@ ig.module("game.feature.combat.entities.hit-number.carn").requires("impact.base.
   let oldSpawnHitNumber = ig.ENTITY.HitNumber.spawnHitNumber;
   ig.ENTITY.HitNumber.spawnHitNumber = function (b, c, d, e, f, g, h, p) {
     oldSpawnHitNumber(b, c, d, e, f, g, h, p);
-    console.log("spawning hit number", d, c, c.params.currentHp)
+    //console.log("spawning hit number", d, c, c.params.currentHp)
     c.stunData.overkill = c.stunData.overkill || 0;
     c.stunData.overkill = Math.abs(Math.min(0, c.params.currentHp)); // Math.max(0, d - c.params.currentHp);
   }
@@ -994,11 +1024,12 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       this.parent(a, b, c);
     },
     setBaseParams: function(a, b) {
-      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks) return this.parent(a,b);
+      //console.log(this, a, b)
+      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || this.combatant.hidePets === undefined) return this.parent(a,b);
       var c = this.getStat("hp") - this.currentHp, d;
       for (d in this.baseParams) this.baseParams[d] = a[d] || this.baseParams[d];
       this.baseParams.hp = this.baseParams.hp / (2 ** ig.vars.storage.tmp.nrStacks);
-      this.currentHp = this.getStat("hp") - c;
+      this.currentHp = this.baseParams.hp - c;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.STATS_CHANGED, b)
     },
 
@@ -1031,6 +1062,7 @@ ig.module("game.feature.combat.pvp.carn").requires("impact.base.game").defines(f
       return (ig.vars.storage.tmp.isCarn ? 1 : this.parent());
     },
     onPostKO: function (b) {
+      //console.log(this, b)
       if (!ig.vars.storage.tmp.isCarn) return this.parent(b);
       for (let d = this.enemies.length; d--;) {
         this.enemies[d].temp_regenPvp = this.enemies[d].regenPvp
