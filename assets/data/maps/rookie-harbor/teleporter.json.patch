@@ -23,7 +23,7 @@
               "quest": [
                 {
                   "person": {
-                    "person": "antagonists.fancyguy",
+                    "person": "antagonists.carnellio",
                     "expression": "PONDERING"
                   },
                   "type": "ADD_MSG_PERSON",
@@ -39,7 +39,7 @@
                 },
                 {
                   "person": {
-                    "person": "antagonists.fancyguy",
+                    "person": "antagonists.carnellio",
                     "expression": "SHOUTING"
                   },
                   "message": {
@@ -61,7 +61,7 @@
                     },
                     {
                       "person": {
-                        "person": "antagonists.fancyguy",
+                        "person": "antagonists.carnellio",
                         "expression": "LECTURING"
                       },
                       "message": {
@@ -73,7 +73,7 @@
                     
                     {
                       "person": {
-                        "person": "antagonists.fancyguy",
+                        "person": "antagonists.carnellio",
                         "expression": "POINTING"
                       },
                       "message": {
@@ -83,7 +83,7 @@
                     },
                     {
                       "person": {
-                        "person": "antagonists.fancyguy",
+                        "person": "antagonists.carnellio",
                         "expression": "SHOUTING"
                       },
                       "message": {
@@ -93,7 +93,7 @@
                     },
                     {
                       "person": {
-                        "person": "antagonists.fancyguy",
+                        "person": "antagonists.carnellio",
                         "expression": "CONTENT"
                       },
                       "message": {
@@ -120,7 +120,7 @@
                     },
                     {
                       "person": {
-                        "person": "antagonists.fancyguy",
+                        "person": "antagonists.carnellio",
                         "expression": "DOWN"
                       },
                       "message": {
@@ -153,7 +153,7 @@
             }
           }
         ],
-        "characterName": "antagonists.fancyguy",
+        "characterName": "antagonists.carnellio",
         "analyzable": {
           "text": {
             "en_US": "Linked (real)"

@@ -282,7 +282,7 @@
                     "req": [
                         {
                             "min": 0,
-                            "max": 150,
+                            "max": 120,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -292,7 +292,7 @@
                 {
                     "req": [
                         {
-                            "min": 150,
+                            "min": 120,
                             "max": 900,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
@@ -335,7 +335,7 @@
                 {
                     "req": [
                         {
-                            "min": 150,
+                            "min": 120,
                             "max": 900,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
@@ -622,7 +622,7 @@
                     "req": [
                         {
                             "min": 0,
-                            "max": 150,
+                            "max": 120,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -1773,7 +1773,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.13,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -1912,7 +1912,7 @@
                             "attack": {
                                 "type": "LIGHT",
                                 "element": "WAVE",
-                                "damageFactor": 0.3,
+                                "damageFactor": 0.13,
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1000,
@@ -2375,7 +2375,7 @@
                             "value": false
                         },
                         {
-                            "time": 0.2,
+                            "time": 0.5,
                             "type": "WAIT"
                         },
                         {
@@ -10631,7 +10631,7 @@
                     "actionDetached": false,
                     "hideOutsideOfScreen": false,
                     "type": "SHOW_AR_MSG",
-                    "time": 15
+                    "time": 20
                 },
                 {
                     "volume": 1.5,
@@ -10670,7 +10670,7 @@
                 {
                     "target": "TARGET",
                     "align": "BOTTOM",
-                    "duration": 15,
+                    "duration": 20,
                     "type": "STICK_TO_TARGET",
                     "offset": {
                         "x": 0,
@@ -23077,6 +23077,10 @@
                 ]
             },
             {
+                "value": "HEAVY",
+                "type": "SET_HIT_STABLE"
+            },
+            {
                 "withElse": false,
                 "type": "IF",
                 "condition": "tmp.exeIndex < tmp.sigilCount",
@@ -24961,10 +24965,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -25133,10 +25149,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -25536,6 +25564,19 @@
                 ]
             },
             {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigilTimerAdder",
+                "value": 0
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            
+            {
                 "align": "BOTTOM",
                 "centralAngle": 0,
                 "angleVary": 0,
@@ -25573,10 +25614,40 @@
                 }
             },
             {
-                "time": {
-                    "varName": "tmp.sigilDrawTime"
-                },
-                "type": "WAIT"
+                "name": "sigilAdder",
+                "type": "LABEL"
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
+                "thenStep": [
+                    {
+                        "type": "CLEAR_AR_MSG"
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilTimerAdder",
+                        "value": 0.1
+                    },
+                    {
+                        "time": 0.1,
+                        "type": "WAIT"
+                    },
+                    {
+                        "name": "sigilAdder",
+                        "type": "GOTO_LABEL"
+                    }
+                ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -25768,6 +25839,12 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "name": "sigilAdder",
                 "type": "LABEL"
             },
@@ -25796,6 +25873,12 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -25955,10 +26038,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -26162,6 +26257,12 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "name": "sigilAdder",
                 "type": "LABEL"
             },
@@ -26190,6 +26291,12 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -26387,6 +26494,12 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "name": "sigilAdder",
                 "type": "LABEL"
             },
@@ -26415,6 +26528,12 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -26618,6 +26737,12 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "name": "sigilAdder",
                 "type": "LABEL"
             },
@@ -26646,6 +26771,12 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -26807,6 +26938,12 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "name": "sigilAdder",
                 "type": "LABEL"
             },
@@ -26835,6 +26972,12 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -27016,6 +27159,10 @@
                 "type": "WAIT"
             },
             {
+                "value": "VIRTUAL",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "withElse": false,
                 "type": "IF",
                 "condition": "entity.attrib.fatalHowlHit",
@@ -27084,23 +27231,12 @@
                     },
                     {
                         "zoom": 2,
-                        "duration": 3,
+                        "duration": 1,
                         "transition": "LINEAR",
                         "type": "SET_CAMERA_ZOOM"
                     },
                     {
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "SLOWEST_DREAM",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 2,
-                        "focusType": "KEEP_TARGET_IN_SCREEN",
-                        "type": "FOCUS_CAMERA"
-                    },
-                    {
-                        "time": 3,
+                        "time": 1,
                         "type": "WAIT"
                     },
                     {
@@ -27133,7 +27269,7 @@
                         "attack": {
                             "type": "MASSIVE",
                             "element": "COLD",
-                            "damageFactor": 14,
+                            "damageFactor": 0.7,
                             "reverse": false,
                             "stunSteps": [
                                 {
@@ -27147,7 +27283,7 @@
                                     "type": "Z_VEL"
                                 }
                             ],
-                            "status": 10,
+                            "status": 999999,
                             "guardable": "ALWAYS",
                             "skillBonus": "MELEE_DMG"
                         }
@@ -27509,7 +27645,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "spinFull"
+                "anim": "spinShort"
             },
             {
                 "duration": 0.3,
@@ -27783,11 +27919,10 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "followUp": "pointing",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "prePointing"
+                "anim": "spinFull"
             },
             {
                 "time": 0.05,
@@ -27865,6 +28000,10 @@
             }
         ],
         "Summon": [
+            {
+                "value": "BREAK",
+                "type": "SET_HIT_STABLE"
+            },
             {
                 "element": "NEUTRAL",
                 "skipEffect": false,
@@ -28097,6 +28236,10 @@
             },
             {
                 "type": "LOAD_TARGET"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
             }
         ],
         "NightmareReign": [
@@ -28671,7 +28814,7 @@
                                         },
                                         "type": "SHOW_SIDE_MSG",
                                         "person": {
-                                            "person": "antagonists.fancyguy",
+                                            "person": "antagonists.carnellio",
                                             "expression": "DUMBFOUNDED"
                                         }
                                     },
@@ -29196,7 +29339,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "spinFull"
+                "anim": "pointingFly"
             },
             {
                 "time": 0.5,
@@ -29221,7 +29364,17 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "time": 0.5,
+                "time": 0.3,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
+            },
+            {
+                "time": 0.2,
                 "type": "MOVE_FORWARD"
             }
         ],
@@ -29252,6 +29405,12 @@
             {
                 "type": "DO_ENEMY_ACTION_INLINE",
                 "actionName": "SetRevolverSpeed"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingFly"
             },
             {
                 "posType": "TARGET",
@@ -31473,7 +31632,7 @@
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "pointingFly"
+                "anim": "pointing"
             },
             {
                 "maxTime": 0.3,
@@ -31824,10 +31983,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -32055,10 +32226,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -32346,10 +32529,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -32845,10 +33040,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -33800,10 +34007,22 @@
                 "value": 0
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -33985,10 +34204,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -34216,10 +34447,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -34539,10 +34782,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -35032,10 +35287,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -36061,10 +36328,22 @@
                 "value": 0
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -36266,10 +36545,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -36559,10 +36850,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -37024,10 +37327,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -37811,10 +38126,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -39378,10 +39705,22 @@
                 "value": 0
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -39583,10 +39922,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -39888,10 +40239,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -40353,10 +40716,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -41164,10 +41539,22 @@
                 }
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,
@@ -42713,10 +43100,22 @@
                 "value": 0
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
                 "time": {
                     "varName": "tmp.sigilDrawTime"
                 },
                 "type": "WAIT"
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
             },
             {
                 "noStateReset": true,

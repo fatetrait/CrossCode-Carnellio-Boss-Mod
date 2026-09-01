@@ -2899,8 +2899,8 @@
                 },
                 "pScale": {
                     "init": {
-                        "x": 2.75,
-                        "y": 2.75
+                        "x": 2.2,
+                        "y": 2.2
                     }
                 },
                 "moveWithTarget": 1,
@@ -3426,7 +3426,7 @@
             },
             {
                 "numParticles": 40,
-                "duration": 0.6,
+                "duration": 2,
                 "clockwise": false,
                 "centralAngle": 3.5,
                 "startAngle": -0.25,
@@ -3444,8 +3444,8 @@
                 },
                 "pScale": {
                     "init": {
-                        "x": 0.4,
-                        "y": 0.4
+                        "x": 0.5,
+                        "y": 0.5
                     }
                 },
                 "moveDist": 0,
@@ -3489,12 +3489,12 @@
                         "spline": "EASE_OUT"
                     }
                 },
-                "particleDuration": 0.2,
+                "particleDuration": 2,
                 "anim": "CIRCLE_BIG",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 0.6,
+                "time": 2,
                 "type": "WAIT"
             }
         ],

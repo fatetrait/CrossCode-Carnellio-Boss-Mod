@@ -2,6 +2,7 @@
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
   
   
+
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
     start: function(a) {
       //console.log(this.target(a))
@@ -808,6 +809,27 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
     }
   });
 
+  ig.EVENT_STEP.DRACONIC_SWAP = ig.EventStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+
+    },
+    start: function () {
+      console.log('iwas called')
+      let big = ig.game.playerEntity.model.elementConfigs[3].actions.ATTACK_SPECIAL1_A.name;
+      if ((big.en_US && big.en_US.includes("Tesla")) || big.data.en_US.includes("Tesla")) {
+        sc.shockActionsBK = ig.game.playerEntity.model.elementConfigs[3].actions;
+        ig.game.playerEntity.model.elementConfigs[3].actions = sc.dracActionsBK
+      } else {
+        ig.game.playerEntity.model.elementConfigs[3].actions = sc.shockActionsBK
+      }
+      
+      
+    }
+  });
 
   ig.EVENT_STEP.APPLY_LIFEBLEED = ig.EventStepBase.extend({
     _wm: new ig.Config({
@@ -1077,25 +1099,6 @@ ig.module("game.feature.combat.pvp.carn").requires("impact.base.game").defines(f
 })
 
 
-ig.module("game.feature.combat.combat-sweep.carn").requires("impact.feature.effect.effect-sheet").defines(function() {
-  sc.COMBAT_SWEEPS.CARN = {
-    sheet: new ig.EffectSheet("sweeps"),
-    keys: ["default", "heat", "cold", "shock", "wave"],
-    force: {
-      radius: 32,
-      zHeight: 24,
-      centralAngle: 0.5,
-      duration: 0.1,
-      attack: {
-        type: "MEDIUM",
-        damageFactor: 0.2,
-        spFactor: 1,
-        skillBonus: "MELEE_DMG"
-      },
-      checkCollision: true
-    }
-  };
-})
 
 
 

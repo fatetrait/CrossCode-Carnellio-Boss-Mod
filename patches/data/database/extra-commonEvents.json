@@ -10,49 +10,222 @@
       "eventType": "CUTSCENE",
       "overrideSideMessage": false,
       "event": [
-        { "type": "START_PRIVATE_MSG" },
         {
-          "person": { "person": "misc.blank", "expression": "GLASS" },
-          "type": "ADD_MSG_PERSON",
-          "side": "LEFT",
-          "name": { "en_US": "Fate Traitor"}
+          "type": "START_PRIVATE_MSG"
         },
         {
-          "person": { "person": "main.lea", "expression": "SURPRISED_TOWARD" },
+          "person": {
+            "person": "misc.blank",
+            "expression": "GLASS"
+          },
+          "type": "ADD_MSG_PERSON",
+          "side": "LEFT",
+          "name": {
+            "en_US": "Fate Traitor"
+          }
+        },
+        {
+          "person": {
+            "person": "main.lea",
+            "expression": "SURPRISED_TOWARD"
+          },
           "type": "ADD_MSG_PERSON",
           "side": "RIGHT"
         },
         {
-          "person": { "person": "misc.blank", "expression": "GLASS" },
-          "message": { "en_US": "Thank you for installing the Carnellio mod!" },
+          "person": {
+            "person": "misc.blank",
+            "expression": "GLASS"
+          },
+          "message": {
+            "en_US": "Thank you for installing the Carnellio mod!"
+          },
           "type": "SHOW_MSG"
         },
         {
-          "person": { "person": "misc.blank", "expression": "GLASS" },
-          "message": { "en_US": "You will find the NPC teleporter to the boss in Rookie Harbor, at the Harbour Waypoint in Beginners Arc!" },
+          "person": {
+            "person": "misc.blank",
+            "expression": "GLASS"
+          },
+          "message": {
+            "en_US": "You will find the NPC teleporter to the boss in Rookie Harbor, at the Harbour Waypoint in Beginners Arc!"
+          },
           "type": "SHOW_MSG"
         },
         {
-          "person": { "person": "misc.blank", "expression": "GLASS" },
-          "message": { "en_US": "GOOD LUCK!! Read relevant NPC dialogue for more information!"},
+          "person": {
+            "person": "misc.blank",
+            "expression": "GLASS"
+          },
+          "message": {
+            "en_US": "GOOD LUCK!! Read relevant NPC dialogue for more information!"
+          },
           "type": "SHOW_MSG"
         },
         {
-          "person": { "person": "misc.blank", "expression": "GLASS" },
-          "message": { "en_US": "POST YOUR SOLOS OR ANY QUESTIONS AT https://discord.gg/5xd2e5mHMq"},
+          "person": {
+            "person": "misc.blank",
+            "expression": "GLASS"
+          },
+          "message": {
+            "en_US": "POST YOUR SOLOS OR ANY QUESTIONS AT https://discord.gg/5xd2e5mHMq"
+          },
           "type": "SHOW_MSG"
         },
-        { "type": "REMOVE_MSG_PERSON", "person": "misc.blank" },
-        { "type": "REMOVE_MSG_PERSON", "person": "main.lea" },
-        { "ignoreSlowDown": false, "type": "WAIT", "time": 0.3 },
         {
-            "asSpecial": true,
-            "type": "UNLOCK_ENEMY",
-            "enemy": "carnellio-boss"
+          "type": "REMOVE_MSG_PERSON",
+          "person": "misc.blank"
+        },
+        {
+          "type": "REMOVE_MSG_PERSON",
+          "person": "main.lea"
+        },
+        {
+          "ignoreSlowDown": false,
+          "type": "WAIT",
+          "time": 0.3
+        },
+        {
+          "asSpecial": true,
+          "type": "UNLOCK_ENEMY",
+          "enemy": "carnellio-boss"
         }
       ],
       "loopCount": 1,
-      "type": { "type": "MAP_ENTERED" }
+      "type": {
+        "type": "MAP_ENTERED"
+      }
+    }
+  },
+  {
+    "type": "SET_KEY",
+    "_comment": "This plays when leanellio uses Fatal Howl",
+    "index": "lea-fatal-howl",
+    "content": {
+      "frequency": "ALWAYS",
+      "repeat": "REPEAT",
+      "condition": "tmp.fatalHowlUsedLea",
+      "eventType": "PARALLEL",
+      "overrideSideMessage": false,
+      "event": [
+        {
+          "changeType": "set",
+          "type": "CHANGE_VAR_BOOL",
+          "varName": "tmp.fatalHowlUsedLea",
+          "value": false
+        },
+        {
+          "message": {
+            "en_US": "Hi!"
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.lea",
+            "expression": "ANGRY"
+          }
+        },
+        {
+          "ignoreSlowDown": true,
+          "type": "WAIT",
+          "time": 1
+        }
+      ],
+      "loopCount": 1,
+      "type": {
+        "type": "FORCE_UPDATE"
+      }
+    }
+  },
+  {
+    "type": "SET_KEY",
+    "_comment": "This plays when leanellio lands Fatal Howl",
+    "index": "lea-fatal-howl-hit",
+    "content": {
+      "frequency": "ALWAYS",
+      "repeat": "REPEAT",
+      "condition": "tmp.fatalHowlHitLea",
+      "eventType": "PARALLEL",
+      "overrideSideMessage": true,
+      "event": [
+        {
+          "changeType": "set",
+          "type": "CHANGE_VAR_BOOL",
+          "varName": "tmp.fatalHowlHitLea",
+          "value": false
+        },
+        {
+          "message": {
+            "en_US": "Lea!"
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.lea",
+            "expression": "INSANE_DOWN"
+          }
+        },
+        {
+          "time": 1,
+          "type": "WAIT"
+        },
+        {
+          "message": {
+            "en_US": "Bye! Bye! Bye! Bye!"
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.lea",
+            "expression": "INSANE"
+          }
+        },
+        {
+          "ignoreSlowDown": true,
+          "type": "WAIT",
+          "time": 2
+        }
+      ],
+      "loopCount": 1,
+      "type": {
+        "type": "FORCE_UPDATE"
+      }
+    }
+  },
+  {
+    "type": "SET_KEY",
+    "_comment": "This plays when leanellio uses Nightmare Reign",
+    "index": "lea-nr-used",
+    "content": {
+      "frequency": "ALWAYS",
+      "repeat": "REPEAT",
+      "condition": "tmp.nrUsedLea",
+      "eventType": "PARALLEL",
+      "overrideSideMessage": true,
+      "event": [
+        {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.nrUsedLea",
+            "value": false
+        },
+        {
+            "message": {
+                "en_US": "Meet! Lea!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+                "person": "main.lea",
+                "expression": "INSANE_DOWN"
+            }
+        },
+        {
+            "ignoreSlowDown": true,
+            "type": "WAIT",
+            "time": 1
+        }
+      ],
+      "loopCount": 1,
+      "type": {
+        "type": "FORCE_UPDATE"
+      }
     }
   }
 ]
