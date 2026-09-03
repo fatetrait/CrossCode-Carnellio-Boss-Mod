@@ -25,7 +25,7 @@
         ]
     },
     "ballFactor": 0.9,
-    "damageFactor": 0.7,
+    "damageFactor": 0.8,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
@@ -29484,7 +29484,7 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 0.1,
+                    "damageFactor": 0.07,
                     "fly": "MASSIVE",
                     "reverse": false,
                     "spFactor": 0,
@@ -29535,7 +29535,7 @@
                     "fly": "MASSIVE",
                     "type": "MASSIVE",
                     "element": "SHOCK",
-                    "damageFactor": 1.4
+                    "damageFactor": 0.9
                 },
                 "hit": [
                     {
@@ -29596,7 +29596,7 @@
                             "fly": "LIGHT",
                             "reverse": false,
                             "status": 25,
-                            "damageFactor": 0.1,
+                            "damageFactor": 0.07,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
@@ -29616,7 +29616,7 @@
                             "fly": "MASSIVE",
                             "reverse": false,
                             "status": 25,
-                            "damageFactor": 0.1,
+                            "damageFactor": 0.07,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
@@ -29645,7 +29645,7 @@
                             "fly": "MASSIVE",
                             "reverse": false,
                             "status": 25,
-                            "damageFactor": 0.1,
+                            "damageFactor": 0.07,
                             "guardable": "",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
@@ -29691,7 +29691,7 @@
                             "fly": "MASSIVE",
                             "type": "MASSIVE",
                             "element": "SHOCK",
-                            "damageFactor": 1.4
+                            "damageFactor": 0.9
                         },
                         "hit": [
                             {
@@ -29752,7 +29752,7 @@
                                     "fly": "LIGHT",
                                     "reverse": false,
                                     "status": 25,
-                                    "damageFactor": 0.1,
+                                    "damageFactor": 0.07,
                                     "guardable": "",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
@@ -29772,7 +29772,7 @@
                                     "fly": "MASSIVE",
                                     "reverse": false,
                                     "status": 25,
-                                    "damageFactor": 0.1,
+                                    "damageFactor": 0.07,
                                     "guardable": "",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
@@ -29801,7 +29801,7 @@
                                     "fly": "MASSIVE",
                                     "reverse": false,
                                     "status": 25,
-                                    "damageFactor": 0.1,
+                                    "damageFactor": 0.07,
                                     "guardable": "",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
@@ -30860,62 +30860,6 @@
                     "type": "MEDIUM",
                     "element": "SHOCK",
                     "damageFactor": 1.4,
-                    "fly": "LIGHT",
-                    "reverse": false,
-                    "spFactor": 0,
-                    "status": 10,
-                    "guardable": "ALWAYS",
-                    "skillBonus": "MELEE_DMG"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "stunSteps": [
-                    {
-                        "type": "BLOCK_XY"
-                    },
-                    {
-                        "accel": 1,
-                        "offZ": 24,
-                        "maxTime": 0,
-                        "type": "Z_PULL"
-                    },
-                    {
-                        "align": "BOTTOM",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        },
-                        "maxTime": 0,
-                        "type": "FORCE_POS"
-                    }
-                ]
-            },
-            {
-                "align": "CENTER",
-                "radius": 20,
-                "yScale": 1,
-                "zHeight": 16,
-                "centralAngle": 0.5,
-                "startAngle": -0.25,
-                "duration": 1,
-                "expandRadius": 0,
-                "alwaysFull": true,
-                "clockwise": false,
-                "flipLeftFace": 0,
-                "rectangular": false,
-                "repeat": false,
-                "uniformHitDir": true,
-                "fixPos": false,
-                "checkCollision": false,
-                "type": "CIRCLE_ATTACK",
-                "attack": {
-                    "type": "MEDIUM",
-                    "element": "SHOCK",
-                    "damageFactor": 1.6,
                     "fly": "LIGHT",
                     "reverse": false,
                     "spFactor": 0,
@@ -32184,7 +32128,7 @@
                         "changeType": "mul",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigilDrawTime",
-                        "value": 0.3
+                        "value": 0.4
                     }
                 ]
             },
@@ -34405,7 +34349,7 @@
                         "changeType": "mul",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigilDrawTime",
-                        "value": 0.3
+                        "value": 0.4
                     }
                 ]
             },
