@@ -25,7 +25,7 @@
         ]
     },
     "ballFactor": 0.9,
-    "damageFactor": 0.89,
+    "damageFactor": 0.91,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
@@ -292,7 +292,7 @@
                     "req": [
                         {
                             "min": 120,
-                            "max": 900,
+                            "max": 9000,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -335,7 +335,7 @@
                     "req": [
                         {
                             "min": 120,
-                            "max": 900,
+                            "max": 9000,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -943,7 +943,7 @@
                     "req": [
                         {
                             "min": 120,
-                            "max": 900,
+                            "max": 9000,
                             "negated": false,
                             "type": "TARGET_DISTANCE"
                         }
@@ -2266,8 +2266,23 @@
                         {
                             "strength": "NO_ESCAPE",
                             "pull": true,
-                            "radius": 40,
+                            "radius": 0,
                             "fadeRadius": 30,
+                            "minRadius": 0,
+                            "zHeight": 32,
+                            "duration": -1,
+                            "effect": {
+                                "sheet": "enemies.jungle",
+                                "name": "catPull"
+                            },
+                            "align": "BOTTOM",
+                            "type": "PUSH_PULL_FORCE"
+                        },
+                        {
+                            "strength": "DASH_ESCAPE",
+                            "pull": true,
+                            "radius": 45,
+                            "fadeRadius": 25,
                             "minRadius": 0,
                             "zHeight": 32,
                             "duration": -1,
@@ -10501,7 +10516,7 @@
             "breakType": "COMBATANT",
             "action": [
                 {
-                    "withElse": false,
+                    "withElse": true,
                     "type": "IF",
                     "condition": "!tmp.playerWeaken",
                     "thenStep": [
@@ -10635,6 +10650,23 @@
                             "varName": "tmp.playerWeaken",
                             "value": false
                         }
+                    ],
+                    "elseStep": [
+                        {
+                            "type": "CONSUME_SP_TARGET",
+                            "sp": 0.1
+                        },
+                        {
+                            "align": "CENTER",
+                            "posType": "TARGET",
+                            "type": "SHOOT_PROXY",
+                            "proxy": "player01SPDrainDisplay",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        }
                     ]
                 }
             ],
@@ -10680,7 +10712,7 @@
                     "name": "fateWeaken",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 0.7,
+                    "value": 0.60,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -13172,7 +13204,7 @@
                     }
                 },
                 {
-                    "value": 240,
+                    "value": 350,
                     "type": "SET_SPEED"
                 },
                 {
@@ -16494,8 +16526,9 @@
                             "type": "ROTATE_FACE"
                         },
                         {
-                            "time": 0,
-                            "type": "PLAYER_ADJUST_FACE"
+                            "value": true,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
                         },
                         {
                             "searchType": "IN_VIEW",
@@ -17982,7 +18015,7 @@
                     "type": "WAIT"
                 },
                 {
-                    "factor": 0.5,
+                    "factor": 15,
                     "type": "ABSORB_DAMAGE"
                 },
                 {
@@ -18128,11 +18161,11 @@
                     }
                 },
                 {
-                    "value": 500,
+                    "value": 750,
                     "type": "SET_SPEED"
                 },
                 {
-                    "time": 0.2,
+                    "time": 0.6,
                     "stopBeforeEdge": false,
                     "type": "MOVE_FORWARD"
                 },
@@ -19455,12 +19488,6 @@
                     "type": "TELEPORT_TO_ATTRIB_POS"
                 },
                 {
-                    "speed": "NORMAL",
-                    "actionDetached": false,
-                    "onlyAfterRemove": false,
-                    "type": "ADD_PLAYER_CAMERA_TARGET"
-                },
-                {
                     "duration": -1,
                     "align": "CENTER",
                     "rotateFace": 0,
@@ -19576,17 +19603,6 @@
                 {
                     "kind": "PROXY_OWNER",
                     "type": "SET_TEMP_TARGET"
-                },
-                {
-                    "offsetX": 0,
-                    "offsetY": 0,
-                    "speed": "FASTEST",
-                    "transition": "EASE_IN_OUT",
-                    "wait": false,
-                    "waitSkip": 0,
-                    "zoom": 1.5,
-                    "focusType": "BETWEEN_TARGET",
-                    "type": "FOCUS_CAMERA"
                 },
                 {
                     "duration": -1,
@@ -22835,6 +22851,16 @@
         ],
         "p2Reach": [
             {
+                "sticking": false,
+                "group": "sigils",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
+            {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.continueCombo",
@@ -22865,6 +22891,16 @@
             }
         ],
         "p3Reach": [
+            {
+                "sticking": false,
+                "group": "sigils",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
@@ -22897,6 +22933,16 @@
         ],
         "p4Reach": [
             {
+                "sticking": false,
+                "group": "sigils",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
+            {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.continueCombo",
@@ -22928,6 +22974,16 @@
         ],
         "p5Reach": [
             {
+                "sticking": false,
+                "group": "sigils",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
+            {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.continueCombo",
@@ -22958,6 +23014,22 @@
             }
         ],
         "funeralReach": [
+            {
+                "sticking": false,
+                "group": "sigils",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "tmp.continueCombo",
+                "value": false
+            },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
@@ -23313,6 +23385,17 @@
             {
                 "value": "HEAVY",
                 "type": "SET_HIT_STABLE"
+            },
+            {
+                "posType": "TARGET",
+                "align": "CENTER",
+                "type": "SET_HIT_PROXY",
+                "proxy": "playerWeaken",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
             },
             {
                 "withElse": false,
@@ -45737,7 +45820,7 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil15",
-                        "value": 17
+                        "value": 13
                     },
                     {
                         "changeType": "set",
@@ -45787,7 +45870,13 @@
                                 "enemyState": "FATE_FUNERAL"
                             },
                             {
-                                "noStateReset": true,
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_BOOL",
+                                "varName": "tmp.continueCombo",
+                                "value": false
+                            },
+                            {
+                                "noStateReset": false,
                                 "type": "DO_ENEMY_ACTION",
                                 "actionName": "FateFuneral"
                             }
@@ -48033,7 +48122,7 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil15",
-                        "value": 17
+                        "value": 13
                     },
                     {
                         "changeType": "set",
@@ -48083,7 +48172,13 @@
                                 "enemyState": "FATE_FUNERAL"
                             },
                             {
-                                "noStateReset": true,
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_BOOL",
+                                "varName": "tmp.continueCombo",
+                                "value": false
+                            },
+                            {
+                                "noStateReset": false,
                                 "type": "DO_ENEMY_ACTION",
                                 "actionName": "FateFuneral"
                             }
@@ -56669,8 +56764,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEnd",
@@ -56734,8 +56830,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "spinShortRev",
@@ -56786,8 +56883,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "spinShortRev",
@@ -56838,8 +56936,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "spinShortRev",
@@ -57012,8 +57111,13 @@
                 }
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.15,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "speed": "SLOWER",
@@ -57028,8 +57132,13 @@
                 "type": "CLEAR_SLOW_MOTION"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.15,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "duration": 3,
@@ -57057,8 +57166,13 @@
                 }
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 1.5,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "group": "charge",
@@ -61575,8 +61689,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEnd",
@@ -64506,7 +64621,7 @@
                 "type": "SET_JUMPING"
             },
             {
-                "value": 1000,
+                "value": 1030,
                 "type": "SET_SPEED"
             },
             {
@@ -64634,7 +64749,7 @@
                 "type": "SET_Z_GRAVITY_FACTOR"
             },
             {
-                "value": 700,
+                "value": 1250,
                 "type": "SET_SPEED"
             },
             {
@@ -65843,8 +65958,13 @@
                 }
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.8,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",
@@ -65919,8 +66039,13 @@
                 "type": "MOVE_FORWARD"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 1,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             }
         ],
         "VitalPulse": [
@@ -66022,8 +66147,13 @@
                 }
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 1.7,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "followUp": "charge",
@@ -66278,8 +66408,13 @@
                 "type": "FOCUS_CAMERA"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.1,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "speed": "FASTEST",
@@ -66289,8 +66424,13 @@
                 "type": "RESET_CAMERA"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 2.9,
-                "type": "PLAYER_ADJUST_FACE"
+                "type": "WAIT"
             },
             {
                 "type": "STOP_REPEATING_FORCE"
@@ -66461,13 +66601,6 @@
                 "condition": "entity.attrib.cannonReady >= 2"
             },
             {
-                "factor": 0.05,
-                "time": 0,
-                "keepEntityStatic": false,
-                "inversAccelerate": true,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "followUp": "charge",
                 "wait": false,
                 "viaWalkConfig": false,
@@ -66599,8 +66732,14 @@
                 "type": "LABEL"
             },
             {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
                 "time": 0.2,
-                "type": "PLAYER_ADJUST_FACE"
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
             },
             {
                 "changeType": "add",
@@ -68115,17 +68254,6 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.25,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "time": 0.2,
                 "collideCancel": 1,
                 "stopBeforeEdge": false,
@@ -68164,24 +68292,11 @@
                 "type": "STOP_REPEATING_FORCE"
             },
             {
-                "factor": 0.2,
-                "time": 0.1,
-                "keepEntityStatic": false,
-                "inversAccelerate": true,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "zoomType": "LIGHT",
                 "fadeIn": 0,
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "zoom": 1.5,
-                "duration": 0.2,
-                "transition": "EASE_IN_OUT",
-                "type": "SET_CAMERA_ZOOM"
             },
             {
                 "duration": 0,
@@ -68214,17 +68329,6 @@
             },
             {
                 "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1,
-                "focusType": "BETWEEN_TARGET",
-                "type": "FOCUS_CAMERA"
             },
             {
                 "duration": 0,
@@ -68407,26 +68511,8 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "factor": 0.1,
-                "time": 0,
-                "keepEntityStatic": false,
-                "inversAccelerate": true,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "value": "BREAK",
                 "type": "SET_HIT_STABLE"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 2,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
             },
             {
                 "duration": -1,
@@ -69251,29 +69337,11 @@
                 "type": "WAIT"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "LINEAR",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.35,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "zoomType": "LIGHT",
                 "fadeIn": 0,
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "factor": 0.01,
-                "time": 0,
-                "keepEntityStatic": true,
-                "inversAccelerate": false,
-                "type": "ADD_SLOW_MOTION"
             },
             {
                 "duration": -1,
@@ -69304,13 +69372,6 @@
                 "time": 0,
                 "removeEntityStatic": false,
                 "type": "CLEAR_SLOW_MOTION"
-            },
-            {
-                "factor": 0.2,
-                "time": 0,
-                "keepEntityStatic": true,
-                "inversAccelerate": false,
-                "type": "ADD_SLOW_MOTION"
             },
             {
                 "group": "subcharge",
@@ -69640,17 +69701,6 @@
                 }
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "LINEAR",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.35,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "align": "FACE",
                 "radius": 28,
                 "yScale": 0,
@@ -69917,13 +69967,6 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "factor": 0.05,
-                "time": 0,
-                "keepEntityStatic": true,
-                "inversAccelerate": false,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "duration": 0.4,
                 "align": "BOTTOM",
                 "rotateFace": 8,
@@ -70113,8 +70156,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEnd",
@@ -70148,8 +70192,9 @@
                 "type": "WAIT"
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEndRev",
@@ -70183,8 +70228,9 @@
                 "type": "WAIT"
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEnd",
@@ -70301,8 +70347,9 @@
                 }
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "searchType": "IN_VIEW",
@@ -70365,8 +70412,9 @@
                 "type": "WAIT"
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEndRev",
@@ -70429,8 +70477,9 @@
                 "type": "WAIT"
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEnd",
@@ -70493,8 +70542,9 @@
                 "type": "WAIT"
             },
             {
-                "time": 0,
-                "type": "PLAYER_ADJUST_FACE"
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "attackEndRev",
@@ -70509,13 +70559,6 @@
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "factor": 0.15,
-                "time": 0,
-                "keepEntityStatic": true,
-                "inversAccelerate": false,
-                "type": "ADD_SLOW_MOTION"
             },
             {
                 "duration": 0,
@@ -71630,17 +71673,6 @@
                 "anim": "startCharge"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "SLOW",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.3,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "value": -1,
                 "type": "SET_WEIGHT"
             },
@@ -71703,12 +71735,6 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "attackMirr"
-            },
-            {
-                "zoom": 1.5,
-                "duration": 0.1,
-                "transition": "EASE_IN_OUT",
-                "type": "SET_CAMERA_ZOOM"
             },
             {
                 "zoomType": "LIGHT",
@@ -71904,19 +71930,6 @@
                     "y": 0,
                     "z": 0
                 }
-            },
-            {
-                "factor": 0.05,
-                "time": 0,
-                "keepEntityStatic": true,
-                "inversAccelerate": false,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
-                "zoom": 2,
-                "duration": 0.05,
-                "transition": "EASE_IN_OUT",
-                "type": "SET_CAMERA_ZOOM"
             },
             {
                 "zoomType": "LIGHT",
