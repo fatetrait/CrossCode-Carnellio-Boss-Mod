@@ -25,7 +25,7 @@
         ]
     },
     "ballFactor": 0.9,
-    "damageFactor": 0.88,
+    "damageFactor": 0.89,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
@@ -22549,7 +22549,6 @@
                             "z": 0
                         }
                     },
-
                     {
                         "type": "FORCE_START_S_RANK"
                     }
@@ -22785,11 +22784,6 @@
                 "name": "drinkardShade",
                 "type": "SET_ATTRIB_BOOL",
                 "value": false
-            },
-            {
-                "sticking": false,
-                "group": "correctors",
-                "type": "REMOVE_PROXIES"
             },
             {
                 "align": "CENTER",
@@ -23345,10 +23339,17 @@
                         "type": "SET_CURRENT_EXE_SIGIL"
                     },
                     {
-                        "changeType": "add",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.exeIndex",
-                        "value": 1
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": "tmp.currentExe != 200001 && tmp.currentExe != 200002",
+                        "thenStep": [
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.exeIndex",
+                                "value": 1
+                            }
+                        ]
                     },
                     {
                         "withElse": false,
@@ -24656,6 +24657,19 @@
                             {
                                 "type": "DO_ENEMY_ACTION_INLINE",
                                 "actionName": "TimeFreeze"
+                            }
+                        ]
+                    },
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": "tmp.currentExe == 200001 || tmp.currentExe == 200002",
+                        "thenStep": [
+                            {
+                                "changeType": "add",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.exeIndex",
+                                "value": 1
                             }
                         ]
                     },
@@ -32355,18 +32369,6 @@
                         ]
                     }
                 ]
-            },
-            {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.continueCombo",
-                "thenStep": [
-                    {
-                        "stateReset": false,
-                        "type": "DO_ENEMY_ACTION_INLINE",
-                        "actionName": "ExecuteCombo"
-                    }
-                ]
             }
         ],
         "AttackDodge": [
@@ -32419,18 +32421,6 @@
                 "dodgeType": "AGGRESSIVE",
                 "aggressive": true,
                 "type": "NAVIGATE_DODGE"
-            },
-            {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.continueCombo",
-                "thenStep": [
-                    {
-                        "stateReset": false,
-                        "type": "DO_ENEMY_ACTION_INLINE",
-                        "actionName": "ExecuteCombo"
-                    }
-                ]
             }
         ],
         "GuardCountered": [
@@ -32444,18 +32434,6 @@
             {
                 "time": 0.4,
                 "type": "WAIT"
-            },
-            {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.continueCombo",
-                "thenStep": [
-                    {
-                        "stateReset": false,
-                        "type": "DO_ENEMY_ACTION_INLINE",
-                        "actionName": "ExecuteCombo"
-                    }
-                ]
             }
         ],
         "weakStart": [
@@ -32560,18 +32538,6 @@
                 "planOnly": false,
                 "targetType": "ENEMY",
                 "type": "NAVIGATE_ESCAPE_TARGET"
-            },
-            {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.continueCombo",
-                "thenStep": [
-                    {
-                        "stateReset": false,
-                        "type": "DO_ENEMY_ACTION_INLINE",
-                        "actionName": "ExecuteCombo"
-                    }
-                ]
             }
         ],
         "CounterCounter": [
@@ -32621,18 +32587,6 @@
             },
             {
                 "type": "WAIT_UNTIL_TRAP_OVER"
-            },
-            {
-                "withElse": false,
-                "type": "IF",
-                "condition": "tmp.continueCombo",
-                "thenStep": [
-                    {
-                        "stateReset": false,
-                        "type": "DO_ENEMY_ACTION_INLINE",
-                        "actionName": "ExecuteCombo"
-                    }
-                ]
             }
         ],
         "Phase1F": [
