@@ -11775,7 +11775,7 @@
                                 "sheet": "specials.neutral",
                                 "name": "shieldTrail"
                             },
-                            "noDefaultFX": false
+                            "noDefaultFX": true
                         }
                     }
                 },
@@ -16036,7 +16036,7 @@
                                 "sheet": "specials.cold",
                                 "name": "shieldTrail"
                             },
-                            "noDefaultFX": false
+                            "noDefaultFX": true
                         }
                     }
                 },
@@ -16090,7 +16090,7 @@
                                 "sheet": "specials.cold",
                                 "name": "shieldTrail"
                             },
-                            "noDefaultFX": false
+                            "noDefaultFX": true
                         }
                     }
                 },
@@ -23255,14 +23255,6 @@
                         "name": "executeAction",
                         "type": "GOTO_LABEL"
                     }
-                ],
-                "elseStep": [
-                    {
-                        "changeType": "set",
-                        "type": "CHANGE_VAR_BOOL",
-                        "varName": "tmp.continueCombo",
-                        "value": false
-                    }
                 ]
             },
             {
@@ -23280,6 +23272,19 @@
             {
                 "time": 0.3,
                 "type": "MOVE_FORWARD"
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.exeIndex >= tmp.sigilCount",
+                "thenStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.continueCombo",
+                        "value": false
+                    }
+                ]
             },
             {
                 "type": "SET_ENEMY_STATE",
@@ -52947,15 +52952,6 @@
                 "anim": "guard"
             },
             {
-                "type": "SET_PLAYER_ACTION_BLOCK",
-                "blockData": {
-                    "dash": 0,
-                    "action": -1,
-                    "move": -1,
-                    "reaim": -1
-                }
-            },
-            {
                 "duration": -1,
                 "align": "BOTTOM",
                 "rotateFace": 8,
@@ -52986,7 +52982,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
@@ -53288,7 +53288,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
@@ -53686,7 +53690,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
@@ -57588,7 +57596,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
@@ -57949,7 +57961,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
@@ -58418,7 +58434,11 @@
                         "baseFactor": 1,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
+                        "stableOverride": "MASSIVE",
+                        "back": false,
+                        "strength": "REGULAR",
+                        "noShieldDamage": false,
+                        "noDefaultFX": true
                     }
                 }
             },
