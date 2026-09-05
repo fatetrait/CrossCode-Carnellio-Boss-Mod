@@ -16,7 +16,7 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
       this.commonEventType = b.commonEventType
     },
     start: function() {
-      console.log('called at least', this)
+      //console.log('called at least', this)
       sc.commonEvents.triggerEvent(this.commonEventType, {})
     }
   });
@@ -168,7 +168,7 @@ ig.module("game.feature.player.player-config.carnPre").defines(function() {
       if (this.dracActionsBK) return;
       var b = a;
       if (!b.actions.DRACONIC) return;
-      console.log(this);
+      //console.log(this);
       sc.dracActionsBK = b.actions.DRACONIC;
       sc.shockActionsBK = b.actions.SHOCK;
     }

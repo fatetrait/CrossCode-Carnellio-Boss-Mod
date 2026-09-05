@@ -1,16 +1,16 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
-  
-  
+
+
 
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
-    start: function(a) {
+    start: function (a) {
       //console.log(this.target(a))
       //return this.parent(a);
       if (!ig.vars.storage.tmp.isCarn) return this.parent(a);
       let baseAttack = Object.values(sc.model.player.elementConfigs).reduce((sum, cur) => { return cur.baseParams.attack + sum }, 0) / Object.values(sc.model.player.elementConfigs).length;
       let dif = baseAttack - 600;
-      if (this.param == "attack" && this.name.includes("sergeyHax") && dif > 0 && this.value >= 1.7){
+      if (this.param == "attack" && this.name.includes("sergeyHax") && dif > 0 && this.value >= 1.7) {
         let virtualAttack = dif / 3 + 600;
         //final = virtual * 1.817
         // baseAttack * someBuff = final
@@ -23,7 +23,7 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
         // console.log('aaold value', this.value, virtualAttack, dif)
         // console.log('aathe value', this.value, baseAttack)
       }
-      
+
       return this.parent(a);
     }
   })
@@ -818,7 +818,7 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
 
     },
     start: function () {
-      console.log('iwas called')
+      //console.log('iwas called')
       let big = ig.game.playerEntity.model.elementConfigs[3].actions.ATTACK_SPECIAL1_A.name;
       if ((big.en_US && big.en_US.includes("Tesla")) || big.data.en_US.includes("Tesla")) {
         sc.shockActionsBK = ig.game.playerEntity.model.elementConfigs[3].actions;
@@ -826,8 +826,8 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
       } else {
         ig.game.playerEntity.model.elementConfigs[3].actions = sc.shockActionsBK
       }
-      
-      
+
+
     }
   });
 
@@ -848,12 +848,12 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
       let c = a._actionEntity ? a._actionEntity : a;
       //console.log("APPLY_LIFEBLEED: " + p.stunData.overkill, a, b, c, p);
       if (!p.stunData || !p.stunData.overkill) return
-      let originalOverkill = p.stunData.overkill;
+      let originalOverkill = Math.floor(p.stunData.overkill);
       ig.game.namedEntities.Carnellio.cancelAction();
 
       let livesLost = Math.floor(p.stunData.overkill / p.params.baseParams.hp);
       p.stunData.overkill -= livesLost * p.params.baseParams.hp;
-      let extraDmg = Math.min(p.stunData.overkill, p.params.currentHp - 1);
+      let extraDmg = Math.floor(Math.min(p.stunData.overkill, p.params.currentHp - 1));
       e = new ig.GUI.ARBox(e, `Overkill Damage: ${originalOverkill}\nExtra Lives Lost: ${livesLost}\nExtra Damage Taken: ${extraDmg}`, f, "NO_FILL", "RED");
       ig.gui.addGuiElement(e);
       e.setAttachedEntity(p)
@@ -1045,14 +1045,53 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       //console.log('overkill is now', c.combo.overkill);
       this.parent(a, b, c);
     },
-    setBaseParams: function(a, b) {
+    setBaseParams: function (a, b) {
       //console.log(this, a, b)
-      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || this.combatant.hidePets === undefined) return this.parent(a,b);
+      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || this.combatant.hidePets === undefined) return this.parent(a, b);
       var c = this.getStat("hp") - this.currentHp, d;
       for (d in this.baseParams) this.baseParams[d] = a[d] || this.baseParams[d];
       this.baseParams.hp = this.baseParams.hp / (2 ** ig.vars.storage.tmp.nrStacks);
       this.currentHp = this.baseParams.hp - c;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.STATS_CHANGED, b)
+    },
+    update: function (a) {
+      if (!ig.vars.storage.tmp.isCarn) return this.parent(a);
+      if (!this.defeated) {
+        var b = ig.system.ingameTick;
+        if (this.combatant.isPlayer && sc.newgame.get("infinite-sp")) this.currentSp != this.maxSp && this.setRelativeSp(1);
+        else {
+          var c = this.maxSp * sc.SP_REGEN_FACTOR,
+            d = a ? 0.05 : 0.25;
+          if (sc.pvp.isActive()) {
+            c = this.maxSp
+          }
+          if (this.currentSp < c) this.addSp(b * d, c);
+          else if (this.currentSp > c && !a) this.spHoldTimer > 0 ? this.spHoldTimer = this.spHoldTimer - b : this.addSp(b * -0.05, c)
+        }
+        if (!a && this.getHpFactor() < 1 && !sc.arena.active) {
+          if (!sc.newgame.get("waypoints-heals") || ig.game.playerEntity.atLandmarkHeal) {
+            if (this.hpHealTimer <= 0) {
+              this.hpHealTimer = 1;
+              c = Math.round(this.getStat("hp") * 1 / this.hpRegTime);
+              this.increaseHp(c)
+            }
+            this.hpHealTimer = this.hpHealTimer -
+              b
+          }
+        } else this.hpHealTimer = 1;
+        if (sc.model.isRunning()) {
+          for (b = this.statusStates.length; b--;) this.statusStates[b].update(this.combatant, this, a);
+          if (!sc.model.isCutscene())
+            for (b = this.buffs.length; b--;) this.buffs[b].update() && this.removeBuff(this.buffs[b])
+        }
+      }
+    },
+    increaseHp: function(a) {
+      if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
+      //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
+      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.max(0, a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length - 0.1));
+      if (this.currentHp > 0) this.defeated = false;
+      sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.HP_CHANGED)
     },
 
 
@@ -1064,6 +1103,28 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       this.parent();
       //this.stunData.overkill = 0;
     },
+    //no extra sp gain per focus
+    onTargetHit: function (a, b, c) {
+      if (!ig.vars.storage.tmp.isCarn) return this.parent(a, b, c);
+      // if (b.spFactor) {
+      //   //console.log('SP Factor: ' + b.spFactor, a, b, c);
+      //   b.spFactor /= 2.4;
+      //   this.parent(a, b, c);
+      //   b.spFactor *= 2.4;
+      // }
+      if (b.spFactor) {
+        //console.log('test', c.baseOffensiveFactor, b.spFactor, c.defensiveFactor, c.critical, b.spRepeatFactor);
+        a = c.baseOffensiveFactor * b.spFactor;
+        a = a * ((1 + c.defensiveFactor) / 2);
+        c.critical && (a = a * 1.5);
+        a = a 
+        a = a * b.spRepeatFactor;
+        b.spRepeatFactor = 0;
+        this.params.addSp(a * 0.1)
+      }
+    },
+
+
   })
 
 })
@@ -1102,36 +1163,48 @@ ig.module("game.feature.combat.pvp.carn").requires("impact.base.game").defines(f
 
 
 
-ig.module("game.feature.quick-menu.gui.circle-menu.carn").requires("impact.base.image", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "impact.feature.interact.gui.focus-gui", "game.feature.interact.button-group").defines(function() {
-sc.QuickRingMenu.inject({
-  enter: function() {
-    this.parent();
-    if (!ig.vars.storage.tmp.isCarn) return;
-     sc.model.player.itemBlockTimer > 0 || sc.quickmodel.itemsBlocked ? this.items.setActive(false) : this.items.setActive(true);
+ig.module("game.feature.quick-menu.gui.circle-menu.carn").requires("impact.base.image", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "impact.feature.interact.gui.focus-gui", "game.feature.interact.button-group").defines(function () {
+  sc.QuickRingMenu.inject({
+    enter: function () {
+      this.parent();
+      if (!ig.vars.storage.tmp.isCarn) return;
+      sc.model.player.itemBlockTimer > 0 || sc.quickmodel.itemsBlocked ? this.items.setActive(false) : this.items.setActive(true);
     },
+  })
 })
+
+
+ig.module("game.feature.combat.combat-shield.carn").requires("game.feature.combat.model.combat-params").defines(function () {
+  sc.COMBAT_SHIELDS.PLAYER.inject({
+    // getDamageFactor: function (a, b) {
+    //   if (!ig.vars.storage.tmp.isCarn) return this.parent(a, b);
+
+    //   var e = this.parent(a, b),
+    //     f = 1,
+    //     f = this.getDefenseRatio(a, b),
+    //     f = f <= 1 ? 0.2 - (1 - Math.pow(f, 0.3)) * 1 : 0.2 + (Math.pow(f, 1.1) - 1) * 0.35,
+    //     f = f - b.params.getModifier("GUARD_STRENGTH"),
+    //     f = f.limit(0, 1);
+    //   return e * f
+    // },
+
+    isActive: function (a, b, e, f, g) {
+      if (!ig.vars.storage.tmp.isCarn) return this.parent(a, b, e, f, g);
+      if (a.params.getModifier("GUARD_SP") && !this.noShieldDamage) {
+        b = a.params.getModifier("GUARD_SP");
+        a.params.addSp(b / 2 * e.damageFactor * (g ? 2 : 1))
+      }
+      if (this.noShieldDamage || g) return true;
+      g = this.getDefenseRatio(e, a);
+      e = e.damageFactor * Math.pow(g, 1.5);
+      return !a.damageShield(e)
+    },
+  })
 })
 
-
-// ig.module("game.feature.combat.combat-shield.carn").requires("game.feature.combat.model.combat-params").defines(function() {
-// sc.COMBAT_SHIELDS.PLAYER.inject({
-// getDamageFactor: function(a, b) {
-//   if (!ig.vars.storage.tmp.isCarn) return this.parent(a,b);
-  
-//       var e = this.parent(a, b),
-//         f = 1,
-//         f = this.getDefenseRatio(a, b),
-//         f = f <= 1 ? 0.2 - (1 - Math.pow(f, 0.3)) * 1 : 0.2 + (Math.pow(f, 1.1) - 1) * 0.35,
-//         f = f - b.params.getModifier("GUARD_STRENGTH"),
-//         f = f.limit(0, 1);
-//       return e * f
-//     },
-// })
-// })
-
-ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.feature.gui.base.box", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "game.feature.combat.gui.enemy-display-gui", "game.feature.menu.gui.menu-misc", "game.feature.gui.base.misc").defines(function() {
-sc.EnemyBaseParamLine.inject({
-  init: function(a, b) {
+ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.feature.gui.base.box", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "game.feature.combat.gui.enemy-display-gui", "game.feature.menu.gui.menu-misc", "game.feature.gui.base.misc").defines(function () {
+  sc.EnemyBaseParamLine.inject({
+    init: function (a, b) {
       this.parent(a, b);
       this.removeChildGui(this.number);
       this.number = new sc.NumberGui(99999999, {
@@ -1142,5 +1215,5 @@ sc.EnemyBaseParamLine.inject({
       this.addChildGui(this.number);
       this.doStateTransition("HIDDEN", true)
     },
-})
+  })
 })

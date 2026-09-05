@@ -3,6 +3,23 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "WAVE_CIRCLE_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/wave.png",
+                    "xCount": 5,
+                    "offX": 0,
+                    "offY": 224,
+                    "width": 80,
+                    "height": 80
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.033,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "STRAIL",
                 "sheet": {
                     "src": "media\/entity\/effects\/ball.png",
@@ -800,6 +817,36 @@
                     "src": "media/entity/effects/sigils/timeFreeze.png",
                     "width": 500,
                     "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "brawler",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 120,
+                    "offY": 24,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "shooter",
+                "sheet": {
+                    "src": "media/gui/circuit-icons.png",
+                    "offX": 72,
+                    "offY": 24,
+                    "width": 24,
+                    "height": 24
                 },
                 "time": 3,
                 "frames": [
@@ -2854,6 +2901,32 @@
                 "numParticles": 20,
                 "duration": 0.15,
                 "centralAngle": 1,
+                "startDist": 10,
+                "moveDist": 30,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "time": 0.05,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 0,
+                "anim": "FLAME3",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 20,
+                "duration": 0.15,
+                "centralAngle": 1,
                 "startDist": 32,
                 "moveDist": 30,
                 "keySpline": "EASE_OUT",
@@ -3193,6 +3266,97 @@
                 "numParticles": 8,
                 "particleDuration": 0.25,
                 "anim": "VV_TARGET",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.033,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "vvTracker": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 128,
+                    "z": 128
+                },
+                "pAlpha": {
+                    "init": 1,
+                    "end": {
+                        "value": 0,
+                        "time": 0.4,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.1,
+                            "y": 0.1
+                        },
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": -1,
+                "anim": "WAVE_CIRCLE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 128,
+                    "z": 128
+                },
+                "pAlpha": {
+                    "init": 1,
+                    "start": {
+                        "value": 0,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.1,
+                        "y": 0.1
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "spline": "EASE_IN"
+                    }
+                },
+                "particleDuration": 0.25,
+                "anim": "WAVE_CIRCLE_BIG",
                 "type": "PLAY_ANIM"
             },
             {
@@ -5971,6 +6135,85 @@
                 "type": "WAIT"
             }
         ],
+        "BrawlerSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "brawler",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+        "ShooterSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2,
+                        "spline": "EASE_IN"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.041,
+                        "y": 1.041
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 2,
+                "cancelable": true,
+                "anim": "shooter",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 2,
+                "type": "WAIT"
+            }
+        ],
+
         "BurnSigil": [
             {
                 "useTargetAngle": false,

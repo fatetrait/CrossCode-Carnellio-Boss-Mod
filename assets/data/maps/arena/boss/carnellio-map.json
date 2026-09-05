@@ -269,7 +269,7 @@
                     },
                     {
                         "type": "WAIT",
-                        "time": 5,
+                        "time": 30,
                         "ignoreSlowDown": true
                     },
                     {
@@ -495,7 +495,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate))",
                         "thenStep": [
                             {
                                 "entity": {
@@ -571,7 +571,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate))",
                         "thenStep": [
                             {
                                 "entity": {
@@ -666,7 +666,7 @@
                     {
                         "type": "IF",
                         "withElse": true,
-                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate))",
                         "thenStep": [
                             {
                                 "entity": {
@@ -818,7 +818,7 @@
                     {
                         "type": "IF",
                         "withElse": false,
-                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate))",
                         "thenStep": [
                             {
                                 "entity": {
@@ -952,7 +952,7 @@
                     {
                         "type": "IF",
                         "withElse": false,
-                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                        "condition": "global.isGwas || tmp.isGwas || ((global.isFate || tmp.isFate))",
                         "thenStep": [
                             {
                                 "entity": {
@@ -1233,7 +1233,7 @@
                                     {
                                         "type": "IF",
                                         "withElse": false,
-                                        "condition": " ((global.isFate || tmp.isFate) && tmp.isFateDoneDebugging)",
+                                        "condition": " ((global.isFate || tmp.isFate))",
                                         "thenStep": [
                                             {
                                                 "entity": {
