@@ -235,7 +235,7 @@
                             "condition": "false"
                         }
                     ],
-                    "action": "DEBUG4"
+                    "action": "DEBUG3"
                 },
                 {
                     "req": [
@@ -7315,6 +7315,86 @@
             },
             "type": "GENERIC"
         },
+        "anchorSpawner": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [
+                {
+                    "kind": "PLAYER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
+                    "value": 1400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "type": "MOVE_TO_DISTANCE",
+                    "min": 0,
+                    "max": 5,
+                    "maxTime": 0.3
+                },
+                {
+                    "align": "BOTTOM",
+                    "pushVel": 0,
+                    "centralAngle": 1,
+                    "angleVary": 0,
+                    "random": false,
+                    "duration": 0.2,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": true,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SPAWN_ENEMIES",
+                    "count": 1,
+                    "enemyInfo": {
+                        "group": "",
+                        "party": "",
+                        "face": null,
+                        "type": "reality_anchor",
+                        "attribs": {
+                            "hidden": false
+                        }
+                    }
+                },
+                {
+                    "time": 0.4,
+                    "type": "WAIT"
+                },
+                {
+                    "type": "CLEAR_EFFECTS"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "violetViperProxyGroup",
+            "effects": "",
+            "speed": 300,
+            "maxBounce": 0,
+            "timer": 2,
+            "trail": false,
+            "multiHit": true,
+            "noLightGlow": false,
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "true"
+            },
+            "timeBoni": null,
+            "behaviors": null,
+            "size": {
+                "x": 40,
+                "y": 40,
+                "z": 40
+            },
+            "config": {
+                "collType": "IGNORE"
+            },
+            "type": "GENERIC"
+        },
         "violetViperTargetProxy": {
             "copyOwnerAnims": false,
             "breakType": "ACTION",
@@ -10712,7 +10792,7 @@
                     "name": "fateWeaken",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 0.60,
+                    "value": 0.90,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -14975,10 +15055,10 @@
             "attack": {
                 "type": "MEDIUM",
                 "element": "COLD",
-                "damageFactor": 1.6,
+                "damageFactor": 1.2,
                 "reverse": false,
                 "spFactor": 0,
-                "status": 0.75,
+                "status": 2,
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -23342,7 +23422,7 @@
                 "value": false
             },
             {
-                "time": 0.3,
+                "time": 0.6,
                 "type": "MOVE_FORWARD"
             },
             {
@@ -24732,8 +24812,36 @@
                         "condition": "tmp.currentExe == 200002",
                         "thenStep": [
                             {
+                                "withElse": false,
+                                "type": "IF",
+                                "condition": "!tmp.shooterFrom || tmp.shooterFrom != tmp.exeIndex",
+                                "thenStep": [
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.shooterFrom",
+                                        "value": {
+                                            "varName": "tmp.exeIndex"
+                                        }
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "attribName": "throws",
+                                        "proxyOwner": false,
+                                        "type": "SET_ATTRIB_NUMBER",
+                                        "value": 4
+                                    }
+                                ]
+                            },
+                            {
                                 "type": "DO_ENEMY_ACTION_INLINE",
                                 "actionName": "Shooter"
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.shooterFrom",
+                                "value": -1
                             }
                         ]
                     },
@@ -27544,7 +27652,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil14",
-                "value": 41103
+                "value": 41003
             },
             {
                 "changeType": "set",
@@ -28751,31 +28859,24 @@
             },
             {
                 "align": "BOTTOM",
-                "dir": {
-                    "x": 0,
-                    "y": 1
-                },
-                "pushVel": 600,
-                "centralAngle": 1,
+                "centralAngle": 0,
                 "angleVary": 0,
+                "startDistCollide": "NONE",
                 "random": false,
-                "duration": 1,
+                "count": 1,
+                "duration": 0,
                 "clockwise": false,
                 "flipLeftFace": 0,
-                "circularArea": true,
+                "circularArea": false,
                 "uniformDir": 0,
                 "delay": 0,
                 "repeat": false,
-                "type": "SPAWN_ENEMIES",
-                "count": 1,
-                "enemyInfo": {
-                    "group": "",
-                    "party": "",
-                    "face": null,
-                    "type": "reality_anchor",
-                    "attribs": {
-                        "hidden": false
-                    }
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "anchorSpawner",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
                 }
             },
             {
@@ -45887,7 +45988,7 @@
                                 "options": [
                                     {
                                         "0": " ",
-                                        "count": 10,
+                                        "count": 11,
                                         "weight": 1,
                                         "activeCondition": "true"
                                     }
@@ -46505,6 +46606,56 @@
                                         "varName": "tmp.sigil11",
                                         "value": 22
                                     }
+                                ],
+                                "0_10": [
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigilCount",
+                                        "value": 7
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil0",
+                                        "value": 23
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil1",
+                                        "value": 10
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil2",
+                                        "value": 18
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil3",
+                                        "value": 22003
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil4",
+                                        "value": 41103
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil5",
+                                        "value": 21
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil6",
+                                        "value": 4
+                                    }
                                 ]
                             }
                         ]
@@ -47021,14 +47172,20 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigilCount",
-                        "value": 1
+                        "value": 2
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil0",
                         "value": 11003
-                    }
+                    },
+                    {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil1",
+                                "value": 15
+                            }
                 ]
             },
             {
@@ -47172,14 +47329,20 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigilCount",
-                        "value": 1
+                        "value": 2
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil0",
                         "value": 11003
-                    }
+                    },
+                    {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil1",
+                                "value": 15
+                            }
                 ],
                 "0_1": [
                     {
@@ -47592,13 +47755,19 @@
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigilCount",
-                                "value": 1
+                                "value": 2
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil0",
                                 "value": 11003
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil1",
+                                "value": 15
                             }
                         ],
                         "0_1": [
@@ -48189,7 +48358,7 @@
                                 "options": [
                                     {
                                         "0": " ",
-                                        "count": 9,
+                                        "count": 10,
                                         "weight": 1,
                                         "activeCondition": "true"
                                     }
@@ -48269,7 +48438,7 @@
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigilCount",
-                                        "value": 8
+                                        "value": 9
                                     },
                                     {
                                         "changeType": "set",
@@ -48305,18 +48474,25 @@
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil5",
+                                        "value": 15
+                                    },
+
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil6",
                                         "value": 22003
                                     },
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
-                                        "varName": "tmp.sigil6",
+                                        "varName": "tmp.sigil7",
                                         "value": 200002
                                     },
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
-                                        "varName": "tmp.sigil7",
+                                        "varName": "tmp.sigil8",
                                         "value": 31001
                                     }
                                 ],
@@ -48636,6 +48812,68 @@
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil7",
                                         "value": 32102
+                                    }
+                                ],
+                                "0_9": [
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigilCount",
+                                        "value": 9
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil0",
+                                        "value": 17
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil1",
+                                        "value": 11
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil2",
+                                        "value": 13
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil3",
+                                        "value": 12
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil4",
+                                        "value": 4
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil5",
+                                        "value": 15
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil6",
+                                        "value": 22003
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil7",
+                                        "value": 8
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil8",
+                                        "value": 16
                                     }
                                 ]
                             }
@@ -55094,8 +55332,14 @@
                 }
             },
             {
+                "type": "CLEAR_FIRST_HIT"
+            },
+            {
                 "time": 1,
                 "type": "WAIT"
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
             },
             {
                 "followUp": "spinShortRev",
@@ -55110,17 +55354,6 @@
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.3,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
             },
             {
                 "value": "HEAVY",
@@ -55226,17 +55459,6 @@
                 "type": "SET_TEMP_TARGET"
             },
             {
-                "offsetX": 0,
-                "offsetY": -32,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.4,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "duration": 0,
                 "target": "TARGET",
                 "align": "FACE",
@@ -55303,17 +55525,6 @@
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": -64,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.5,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
             },
             {
                 "type": "CLEAR_EFFECTS"
@@ -55547,17 +55758,6 @@
             {
                 "time": 0.05,
                 "type": "WAIT"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "LINEAR",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.5,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
             },
             {
                 "factor": 0.01,
@@ -65562,17 +65762,6 @@
                 "anim": "spinShort"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "SLOW",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.25,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "duration": 0.5,
                 "align": "FACE",
                 "rotateFace": 8,
@@ -65668,12 +65857,6 @@
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "zoom": 1.25,
-                "duration": 0.2,
-                "transition": "EASE_OUT",
-                "type": "SET_CAMERA_ZOOM"
             },
             {
                 "type": "PLAYER_ADJUST_MOVE_DIR"
@@ -66096,17 +66279,6 @@
                 "type": "MOVE_FORWARD"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "SLOWER",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.25,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "searchType": "IN_VIEW",
                 "ignoreCurrentTarget": false,
                 "prevHitBehavior": "NONE",
@@ -66163,12 +66335,6 @@
                 "anim": "startCharge"
             },
             {
-                "zoom": 1.5,
-                "duration": 0.1,
-                "transition": "EASE_OUT",
-                "type": "SET_CAMERA_ZOOM"
-            },
-            {
                 "duration": 0.4,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -66203,12 +66369,6 @@
                 "duration": 0.2,
                 "fadeOut": 0.2,
                 "type": "SET_ZOOM_BLUR"
-            },
-            {
-                "zoom": 1.25,
-                "duration": 0.2,
-                "transition": "EASE_OUT",
-                "type": "SET_CAMERA_ZOOM"
             },
             {
                 "followUp": "spinShortRev",
@@ -67024,17 +67184,6 @@
                 "type": "SET_ZOOM_BLUR"
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FASTEST",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.5,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -67053,17 +67202,6 @@
             {
                 "time": 0.4,
                 "type": "WAIT"
-            },
-            {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "SLOW",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
             }
         ],
         "CircleOfValor": [
@@ -72189,10 +72327,6 @@
                 ]
             },
             {
-                "type": "ENABLE_REACTION",
-                "reaction": "GUARD"
-            },
-            {
                 "value": true,
                 "immediately": true,
                 "type": "FACE_TO_TARGET"
@@ -72320,10 +72454,6 @@
             },
             {
                 "type": "DISABLE_REACTION",
-                "reaction": "GUARD"
-            },
-            {
-                "type": "DISABLE_REACTION",
                 "reaction": "COUNTER_COUNTER"
             }
         ],
@@ -72346,13 +72476,6 @@
             {
                 "type": "ENABLE_REACTION",
                 "reaction": "COUNTER_COUNTER"
-            },
-            {
-                "changeType": "set",
-                "attribName": "throws",
-                "proxyOwner": false,
-                "type": "SET_ATTRIB_NUMBER",
-                "value": 3
             },
             {
                 "conditions": [
@@ -72442,31 +72565,45 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "followUp": "attackEnd",
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "spinShort"
-            },
-            {
-                "charged": true,
-                "type": "SHOW_THROW_FX"
-            },
-            {
-                "value": false,
-                "type": "FACE_TO_TARGET"
-            },
-            {
-                "projectileSpeed": 600,
-                "type": "SET_FACE_TARGET_PREDICT"
-            },
-            {
-                "elementProxy": "CHARGED",
-                "type": "SHOOT_PROXY_PLAYER"
-            },
-            {
-                "time": 0.18,
-                "type": "WAIT"
+                "withElse": false,
+                "type": "IF",
+                "condition": "entity.attrib.throws > 1",
+                "thenStep": [
+                    {
+                        "followUp": "attackEnd",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "spinShort"
+                    },
+                    {
+                        "charged": true,
+                        "type": "SHOW_THROW_FX"
+                    },
+                    {
+                        "value": false,
+                        "type": "FACE_TO_TARGET"
+                    },
+                    {
+                        "projectileSpeed": 600,
+                        "type": "SET_FACE_TARGET_PREDICT"
+                    },
+                    {
+                        "elementProxy": "CHARGED",
+                        "type": "SHOOT_PROXY_PLAYER"
+                    },
+                    {
+                        "changeType": "sub",
+                        "attribName": "throws",
+                        "proxyOwner": false,
+                        "type": "SET_ATTRIB_NUMBER",
+                        "value": 1
+                    },
+                    {
+                        "time": 0.18,
+                        "type": "WAIT"
+                    }
+                ]
             },
             {
                 "name": "throwStart",
@@ -72538,7 +72675,15 @@
             },
             {
                 "type": "DISABLE_REACTION",
+                "reaction": "DOOOOOOODGE_THROW"
+            },
+            {
+                "type": "DISABLE_REACTION",
                 "reaction": "COUNTER_COUNTER"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
             }
         ],
         "TimeFreeze": [
@@ -72720,6 +72865,7 @@
             "type": "DODGE"
         },
         "GUARD": {
+            "cooldown": 60,
             "preSwitchState": "BRAKE",
             "action": "GuardCountered",
             "type": "GUARD_COUNTER"
