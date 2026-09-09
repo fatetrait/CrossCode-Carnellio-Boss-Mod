@@ -2,7 +2,6 @@
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
 
 
-
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
     start: function (a) {
       //console.log(this.target(a))
@@ -94,6 +93,18 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     },
     start: function (a) {
       ig.vars.set("tmp.currentExe", ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.exeIndex]);
+    }
+  });
+
+  ig.ACTION_STEP.SET_CURRENT_EXE_SIGIL_PLAYER = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+    },
+    start: function (a) {
+      ig.vars.set("tmp.currentExePlayer", ig.vars.storage.tmp["sigilPlayer" + ig.vars.storage.tmp.exeIndexPlayer]);
     }
   });
 });
@@ -383,6 +394,17 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     start: function (a) {
       if (ig.vars.storage.tmp.sigilIndex < 0) return;
       ig.vars.storage.tmp.currentSigil = ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.sigilIndex];
+    }
+  });
+
+  ig.ACTION_STEP._LOAD_CURRENT_SIGIL_PLAYER = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function () { },
+    start: function (a) {
+      if (ig.vars.storage.tmp.sigilIndexPlayer < 0) return;
+      ig.vars.storage.tmp.currentSigilPlayer = ig.vars.storage.tmp["sigilPlayer" + ig.vars.storage.tmp.sigilIndexPlayer];
     }
   });
 
@@ -1086,10 +1108,10 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         }
       }
     },
-    increaseHp: function(a) {
+    increaseHp: function (a) {
       if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
       //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
-      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.max(0, a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length - 0.1));
+      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length - 0.1))*0.7));
       if (this.currentHp > 0) this.defeated = false;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.HP_CHANGED)
     },
@@ -1117,7 +1139,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a 
+        a = a
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
@@ -1217,3 +1239,10 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
     },
   })
 })
+
+
+ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
+      path: "media/bgm/Burning_Out_the_Blue.mp3",
+      loopEnd: 386,
+      volume: 0.75
+    }

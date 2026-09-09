@@ -8,7 +8,7 @@
         "elemFactor": [
             1.10,
             1.05,
-            1.15,
+            1.20,
             1.05
         ],
         "statusInflict": [
@@ -25,7 +25,7 @@
         ]
     },
     "ballFactor": 0.9,
-    "damageFactor": 0.91,
+    "damageFactor": 0.40,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
@@ -122,7 +122,7 @@
             "healDrop": 0.4
         },
         {
-            "hp": 0.0478,
+            "hp": 0.1,
             "healDrop": 0
         }
     ],
@@ -235,7 +235,7 @@
                             "condition": "false"
                         }
                     ],
-                    "action": "DEBUG3"
+                    "action": "DEBUG4"
                 },
                 {
                     "req": [
@@ -2374,7 +2374,7 @@
                             }
                         },
                         {
-                            "time": 1.5,
+                            "time": 1,
                             "type": "WAIT"
                         },
                         {
@@ -3642,7 +3642,7 @@
                 },
                 {
                     "align": "BOTTOM",
-                    "radius": 2,
+                    "radius": 5,
                     "yScale": 0,
                     "zHeight": 24,
                     "centralAngle": 1,
@@ -3751,7 +3751,7 @@
                 },
                 {
                     "align": "BOTTOM",
-                    "radius": 2,
+                    "radius": 5,
                     "yScale": 0,
                     "zHeight": 24,
                     "centralAngle": 1,
@@ -9627,6 +9627,84 @@
             },
             "type": "GENERIC"
         },
+        "player05SPDrainDisplay": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [
+                {
+                    "min": 40,
+                    "max": 50,
+                    "maxTime": 0.1,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "face": "SOUTH",
+                    "rotate": false,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE"
+                },
+                {
+                    "value": true,
+                    "type": "SET_FACE_FIX"
+                },
+                {
+                    "value": 400,
+                    "type": "SET_SPEED"
+                },
+                {
+                    "time": 0.2,
+                    "type": "MOVE_FORWARD"
+                },
+                {
+                    "min": 40,
+                    "max": 100,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "text": {
+                        "en_US": "-0.5 SP"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 1
+                },
+                {
+                    "time": 1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 400,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
         "player01SPDrainDisplay": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -10110,7 +10188,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 1.817!"
+                        "en_US": "Attack stat multiplied by 2.289!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10145,7 +10223,7 @@
                     "name": "sergeyHax",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 1.817,
+                    "value": 2.289,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10276,7 +10354,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 1.817!"
+                        "en_US": "Attack stat multiplied by 2.289!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10311,7 +10389,7 @@
                     "name": "sergeyHax2",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 1.817,
+                    "value": 2.289,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10442,7 +10520,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 1.817!"
+                        "en_US": "Attack stat multiplied by 2.289!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10477,7 +10555,7 @@
                     "name": "sergeyHax3",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 1.817,
+                    "value": 2.289,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10734,13 +10812,13 @@
                     "elseStep": [
                         {
                             "type": "CONSUME_SP_TARGET",
-                            "sp": 0.1
+                            "sp": 0.5
                         },
                         {
                             "align": "CENTER",
                             "posType": "TARGET",
                             "type": "SHOOT_PROXY",
-                            "proxy": "player01SPDrainDisplay",
+                            "proxy": "player05SPDrainDisplay",
                             "offset": {
                                 "x": 0,
                                 "y": 0,
@@ -10792,7 +10870,7 @@
                     "name": "fateWeaken",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 0.90,
+                    "value": 0.80,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -18611,7 +18689,7 @@
                     "attack": {
                         "type": "MASSIVE",
                         "element": "WAVE",
-                        "damageFactor": 2.25,
+                        "damageFactor": 1.5,
                         "fly": "MASSIVE+",
                         "reverse": false,
                         "stunSteps": [],
@@ -23134,12 +23212,6 @@
                 }
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_BOOL",
-                "varName": "tmp.p5Reach",
-                "value": true
-            },
-            {
                 "name": "funeralDR",
                 "actionDetached": true,
                 "type": "ADD_SHIELD",
@@ -23273,41 +23345,6 @@
                 "type": "IF",
                 "condition": "!tmp.continueCombo",
                 "thenStep": [
-                    {
-                        "sticking": false,
-                        "group": "summon",
-                        "type": "REMOVE_PROXIES"
-                    },
-                    {
-                        "sticking": false,
-                        "group": "summon",
-                        "type": "REMOVE_PROXIES"
-                    },
-                    {
-                        "name": "eveningShade",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
-                    },
-                    {
-                        "name": "evilFracture",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
-                    },
-                    {
-                        "name": "romeida",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
-                    },
-                    {
-                        "name": "blackDivinity",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
-                    },
-                    {
-                        "name": "drinkardShade",
-                        "type": "SET_ATTRIB_BOOL",
-                        "value": false
-                    },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
@@ -24944,417 +24981,49 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilCount",
-                "value": 10
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.oneSigil",
-                "value": 3
+                "value": 7
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil0",
-                "value": 17
+                "value": 16
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil1",
-                "value": 22
+                "value": 10
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil2",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 17
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil3",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 11
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil4",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 13
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil5",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 8
             },
             {
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil6",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil15",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil16",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil17",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil18",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil19",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil20",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil21",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil22",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil23",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil24",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil25",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil26",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil27",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil28",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil29",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil30",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil31",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil32",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil33",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil34",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil35",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil36",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil37",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil38",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil39",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil40",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil41",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil42",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil43",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil44",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil45",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil46",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil47",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil48",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil49",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil50",
-                "value": {
-                    "varName": "tmp.oneSigil"
-                }
+                "value": 9
             },
             {
                 "withElse": true,
@@ -28335,6 +28004,9 @@
                         "wait": false,
                         "waitSkip": 0,
                         "type": "RESET_CAMERA"
+                    },
+                    {
+                        "type": "CLEAR_STUN_LOCKED"
                     }
                 ]
             }
@@ -29006,6 +28678,36 @@
         ],
         "Summon": [
             {
+                "sticking": false,
+                "group": "summon",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "name": "eveningShade",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "name": "evilFracture",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "name": "romeida",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "name": "blackDivinity",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "name": "drinkardShade",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "value": "BREAK",
                 "type": "SET_HIT_STABLE"
             },
@@ -29175,7 +28877,7 @@
                 "value": true
             },
             {
-                "time": 1.5,
+                "time": 1,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             }
@@ -29192,13 +28894,18 @@
                 "type": "SHOW_AR_MSG",
                 "time": 1
             },
+            
+            {
+                "type": "SAVE_TARGET"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
             {
                 "name": "eveningShade",
                 "type": "SET_ATTRIB_BOOL",
                 "value": true
-            },
-            {
-                "type": "SAVE_TARGET"
             },
             {
                 "kind": "PROXY",
@@ -29208,7 +28915,7 @@
             {
                 "name": "esTP",
                 "searchType": "FRONT",
-                "distance": 20,
+                "distance": 1,
                 "centralAngle": 1,
                 "throwing": false,
                 "type": "SET_ATTRIB_CLOSE_TARGET_POS"
@@ -29239,11 +28946,16 @@
                 "attrib": "esTP",
                 "type": "TELEPORT_TO_ATTRIB_POS"
             },
+            
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
             {
                 "type": "LOAD_TARGET"
             },
             {
-                "time": 0.2,
+                "time": 0.1,
                 "type": "WAIT"
             }
         ],
@@ -31312,7 +31024,7 @@
                 "attack": {
                     "type": "LIGHT",
                     "element": "SHOCK",
-                    "damageFactor": 1.4,
+                    "damageFactor": 1.3,
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
@@ -31395,7 +31107,7 @@
                 "attack": {
                     "type": "LIGHT",
                     "element": "SHOCK",
-                    "damageFactor": 1.4,
+                    "damageFactor": 1.3,
                     "reverse": false,
                     "spFactor": 0,
                     "status": 3,
@@ -46612,7 +46324,7 @@
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigilCount",
-                                        "value": 7
+                                        "value": 8
                                     },
                                     {
                                         "changeType": "set",
@@ -46636,24 +46348,30 @@
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil3",
-                                        "value": 22003
+                                        "value": 10
                                     },
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil4",
-                                        "value": 41103
+                                        "value": 22003
                                     },
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil5",
-                                        "value": 21
+                                        "value": 41103
                                     },
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil6",
+                                        "value": 21
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil7",
                                         "value": 4
                                     }
                                 ]
@@ -47181,11 +46899,11 @@
                         "value": 11003
                     },
                     {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.sigil1",
-                                "value": 15
-                            }
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigil1",
+                        "value": 15
+                    }
                 ]
             },
             {
@@ -47338,11 +47056,11 @@
                         "value": 11003
                     },
                     {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.sigil1",
-                                "value": 15
-                            }
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigil1",
+                        "value": 15
+                    }
                 ],
                 "0_1": [
                     {
@@ -48476,7 +48194,6 @@
                                         "varName": "tmp.sigil5",
                                         "value": 15
                                     },
-
                                     {
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
@@ -48749,7 +48466,7 @@
                                         "changeType": "set",
                                         "type": "CHANGE_VAR_NUMBER",
                                         "varName": "tmp.sigil7",
-                                        "value": 7
+                                        "value": 1
                                     },
                                     {
                                         "changeType": "set",
@@ -53075,17 +52792,6 @@
                 }
             },
             {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "SLOW",
-                "transition": "EASE_IN_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
-            },
-            {
                 "align": "BOTTOM",
                 "radius": 48,
                 "yScale": 0,
@@ -53151,13 +52857,6 @@
                 "type": "STOP_REPEATING_FORCE"
             },
             {
-                "factor": 0.1,
-                "time": 0.1,
-                "keepEntityStatic": false,
-                "inversAccelerate": true,
-                "type": "ADD_SLOW_MOTION"
-            },
-            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -53200,17 +52899,6 @@
                         "type": "SET_ZOOM_BLUR"
                     },
                     {
-                        "offsetX": 0,
-                        "offsetY": 0,
-                        "speed": "FAST",
-                        "transition": "EASE_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 1.5,
-                        "focusType": "SELF",
-                        "type": "FOCUS_CAMERA"
-                    },
-                    {
                         "time": 0.5,
                         "type": "WAIT"
                     },
@@ -53219,17 +52907,6 @@
                         "changeType": "set",
                         "type": "SET_ATTRIB_NUMBER",
                         "value": 1
-                    },
-                    {
-                        "offsetX": 0,
-                        "offsetY": -80,
-                        "speed": "NORMAL",
-                        "transition": "EASE_IN_OUT",
-                        "wait": false,
-                        "waitSkip": 0,
-                        "zoom": 1,
-                        "focusType": "BETWEEN_TARGET",
-                        "type": "FOCUS_CAMERA"
                     },
                     {
                         "zoomType": "LIGHTER",
@@ -66888,6 +66565,10 @@
                 "value": 0
             },
             {
+                "value": 1.3,
+                "type": "FACE_TO_TARGET_SPEED"
+            },
+            {
                 "name": "loop",
                 "type": "LABEL"
             },
@@ -68218,7 +67899,7 @@
             },
             {
                 "text": {
-                    "en_US": "VerdantStream"
+                    "en_US": "Verdant Stream"
                 },
                 "mode": "NO_LINE",
                 "color": "PURPLE",
@@ -68226,6 +67907,10 @@
                 "hideOutsideOfScreen": false,
                 "type": "SHOW_AR_MSG",
                 "time": 0.7
+            },
+            {
+                "time": 0.3,
+                "type": "MOVE_FORWARD"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",
@@ -68254,7 +67939,7 @@
                 "type": "SET_JUMPING"
             },
             {
-                "value": 650,
+                "value": 550,
                 "type": "SET_SPEED"
             },
             {
@@ -68264,6 +67949,9 @@
             {
                 "value": "IGNORE",
                 "type": "SET_COLL_TYPE"
+            },
+            {
+                "type": "CLEAR_FIRST_HIT"
             },
             {
                 "attribName": "bombBoom",
@@ -68322,6 +68010,9 @@
                 "type": "SET_INVINCIBLE"
             },
             {
+                "type": "CLEAR_FIRST_HIT"
+            },
+            {
                 "align": "BOTTOM",
                 "centralAngle": 0,
                 "angleVary": 0,
@@ -68366,14 +68057,7 @@
                     "fly": "MEDIUM",
                     "reverse": false,
                     "spFactor": 0,
-                    "stunSteps": [
-                        {
-                            "type": "BLOCK_XY"
-                        },
-                        {
-                            "type": "START_LOCK"
-                        }
-                    ],
+                    "stunSteps": [],
                     "status": 0.75,
                     "guardable": "",
                     "skillBonus": "MELEE_DMG"
@@ -68515,7 +68199,7 @@
             },
             {
                 "text": {
-                    "en_US": "ToxicRevenant"
+                    "en_US": "Toxic Revenant"
                 },
                 "mode": "NO_LINE",
                 "color": "PURPLE",

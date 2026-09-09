@@ -860,7 +860,7 @@
                         ]
                     },
                     {
-                        "bgm": "s-rank",
+                        "bgm": "burningOutTheBlue",
                         "volume": 1,
                         "mode": "IMMEDIATELY",
                         "type": "PUSH_BGM"
@@ -927,21 +927,14 @@
                 "endCondition": "false",
                 "event": [
                     {
-                        "type": "IF",
-                        "withElse": false,
-                        "condition": "!tmp.p5ReachHistory",
-                        "thenStep": [
-                            {
-                                "mode": "MEDIUM_OUT",
-                                "type": "PAUSE_BGM"
-                            },
-                            {
-                                "bgm": "s-rank",
-                                "volume": 1,
-                                "mode": "IMMEDIATELY",
-                                "type": "PUSH_BGM"
-                            }
-                        ]
+                        "mode": "MEDIUM_OUT",
+                        "type": "PAUSE_BGM"
+                    },
+                    {
+                        "bgm": "s-rank",
+                        "volume": 1,
+                        "mode": "IMMEDIATELY",
+                        "type": "PUSH_BGM"
                     },
                     {
                         "changeType": "set",

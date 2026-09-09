@@ -3608,8 +3608,8 @@
                 },
                 "pScale": {
                     "init": {
-                        "x": 0.5,
-                        "y": 0.5
+                        "x": 1,
+                        "y": 1
                     }
                 },
                 "moveDist": 0,
@@ -3632,26 +3632,6 @@
                     "x": 0,
                     "y": 0,
                     "z": 0
-                },
-                "pAlpha": {
-                    "init": 1,
-                    "start": {
-                        "value": 0,
-                        "spline": ""
-                    }
-                },
-                "pScale": {
-                    "init": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "start": {
-                        "value": {
-                            "x": 1.5,
-                            "y": 1.5
-                        },
-                        "spline": "EASE_OUT"
-                    }
                 },
                 "particleDuration": 2,
                 "anim": "CIRCLE_BIG",

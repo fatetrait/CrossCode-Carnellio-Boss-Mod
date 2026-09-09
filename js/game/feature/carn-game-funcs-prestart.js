@@ -1,6 +1,35 @@
 
 ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.base.action", "impact.base.actor-entity").defines(function () {
- 
+ ig.ACTION_STEP._SUMMON_LFW = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function (a) {
+    },
+    start: function (a) {
+      //console.log('yo waht',a ,this, a?.getCombatantRoot()?.combatStats?.lastTarget)
+      let lily_spawn = {
+        name: "lily_summon",
+        enemyInfo: {
+
+          state: "DEFAULT",
+          group: "",
+          party: "PLAYER",
+          startEffect: {
+            sheet: "teleport",
+            name: "showAlphaInstant_2"
+          },
+          targetOnSpawn: true,
+          type: "avatar.lily",
+          attribs: {}
+        },
+        ownerEnemy: a?.getCombatantRoot()?.combatStats?.lastTarget,
+        spawnCondition: "true"
+      };
+      ig.game.spawnEntity("Enemy", a.coll.pos.x, a.coll.pos.y, a.coll.pos.z, lily_spawn);
+    }
+  });
   ig.ACTION_STEP.TRIGGER_COMMON_EVENTS = ig.ActionStepBase.extend({
     commonEventType: null,
     _wm: new ig.Config({

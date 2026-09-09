@@ -1371,6 +1371,219 @@
             }
         },
         {
+            "type": "EventTrigger",
+            "x": 507,
+            "y": 942,
+            "level": 0,
+            "settings": {
+                "name": "characterSelect",
+                "eventType": "CUTSCENE",
+                "endCondition": "false",
+                "event": [
+                    {
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "tmp.characterSelect",
+                        "changeType": "set",
+                        "value": false
+                    },
+                    {
+                        "type": "SHOW_BOARD_MSG",
+                        "side": "RIGHT",
+                        "text": {
+                            "en_US": "Choose a class",
+                            "de_DE": "",
+                            "ja_JP": "",
+                            "ko_KR": "",
+                            "zh_CN": "",
+                            "zh_TW": ""
+                        },
+                        "autoContinue": true
+                    },
+                    {
+                        "person": {
+                            "person": "main.lea",
+                            "expression": "BLANK"
+                        },
+                        "type": "ADD_MSG_PERSON",
+                        "side": "RIGHT"
+                    },
+                    {
+                        "0": [
+                            {
+                                "type": "CLEAR_MSG",
+                                "side": "ALL"
+                            },
+                            {
+                                "type": "REMOVE_PROXIES"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "area.arid",
+                                    "name": "switchActivateNoOffset"
+                                },
+                                "duration": 0,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER",
+                                "group": "0"
+                            },
+                            {
+                                "type": "WAIT",
+                                "time": 1
+                            },
+                            {
+                                "type": "SWITCH_PLAYER_CONFIG",
+                                "name": "Lea"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "scene.hacking",
+                                    "name": "hackingShowSlow"
+                                },
+                                "duration": 2,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER"
+                            },
+                            {
+                                "type": "SHOW_BOARD_MSG",
+                                "text": {
+                                    "en_US": "Default Spheromancer equipped!",
+                                    "de_DE": "",
+                                    "ja_JP": "",
+                                    "ko_KR": "",
+                                    "zh_CN": "",
+                                    "zh_TW": ""
+                                }
+                            },
+                            {
+                                "name": "END",
+                                "type": "GOTO_LABEL"
+                            }
+                        ],
+                        "1": [
+                            {
+                                "type": "CLEAR_MSG",
+                                "side": "ALL"
+                            },
+                            {
+                                "type": "REMOVE_PROXIES"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "area.arid",
+                                    "name": "switchActivateNoOffset"
+                                },
+                                "duration": 0,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER",
+                                "group": "0"
+                            },
+                            {
+                                "type": "WAIT",
+                                "time": 1
+                            },
+                            {
+                                "type": "SWITCH_PLAYER_CONFIG",
+                                "name": "carnne-lea"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "scene.hacking",
+                                    "name": "hackingShowSlow"
+                                },
+                                "duration": 2,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER"
+                            },
+                            {
+                                "type": "SHOW_BOARD_MSG",
+                                "text": {
+                                    "en_US": "Draconic equipped! Balls replaced with summons! Shock tree replaced!",
+                                    "de_DE": "",
+                                    "ja_JP": "",
+                                    "ko_KR": "",
+                                    "zh_CN": "",
+                                    "zh_TW": ""
+                                }
+                            },
+                            {
+                                "name": "END",
+                                "type": "GOTO_LABEL"
+                            }
+                        ],
+                        "2": [
+                            {
+                                "name": "END",
+                                "type": "GOTO_LABEL"
+                            }
+                        ],
+                        "type": "SHOW_CHOICE",
+                        "person": {
+                            "person": "main.lea",
+                            "expression": "BLANK"
+                        },
+                        "options": [
+                            {
+                                "label": {
+                                    "en_US": "Spheromancer Lea"
+                                }
+                            },
+                            {
+                                "label": {
+                                    "en_US": "Draconic Lea (Requires Black Magic Circuit)"
+                                },
+                                "activeCondition": "stat.items.draconic-circuit >= 1"
+                            },
+                            {
+                                "label": {
+                                    "en_US": "Cancel"
+                                }
+                            }
+                        ],
+                        "columns": 1
+                    },
+                    {
+                        "name": "END",
+                        "type": "LABEL"
+                    }
+                ],
+                "triggerType": "ALWAYS",
+                "mapId": 262,
+                "startCondition": "tmp.characterSelect"
+            }
+        },
+        {
             "type": "TeleportCentral",
             "x": 276,
             "y": 440,
@@ -3659,6 +3872,425 @@
             }
         },
         {
+            "type": "Prop",
+            "x": 808,
+            "y": 988,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "characterSelect",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Class Selection"
+                    },
+                    "event": [
+                        {
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.characterSelect",
+                            "changeType": "set",
+                            "value": true
+                        }
+                    ]
+                },
+                "mapId": 90,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 749,
+            "y": 220,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "ultAttackInfo",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "(SPOILERS) Ultimate Attacks Info"
+                    },
+                    "event": [
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "I will explain some of the more complicated Carnollo moves "
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Feel free to skip my dialogue to avoid spoilers"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "\\c[3]Fatal Howl\\c[0] is a black sigil resembling the number 8 appearing in Phase 5 "
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Carnollo will instantly grab enemies a short distance away from him and execute a deadly stunlock combo if landed"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "You will be safe from the grab if you are super close to him, decently far, or dashing"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Be wary that this attack usually follows a Realout or Fakeout, so you may have to dash accordingly"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "\\c[1]Nightmare Reign\\c[0] is Carnollo's signature move; a red sigil resembling a skull appearing in Phase 5 "
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Carnollo will channel a circle of medium size around him, and check for any enemies within it at the end of the spell"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "If any enemies are within range, Carnollo \\c[3]teleports\\c[0] to his summon and lunges quickly at his target's predicted location"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Being grabbed by this attack will deal \\c[1]enormous\\c[0] damage and \\c[1]halve your max HP for the rest of the fight\\c[0] "
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "This concludes the explanation of Carnollo's most complicated moves"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "This is extra text to cover the logs of anyone who wanted to skip my dialogue"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Best of luck to you, Seeker!"
+                            }
+                        }
+                    ]
+                },
+                "mapId": 90,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 640,
+            "y": 340,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "sigilDrawInfo",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Sigil Draw Info"
+                    },
+                    "event": [
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "I will teach you about \\c[3]Sigil Draw\\c[0]"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "\\c[3]Sigil Draw\\c[0] forces Carnollo to reveal his entire combo intention before he attacks"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "By \\c[2]reading\\c[0] the sigils, you can determine how to best dodge the upcoming combo"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "\\c[2]Learning\\c[0] the attack behind each sigil will increase your \\c[1]survival rate\\c[0]"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "As you phase the boss, combos will get longer and longer"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Although it is unintended, you are free to use \\c[3]quick-menu\\c[0] to freeze the game and read the combo"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Be wary of Carnollo's last stand \\c[1]funeral combo\\c[0], which contains a massive number of sigils."
+                            }
+                        }
+                    ]
+                },
+                "mapId": 90,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 870,
+            "y": 340,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "specialRulesInfo",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Special Rules"
+                    },
+                    "event": [
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "I will tell you about the unique conditions imposed by Carnollo"
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "As in the source game, Carnollo will always have 12,550,000 HP (unless you have the NG+ levelmatch)"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Carnollo is balanced at level 45, but his attack will scale to a little below your level if you are higher than that."
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]6x\\c[0] at the start of the fight"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "This boost is reduced and divided amongst all your party members"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "All of Carnollo's attacks apply various \\c[1]debuffs\\c[0] to you, the most common of which is a \\c[3]30% weaken\\c[0]"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Additionally, you will \\c[1]move 40% slower\\c[0] during the fight and all hp gain is reduced by 30%, but your dashes remain the same distance"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Nastier \\c[1]debuffs\\c[0] include \\c[3]overload stacking, food CD extension, and SP draining\\c[0] "
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Carnollo innately \\c[1]resists 20% of ranged damage\\c[0] to encourage risky close-range plays "
+                            }
+                        }
+                    ]
+                },
+                "mapId": 90,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 806,
+            "y": 294,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "cashoutInfo",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Cashout/Escape/Farming info"
+                    },
+                    "event": [
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "I will tell you about the unique conditions imposed by Carnollo"
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "I will explain the \\c[3]Cashout/Escape\\c[0] mechanic"
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Each time you \\c[2]phase the boss\\c[0], a number of materials for the Draconic Circuit will drop."
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "In base CrossCode, dying deletes any materials gained during a combat rank."
+                            }
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "As the creator, I want to encourage learning from death"
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "Therefore, even if you die, your \\c[2]mats are safe\\c[0]."
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "You simply have to \\c[3]use the escape teleporter at the start of combat\\c[0] to cash out on your mats"
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "All accumulated mats will be paid out on leaving"
+                            },
+                            "autoContinue": false
+                        },
+                        {
+                            "type": "SHOW_BOARD_MSG",
+                            "side": "RIGHT",
+                            "text": {
+                                "en_US": "The teleporter disappears during the fight, so just take a death to respawn it and leave if you have to."
+                            },
+                            "autoContinue": false
+                        }
+                    ]
+                },
+                "mapId": 90,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
             "type": "NPC",
             "x": 749,
             "y": 763,
@@ -3825,170 +4457,6 @@
         },
         {
             "type": "NPC",
-            "x": 749,
-            "y": 220,
-            "level": 0,
-            "settings": {
-                "characterName": "adventurers.male-headband-white",
-                "npcStates": [
-                    {
-                        "reactType": "",
-                        "face": "SOUTH",
-                        "action": [],
-                        "hidden": false,
-                        "condition": "",
-                        "config": "normal",
-                        "event": {
-                            "quest": [
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "type": "ADD_MSG_PERSON",
-                                    "side": "RIGHT"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "I will explain some of the more complicated Carnollo moves "
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Feel free to skip my dialogue to avoid spoilers"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "\\c[3]Fatal Howl\\c[0] is a black sigil resembling the number 8 appearing in Phase 5 "
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Carnollo will instantly grab enemies a short distance away from him and execute a deadly stunlock combo if landed"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "You will be safe from the grab if you are super close to him, decently far, or dashing"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Be wary that this attack usually follows a Realout or Fakeout, so you may have to dash accordingly"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "\\c[1]Nightmare Reign\\c[0] is Carnollo's signature move; a red sigil resembling a skull appearing in Phase 5 "
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Carnollo will channel a circle of medium size around him, and check for any enemies within it at the end of the spell"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "If any enemies are within range, Carnollo \\c[3]teleports\\c[0] to his summon and lunges quickly at his target's predicted location"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Being grabbed by this attack will deal \\c[1]enormous\\c[0] damage and \\c[1]halve your max HP for the rest of the fight\\c[0] "
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "This concludes the explanation of Carnollo's most complicated moves"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "This is extra text to cover the logs of anyone who wanted to skip my dialogue"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "adventurers.male-headband-white",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Best of luck to you, Seeker!"
-                                    },
-                                    "type": "SHOW_MSG"
-                                }
-                            ]
-                        },
-                        "pageName": "yes"
-                    }
-                ],
-                "mapId": 325,
-                "name": "Carn Complicated Informant"
-            }
-        },
-        {
-            "type": "NPC",
             "x": 364,
             "y": 422,
             "level": 0,
@@ -4057,234 +4525,6 @@
                 ],
                 "mapId": 327,
                 "name": "Fate Combos Informant"
-            }
-        },
-        {
-            "type": "NPC",
-            "x": 640,
-            "y": 340,
-            "level": 0,
-            "settings": {
-                "characterName": "bergen.female-hoodie-black",
-                "npcStates": [
-                    {
-                        "reactType": "FIXED_POS",
-                        "face": "EAST",
-                        "action": [],
-                        "hidden": false,
-                        "condition": "",
-                        "config": "normal",
-                        "event": {
-                            "quest": [
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "type": "ADD_MSG_PERSON",
-                                    "side": "RIGHT"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "I will teach you about \\c[3]Sigil Draw\\c[0]"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "\\c[3]Sigil Draw\\c[0] forces Carnollo to reveal his entire combo intention before he attacks"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "By \\c[2]reading\\c[0] the sigils, you can determine how to best dodge the upcoming combo"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "\\c[2]Learning\\c[0] the attack behind each sigil will increase your \\c[1]survival rate\\c[0]"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "As you phase the boss, combos will get longer and longer"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Although it is unintended, you are free to use \\c[3]quick-menu\\c[0] to freeze the game and read the combo"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "bergen.female-hoodie-black",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Be wary of Carnollo's last stand \\c[1]funeral combo\\c[0], which contains a massive number of sigils."
-                                    },
-                                    "type": "SHOW_MSG"
-                                }
-                            ]
-                        },
-                        "pageName": "yes"
-                    }
-                ],
-                "mapId": 323,
-                "name": "Carn Sigil Informant"
-            }
-        },
-        {
-            "type": "NPC",
-            "x": 870,
-            "y": 340,
-            "level": 0,
-            "settings": {
-                "characterName": "business.crosscode-ceo",
-                "npcStates": [
-                    {
-                        "reactType": "FIXED_POS",
-                        "face": "WEST",
-                        "action": [],
-                        "hidden": false,
-                        "condition": "",
-                        "config": "normal",
-                        "event": {
-                            "quest": [
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "type": "ADD_MSG_PERSON",
-                                    "side": "RIGHT"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "I will tell you about the unique conditions imposed by Carnollo"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "As in the source game, Carnollo will always have 12,550,000 HP (unless you have the NG+ levelmatch)"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Carnollo is balanced at level 45, but his attack will scale to a little below your level if you are higher than that."
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "To balance his insane hp, your \\c[1]damage is buffed\\c[0] by approximately \\c[1]6x\\c[0] at the start of the fight"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "This boost is reduced and divided amongst all your party members"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "All of Carnollo's attacks apply various \\c[1]debuffs\\c[0] to you, the most common of which is a \\c[3]30% weaken\\c[0]"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Additionally, you will \\c[1]move 40% slower\\c[0] during the fight but \\c[2]dash 50% further\\c[0]"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Nastier \\c[1]debuffs\\c[0] include \\c[3]overload stacking, food CD extension, and SP draining\\c[0] "
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "business.crosscode-ceo",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Carnollo innately \\c[1]resists 20% of ranged damage\\c[0] to encourage risky close-range plays "
-                                    },
-                                    "type": "SHOW_MSG"
-                                }
-                            ]
-                        },
-                        "pageName": "ayes"
-                    }
-                ],
-                "mapId": 324,
-                "name": "Carn General Informer"
             }
         },
         {
@@ -4419,127 +4659,116 @@
                         "pageName": "yes"
                     }
                 ],
+                "analyzable": {
+                    "text": {
+                        "en_US": "General Info"
+                    },
+                    "active": ""
+                },
                 "mapId": 322,
                 "name": "Carn Mod Informant"
             }
         },
         {
-            "type": "NPC",
-            "x": 806,
-            "y": 294,
-            "level": 0,
+            "type": "Prop",
+            "x": 677,
+            "y": 829,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
             "settings": {
-                "characterName": "cargo-crew.female-short-blue",
-                "npcStates": [
-                    {
-                        "reactType": "",
-                        "face": "SOUTH_WEST",
-                        "action": [],
-                        "hidden": false,
-                        "condition": "",
-                        "config": "normal",
-                        "event": {
-                            "quest": [
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "type": "ADD_MSG_PERSON",
-                                    "side": "RIGHT"
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "I will explain the \\c[3]Cashout/Escape\\c[0] mechanic"
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Each time you \\c[2]phase the boss\\c[0], a number of materials for the Draconic Circuit will drop."
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "In base CrossCode, dying deletes any materials gained during a combat rank."
-                                    },
-                                    "type": "SHOW_MSG"
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "As the creator, I want to encourage learning from death"
-                                    },
-                                    "type": "SHOW_MSG",
-                                    "autoContinue": false
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "Therefore, even if you die, your \\c[2]mats are safe\\c[0]."
-                                    },
-                                    "type": "SHOW_MSG",
-                                    "autoContinue": false
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "You simply have to \\c[3]use the escape teleporter at the start of combat\\c[0] to cash out on your mats"
-                                    },
-                                    "type": "SHOW_MSG",
-                                    "autoContinue": false
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "All accumulated mats will be paid out on leaving"
-                                    },
-                                    "type": "SHOW_MSG",
-                                    "autoContinue": false
-                                },
-                                {
-                                    "person": {
-                                        "person": "cargo-crew.female-short-blue",
-                                        "expression": "DEFAULT"
-                                    },
-                                    "message": {
-                                        "en_US": "The teleporter disappears during the fight, so just take a death to respawn it and leave if you have to."
-                                    },
-                                    "type": "SHOW_MSG",
-                                    "autoContinue": false
-                                }
-                            ]
-                        },
-                        "pageName": "yes"
-                    }
-                ],
-                "mapId": 326,
-                "name": "Carn Escape Informant"
+                "name": "characterSelect",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Class Selection"
+                    },
+                    "event": [
+                        {
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.characterSelect",
+                            "changeType": "set",
+                            "value": true
+                        }
+                    ]
+                },
+                "mapId": 328,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 808,
+            "y": 829,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "characterSelect",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Class Selection"
+                    },
+                    "event": [
+                        {
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.characterSelect",
+                            "changeType": "set",
+                            "value": true
+                        }
+                    ]
+                },
+                "mapId": 329,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
+            }
+        },
+        {
+            "type": "Prop",
+            "x": 677,
+            "y": 988,
+            "level": {
+                "level": 0,
+                "offset": 4
+            },
+            "settings": {
+                "name": "characterSelect",
+                "interact": {
+                    "icon": "INFO",
+                    "hoverText": {
+                        "en_US": "Class Selection"
+                    },
+                    "event": [
+                        {
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "tmp.characterSelect",
+                            "changeType": "set",
+                            "value": true
+                        }
+                    ]
+                },
+                "mapId": 330,
+                "propType": {
+                    "sheet": "trading-autumn",
+                    "name": "signHuge"
+                },
+                "propAnim": "news",
+                "condAnims": [],
+                "spawnCondition": ""
             }
         }
     ],
