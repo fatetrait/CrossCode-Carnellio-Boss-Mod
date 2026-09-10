@@ -201,6 +201,14 @@ ig.module("game.feature.player.player-config.carnPre").defines(function() {
       sc.shockActionsBK = b.actions.SHOCK;
     }
   })
+
+  sc.STAT_CHANGE_SETTINGS["SP_REGEN-4-CARN"] = {
+    change: sc.STAT_CHANGE_TYPE.MODIFIER,
+    type: sc.STAT_PARAM_TYPE.SP_REGEN,
+    value: 1,
+    icon: "stat-sp-regen",
+    grade: "stat-rank-3"
+  };
 })
 // ig.module("game.main.carnPre").requires("impact.base.game", "game.config", "game.features", "game.beta").defines(function() {
 //   ig.ENTITY.PlayerDraconic = sc.PlayerBaseEntity.extend({

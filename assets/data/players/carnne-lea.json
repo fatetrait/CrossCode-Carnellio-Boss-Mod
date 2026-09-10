@@ -3768,7 +3768,7 @@
             },
             "type": "GENERIC"
         },
-        "fatalHowlBuff": {
+        "fatalHowlBuffLea": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
@@ -3852,14 +3852,14 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack multiplied by 2!"
+                        "en_US": "SP Gain multiplied by 2!"
                     },
                     "mode": "LINE_FILL",
                     "color": "RED",
                     "actionDetached": false,
                     "hideOutsideOfScreen": false,
                     "type": "SHOW_AR_MSG",
-                    "time": 6
+                    "time": 10
                 },
                 {
                     "volume": 1.5,
@@ -3875,20 +3875,8 @@
                     "hacked": true,
                     "type": "ADD_ACTION_BUFF",
                     "stats": [
-                        "HACK"
+                        "SP_REGEN-4-CARN"
                     ]
-                },
-                {
-                    "time": 0.5,
-                    "type": "WAIT"
-                },
-                {
-                    "target": "TARGET",
-                    "name": "sergeyHax",
-                    "param": "attack",
-                    "changeType": "set",
-                    "value": 2,
-                    "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
                     "time": 0.3,
@@ -3898,7 +3886,7 @@
                 {
                     "target": "TARGET",
                     "align": "BOTTOM",
-                    "duration": 6,
+                    "duration": 10,
                     "type": "STICK_TO_TARGET",
                     "offset": {
                         "x": 0,
@@ -37414,7 +37402,7 @@
                     "en_US": "Fatal Howl"
                 },
                 "description": {
-                    "en_US": "Instantly grab enemies a short distance in front of you, locking them into slash combo that ends with a massive damage and a 2x attack boost."
+                    "en_US": "Instantly grab enemies in front of you, locking them into slash combo that ends with massive damage and buff that doubles SP Gain. Be mindful of the safe zone too close to you!"
                 },
                 "dmgType": "MELEE",
                 "stunType": "LOCK",
@@ -37637,7 +37625,7 @@
                                 "align": "CENTER",
                                 "posType": "TARGET",
                                 "type": "SHOOT_PROXY",
-                                "proxy": "fatalHowlBuff",
+                                "proxy": "fatalHowlBuffLea",
                                 "offset": {
                                     "x": 0,
                                     "y": 0,
@@ -38956,7 +38944,7 @@
                                                 "align": "CENTER",
                                                 "posType": "TARGET",
                                                 "type": "SHOOT_PROXY",
-                                                "proxy": "fatalHowlBuff",
+                                                "proxy": "fatalHowlBuffLea",
                                                 "offset": {
                                                     "x": 0,
                                                     "y": 0,
@@ -45035,7 +45023,7 @@
                                                 "align": "CENTER",
                                                 "posType": "TARGET",
                                                 "type": "SHOOT_PROXY",
-                                                "proxy": "fatalHowlBuff",
+                                                "proxy": "fatalHowlBuffLea",
                                                 "offset": {
                                                     "x": 0,
                                                     "y": 0,
@@ -48958,7 +48946,7 @@
                                                 "align": "CENTER",
                                                 "posType": "TARGET",
                                                 "type": "SHOOT_PROXY",
-                                                "proxy": "fatalHowlBuff",
+                                                "proxy": "fatalHowlBuffLea",
                                                 "offset": {
                                                     "x": 0,
                                                     "y": 0,
