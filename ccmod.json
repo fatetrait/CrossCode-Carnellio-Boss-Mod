@@ -1,13 +1,13 @@
 {
 	"id": "carn",
 	"title": "Carnellio SBBF Crossover",
-	"version": "0.9.0",
-	"description": "Adds a series of optional, challenging bosses utilizing a unique combo system. Crossover with Skill Based Boss Fights!",
+	"version": "0.9.1",
+	"description": "Adds a series of optional, challenging bosses and a playable class as a reward (replaces shock circuit). Crossover with Skill Based Boss Fights!",
 	"icons": {
 		"24": "icon-24.png"
 	},
 	"authors": "fatetraitor",
-	"tags": ["boss", "arena", "fun"],
+	"tags": ["boss", "arena", "pvp duel", "player character", "combat arts"],
 	"repository": "https://github.com/fatetrait/CrossCode-Carnellio-Boss-Mod",
 	"prestart": "prestart.js",
 	"poststart": "poststart.js",

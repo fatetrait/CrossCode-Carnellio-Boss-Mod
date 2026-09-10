@@ -2696,26 +2696,6 @@
             "breakType": "COMBATANT",
             "action": [
                 {
-                    "align": "BOTTOM",
-                    "type": "SHOOT_PROXY",
-                    "proxy": "playerWeaken",
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "align": "BOTTOM",
-                    "type": "SHOOT_PROXY",
-                    "proxy": "playerWeaken",
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
                     "align": "CENTER",
                     "posType": "TARGET",
                     "type": "SHOOT_PROXY",
@@ -7145,6 +7125,14 @@
                     "value": 14
                 },
                 {
+                    "volume": 1.5,
+                    "global": false,
+                    "loop": false,
+                    "speed": 1.00,
+                    "type": "PLAY_SOUND",
+                    "sound": "media\/sound\/move\/targeting-charged.ogg"
+                },
+                {
                     "align": "BOTTOM",
                     "centralAngle": 0,
                     "angleVary": 0,
@@ -7399,10 +7387,6 @@
             "copyOwnerAnims": false,
             "breakType": "ACTION",
             "action": [
-                {
-                    "kind": "PLAYER",
-                    "type": "SET_TEMP_TARGET"
-                },
                 {
                     "duration": -1,
                     "align": "CENTER",
@@ -23218,7 +23202,7 @@
                 "shield": {
                     "type": "PARTS",
                     "settings": {
-                        "baseFactor": 0.20,
+                        "baseFactor": 0.40,
                         "parts": [],
                         "inverse": true
                     }
@@ -33745,10 +33729,7 @@
             }
         ],
         "Phase5F": [
-            {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
+            
             {
                 "value": 0,
                 "type": "SET_SPEED"
@@ -34012,6 +33993,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -34616,7 +34601,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",
@@ -35993,10 +35978,6 @@
         ],
         "Phase5N": [
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -36259,6 +36240,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -36937,7 +36922,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",
@@ -38832,10 +38817,6 @@
         ],
         "Phase5F_GWAS": [
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -39362,6 +39343,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -40314,7 +40299,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",
@@ -42245,10 +42230,6 @@
         ],
         "Phase5N_GWAS": [
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -42775,6 +42756,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -43709,7 +43694,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",
@@ -45516,10 +45501,6 @@
         ],
         "Phase5N_FATE": [
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -45695,6 +45676,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -46449,7 +46434,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",
@@ -47892,10 +47877,6 @@
         ],
         "Phase5F_FATE": [
             {
-                "name": "funeralDR",
-                "type": "REMOVE_SHIELD"
-            },
-            {
                 "value": 0,
                 "type": "SET_SPEED"
             },
@@ -48071,6 +48052,10 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "name": "funeralDR",
+                                "type": "REMOVE_SHIELD"
+                            },
                             {
                                 "type": "SELECT_RANDOM",
                                 "options": [
@@ -48667,7 +48652,7 @@
                         "thenStep": [
                             {
                                 "text": {
-                                    "en_US": "Funeral Combo"
+                                    "en_US": "Funeral Combo (-60% damage taken)"
                                 },
                                 "mode": "LINE_FILL",
                                 "color": "darkviolet",

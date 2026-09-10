@@ -1069,11 +1069,11 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
     },
     setBaseParams: function (a, b) {
       //console.log(this, a, b)
-      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || this.combatant.hidePets === undefined) return this.parent(a, b);
+      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || !this.combatant || !this.combatant.animSheet || this.combatant.animSheet.cacheKey == 'carnanims' ) return this.parent(a, b);
       var c = this.getStat("hp") - this.currentHp, d;
       for (d in this.baseParams) this.baseParams[d] = a[d] || this.baseParams[d];
       this.baseParams.hp = this.baseParams.hp / (2 ** ig.vars.storage.tmp.nrStacks);
-      this.currentHp = this.baseParams.hp - c;
+      //this.currentHp = Math.min(this.baseParams.hp, this.currentHp); // - c;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.STATS_CHANGED, b)
     },
     update: function (a) {

@@ -13,18 +13,17 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
         name: "lily_summon",
         enemyInfo: {
 
-          state: "DEFAULT",
+          state: "DEFAULT_SUMMON",
           group: "",
           party: "PLAYER",
           startEffect: {
             sheet: "teleport",
             name: "showAlphaInstant_2"
           },
-          targetOnSpawn: true,
-          type: "avatar.lily",
-          attribs: {}
+          type: "avatar.lily_summon",
+          attribs: {},
+          targetOnSpawn: false,
         },
-        ownerEnemy: a?.getCombatantRoot()?.combatStats?.lastTarget,
         spawnCondition: "true"
       };
       ig.game.spawnEntity("Enemy", a.coll.pos.x, a.coll.pos.y, a.coll.pos.z, lily_spawn);
