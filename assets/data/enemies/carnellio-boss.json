@@ -235,7 +235,7 @@
                             "condition": "false"
                         }
                     ],
-                    "action": "DEBUG4"
+                    "action": "DEBUG2"
                 },
                 {
                     "req": [
@@ -7105,24 +7105,51 @@
             "breakType": "COMBATANT",
             "action": [
                 {
-                    "changeType": "set",
-                    "type": "CHANGE_VAR_NUMBER",
-                    "varName": "tmp.sigilSpawner",
-                    "value": 14
-                },
-                {
-                    "changeType": "mul",
-                    "type": "CHANGE_VAR_NUMBER",
-                    "varName": "tmp.sigilSpawner",
-                    "value": {
-                        "varName": "tmp.sigilCount"
-                    }
-                },
-                {
-                    "changeType": "add",
-                    "type": "CHANGE_VAR_NUMBER",
-                    "varName": "tmp.sigilSpawner",
-                    "value": 14
+                    "withElse": true,
+                    "type": "IF",
+                    "condition": "tmp.sigilCount < 20",
+                    "thenStep": [
+                        {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": 14
+                        },
+                        {
+                            "changeType": "mul",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": {
+                                "varName": "tmp.sigilCount"
+                            }
+                        },
+                        {
+                            "changeType": "add",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": 14
+                        }
+                    ],
+                    "elseStep": [
+                        {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": 14
+                        },
+                        {
+                            "changeType": "mul",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": 20
+                        },
+                        {
+                            "changeType": "add",
+                            "type": "CHANGE_VAR_NUMBER",
+                            "varName": "tmp.sigilSpawner",
+                            "value": 14
+                        }
+                    ]
                 },
                 {
                     "volume": 1.5,
@@ -7263,6 +7290,39 @@
                             "type": "CHANGE_VAR_NUMBER",
                             "varName": "tmp.sigilIndex",
                             "value": 1
+                        },
+                        {
+                            "withElse": true,
+                            "type": "IF",
+                            "condition": "tmp.sigilIndex % 20 == 0",
+                            "thenStep": [
+                                {
+                                    "name": "teleportSigiler",
+                                    "target": "SELF",
+                                    "align": "BOTTOM",
+                                    "offset": {
+                                        "x": 0,
+                                        "y": 28,
+                                        "z": 0
+                                    },
+                                    "faceDistance": 0,
+                                    "type": "SET_ATTRIB_POS"
+                                },
+                                {
+                                    "time": 0.2,
+                                    "type": "WAIT"
+                                },
+                                {
+                                    "changeType": "set",
+                                    "type": "CHANGE_VAR_NUMBER",
+                                    "varName": "tmp.sigilDistance",
+                                    "value": 0
+                                },
+                                {
+                                    "attrib": "teleportSigiler",
+                                    "type": "TELEPORT_TO_ATTRIB_POS"
+                                }
+                            ]
                         },
                         {
                             "time": 0.2,
@@ -25124,7 +25184,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 30003
+                "value": 24
             },
             {
                 "changeType": "set",
@@ -27458,7 +27518,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilCount",
-                "value": 10
+                "value": 11
             },
             {
                 "changeType": "set",
@@ -27519,6 +27579,12 @@
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil9",
                 "value": 43003
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigil10",
+                "value": 8
             },
             {
                 "withElse": true,
@@ -29981,7 +30047,7 @@
                 "align": "CENTER",
                 "radius": 250,
                 "yScale": 1,
-                "zHeight": 16,
+                "zHeight": 99999,
                 "centralAngle": 1,
                 "startAngle": 0,
                 "duration": 0.2,

@@ -2866,7 +2866,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.7,
+                "time": 0.5,
                 "type": "WAIT"
             },
             {
@@ -2879,6 +2879,294 @@
                 "moveDist": 10,
                 "moveVariance": 2,
                 "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.3,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 175,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 150,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 125,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 100,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 75,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 50,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "rotateWithTime": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 175,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 150,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 125,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 100,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 75,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 50,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "rotateWithTime": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 175,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 150,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 125,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 100,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 75,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_IN",
+                "collision": false,
+                "moveWithTarget": 0,
+                "anim": "SHOCK_SWEEP",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 40,
+                "duration": 0.3,
+                "centralAngle": 20,
+                "startAngle": -0.5,
+                "startDist": 50,
+                "particleRotate": true,
+                "moveDist": 10,
+                "moveVariance": 2,
+                "keySpline": "EASE_OUT",
+                "rotateWithTime": "EASE_IN",
                 "collision": false,
                 "moveWithTarget": 0,
                 "anim": "SHOCK_SWEEP",
@@ -5158,8 +5446,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5169,13 +5457,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "bd",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5197,8 +5485,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5208,13 +5496,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "db",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5236,8 +5524,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5247,13 +5535,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "decap",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5275,8 +5563,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5286,13 +5574,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "dr",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5314,8 +5602,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5325,13 +5613,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ds",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5353,8 +5641,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5364,13 +5652,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "dsh",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5392,8 +5680,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5403,13 +5691,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ef",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5431,8 +5719,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5442,13 +5730,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "es",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5470,8 +5758,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5481,13 +5769,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "fh",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5509,8 +5797,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5520,13 +5808,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "fo",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5548,8 +5836,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5559,13 +5847,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "mwru",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5587,8 +5875,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5598,13 +5886,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "nr",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5626,8 +5914,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5637,13 +5925,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "rdct",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5665,8 +5953,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5676,13 +5964,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "rmda",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5704,8 +5992,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5715,13 +6003,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ro",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5743,8 +6031,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5754,13 +6042,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "sf",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5782,8 +6070,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5793,13 +6081,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "smn",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5821,8 +6109,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5832,13 +6120,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "sr",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5860,8 +6148,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5871,13 +6159,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ss",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5899,8 +6187,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5910,13 +6198,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "sv",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5938,8 +6226,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5949,13 +6237,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "tr",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -5977,8 +6265,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -5988,13 +6276,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "vv",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6016,8 +6304,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6027,13 +6315,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "wf",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6055,8 +6343,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6066,13 +6354,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "supernova",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6094,8 +6382,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6105,13 +6393,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "timeFreeze",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6133,8 +6421,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6144,13 +6432,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "brawler",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6172,8 +6460,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6183,13 +6471,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "shooter",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6212,8 +6500,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6223,13 +6511,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Burn",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6251,8 +6539,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6262,13 +6550,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FlareBurn",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6290,8 +6578,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6301,13 +6589,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FireWhirl",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6329,8 +6617,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6340,13 +6628,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FlameJab",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6368,8 +6656,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6379,13 +6667,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CalamityTrigger",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6407,8 +6695,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6418,13 +6706,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BlazingDragon",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6446,8 +6734,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6457,13 +6745,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Ragnarok",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6485,8 +6773,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6496,13 +6784,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VermillionEcho",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6524,8 +6812,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6535,13 +6823,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AshenMine",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6563,8 +6851,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6574,13 +6862,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CrimsonStrike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6602,8 +6890,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6613,13 +6901,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "MineValley",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6641,8 +6929,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6652,13 +6940,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CrimsonStream",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6680,8 +6968,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6691,13 +6979,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ScarletRain",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6719,8 +7007,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6730,13 +7018,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "RecoilTrumpet",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6758,8 +7046,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6769,13 +7057,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "RingOfFire",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6797,8 +7085,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6808,13 +7096,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "KindlingFanfare",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6836,8 +7124,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6847,13 +7135,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BurningPulse",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6875,8 +7163,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6886,13 +7174,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IgniteEmbers",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6914,8 +7202,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6925,13 +7213,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AncientSun",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6953,8 +7241,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -6964,13 +7252,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "HailFlurry",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -6992,8 +7280,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7003,13 +7291,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SnowFlawke",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7031,8 +7319,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7042,13 +7330,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "HailStorm",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7070,8 +7358,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7081,13 +7369,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FrigidFlawke",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7109,8 +7397,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7120,13 +7408,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "GatlingArctillery",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7148,8 +7436,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7159,13 +7447,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IceTwirl",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7187,8 +7475,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7198,13 +7486,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FrozenStar",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7226,8 +7514,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7237,13 +7525,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IceTornado",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7265,8 +7553,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7276,13 +7564,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BlizzardHawk",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7304,8 +7592,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7315,13 +7603,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "PolarPirouette",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7343,8 +7631,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7354,13 +7642,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "EternalWinter",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7382,8 +7670,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7393,13 +7681,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IndigoStrike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7421,8 +7709,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7432,13 +7720,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IndigoRush",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7460,8 +7748,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7471,13 +7759,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BriskBarrier",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7499,8 +7787,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7510,13 +7798,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FrozenStance",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7538,8 +7826,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7549,13 +7837,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "IcyBastion",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7577,8 +7865,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7588,13 +7876,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FreezeFrame",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7616,8 +7904,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7627,13 +7915,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Fimbulvetr",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7655,8 +7943,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7666,13 +7954,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CrystalKeeper",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7694,8 +7982,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7705,13 +7993,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "HomingWisp",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7733,8 +8021,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7744,13 +8032,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "DivingSpark",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7772,8 +8060,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7783,13 +8071,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "RadiantSwarm",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7811,8 +8099,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7822,13 +8110,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ChainBlitz",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7850,8 +8138,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7861,13 +8149,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CelestialLegion",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7889,8 +8177,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7900,13 +8188,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Mjolnir",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7928,8 +8216,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7939,13 +8227,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "TeslaTwist",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -7967,8 +8255,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -7978,13 +8266,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "PlasmaSpike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8006,8 +8294,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8017,13 +8305,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "TeslaWaltz",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8045,8 +8333,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8056,13 +8344,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BatteryAssault",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8084,8 +8372,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8095,13 +8383,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SongOfStorms",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8123,8 +8411,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8134,13 +8422,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AmberStrike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8162,8 +8450,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8173,13 +8461,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ThunderDart",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8201,8 +8489,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8212,13 +8500,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AmberBreaker",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8240,8 +8528,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8251,13 +8539,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "StormWalker",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8279,8 +8567,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8290,13 +8578,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FlickeringStars",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8318,8 +8606,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8329,13 +8617,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "LightningProphecy",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8357,8 +8645,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8368,13 +8656,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ClockBlock",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8396,8 +8684,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8407,13 +8695,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "GlitchTime",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8435,8 +8723,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8446,13 +8734,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "EssenceDrain",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8474,8 +8762,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8485,13 +8773,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FaeRound",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8513,8 +8801,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8524,13 +8812,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VitalPulse",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8552,8 +8840,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8563,13 +8851,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ElvenOrb",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8591,8 +8879,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8602,13 +8890,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "WaveMotionBeam",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8630,8 +8918,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8641,13 +8929,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "EtherSnipe",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8669,8 +8957,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8680,13 +8968,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "KiThrust",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8708,8 +8996,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8719,13 +9007,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SpiritBlast",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8747,8 +9035,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8758,13 +9046,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "WarpDecoy",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8786,8 +9074,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8797,13 +9085,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VerdantStrike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8825,8 +9113,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8836,13 +9124,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ToxicRevenant",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8864,8 +9152,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8875,13 +9163,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VerdantStream",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8903,8 +9191,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8914,13 +9202,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Gungnir",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8942,8 +9230,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8953,13 +9241,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VortexTide",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -8981,8 +9269,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -8992,13 +9280,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "PainGrip",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9020,8 +9308,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9031,13 +9319,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "GuardingGale",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9059,8 +9347,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9070,13 +9358,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "CircleOfValor",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9098,8 +9386,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9109,13 +9397,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "Poltergeist",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9137,8 +9425,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9148,13 +9436,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "KarmaScale",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9176,8 +9464,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9187,13 +9475,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BallOfSteel",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9215,8 +9503,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9226,13 +9514,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BulletRain",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9254,8 +9542,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9265,13 +9553,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BallOfBoomerang",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9293,8 +9581,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9304,13 +9592,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BulletInferno",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9332,8 +9620,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9343,13 +9631,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SpinDance",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9371,8 +9659,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9382,13 +9670,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SphereSaw",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9410,8 +9698,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9421,13 +9709,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SpiralDance",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9449,8 +9737,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9460,13 +9748,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "SphereStorm",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9488,8 +9776,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9499,13 +9787,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FirstCut",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9527,8 +9815,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9538,13 +9826,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AzureStrike",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9566,8 +9854,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9577,13 +9865,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "FinalShowdown",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9605,8 +9893,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9616,13 +9904,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "AzureSurge",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9644,8 +9932,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9655,13 +9943,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "GuardSphere",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9683,8 +9971,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9694,13 +9982,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "ProximityBlast",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9722,8 +10010,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9733,13 +10021,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "BladeSphere",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ],
@@ -9761,8 +10049,8 @@
                     },
                     "end": {
                         "value": 0.4,
-                        "time": 2,
-                        "spline": "EASE_IN"
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
@@ -9772,13 +10060,13 @@
                     }
                 },
                 "moveWithTarget": 0,
-                "particleDuration": 2,
+                "particleDuration": 3,
                 "cancelable": true,
                 "anim": "VortexBlast",
                 "type": "PLAY_ANIM"
             },
             {
-                "time": 2,
+                "time": 3,
                 "type": "WAIT"
             }
         ]
