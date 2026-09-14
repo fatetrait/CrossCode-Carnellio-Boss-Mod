@@ -7,9 +7,9 @@
         "focus": 0,
         "elemFactor": [
             1.10,
-            1.05,
-            1.20,
-            1.05
+            1.10,
+            1.24,
+            1.10
         ],
         "statusInflict": [
             0.27,
@@ -33,10 +33,10 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.12,
-                0.95,
-                1.12,
-                1.05
+                1.10,
+                1.10,
+                1.24,
+                1.10
             ]
         },
         "COLD": {
@@ -45,10 +45,10 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.12,
-                0.95,
-                1.12,
-                1.05
+                1.10,
+                1.10,
+                1.24,
+                1.10
             ]
         },
         "SHOCK": {
@@ -57,10 +57,10 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.12,
-                0.95,
-                1.12,
-                1.05
+                1.10,
+                1.10,
+                1.24,
+                1.10
             ]
         },
         "WAVE": {
@@ -69,10 +69,10 @@
             "defense": 220,
             "focus": 0,
             "elemFactor": [
-                1.12,
-                0.95,
-                1.12,
-                1.05
+                1.10,
+                1.10,
+                1.24,
+                1.10
             ]
         }
     },
@@ -3642,8 +3642,8 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 2.5,
-                        "status": 13,
+                        "damageFactor": 2,
+                        "status": 15,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
@@ -3674,12 +3674,16 @@
                     "type": "STOP_REPEATING_FORCE"
                 },
                 {
-                    "value": true,
+                    "time": 0.25,
+                    "type": "WAIT"
+                },
+                {
+                    "value": false,
                     "immediately": true,
                     "type": "FACE_TO_TARGET"
                 },
                 {
-                    "time": 0.5,
+                    "time": 0.15,
                     "type": "WAIT"
                 },
                 {
@@ -3751,9 +3755,9 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 2.5,
+                        "damageFactor": 2,
                         "reverse": false,
-                        "status": 5,
+                        "status": 15,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
                         "skillBonus": "RANGED_DMG"
@@ -3800,7 +3804,16 @@
                     "type": "SET_SPEED"
                 },
                 {
-                    "time": 0.2,
+                    "time": 0.25,
+                    "type": "WAIT"
+                },
+                {
+                    "value": false,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                },
+                {
+                    "time": 0.15,
                     "type": "WAIT"
                 },
                 {
@@ -3830,7 +3843,7 @@
             "hp": 0,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "lightningBall",
+            "group": "wfGroup",
             "size": {
                 "x": 2,
                 "y": 2,
@@ -22970,6 +22983,11 @@
             },
             {
                 "sticking": false,
+                "group": "wfGroup",
+                "type": "REMOVE_PROXIES"
+            },
+            {
+                "sticking": false,
                 "group": "sigils",
                 "type": "REMOVE_PROXIES"
             },
@@ -23014,6 +23032,7 @@
                     "z": 0
                 }
             }
+            
         ],
         "SetNState": [
             {
@@ -28944,7 +28963,6 @@
                 "type": "SHOW_AR_MSG",
                 "time": 1
             },
-            
             {
                 "type": "SAVE_TARGET"
             },
@@ -28996,7 +29014,6 @@
                 "attrib": "esTP",
                 "type": "TELEPORT_TO_ATTRIB_POS"
             },
-            
             {
                 "time": 0.2,
                 "type": "WAIT"
@@ -33795,7 +33812,6 @@
             }
         ],
         "Phase5F": [
-            
             {
                 "value": 0,
                 "type": "SET_SPEED"

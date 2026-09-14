@@ -1085,6 +1085,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
           var c = this.maxSp * sc.SP_REGEN_FACTOR,
             d = a ? 0.05 : 0.25;
           if (sc.pvp.isActive()) {
+            d = d * 2;
             c = this.maxSp
           }
           if (this.currentSp < c) this.addSp(b * d, c);
@@ -1111,7 +1112,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
     increaseHp: function (a) {
       if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
       //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
-      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length - 0.1))*0.7));
+      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length))*0.8));
       if (this.currentHp > 0) this.defeated = false;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.HP_CHANGED)
     },
@@ -1139,7 +1140,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a
+        a = a;
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
@@ -1214,7 +1215,7 @@ ig.module("game.feature.combat.combat-shield.carn").requires("game.feature.comba
       if (!ig.vars.storage.tmp.isCarn) return this.parent(a, b, e, f, g);
       if (a.params.getModifier("GUARD_SP") && !this.noShieldDamage) {
         b = a.params.getModifier("GUARD_SP");
-        a.params.addSp(b / 2 * e.damageFactor * (g ? 2 : 1))
+        a.params.addSp(b / 1.5 * e.damageFactor * (g ? 2 : 1))
       }
       if (this.noShieldDamage || g) return true;
       g = this.getDefenseRatio(e, a);
