@@ -1112,7 +1112,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
     increaseHp: function (a) {
       if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
       //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
-      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length))*0.8));
+      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length))*0.85));
       if (this.currentHp > 0) this.defeated = false;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.HP_CHANGED)
     },

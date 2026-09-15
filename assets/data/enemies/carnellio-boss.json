@@ -8,7 +8,7 @@
         "elemFactor": [
             1.10,
             1.10,
-            1.24,
+            1.20,
             1.10
         ],
         "statusInflict": [
@@ -35,7 +35,7 @@
             "elemFactor": [
                 1.10,
                 1.10,
-                1.24,
+                1.20,
                 1.10
             ]
         },
@@ -47,7 +47,7 @@
             "elemFactor": [
                 1.10,
                 1.10,
-                1.24,
+                1.20,
                 1.10
             ]
         },
@@ -59,7 +59,7 @@
             "elemFactor": [
                 1.10,
                 1.10,
-                1.24,
+                1.20,
                 1.10
             ]
         },
@@ -71,7 +71,7 @@
             "elemFactor": [
                 1.10,
                 1.10,
-                1.24,
+                1.20,
                 1.10
             ]
         }
@@ -15190,10 +15190,10 @@
             "attack": {
                 "type": "MEDIUM",
                 "element": "COLD",
-                "damageFactor": 1.2,
+                "damageFactor": 0.2,
                 "reverse": false,
                 "spFactor": 0,
-                "status": 2,
+                "status": 3,
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -15218,8 +15218,8 @@
                 "trail": "snowballTrail"
             },
             "speed": 650,
-            "maxBounce": 1,
-            "timer": 3.5,
+            "maxBounce": 3,
+            "timer": 8,
             "trail": true,
             "multiHit": true,
             "noLightGlow": false,
@@ -18746,7 +18746,7 @@
                     "attack": {
                         "type": "MASSIVE",
                         "element": "WAVE",
-                        "damageFactor": 1.5,
+                        "damageFactor": 0.75,
                         "fly": "MASSIVE+",
                         "reverse": false,
                         "stunSteps": [],
@@ -25203,7 +25203,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 24
+                "value": 11002
             },
             {
                 "changeType": "set",
@@ -26044,6 +26044,10 @@
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.fateFuneralState",
                         "value": 7
+                    },
+                    {
+                        "type": "SET_ENEMY_STATE",
+                        "enemyState": "DEFAULT"
                     }
                 ]
             },
@@ -66424,21 +66428,28 @@
                 "time": 0.7
             },
             {
-                "type": "SET_PLAYER_ACTION_BLOCK",
-                "blockData": {
-                    "dash": 0,
-                    "action": -1,
-                    "move": -1,
-                    "reaim": -1
-                }
-            },
-            {
                 "followUp": "specialLoop",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "special"
             },
+            {
+                "changeType": "set",
+                "attribName": "waveAttackCnt",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 0
+            },
+            {
+                "name": "cannonReady",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+
             {
                 "value": 80,
                 "type": "SET_SPEED"
@@ -66457,11 +66468,7 @@
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
             },
-            {
-                "name": "cannonReady",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            },
+            
             {
                 "align": "BOTTOM",
                 "centralAngle": 0,
@@ -66625,12 +66632,7 @@
                     "varName": "entity.hpFactor"
                 }
             },
-            {
-                "changeType": "set",
-                "attribName": "waveAttackCnt",
-                "type": "SET_ATTRIB_NUMBER",
-                "value": 0
-            },
+            
             {
                 "value": 1.3,
                 "type": "FACE_TO_TARGET_SPEED"
@@ -66658,7 +66660,7 @@
             {
                 "withElse": false,
                 "type": "IF",
-                "condition": "entity.hpFactor > 0.1 && (entity.attrib.startHp -\n entity.hpFactor) < 0.3 && entity.attrib.waveAttackCnt < 25",
+                "condition": "entity.attrib.waveAttackCnt < 25",
                 "thenStep": [
                     {
                         "basedOn": "ATTACK",
