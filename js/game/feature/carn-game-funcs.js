@@ -1,6 +1,19 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
- ig.ACTION_STEP.SHOOT_PROXY_PLAYER.inject({
+ ig.ACTION_STEP.MOVE_TO_DIR.inject({
+    run: function(b) {
+      if (!ig.vars.storage.tmp.isCarn) return this.parent(b);
+      if(b.hidePets !== undefined || (b.name && b.name == "Lea") || (b.animSheet && b.animSheet.cacheKey && b.animSheet.cacheKey == "player")) {
+        b.coll.relativeVel = 1.5;
+        let res = this.parent(b);
+        return res;
+      } else {
+        return this.parent(b);
+      }
+    }
+  });
+ 
+  ig.ACTION_STEP.SHOOT_PROXY_PLAYER.inject({
    run: function(a) {
     //console.log(this, a, a.overrideBall)
     if (a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) this.elementProxy = "CHARGED"
