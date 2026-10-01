@@ -3,8 +3,15 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
  ig.ACTION_STEP.MOVE_TO_DIR.inject({
     run: function(b) {
       if (!ig.vars.storage.tmp.isCarn) return this.parent(b);
-      if(b.hidePets !== undefined || (b.name && b.name == "Lea") || (b.animSheet && b.animSheet.cacheKey && b.animSheet.cacheKey == "player")) {
-        b.coll.relativeVel = 1.5;
+      if( 
+        (
+          b.hidePets !== undefined || 
+          (b.name && b.name == "Lea") || 
+          (b.animSheet && b.animSheet.cacheKey && b.animSheet.cacheKey == "player")
+      ) && (b.currentAction && (["DASH", "DASH_SLOW", "DASH_LONG"].includes(b.currentAction.name)))
+      ) {
+        //console.log("MOVE_TO_DIR: " + b.coll.relativeVel, b,  this);
+        b.coll.relativeVel < 1.5 ? b.coll.relativeVel = 1.5 : null;
         let res = this.parent(b);
         return res;
       } else {
