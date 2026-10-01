@@ -1529,7 +1529,7 @@
                             {
                                 "type": "SHOW_BOARD_MSG",
                                 "text": {
-                                    "en_US": "Draconic equipped! Balls replaced with summons! Shock tree replaced!",
+                                    "en_US": "Draconic equipped! Balls replaced with summons! Shock tree replaced (and unlocked)!",
                                     "de_DE": "",
                                     "ja_JP": "",
                                     "ko_KR": "",
@@ -1538,11 +1538,88 @@
                                 }
                             },
                             {
+                                "core": "ELEMENT_SHOCK",
+                                "value": true,
+                                "type": "SET_PLAYER_CORE"
+                            },
+                            {
                                 "name": "END",
                                 "type": "GOTO_LABEL"
                             }
                         ],
                         "2": [
+                            {
+                                "type": "CLEAR_MSG",
+                                "side": "ALL"
+                            },
+                            {
+                                "type": "REMOVE_PROXIES"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "area.arid",
+                                    "name": "switchActivateNoOffset"
+                                },
+                                "duration": 0,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER",
+                                "group": "0"
+                            },
+                            {
+                                "type": "WAIT",
+                                "time": 1
+                            },
+                            {
+                                "type": "SWITCH_PLAYER_CONFIG",
+                                "name": "hexacast-draconic-lea"
+                            },
+                            {
+                                "type": "SHOW_EFFECT",
+                                "entity": {
+                                    "player": true
+                                },
+                                "effect": {
+                                    "sheet": "scene.hacking",
+                                    "name": "hackingShowSlow"
+                                },
+                                "duration": 2,
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "align": "CENTER"
+                            },
+                            {
+                                "type": "SHOW_BOARD_MSG",
+                                "text": {
+                                    "en_US": "Draconic equipped! Balls replaced with summons! Shock tree replaced (and unlocked)!",
+                                    "de_DE": "",
+                                    "ja_JP": "",
+                                    "ko_KR": "",
+                                    "zh_CN": "",
+                                    "zh_TW": ""
+                                }
+                            },
+                            {
+                                "core": "ELEMENT_SHOCK",
+                                "value": true,
+                                "type": "SET_PLAYER_CORE"
+                            },
+                            {
+                                "name": "END",
+                                "type": "GOTO_LABEL"
+                            }
+                        ],
+                        "3": [
                             {
                                 "name": "END",
                                 "type": "GOTO_LABEL"
@@ -1562,6 +1639,12 @@
                             {
                                 "label": {
                                     "en_US": "Draconic Lea (Requires Black Magic Circuit)"
+                                },
+                                "activeCondition": "stat.items.draconic-circuit >= 1"
+                            },
+                            {
+                                "label": {
+                                    "en_US": "Hexaconic DONT PICK!! NOT UPDATED + NOT APPROVED BY HEX DEV!! "
                                 },
                                 "activeCondition": "stat.items.draconic-circuit >= 1"
                             },

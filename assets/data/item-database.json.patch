@@ -12,11 +12,11 @@
                 "en_US": "Berzerker Memory"
             },
             "description": {
-                "en_US": "(WIP) Awarded for defeating Carnollo"
+                "en_US": "Awarded for defeating early phases of Carnollo"
             },
             "type": "TRADE",
             "rarity": 2,
-            "cost": 10000,
+            "cost": 0,
             "level": 1,
             "icon": "item-trade",
             "effect": {
@@ -48,11 +48,11 @@
                 "en_US": "Draconic Memory"
             },
             "description": {
-                "en_US": "(WIP) Awarded for defeating unfair versions of Carnollo"
+                "en_US": "Awarded for defeating harder phases/versions of Carnollo"
             },
             "type": "TRADE",
             "rarity": 3,
-            "cost": 10000,
+            "cost": 0,
             "level": 1,
             "icon": "item-trade",
             "effect": {
@@ -84,11 +84,11 @@
                 "en_US": "Black Magic Circuit"
             },
             "description": {
-                "en_US": "(WIP) Unlocks Draconic for Lea"
+                "en_US": "Unlocks switching to the Draconic class for Lea"
             },
             "type": "TRADE",
             "rarity": 3,
-            "cost": 5000,
+            "cost": 0,
             "level": 1,
             "icon": "item-key",
             "effect": {
@@ -120,11 +120,11 @@
                 "en_US": "Im a bum"
             },
             "description": {
-                "en_US": "Unlock Draconic for free. However, you are a bum."
+                "en_US": "Unlock Draconic for free. However, you are a bum (or you wanted to NG+)."
             },
             "type": "TRADE",
             "rarity": 1,
-            "cost": 1,
+            "cost": 0,
             "level": 1,
             "icon": "item-trade",
             "effect": {
@@ -160,7 +160,7 @@
             },
             "type": "TRADE",
             "rarity": 1,
-            "cost": 1,
+            "cost": 0,
             "level": 1,
             "icon": "item-key",
             "effect": {
@@ -196,7 +196,7 @@
             },
             "type": "TRADE",
             "rarity": 1,
-            "cost": 1,
+            "cost": 0,
             "level": 1,
             "icon": "item-key",
             "effect": {
@@ -232,7 +232,7 @@
             },
             "type": "TRADE",
             "rarity": 1,
-            "cost": 1,
+            "cost": 0,
             "level": 1,
             "icon": "item-key",
             "effect": {

@@ -12,10 +12,10 @@
       "overrideSideMessage": false,
       "event": [
         {
-          "type": "SHOW_OW_AR_MSG",
+          "type": "SHOW_OW_AR_MSG_CARN",
           "entity": { "player": true },
           "text": { "en_US": "Carnellio mod boss fight at the Harbour Waypoint in Beginners Arc!" },
-          "time": 5,
+          "time": 8,
           "mode": "LINE_FILL",
           "color": "BLUE",
           "yOffset": 16,
@@ -25,11 +25,6 @@
           "asSpecial": true,
           "type": "UNLOCK_ENEMY",
           "enemy": "carnellio-boss"
-        },
-        {
-          "ignoreSlowDown": false,
-          "type": "WAIT",
-          "time": 5
         }
       ],
       "loopCount": 1,

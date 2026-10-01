@@ -1,6 +1,14 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
-
+ ig.ACTION_STEP.SHOOT_PROXY_PLAYER.inject({
+   run: function(a) {
+    //console.log(this, a, a.overrideBall)
+    if (a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) this.elementProxy = "CHARGED"
+    else if (!a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) delete this.elementProxy
+    return this.parent(a);
+      
+    }
+ })
 
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
     start: function (a) {
@@ -1111,6 +1119,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
     },
     increaseHp: function (a) {
       if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
+      //console.trace();
       //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
       this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length))*0.85));
       if (this.currentHp > 0) this.defeated = false;
@@ -1145,6 +1154,20 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
       }
+    },
+
+    update: function() {
+      if (!ig.vars.storage.tmp.isCarn) return this.parent();
+      if(this.hidePets !== undefined || (this.name && this.name == "Lea") || (this.animSheet && this.animSheet.cacheKey && this.animSheet.cacheKey == "player")) {
+        this.old_regenFactor = this.regenFactor;
+        this.regenFactor = 4;
+        let res = this.parent();
+        this.regenFactor = this.old_regenFactor;
+        return res;
+      } else {
+        return this.parent();
+      }
+      
     },
 
 
@@ -1240,6 +1263,8 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
     },
   })
 })
+
+
 
 
 ig.BGM_TRACK_LIST["burningOutTheBlue"] = {

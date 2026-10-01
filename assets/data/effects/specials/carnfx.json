@@ -3,6 +3,48 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "SHOCK_EXPLODE2",
+                "sheet": {
+                    "src": "media\/entity\/effects\/shock.png",
+                    "xCount": 5,
+                    "offX": 0,
+                    "offY": 56,
+                    "width": 32,
+                    "height": 32
+                },
+                "guiSprites": false,
+                "renderMode": "lighter",
+                "time": 0.033,
+                "repeat": false,
+                "tileOffset": 0,
+                "frames": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ]
+            },
+            {
+                "name": "SHOCKWAVE_B_SHK",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 288,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "renderMode": "lighter",
+                "time": 0.4,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "WAVE_CIRCLE_BIG",
                 "sheet": {
                     "src": "media\/entity\/effects\/wave.png",
@@ -220,6 +262,35 @@
                 },
                 "time": 0.04,
                 "repeat": false,
+                "pivot": {
+                    "x": 24,
+                    "y": 24
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ]
+            },
+            {
+                "name": "SHADOW_FLAME",
+                "sheet": {
+                    "src": "media\/entity\/effects\/heat.png",
+                    "width": 48,
+                    "height": 48,
+                    "xCount": 6
+                },
+                "time": 0.04,
+                "repeat": true,
                 "pivot": {
                     "x": 24,
                     "y": 24
@@ -1023,7 +1094,6 @@
                 "name": "CrimsonStream",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    
                     "offX": 0,
                     "offY": 168,
                     "width": 24,
@@ -2933,7 +3003,6 @@
                 "anim": "SHOCK_SWEEP",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
-            
             {
                 "numParticles": 40,
                 "duration": 0.3,
@@ -3029,7 +3098,6 @@
                 "anim": "SHOCK_SWEEP",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
-            
             {
                 "numParticles": 40,
                 "duration": 0.3,
@@ -3125,7 +3193,6 @@
                 "anim": "SHOCK_SWEEP",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
-            
             {
                 "numParticles": 40,
                 "duration": 0.3,
@@ -3734,6 +3801,153 @@
                 "type": "LOOP_END"
             }
         ],
+        "WanderingFlamePre": [
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "speed": 1.25,
+                "sound": "media\/sound\/designer\/designer-disappear.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "size": "XXL",
+                "fadeIn": 0.1,
+                "fadeOut": 0.1,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.6,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.05,
+                            "y": 0.05
+                        },
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": -2,
+                "anim": "SHOCKWAVE_B_SHK",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "time": 0.5,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "WanderingFlameTrail": [
+            {
+                "volume": 0.7,
+                "global": false,
+                "loop": false,
+                "speed": 1,
+                "sound": "media\/sound\/boss\/turret\/fast-shot.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pScale": {
+                    "init": {
+                        "x": 0.25,
+                        "y": 0.25
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.0666,
+                            "y": 0.0666
+                        },
+                        "spline": ""
+                    }
+                },
+                "anim": "SHOCK_EXPLODE2",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.016,
+                "type": "WAIT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pScale": {
+                    "init": {
+                        "x": 0.25,
+                        "y": 0.25
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.0666,
+                            "y": 0.0666
+                        },
+                        "spline": ""
+                    }
+                },
+                "pRotate": {
+                    "init": 0.25
+                },
+                "anim": "SHOCK_EXPLODE2",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.016,
+                "type": "WAIT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pScale": {
+                    "init": {
+                        "x": 0.25,
+                        "y": 0.25
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0.0666,
+                            "y": 0.0666
+                        },
+                        "spline": ""
+                    }
+                },
+                "pRotate": {
+                    "init": 0.75
+                },
+                "anim": "SHOCK_EXPLODE2",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 0.016,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
         "EvilFracture": [
             {
                 "type": "LOOP_START"
@@ -3877,11 +4091,107 @@
                 "type": "LIGHT"
             },
             {
-                "numParticles": 40,
+                "numParticles": 20,
                 "duration": 2,
                 "clockwise": false,
                 "centralAngle": 3.5,
                 "startAngle": -0.25,
+                "startDist": 0,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": false,
+                "cancelable": true,
+                "anim": "SWEEP_NEUTRAL",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 20,
+                "duration": 2,
+                "clockwise": false,
+                "centralAngle": 3.0,
+                "startAngle": -0.75,
+                "startDist": 0,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": false,
+                "cancelable": true,
+                "anim": "SWEEP_NEUTRAL",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 20,
+                "duration": 2,
+                "clockwise": false,
+                "centralAngle": 3.25,
+                "startAngle": -0.50,
+                "startDist": 0,
+                "particleRotate": true,
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotOffset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1,
+                        "y": 1
+                    }
+                },
+                "moveDist": 0,
+                "keySpline": "EASE",
+                "collision": false,
+                "moveWithTarget": false,
+                "cancelable": true,
+                "anim": "SWEEP_NEUTRAL",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 20,
+                "duration": 2,
+                "clockwise": false,
+                "centralAngle": 3.75,
+                "startAngle": 0,
                 "startDist": 0,
                 "particleRotate": true,
                 "offset": {
@@ -3921,6 +4231,12 @@
                     "y": 0,
                     "z": 0
                 },
+                "pScale": {
+                    "init": {
+                        "x": 2,
+                        "y": 2
+                    }
+                },
                 "particleDuration": 2,
                 "anim": "CIRCLE_BIG",
                 "type": "PLAY_ANIM"
@@ -3944,14 +4260,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 2.5,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -3968,7 +4284,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 15,
+                "startDist": 5,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -3982,7 +4298,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.05802469135802469,
                 "type": "WAIT"
             },
             {
@@ -3990,14 +4306,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 8.88888888888889,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4014,7 +4330,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 22,
+                "startDist": 17.77777777777778,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4028,7 +4344,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.12222222222222222,
                 "type": "WAIT"
             },
             {
@@ -4036,14 +4352,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 15.277777777777779,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4060,7 +4376,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 29,
+                "startDist": 30.555555555555557,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4074,7 +4390,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.18641975308641975,
                 "type": "WAIT"
             },
             {
@@ -4082,14 +4398,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 21.666666666666668,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4106,7 +4422,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 36,
+                "startDist": 43.333333333333336,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4120,7 +4436,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.2506172839506173,
                 "type": "WAIT"
             },
             {
@@ -4128,14 +4444,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 28.055555555555557,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4152,7 +4468,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 43,
+                "startDist": 56.111111111111114,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4166,7 +4482,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.3148148148148149,
                 "type": "WAIT"
             },
             {
@@ -4174,14 +4490,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 34.44444444444444,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4198,7 +4514,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 50,
+                "startDist": 68.88888888888889,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4212,7 +4528,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.3790123456790123,
                 "type": "WAIT"
             },
             {
@@ -4220,14 +4536,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 40.833333333333336,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4244,7 +4560,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 57,
+                "startDist": 81.66666666666667,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4258,7 +4574,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.4432098765432099,
                 "type": "WAIT"
             },
             {
@@ -4266,14 +4582,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 47.22222222222223,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4290,7 +4606,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 64,
+                "startDist": 94.44444444444446,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4304,7 +4620,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.5074074074074074,
                 "type": "WAIT"
             },
             {
@@ -4312,14 +4628,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 53.611111111111114,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4336,7 +4652,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 69,
+                "startDist": 107.22222222222223,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4350,7 +4666,7 @@
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {
-                "time": 0.14,
+                "time": 0.571604938271605,
                 "type": "WAIT"
             },
             {
@@ -4358,14 +4674,14 @@
                 "global": false,
                 "loop": false,
                 "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
+                "sound": "media/sound/battle/airon/fire-hit-massive.ogg",
                 "type": "PLAY_SOUND"
             },
             {
                 "numParticles": 12,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 10,
+                "startDist": 60,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4382,7 +4698,7 @@
                 "numParticles": 16,
                 "particleDuration": 0.3,
                 "centralAngle": 1,
-                "startDist": 76,
+                "startDist": 120,
                 "uniformRandom": 0.7,
                 "offset": {
                     "x": 0,
@@ -4394,194 +4710,6 @@
                 "collision": false,
                 "anim": "EXPLOSION_BIG",
                 "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "time": 0.14,
-                "type": "WAIT"
-            },
-            {
-                "volume": 0.7,
-                "global": false,
-                "loop": false,
-                "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
-                "type": "PLAY_SOUND"
-            },
-            {
-                "numParticles": 12,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 10,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "numParticles": 16,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 80,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "time": 0.14,
-                "type": "WAIT"
-            },
-            {
-                "volume": 0.7,
-                "global": false,
-                "loop": false,
-                "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
-                "type": "PLAY_SOUND"
-            },
-            {
-                "numParticles": 12,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 10,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "numParticles": 16,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 80,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "time": 0.14,
-                "type": "WAIT"
-            },
-            {
-                "volume": 0.7,
-                "global": false,
-                "loop": false,
-                "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
-                "type": "PLAY_SOUND"
-            },
-            {
-                "numParticles": 12,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 10,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "numParticles": 16,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 80,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "time": 0.14,
-                "type": "WAIT"
-            },
-            {
-                "volume": 0.7,
-                "global": false,
-                "loop": false,
-                "speed": 1.3,
-                "sound": "media\/sound\/battle\/airon\/fire-hit-massive.ogg",
-                "type": "PLAY_SOUND"
-            },
-            {
-                "numParticles": 12,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 10,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "numParticles": 16,
-                "particleDuration": 0.3,
-                "centralAngle": 1,
-                "startDist": 80,
-                "uniformRandom": 0.7,
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "moveDist": 0,
-                "keySpline": "EASE",
-                "collision": false,
-                "anim": "EXPLOSION_BIG",
-                "type": "OFFSET_PARTICLE_CIRCLE"
-            },
-            {
-                "time": 0.14,
-                "type": "WAIT"
             }
         ],
         "sweepSeize": [
@@ -6481,7 +6609,6 @@
                 "type": "WAIT"
             }
         ],
-
         "BurnSigil": [
             {
                 "useTargetAngle": false,

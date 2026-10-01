@@ -43,14 +43,14 @@
             "level": 40,
             "params": {
                 "hp": 12550000,
-                "attack": 600,
-                "defense": 600,
+                "attack": 220,
+                "defense": 220,
                 "focus": 0,
                 "elemFactor": [
                     1.10,
-                    1.05,
-                    1.05,
-                    1.05
+                    1.10,
+                    1.20,
+                    1.10
                 ],
                 "statusInflict": [
                     0.12,
