@@ -7703,8 +7703,6 @@
                         "z": 0
                     }
                 },
-                
-                
                 {
                     "posType": "TARGET",
                     "align": "CENTER",
@@ -8041,7 +8039,6 @@
                         "z": 0
                     }
                 }
-            
             ],
             "invisible": true,
             "hp": 0,
@@ -8070,8 +8067,6 @@
                         "z": 0
                     }
                 },
-                
-                
                 {
                     "duration": 0,
                     "align": "CENTER",
@@ -8397,7 +8392,6 @@
                         "z": 0
                     }
                 }
-            
             ],
             "invisible": true,
             "hp": 0,
@@ -21994,7 +21988,7 @@
                         "anim": "attackRev"
                     },
                     {
-                        "withElse": false,
+                        "withElse": true,
                         "type": "IF",
                         "condition": "entity.attrib.summonAlive && tmp.heartbeat",
                         "thenStep": [
@@ -22054,6 +22048,86 @@
                                         }
                                     }
                                 ]
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "sticking": false,
+                                "group": "playerSummon",
+                                "type": "REMOVE_PROXIES"
+                            },
+                            {
+                                "text": {
+                                    "en_US": "Summon"
+                                },
+                                "mode": "NO_LINE",
+                                "color": "PURPLE",
+                                "actionDetached": true,
+                                "hideOutsideOfScreen": false,
+                                "type": "SHOW_AR_MSG",
+                                "time": 1
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_BOOL",
+                                "varName": "tmp.heartbeat",
+                                "value": false
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.redirectCount",
+                                "value": 0
+                            },
+                            {
+                                "name": "eveningShadePlayer",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "evilFracturePlayer",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "romeidaPlayer",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "blackDivinityPlayer",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "drinkardShadePlayer",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "dismissal",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "name": "rdctCombo",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": false
+                            },
+                            {
+                                "align": "BOTTOM",
+                                "type": "SHOOT_PROXY",
+                                "proxy": "summonProxy",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            },
+                            {
+                                "name": "summonAlive",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
                             }
                         ]
                     },
@@ -22119,13 +22193,13 @@
                                 "value": false
                             },
                             {
-                                "time": 0.5,
+                                "time": 0.65,
                                 "type": "WAIT"
                             }
                         ],
                         "elseStep": [
                             {
-                                "time": 0.65,
+                                "time": 0.85,
                                 "type": "WAIT"
                             }
                         ]
