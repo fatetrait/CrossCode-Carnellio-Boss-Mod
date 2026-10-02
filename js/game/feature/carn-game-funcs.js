@@ -1169,7 +1169,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a;
+        a = a * 0.925;
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
@@ -1180,7 +1180,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       if (!ig.vars.storage.tmp.isCarn) return this.parent();
       if(this.hidePets !== undefined || (this.name && this.name == "Lea") || (this.animSheet && this.animSheet.cacheKey && this.animSheet.cacheKey == "player")) {
         this.old_regenFactor = this.regenFactor;
-        this.regenFactor = 4;
+        this.regenFactor < 1.55 ? this.regenFactor = 1.55 : null;
         let res = this.parent();
         this.regenFactor = this.old_regenFactor;
         return res;

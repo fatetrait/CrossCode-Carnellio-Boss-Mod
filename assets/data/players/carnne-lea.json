@@ -8766,9 +8766,9 @@
                 {
                     "target": "TARGET",
                     "distance": 50,
-                    "duration": 3.1,
+                    "duration": 1.5,
                     "ccw": false,
-                    "rotateTime": 1,
+                    "rotateTime": 0.57,
                     "distAdjustSpeed": 0,
                     "waitTargetAlign": false,
                     "collision": false,
@@ -8779,7 +8779,7 @@
                     "type": "SET_SPEED"
                 },
                 {
-                    "duration": 0.3,
+                    "duration": 0.5,
                     "align": "CENTER",
                     "rotateFace": 0,
                     "flipLeftFace": false,
@@ -8801,9 +8801,9 @@
                 {
                     "target": "TARGET",
                     "distance": 50,
-                    "duration": 0.15,
+                    "duration": 0.35,
                     "ccw": false,
-                    "rotateTime": 1,
+                    "rotateTime": 0.57,
                     "distAdjustSpeed": 0,
                     "waitTargetAlign": false,
                     "collision": false,
@@ -8814,17 +8814,14 @@
                     "type": "SET_TEMP_TARGET"
                 },
                 {
-                    "time": 0.1,
-                    "type": "WAIT"
+                    "type": "WAIT",
+                    "time": 0.15,
+                    "ignoreSlowDown": false
                 },
                 {
                     "value": false,
                     "immediately": true,
                     "type": "FACE_TO_TARGET"
-                },
-                {
-                    "time": 0.05,
-                    "type": "WAIT"
                 },
                 {
                     "duration": 0.1,
@@ -8847,7 +8844,7 @@
                     }
                 },
                 {
-                    "time": 0.2,
+                    "time": 0.15,
                     "rotateSpeed": 0,
                     "cancelOnHit": false,
                     "orthoDirFactor": 0,
@@ -8856,8 +8853,8 @@
                     "type": "TACKLE",
                     "attack": {
                         "type": "HEAVY",
-                        "damageFactor": 0,
-                        "element": "HEAT",
+                        "damageFactor": 0.01,
+                        "element": "SHOCK",
                         "status": 5
                     }
                 },
@@ -8888,8 +8885,8 @@
                         "type": "LIGHT",
                         "fly": "LIGHT",
                         "damageFactor": 0.8,
-                        "status": 1,
                         "reverse": false,
+                        "status": 1,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
                         "skillBonus": "RANGED_DMG"
@@ -8903,9 +8900,9 @@
                 {
                     "target": "TARGET",
                     "distance": 50,
-                    "duration": 3.1,
+                    "duration": 1.5,
                     "ccw": false,
-                    "rotateTime": 1,
+                    "rotateTime": 0.57,
                     "distAdjustSpeed": 0,
                     "waitTargetAlign": false,
                     "collision": false,
@@ -8916,7 +8913,7 @@
                     "type": "SET_SPEED"
                 },
                 {
-                    "duration": 0.3,
+                    "duration": 0.5,
                     "align": "CENTER",
                     "rotateFace": 0,
                     "flipLeftFace": false,
@@ -8938,26 +8935,27 @@
                 {
                     "target": "TARGET",
                     "distance": 50,
-                    "duration": 0.15,
+                    "duration": 0.35,
                     "ccw": false,
-                    "rotateTime": 1,
+                    "rotateTime": 0.57,
                     "distAdjustSpeed": 0,
                     "waitTargetAlign": false,
                     "collision": false,
                     "type": "STICKY_CIRCLE_AROUND"
                 },
                 {
-                    "time": 0.1,
-                    "type": "WAIT"
+                    "kind": "ENEMY_OWNER",
+                    "type": "SET_TEMP_TARGET"
+                },
+                {
+                    "type": "WAIT",
+                    "time": 0.15,
+                    "ignoreSlowDown": false
                 },
                 {
                     "value": false,
                     "immediately": true,
                     "type": "FACE_TO_TARGET"
-                },
-                {
-                    "time": 0.05,
-                    "type": "WAIT"
                 },
                 {
                     "duration": 0.1,
@@ -8989,8 +8987,8 @@
                     "type": "TACKLE",
                     "attack": {
                         "type": "HEAVY",
-                        "damageFactor": 0,
-                        "element": "HEAT",
+                        "damageFactor": 0.01,
+                        "element": "SHOCK",
                         "status": 5
                     }
                 },

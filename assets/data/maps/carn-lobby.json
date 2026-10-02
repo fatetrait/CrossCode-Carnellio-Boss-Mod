@@ -1579,7 +1579,7 @@
                             },
                             {
                                 "type": "SWITCH_PLAYER_CONFIG",
-                                "name": "hexacast-draconic-lea"
+                                "name": "carnne-lea"
                             },
                             {
                                 "type": "SHOW_EFFECT",
@@ -1644,7 +1644,7 @@
                             },
                             {
                                 "label": {
-                                    "en_US": "Hexaconic DONT PICK!! NOT UPDATED + NOT APPROVED BY HEX DEV!! "
+                                    "en_US": "(dev testing) dont pick this"
                                 },
                                 "activeCondition": "stat.items.draconic-circuit >= 1"
                             },
