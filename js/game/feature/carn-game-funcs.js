@@ -1174,7 +1174,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a;
+        a = a * 1.5 * 0.920;
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
