@@ -1174,7 +1174,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a * 0.95;
+        a = a;
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
@@ -1321,7 +1321,7 @@ ig.BGM_TRACK_LIST["gaiaPno"] = {
 ig.BGM_TRACK_LIST["welcomePno"] = {
   path: "media/bgm/welcome_pno.ogg",
   loopEnd: 169,
-  volume: 2.7
+  volume: 2.4
 }
 ig.BGM_TRACK_LIST["sanctumDeus"] = {
   path: "media/bgm/sanctum_maledictus_deus.ogg",
