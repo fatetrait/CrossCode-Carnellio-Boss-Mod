@@ -13463,7 +13463,7 @@
                     }
                 },
                 {
-                    "value": 150,
+                    "value": 200,
                     "type": "SET_SPEED"
                 },
                 {
@@ -13473,6 +13473,29 @@
                     "forceTime": true,
                     "type": "MOVE_TO_DISTANCE"
                 },
+                {
+                        "selectType": "STUN_LOCKED",
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 1,
+                        "hitDelay": 0,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "LIGHT",
+                            "element": "HEAT",
+                            "reverse": false,
+                            "damageFactor": 0,
+                            "stunSteps": [
+                                {
+                                    "type": "END_LOCK"
+                                }
+                            ],
+                            "status": 1,
+                            "guardable": "",
+                            "skillBonus": "",
+                            "limiter": ""
+                        }
+                    },
                 {
                     "type": "CLEAR_EFFECTS"
                 }
@@ -25159,12 +25182,6 @@
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.debugHP",
                         "value": true
-                    },
-                    {
-                        "basedOn": "MAX_HP",
-                        "factor": 0.95,
-                        "hitNumberFactor": 1,
-                        "type": "REDUCE_HP"
                     }
                 ]
             },
@@ -25184,7 +25201,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 200001
+                "value": 23002
             },
             {
                 "changeType": "set",
@@ -33051,7 +33068,7 @@
                 "shield": {
                     "type": "DIRECTIONAL",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "strength": "BLOCK_ALL",
                         "hitResist": "MASSIVE",
                         "stableOverride": "HEAVY",
@@ -56789,7 +56806,7 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
@@ -57094,13 +57111,13 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
                         "back": false,
-                        "strength": "REGULAR",
-                        "noShieldDamage": false,
+                        "strength": "BLOCK_ALL",
+                        "noShieldDamage": true,
                         "noDefaultFX": true
                     }
                 }
@@ -57344,6 +57361,29 @@
                         "type": "SET_Z_VEL"
                     },
                     {
+                        "selectType": "STUN_LOCKED",
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 1,
+                        "hitDelay": 0,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "LIGHT",
+                            "element": "HEAT",
+                            "reverse": false,
+                            "damageFactor": 0,
+                            "stunSteps": [
+                                {
+                                    "type": "END_LOCK"
+                                }
+                            ],
+                            "status": 1,
+                            "guardable": "",
+                            "skillBonus": "",
+                            "limiter": ""
+                        }
+                    },
+                    {
                         "value": 1,
                         "type": "SET_Z_GRAVITY_FACTOR"
                     },
@@ -57365,10 +57405,12 @@
                             "reaim": 0
                         }
                     },
+                    
                     {
                         "time": 0.2,
                         "type": "WAIT"
                     }
+                    
                 ]
             }
         ],
@@ -57495,12 +57537,12 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
                         "back": false,
-                        "strength": "REGULAR",
+                        "strength": "BLOCK_ALL",
                         "noShieldDamage": false,
                         "noDefaultFX": true
                     }
@@ -61203,12 +61245,12 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
                         "back": false,
-                        "strength": "REGULAR",
+                        "strength": "BLOCK_ALL",
                         "noShieldDamage": false,
                         "noDefaultFX": true
                     }
@@ -61567,12 +61609,12 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
                         "back": false,
-                        "strength": "REGULAR",
+                        "strength": "BLOCK_ALL",
                         "noShieldDamage": false,
                         "noDefaultFX": true
                     }
@@ -62039,12 +62081,12 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0,
                         "range": 0.5,
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
                         "back": false,
-                        "strength": "REGULAR",
+                        "strength": "BLOCK_ALL",
                         "noShieldDamage": false,
                         "noDefaultFX": true
                     }

@@ -286,7 +286,6 @@ ig.module("game.feature.combat.model.combat-condition.carn").requires("impact.ba
       attributes: {}
     }),
     init: function (a) {
-      if (a && a.combo) a.combo.guardedHits = 0;
     },
     check: function (a) {
       if (a && a.combo) a.combo.guardedHits = 0;
