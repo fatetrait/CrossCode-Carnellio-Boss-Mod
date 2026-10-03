@@ -202,10 +202,25 @@
                         "condition": "!arena.isRush",
                         "thenStep": [
                             {
-                                "bgm": "apolloTheme",
-                                "volume": 1,
-                                "mode": "IMMEDIATELY",
-                                "type": "PUSH_BGM"
+                                "type": "IF",
+                                "withElse": true,
+                                "condition": "(global.isFate || tmp.isFate)",
+                                "thenStep": [
+                                    {
+                                        "bgm": "welcomePno",
+                                        "volume": 1,
+                                        "mode": "IMMEDIATELY",
+                                        "type": "PUSH_BGM"
+                                    }
+                                ],
+                                "elseStep": [
+                                    {
+                                        "bgm": "apolloTheme",
+                                        "volume": 1,
+                                        "mode": "IMMEDIATELY",
+                                        "type": "PUSH_BGM"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -487,10 +502,25 @@
                         "type": "PAUSE_BGM"
                     },
                     {
-                        "bgm": "intro",
-                        "volume": 2,
-                        "mode": "IMMEDIATELY",
-                        "type": "PUSH_BGM"
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "(global.isFate || tmp.isFate)",
+                        "thenStep": [
+                            {
+                                "bgm": "awakenedPno",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "bgm": "intro",
+                                "volume": 2,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ]
                     },
                     {
                         "type": "IF",
@@ -563,10 +593,25 @@
                         "type": "PAUSE_BGM"
                     },
                     {
-                        "bgm": "fieldBattle",
-                        "volume": 1.1,
-                        "mode": "IMMEDIATELY",
-                        "type": "PUSH_BGM"
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "(global.isFate || tmp.isFate)",
+                        "thenStep": [
+                            {
+                                "bgm": "gaiaPno",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "bgm": "fieldBattle",
+                                "volume": 1.1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ]
                     },
                     {
                         "type": "IF",
@@ -718,10 +763,25 @@
                         ]
                     },
                     {
-                        "bgm": "godBoss",
-                        "volume": 1.4,
-                        "mode": "IMMEDIATELY",
-                        "type": "PUSH_BGM"
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "(global.isFate || tmp.isFate)",
+                        "thenStep": [
+                            {
+                                "bgm": "justicePno",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "bgm": "godBoss",
+                                "volume": 1.4,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ]
                     },
                     {
                         "message": {
@@ -860,10 +920,25 @@
                         ]
                     },
                     {
-                        "bgm": "burningOutTheBlue",
-                        "volume": 1,
-                        "mode": "IMMEDIATELY",
-                        "type": "PUSH_BGM"
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "(global.isFate || tmp.isFate)",
+                        "thenStep": [
+                            {
+                                "bgm": "bloodDrainBkcore",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "bgm": "burningOutTheBlue",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ]
                     },
                     {
                         "message": {
@@ -931,10 +1006,25 @@
                         "type": "PAUSE_BGM"
                     },
                     {
-                        "bgm": "s-rank",
-                        "volume": 1,
-                        "mode": "IMMEDIATELY",
-                        "type": "PUSH_BGM"
+                        "type": "IF",
+                        "withElse": true,
+                        "condition": "(global.isFate || tmp.isFate)",
+                        "thenStep": [
+                            {
+                                "bgm": "sanctumDeus",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "bgm": "s-rank",
+                                "volume": 1,
+                                "mode": "IMMEDIATELY",
+                                "type": "PUSH_BGM"
+                            }
+                        ]
                     },
                     {
                         "changeType": "set",

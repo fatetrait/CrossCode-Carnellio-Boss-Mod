@@ -401,8 +401,13 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       let x = a.combo.guardedEntity;
       if (x && (x.isBall || !x.animSheet || !x.animSheet.cacheKey) && x.attackInfo && x.attackInfo.attackerParams) {
         x = x.attackInfo.attackerParams.combatant;
+        a.tmpTarget = x;
+      } else {
+        x = a.getCombatant();
+        a.tmpTarget = x;
+       // return !a || a.isBall ? null : a.getCombatant()
       }
-      a.tmpTarget = x;
+      
     }
   });
   ig.ACTION_STEP.SAVE_TARGET = ig.ActionStepBase.extend({
@@ -681,7 +686,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       //console.log(a, "a.attack: " + a.attack + ", e: " + e);
       a.attack = Math.round(a.attack || a.baseParams.attack * e);
       a.defense = Math.round(a.defense || a.baseParams.defense * e);
-      a.focus = 1
+      a.focus = Math.round(a.focus || a.baseParams.focus * e);
       return a
     },
     updateParams: function (a) {
@@ -1169,7 +1174,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
         a = c.baseOffensiveFactor * b.spFactor;
         a = a * ((1 + c.defensiveFactor) / 2);
         c.critical && (a = a * 1.5);
-        a = a * 0.925;
+        a = a * 0.95;
         a = a * b.spRepeatFactor;
         b.spRepeatFactor = 0;
         this.params.addSp(a * 0.1)
@@ -1180,7 +1185,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       if (!ig.vars.storage.tmp.isCarn) return this.parent();
       if(this.hidePets !== undefined || (this.name && this.name == "Lea") || (this.animSheet && this.animSheet.cacheKey && this.animSheet.cacheKey == "player")) {
         this.old_regenFactor = this.regenFactor;
-        this.regenFactor < 1.55 ? this.regenFactor = 1.55 : null;
+        this.regenFactor < 1.6 ? this.regenFactor = 1.6 : null;
         let res = this.parent();
         this.regenFactor = this.old_regenFactor;
         return res;
@@ -1288,7 +1293,44 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
 
 
 ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
-      path: "media/bgm/Burning_Out_the_Blue.mp3",
-      loopEnd: 386,
-      volume: 0.75
-    }
+  path: "media/bgm/Burning_Out_the_Blue.ogg",
+  loopEnd: 386,
+  volume: 0.75
+}
+
+
+ig.BGM_TRACK_LIST["awakenedPno"] = {
+  path: "media/bgm/awakened_pno.ogg",
+  loopEnd: 134,
+  volume: 2.2
+}
+
+
+ig.BGM_TRACK_LIST["bloodDrainBkcore"] = {
+  path: "media/bgm/blood_drain_ozeronty.ogg",
+  loopEnd: 209,
+  volume: 1.9
+}
+
+ig.BGM_TRACK_LIST["gaiaPno"] = {
+  path: "media/bgm/gaia_pno.ogg",
+  loopEnd: 177,
+  volume: 2
+}
+
+ig.BGM_TRACK_LIST["welcomePno"] = {
+  path: "media/bgm/welcome_pno.ogg",
+  loopEnd: 169,
+  volume: 2.7
+}
+ig.BGM_TRACK_LIST["sanctumDeus"] = {
+  path: "media/bgm/sanctum_maledictus_deus.ogg",
+  loopEnd: 222,
+  volume: 2
+}
+
+ig.BGM_TRACK_LIST["justicePno"] = {
+  path: "media/bgm/justice_pno.mp3",
+  loopEnd: 171,
+  volume: 1.4
+}
