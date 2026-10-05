@@ -2,11 +2,11 @@
     "level": 40,
     "params": {
         "hp": 12550000,
-        "attack": 220,
+        "attack": 210,
         "defense": 220,
         "focus": 220,
         "elemFactor": [
-            1.10,
+            1.05,
             1.10,
             1.20,
             1.10
@@ -25,15 +25,15 @@
         ]
     },
     "ballFactor": 0.9,
-    "damageFactor": 0.40,
+    "damageFactor": 0.50,
     "elementModes": {
         "HEAT": {
             "hp": 12550000,
-            "attack": 220,
+            "attack": 210,
             "defense": 220,
             "focus": 220,
             "elemFactor": [
-                1.10,
+                1.05,
                 1.10,
                 1.20,
                 1.10
@@ -41,11 +41,11 @@
         },
         "COLD": {
             "hp": 12550000,
-            "attack": 220,
+            "attack": 210,
             "defense": 220,
             "focus": 220,
             "elemFactor": [
-                1.10,
+                1.05,
                 1.10,
                 1.20,
                 1.10
@@ -53,11 +53,11 @@
         },
         "SHOCK": {
             "hp": 12550000,
-            "attack": 220,
+            "attack": 210,
             "defense": 220,
             "focus": 220,
             "elemFactor": [
-                1.10,
+                1.05,
                 1.10,
                 1.20,
                 1.10
@@ -65,11 +65,11 @@
         },
         "WAVE": {
             "hp": 12550000,
-            "attack": 220,
+            "attack": 210,
             "defense": 220,
             "focus": 220,
             "elemFactor": [
-                1.10,
+                1.05,
                 1.10,
                 1.20,
                 1.10
@@ -122,7 +122,7 @@
             "healDrop": 0.4
         },
         {
-            "hp": 0.1,
+            "hp": 0.07,
             "healDrop": 0
         }
     ],
@@ -246,6 +246,16 @@
                         }
                     ],
                     "action": "DEBUGBULLSHIT"
+                },
+                {
+                    "req": [
+                        {
+                            "negated": false,
+                            "type": "VAR_CONDITION",
+                            "condition": "false"
+                        }
+                    ],
+                    "action": "DEBUGFATE"
                 },
                 {
                     "req": [
@@ -1490,7 +1500,7 @@
                     "attack": {
                         "noIronStance": true,
                         "visualType": "LIGHT",
-                        "element": "HEAT",
+                        "element": "WAVE",
                         "type": "MASSIVE",
                         "fly": "MASSIVE++",
                         "damageFactor": 1,
@@ -1803,7 +1813,7 @@
                     "type": "SET_FACE_TARGET_PREDICT"
                 },
                 {
-                    "value": 200,
+                    "value": 220,
                     "type": "SET_SPEED"
                 },
                 {
@@ -1926,7 +1936,7 @@
                             }
                         },
                         {
-                            "value": 200,
+                            "value": 220,
                             "type": "SET_SPEED"
                         },
                         {
@@ -2142,7 +2152,7 @@
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 2,
-                                "guardable": "ALWAYS",
+                                "guardable": "NEVER",
                                 "skillBonus": "RANGED_DMG"
                             },
                             "offset": {
@@ -2246,7 +2256,7 @@
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 2,
-                                "guardable": "ALWAYS",
+                                "guardable": "NEVER",
                                 "skillBonus": "RANGED_DMG"
                             },
                             "offset": {
@@ -2362,7 +2372,7 @@
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 1,
-                                "guardable": "ALWAYS",
+                                "guardable": "NEVER",
                                 "skillBonus": "RANGED_DMG",
                                 "stunSteps": [
                                     {
@@ -2467,7 +2477,7 @@
                                 "reverse": false,
                                 "spFactor": 0,
                                 "status": 2,
-                                "guardable": "ALWAYS",
+                                "guardable": "NEVER",
                                 "skillBonus": "RANGED_DMG"
                             },
                             "offset": {
@@ -2546,7 +2556,7 @@
                 "z": 16
             },
             "effects": "",
-            "speed": 100,
+            "speed": 220,
             "maxBounce": 100,
             "timer": 0,
             "trail": false,
@@ -2708,7 +2718,7 @@
                             "align": "CENTER",
                             "posType": "TARGET",
                             "type": "SHOOT_PROXY",
-                            "proxy": "player20OverloadDisplay",
+                            "proxy": "player10OverloadDisplay",
                             "offset": {
                                 "x": 0,
                                 "y": 0,
@@ -2720,7 +2730,7 @@
                             "sp": 1
                         },
                         {
-                            "value": 20,
+                            "value": 10,
                             "type": "ADD_ELEMENT_LOAD"
                         },
                         {
@@ -2772,7 +2782,7 @@
                     "align": "CENTER",
                     "posType": "TARGET",
                     "type": "SHOOT_PROXY",
-                    "proxy": "player2OverloadDisplay",
+                    "proxy": "player1OverloadDisplay",
                     "offset": {
                         "x": 0,
                         "y": 0,
@@ -2784,7 +2794,7 @@
                     "sp": 0.1
                 },
                 {
-                    "value": 2,
+                    "value": 1,
                     "type": "ADD_ELEMENT_LOAD"
                 },
                 {
@@ -2869,7 +2879,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -2907,7 +2917,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -2945,7 +2955,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -2983,7 +2993,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -3021,7 +3031,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -3059,7 +3069,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -3097,7 +3107,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -3135,7 +3145,7 @@
                         "reverse": false,
                         "spFactor": 0,
                         "status": 6,
-                        "guardable": "ALWAYS",
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG"
                     },
                     "offset": {
@@ -3198,8 +3208,28 @@
                     }
                 },
                 {
+                    "duration": 0.3,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.carnfx",
+                        "name": "FatalHowl"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
                     "align": "BOTTOM",
-                    "radius": 35,
+                    "radius": 45,
                     "yScale": 0,
                     "zHeight": 16,
                     "centralAngle": 1,
@@ -3216,14 +3246,16 @@
                     "type": "CIRCLE_ATTACK",
                     "withBranches": true,
                     "attack": {
+                        "hitInvincible": true,
                         "noIronStance": true,
                         "type": "MASSIVE",
-                        "element": "WAVE",
+                        "element": "NEUTRAL",
                         "damageFactor": 1,
                         "fly": "MASSIVE++",
                         "reverse": false,
                         "spFactor": 0,
                         "status": 3,
+                        "guardable": "NEVER",
                         "skillBonus": "RANGED_DMG",
                         "stunSteps": [
                             {
@@ -3231,6 +3263,16 @@
                             },
                             {
                                 "type": "START_LOCK"
+                            },
+                            {
+                                "align": "BOTTOM",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                },
+                                "maxTime": 0.6,
+                                "type": "FORCE_POS"
                             }
                         ]
                     },
@@ -3319,40 +3361,8 @@
                     "type": "ABSORB_DAMAGE"
                 },
                 {
-                    "type": "CONSUME_SP_TARGET",
-                    "sp": 12
-                },
-                {
-                    "value": 100,
-                    "type": "ADD_ELEMENT_LOAD"
-                },
-                {
-                    "time": 60,
-                    "type": "BLOCK_CONSUMABLE_EXTEND"
-                },
-                {
                     "time": 1,
                     "type": "WAIT"
-                },
-                {
-                    "duration": 0,
-                    "align": "FACE",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": true,
-                    "fixPos": false,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "specials.cold",
-                        "name": "starExplosion"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
                 },
                 {
                     "time": 1,
@@ -3459,7 +3469,7 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1.7,
+                        "damageFactor": 1.4,
                         "status": 4,
                         "reverse": false,
                         "spFactor": 0,
@@ -3593,7 +3603,7 @@
                         "element": "HEAT",
                         "type": "LIGHT",
                         "fly": "LIGHT",
-                        "damageFactor": 1.7,
+                        "damageFactor": 1.4,
                         "reverse": false,
                         "status": 4,
                         "spFactor": 0,
@@ -9349,7 +9359,7 @@
             },
             "type": "GENERIC"
         },
-        "player20OverloadDisplay": {
+        "player10OverloadDisplay": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
@@ -9375,7 +9385,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "+20% overload"
+                        "en_US": "+10% overload"
                     },
                     "mode": "NO_LINE",
                     "color": "RED",
@@ -10111,7 +10121,7 @@
             "breakType": "NEVER",
             "action": [
                 {
-                    "time": 0.3,
+                    "time": 0.1,
                     "type": "WAIT"
                 },
                 {
@@ -10186,7 +10196,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 2.784!"
+                        "en_US": "Attack stat multiplied by 2.571!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10221,7 +10231,7 @@
                     "name": "sergeyHax",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 2.784,
+                    "value": 2.571,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10266,7 +10276,7 @@
             },
             "config": {
                 "collType": "NONE",
-                "maxVel": 400,
+                "maxVel": 600,
                 "floatVariance": 0,
                 "flyHeight": 2
             },
@@ -10352,7 +10362,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 2.784!"
+                        "en_US": "Attack stat multiplied by 2.571!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10387,7 +10397,7 @@
                     "name": "sergeyHax2",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 2.784,
+                    "value": 2.571,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10518,7 +10528,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Attack stat multiplied by 2.784!"
+                        "en_US": "Attack stat multiplied by 2.571!"
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10553,7 +10563,7 @@
                     "name": "sergeyHax3",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 2.784,
+                    "value": 2.571,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10868,7 +10878,7 @@
                     "name": "fateWeaken",
                     "param": "attack",
                     "changeType": "set",
-                    "value": 0.70,
+                    "value": 0.75,
                     "type": "MOD_ACTION_BUFF_PARAM"
                 },
                 {
@@ -10933,17 +10943,6 @@
                     "type": "SET_AIR_FRICTION"
                 },
                 {
-                    "text": {
-                        "en_US": "Buffing..."
-                    },
-                    "mode": "NO_LINE",
-                    "color": "RED",
-                    "actionDetached": false,
-                    "hideOutsideOfScreen": false,
-                    "type": "SHOW_AR_MSG",
-                    "time": 5
-                },
-                {
                     "duration": 2,
                     "align": "BOTTOM",
                     "rotateFace": 0,
@@ -10974,9 +10973,6 @@
                 {
                     "group": "slug",
                     "type": "CLEAR_EFFECTS"
-                },
-                {
-                    "type": "CLEAR_AR_MSG"
                 },
                 {
                     "text": {
@@ -11952,7 +11948,7 @@
                     "shield": {
                         "type": "PLAYER",
                         "settings": {
-                            "baseFactor": 1,
+                            "baseFactor": 0.5,
                             "strength": "BLOCK_ALL",
                             "hitResist": "MASSIVE",
                             "stableOverride": "HEAVY",
@@ -13377,7 +13373,7 @@
             "hp": 0,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "",
+            "group": "flareBurn",
             "startAnim": "",
             "size": {
                 "x": 8,
@@ -13474,28 +13470,28 @@
                     "type": "MOVE_TO_DISTANCE"
                 },
                 {
-                        "selectType": "STUN_LOCKED",
-                        "hitDir": "AWAY",
-                        "align": "BOTTOM",
-                        "hitCount": 1,
-                        "hitDelay": 0,
-                        "type": "DIRECT_HIT",
-                        "attack": {
-                            "type": "LIGHT",
-                            "element": "HEAT",
-                            "reverse": false,
-                            "damageFactor": 0,
-                            "stunSteps": [
-                                {
-                                    "type": "END_LOCK"
-                                }
-                            ],
-                            "status": 1,
-                            "guardable": "",
-                            "skillBonus": "",
-                            "limiter": ""
-                        }
-                    },
+                    "selectType": "STUN_LOCKED",
+                    "hitDir": "AWAY",
+                    "align": "BOTTOM",
+                    "hitCount": 1,
+                    "hitDelay": 0,
+                    "type": "DIRECT_HIT",
+                    "attack": {
+                        "type": "LIGHT",
+                        "element": "HEAT",
+                        "reverse": false,
+                        "damageFactor": 0,
+                        "stunSteps": [
+                            {
+                                "type": "END_LOCK"
+                            }
+                        ],
+                        "status": 1,
+                        "guardable": "",
+                        "skillBonus": "",
+                        "limiter": ""
+                    }
+                },
                 {
                     "type": "CLEAR_EFFECTS"
                 }
@@ -16236,7 +16232,7 @@
                     "shield": {
                         "type": "PLAYER",
                         "settings": {
-                            "baseFactor": 1,
+                            "baseFactor": 0.4,
                             "strength": "BLOCK_ALL",
                             "hitResist": "MASSIVE",
                             "stableOverride": "HEAVY",
@@ -16290,7 +16286,7 @@
                     "shield": {
                         "type": "PLAYER",
                         "settings": {
-                            "baseFactor": 2,
+                            "baseFactor": 0.3,
                             "strength": "BLOCK_ALL",
                             "hitResist": "MASSIVE",
                             "stableOverride": "HEAVY",
@@ -18194,7 +18190,7 @@
                     "type": "WAIT"
                 },
                 {
-                    "factor": 15,
+                    "factor": 25,
                     "type": "ABSORB_DAMAGE"
                 },
                 {
@@ -18456,7 +18452,7 @@
                     "type": "STOP_XY"
                 },
                 {
-                    "factor": 15,
+                    "factor": 30,
                     "multiEnemyScale": 0.2,
                     "type": "ABSORB_DAMAGE_VIA_SUM"
                 },
@@ -20410,7 +20406,7 @@
             "hp": 0,
             "stickToSource": "OWNER",
             "stickFaceAlign": false,
-            "group": "aura",
+            "group": "timeFreeze",
             "startAnim": "",
             "size": {
                 "x": 0,
@@ -22980,7 +22976,7 @@
                 "value": false
             },
             {
-                "time": -60,
+                "time": -120,
                 "type": "BLOCK_CONSUMABLE_EXTEND"
             },
             {
@@ -23387,7 +23383,7 @@
                 "value": true
             },
             {
-                "value": 2,
+                "value": 1,
                 "type": "FACE_TO_TARGET_SPEED"
             },
             {
@@ -25064,7 +25060,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -25182,6 +25178,12 @@
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.debugHP",
                         "value": true
+                    },
+                    {
+                        "basedOn": "MAX_HP",
+                        "factor": 0.95,
+                        "hitNumberFactor": 1,
+                        "type": "REDUCE_HP"
                     }
                 ]
             },
@@ -25201,7 +25203,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.oneSigil",
-                "value": 23002
+                "value": 9
             },
             {
                 "changeType": "set",
@@ -25213,7 +25215,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigil1",
-                "value": 200001
+                "value": 15
             },
             {
                 "changeType": "set",
@@ -25610,7 +25612,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -27354,7 +27356,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -27582,7 +27584,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -27973,7 +27975,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -28099,6 +28101,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -28214,7 +28221,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -28342,6 +28349,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -28433,7 +28445,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -28656,7 +28668,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -28784,6 +28796,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -28905,7 +28922,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -29031,6 +29048,11 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -29160,7 +29182,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -29288,6 +29310,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -29308,7 +29335,7 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.sigilCount",
-                "value": 17
+                "value": 16
             },
             {
                 "changeType": "set",
@@ -29409,7 +29436,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -29535,6 +29562,11 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
+            },
+            {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -29676,7 +29708,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -29804,6 +29836,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -29895,7 +29932,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -30023,6 +30060,11 @@
                 ]
             },
             {
+                "time": 0,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -30060,10 +30102,6 @@
                 "value": true,
                 "immediately": true,
                 "type": "FACE_TO_TARGET"
-            },
-            {
-                "value": 2,
-                "type": "FACE_TO_TARGET_SPEED"
             },
             {
                 "text": {
@@ -30117,27 +30155,12 @@
                 "type": "FACE_TO_TARGET"
             },
             {
-                "value": 2,
-                "type": "FACE_TO_TARGET_SPEED"
-            },
-            {
                 "value": "BREAK",
                 "type": "SET_HIT_STABLE"
             },
             {
                 "value": 3,
                 "type": "SET_ACCEL_SPEED"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
-            },
-            {
-                "time": 0.05,
-                "stopBeforeEdge": false,
-                "type": "MOVE_FORWARD"
-            },
-            {
-                "type": "PLAYER_ADJUST_MOVE_DIR"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",
@@ -30208,7 +30231,7 @@
                 "type": "WAIT"
             },
             {
-                "value": "VIRTUAL",
+                "value": "BLOCK",
                 "type": "SET_COLL_TYPE"
             },
             {
@@ -30221,6 +30244,10 @@
                         "type": "CHANGE_VAR_BOOL",
                         "varName": "tmp.fatalHowlHit",
                         "value": true
+                    },
+                    {
+                        "value": 6,
+                        "type": "FACE_TO_TARGET_SPEED"
                     },
                     {
                         "value": true,
@@ -30236,11 +30263,37 @@
                         "changeType": "set",
                         "attribName": "fhHits",
                         "type": "SET_ATTRIB_NUMBER",
-                        "value": 8
+                        "value": 3
                     },
                     {
                         "name": "slashes",
                         "type": "LABEL"
+                    },
+                    {
+                        "followUp": "meleeEndRev",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "spinShortRev"
+                    },
+                    {
+                        "sweepType": "CARN",
+                        "reversed": true,
+                        "faceCount": 6,
+                        "flipLeftFace": false,
+                        "type": "COMBAT_SWEEP"
+                    },
+                    {
+                        "time": 0.2,
+                        "stopBeforeEdge": false,
+                        "type": "MOVE_FORWARD"
+                    },
+                    {
+                        "followUp": "meleeEnd",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "spinShort"
                     },
                     {
                         "sweepType": "CARN",
@@ -30318,7 +30371,7 @@
                         "attack": {
                             "type": "MASSIVE",
                             "element": "COLD",
-                            "damageFactor": 0.7,
+                            "damageFactor": 1,
                             "reverse": false,
                             "stunSteps": [
                                 {
@@ -30333,7 +30386,7 @@
                                 }
                             ],
                             "status": 999999,
-                            "guardable": "ALWAYS",
+                            "guardable": "NEVER",
                             "skillBonus": "MELEE_DMG"
                         }
                     },
@@ -30413,6 +30466,11 @@
                 "value": false,
                 "immediately": true,
                 "type": "FACE_TO_TARGET"
+            },
+            {
+                "time": 0.1,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
             },
             {
                 "duration": 0.5,
@@ -30632,7 +30690,7 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "element": "WAVE",
+                "element": "COLD",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
@@ -30746,11 +30804,12 @@
                 "attack": {
                     "type": "MASSIVE",
                     "fly": "MASSIVE++",
-                    "element": "WAVE",
+                    "element": "COLD",
                     "damageFactor": 1,
+                    "status": 3, 
                     "reverse": false,
                     "spFactor": 0,
-                    "guardable": "",
+                    "guardable": "ALWAYS",
                     "skillBonus": "MELEE_DMG"
                 },
                 "offset": {
@@ -30770,6 +30829,41 @@
                 "condition": "entity.attrib.decapHit",
                 "thenStep": [
                     {
+                        "type": "CLEAR_HIT_PROXY"
+                    },
+                    {
+                        "selectType": "PREVIOUSLY_HIT",
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 1,
+                        "hitDelay": 0,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "MASSIVE",
+                            "reverse": false,
+                            "status": 0,
+                            "soundType": "none",
+                            "damageFactor": 0.0001,
+                            "guardable": "NEVER",
+                            "hitInvincible": true,
+                            "skillBonus": "RANGED_DMG",
+                            "noIronStance": true,
+                            "limiter": "NO_HIT_PROXY",
+                            "stunSteps": [
+                                {
+                                    "type": "START_LOCK"
+                                },
+                                {
+                                    "type": "BLOCK_FALL",
+                                    "duration": 0.6
+                                },
+                                {
+                                    "type": "END_LOCK"
+                                }
+                            ]
+                        }
+                    },
+                    {
                         "time": 0.2,
                         "type": "WAIT"
                     },
@@ -30778,6 +30872,18 @@
                         "type": "IF",
                         "condition": "playerVar.input.perfectShield <= tmp.pShieldCheck",
                         "thenStep": [
+                            {
+                                "type": "CONSUME_SP_TARGET",
+                                "sp": 12
+                            },
+                            {
+                                "value": 100,
+                                "type": "ADD_ELEMENT_LOAD"
+                            },
+                            {
+                                "time": 60,
+                                "type": "BLOCK_CONSUMABLE_EXTEND"
+                            },
                             {
                                 "align": "CENTER",
                                 "posType": "TARGET",
@@ -30833,6 +30939,27 @@
                                 "type": "WAIT"
                             },
                             {
+                                "duration": 0,
+                                "align": "FACE",
+                                "rotateFace": 0,
+                                "flipLeftFace": false,
+                                "wait": false,
+                                "waitSkip": 0,
+                                "actionDetached": true,
+                                "fixPos": false,
+                                "target": "TARGET",
+                                "type": "SHOW_EFFECT",
+                                "effect": {
+                                    "sheet": "specials.cold",
+                                    "name": "starExplosion"
+                                },
+                                "offset": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0
+                                }
+                            },
+                            {
                                 "selectType": "PREVIOUSLY_HIT",
                                 "hitDir": "TOWARD",
                                 "align": "BOTTOM",
@@ -30840,9 +30967,10 @@
                                 "hitDelay": 0.5,
                                 "type": "DIRECT_HIT",
                                 "attack": {
-                                    "type": "MASSIVE",
+                                    "type": "BREAK",
                                     "element": "COLD",
-                                    "damageFactor": 15.4,
+                                    "defenseFactor": 0,
+                                    "damageFactor": 40,
                                     "reverse": false,
                                     "stunSteps": [
                                         {
@@ -30860,7 +30988,7 @@
                                         }
                                     ],
                                     "status": 10,
-                                    "guardable": "ALWAYS",
+                                    "guardable": "NEVER",
                                     "skillBonus": "MELEE_DMG"
                                 }
                             },
@@ -30960,7 +31088,7 @@
         ],
         "SweepingSeize": [
             {
-                "element": "HEAT",
+                "element": "WAVE",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
@@ -31118,6 +31246,7 @@
                 "centralAngle": 0,
                 "startAngle": 0,
                 "angleVary": 0,
+                "startDist": 16,
                 "startDistCollide": "NONE",
                 "count": 1,
                 "duration": 0,
@@ -31329,8 +31458,8 @@
                 "type": "TELEPORT_TO_ATTRIB_POS"
             },
             {
-                "time": 0.2,
-                "type": "WAIT"
+                "time": 0.1,
+                "type": "MOVE_FORWARD"
             },
             {
                 "name": "esSummonResponse",
@@ -31342,7 +31471,7 @@
             },
             {
                 "time": 0.1,
-                "type": "WAIT"
+                "type": "MOVE_FORWARD"
             }
         ],
         "NightmareReign": [
@@ -31570,6 +31699,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31667,6 +31797,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31710,6 +31841,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31753,6 +31885,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31796,6 +31929,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31839,6 +31973,7 @@
                                             "skillBonus": "RANGED_DMG",
                                             "noIronStance": true,
                                             "limiter": "",
+                                            "hitInvincible": true,
                                             "stunSteps": [
                                                 {
                                                     "type": "BLOCK_XY"
@@ -31891,6 +32026,26 @@
                                     {
                                         "type": "CONSUME_SP_TARGET",
                                         "sp": 12
+                                    },
+                                    {
+                                        "selectType": "PREVIOUSLY_HIT",
+                                        "hitDir": "TOWARD",
+                                        "align": "BOTTOM",
+                                        "hitCount": 1,
+                                        "hitDelay": 0,
+                                        "type": "DIRECT_HIT",
+                                        "attack": {
+                                            "type": "MASSIVE",
+                                            "element": "COLD",
+                                            "fly": "MASSIVE",
+                                            "reverse": false,
+                                            "status": 0,
+                                            "damageFactor": 0.001,
+                                            "guardable": "",
+                                            "skillBonus": "RANGED_DMG",
+                                            "noIronStance": true,
+                                            "limiter": ""
+                                        }
                                     },
                                     {
                                         "value": 400,
@@ -32026,7 +32181,7 @@
                         "centralAngle": 1,
                         "startAngle": 0.25,
                         "angleVary": 0,
-                        "startDist": 40,
+                        "startDist": 80,
                         "startDistCollide": "NONE",
                         "count": 1,
                         "duration": 0.5,
@@ -32077,7 +32232,7 @@
                         "centralAngle": 1,
                         "startAngle": -0.25,
                         "angleVary": 0,
-                        "startDist": 40,
+                        "startDist": 80,
                         "startDistCollide": "NONE",
                         "count": 1,
                         "duration": 0.5,
@@ -32124,6 +32279,10 @@
                 ]
             },
             {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "value": 500,
                 "type": "SET_SPEED"
             },
@@ -32134,9 +32293,13 @@
                 "anim": "spinFull"
             },
             {
-                "time": 0.15,
+                "time": 0.17,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
+            },
+            {
+                "value": "BLOCK",
+                "type": "SET_COLL_TYPE"
             }
         ],
         "Realout": [
@@ -32176,7 +32339,7 @@
                         "centralAngle": 1,
                         "startAngle": 0.25,
                         "angleVary": 0,
-                        "startDist": 40,
+                        "startDist": 80,
                         "startDistCollide": "NONE",
                         "count": 1,
                         "duration": 0.5,
@@ -32227,7 +32390,7 @@
                         "centralAngle": 1,
                         "startAngle": -0.25,
                         "angleVary": 0,
-                        "startDist": 40,
+                        "startDist": 80,
                         "startDistCollide": "NONE",
                         "count": 1,
                         "duration": 0.5,
@@ -32274,6 +32437,10 @@
                 ]
             },
             {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "value": 500,
                 "type": "SET_SPEED"
             },
@@ -32284,9 +32451,13 @@
                 "anim": "spinFull"
             },
             {
-                "time": 0.15,
+                "time": 0.17,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
+            },
+            {
+                "value": "BLOCK",
+                "type": "SET_COLL_TYPE"
             }
         ],
         "WanderingFlame": [
@@ -32406,7 +32577,7 @@
                     "reverse": false,
                     "spFactor": 0,
                     "status": 15,
-                    "guardable": "ALWAYS",
+                    "guardable": "NEVER",
                     "skillBonus": "RANGED_DMG"
                 },
                 "offset": {
@@ -32609,7 +32780,7 @@
                     "reverse": false,
                     "spFactor": 0,
                     "status": 10,
-                    "guardable": "ALWAYS",
+                    "guardable": "NEVER",
                     "skillBonus": "RANGED_DMG",
                     "stunSteps": [
                         {
@@ -32717,7 +32888,7 @@
                             "reverse": false,
                             "status": 10,
                             "damageFactor": 0.07,
-                            "guardable": "",
+                            "guardable": "NEVER",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
                             "limiter": ""
@@ -32737,7 +32908,7 @@
                             "reverse": false,
                             "status": 10,
                             "damageFactor": 0.07,
-                            "guardable": "",
+                            "guardable": "NEVER",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
                             "limiter": ""
@@ -32766,7 +32937,7 @@
                             "reverse": false,
                             "status": 10,
                             "damageFactor": 0.07,
-                            "guardable": "",
+                            "guardable": "NEVER",
                             "skillBonus": "RANGED_DMG",
                             "noIronStance": true,
                             "limiter": "",
@@ -32873,7 +33044,7 @@
                                     "reverse": false,
                                     "status": 10,
                                     "damageFactor": 0.07,
-                                    "guardable": "",
+                                    "guardable": "NEVER",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
                                     "limiter": ""
@@ -32893,7 +33064,7 @@
                                     "reverse": false,
                                     "status": 10,
                                     "damageFactor": 0.07,
-                                    "guardable": "",
+                                    "guardable": "NEVER",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
                                     "limiter": ""
@@ -32922,7 +33093,7 @@
                                     "reverse": false,
                                     "status": 10,
                                     "damageFactor": 0.07,
-                                    "guardable": "",
+                                    "guardable": "NEVER",
                                     "skillBonus": "RANGED_DMG",
                                     "noIronStance": true,
                                     "limiter": "",
@@ -34983,7 +35154,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -35238,7 +35409,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -35553,7 +35724,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -36049,7 +36220,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -36989,7 +37160,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -37264,7 +37435,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -37519,7 +37690,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -37866,7 +38037,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -38356,7 +38527,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -39370,7 +39541,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -39665,7 +39836,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -39982,7 +40153,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -40471,7 +40642,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -41255,7 +41426,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -42807,7 +42978,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -43102,7 +43273,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -43431,7 +43602,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -43920,7 +44091,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -44728,7 +44899,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -46262,7 +46433,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -46577,7 +46748,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -46882,7 +47053,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -47228,36 +47399,42 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigilCount",
-                        "value": 5
+                        "value": 6
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil0",
-                        "value": 19
+                        "value": 23
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil1",
-                        "value": 50102
+                        "value": 19
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil2",
-                        "value": 20002
+                        "value": 50102
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil3",
-                        "value": 20
+                        "value": 20002
                     },
                     {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil4",
+                        "value": 20
+                    },
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigil5",
                         "value": 5
                     }
                 ],
@@ -47385,7 +47562,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -47676,66 +47853,72 @@
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigilCount",
-                                "value": 10
+                                "value": 11
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil0",
-                                "value": 19
+                                "value": 23
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil1",
-                                "value": 50001
+                                "value": 19
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil2",
-                                "value": 10
+                                "value": 50001
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil3",
-                                "value": 10001
+                                "value": 10
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil4",
-                                "value": 15
+                                "value": 10001
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil5",
-                                "value": 20001
+                                "value": 15
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil6",
-                                "value": 21
+                                "value": 20001
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil7",
-                                "value": 30001
+                                "value": 21
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil8",
-                                "value": 42001
+                                "value": 30001
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil9",
+                                "value": 42001
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil10",
                                 "value": 40001
                             }
                         ],
@@ -47976,48 +48159,54 @@
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigilCount",
-                                "value": 7
+                                "value": 8
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil0",
-                                "value": 19
+                                "value": 23
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil1",
-                                "value": 20
+                                "value": 19
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil2",
-                                "value": 30102
-                            },
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.sigil3",
-                                "value": 18
-                            },
-                            {
-                                "changeType": "set",
-                                "type": "CHANGE_VAR_NUMBER",
-                                "varName": "tmp.sigil4",
                                 "value": 20
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil3",
+                                "value": 30102
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil4",
+                                "value": 18
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil5",
-                                "value": 4
+                                "value": 20
                             },
                             {
                                 "changeType": "set",
                                 "type": "CHANGE_VAR_NUMBER",
                                 "varName": "tmp.sigil6",
+                                "value": 4
+                            },
+                            {
+                                "changeType": "set",
+                                "type": "CHANGE_VAR_NUMBER",
+                                "varName": "tmp.sigil7",
                                 "value": 5
                             }
                         ],
@@ -48247,7 +48436,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -49707,7 +49896,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -50002,7 +50191,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -50257,7 +50446,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -50750,7 +50939,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -51546,7 +51735,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -51871,7 +52060,7 @@
                                 "options": [
                                     {
                                         "0": " ",
-                                        "count": 10,
+                                        "count": 11,
                                         "weight": 1,
                                         "activeCondition": "true"
                                     }
@@ -52387,6 +52576,92 @@
                                         "varName": "tmp.sigil8",
                                         "value": 16
                                     }
+                                ],
+                                "0_10": [
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigilCount",
+                                        "value": 13
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil0",
+                                        "value": 17
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil1",
+                                        "value": 21
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil2",
+                                        "value": 12
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil3",
+                                        "value": 4
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil4",
+                                        "value": 11001
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil5",
+                                        "value": 21
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil6",
+                                        "value": 9
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil7",
+                                        "value": 13
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil8",
+                                        "value": 42103
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil9",
+                                        "value": 13
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil10",
+                                        "value": 16
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil11",
+                                        "value": 8
+                                    },
+                                    {
+                                        "changeType": "set",
+                                        "type": "CHANGE_VAR_NUMBER",
+                                        "varName": "tmp.sigil12",
+                                        "value": 21002
+                                    }
                                 ]
                             }
                         ]
@@ -52396,7 +52671,7 @@
             {
                 "withElse": true,
                 "type": "IF",
-                "condition": "tmp.sigilCount > 10",
+                "condition": "tmp.sigilCount > 34",
                 "thenStep": [
                     {
                         "changeType": "set",
@@ -55791,7 +56066,8 @@
                 }
             },
             {
-                "type": "WAIT_UNTIL_PROXIES_DONE"
+                "type": "WAIT_UNTIL_PROXIES_DONE",
+                "group": "flareBurn"
             },
             {
                 "type": "CLEAR_EFFECTS"
@@ -55843,7 +56119,7 @@
                 }
             },
             {
-                "time": 0.2,
+                "time": 0.1,
                 "type": "WAIT"
             }
         ],
@@ -57405,12 +57681,10 @@
                             "reaim": 0
                         }
                     },
-                    
                     {
                         "time": 0.2,
                         "type": "WAIT"
                     }
-                    
                 ]
             }
         ],
@@ -58462,7 +58736,7 @@
                 }
             },
             {
-                "time": 1,
+                "time": 0.5,
                 "type": "WAIT"
             },
             {
@@ -58752,7 +59026,7 @@
                 "type": "CLEAR_FIRST_HIT"
             },
             {
-                "time": 1,
+                "time": 0.5,
                 "type": "WAIT"
             },
             {
@@ -60348,6 +60622,14 @@
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
             {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "projectileSpeed": 600,
+                "type": "SET_FACE_TARGET_PREDICT"
+            },
+            {
                 "text": {
                     "en_US": "Snow Flawke"
                 },
@@ -60366,11 +60648,6 @@
                     "move": 0.5,
                     "reaim": 0.5
                 }
-            },
-            {
-                "value": false,
-                "immediately": true,
-                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "spinShortRev",
@@ -60454,6 +60731,14 @@
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
             {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "projectileSpeed": 600,
+                "type": "SET_FACE_TARGET_PREDICT"
+            },
+            {
                 "text": {
                     "en_US": "Frigid Flawke"
                 },
@@ -60472,11 +60757,6 @@
                     "move": 0.5,
                     "reaim": 0.5
                 }
-            },
-            {
-                "value": false,
-                "immediately": true,
-                "type": "FACE_TO_TARGET"
             },
             {
                 "followUp": "spinShortRev",
@@ -60568,7 +60848,7 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 3,
+                        "baseFactor": 0.2,
                         "strength": "BLOCK_ABOVE",
                         "hitResist": "MASSIVE",
                         "stableOverride": "MASSIVE",
@@ -65151,6 +65431,14 @@
                 "type": "SET_ENEMY_ELEMENT_MODE"
             },
             {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "projectileSpeed": 600,
+                "type": "SET_FACE_TARGET_PREDICT"
+            },
+            {
                 "text": {
                     "en_US": "Diving Spark"
                 },
@@ -65301,6 +65589,14 @@
                 "time": 0.7
             },
             {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "projectileSpeed": 600,
+                "type": "SET_FACE_TARGET_PREDICT"
+            },
+            {
                 "type": "SET_PLAYER_ACTION_BLOCK",
                 "blockData": {
                     "dash": 0,
@@ -65344,6 +65640,14 @@
                 "element": "SHOCK",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
+            },
+            {
+                "value": false,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "projectileSpeed": 600,
+                "type": "SET_FACE_TARGET_PREDICT"
             },
             {
                 "text": {
@@ -70483,7 +70787,7 @@
                         "anim": "itemEffect"
                     },
                     {
-                        "factor": 3,
+                        "factor": 15,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -70730,7 +71034,7 @@
                         "anim": "itemEffect"
                     },
                     {
-                        "factor": 3,
+                        "factor": 15,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -71259,7 +71563,7 @@
                         "type": "WAIT"
                     },
                     {
-                        "factor": 5,
+                        "factor": 50,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -75070,7 +75374,7 @@
                 }
             },
             {
-                "time": 0.9,
+                "time": 0.5,
                 "type": "WAIT"
             },
             {
@@ -75127,7 +75431,7 @@
                 "shield": {
                     "type": "PLAYER",
                     "settings": {
-                        "baseFactor": 1,
+                        "baseFactor": 0.4,
                         "strength": "BLOCK_ALL",
                         "hitResist": "MASSIVE",
                         "stableOverride": "HEAVY",

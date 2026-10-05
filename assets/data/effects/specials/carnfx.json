@@ -3,6 +3,80 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "CIRCLE_BIG_BACK",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 48,
+                    "height": 48
+                },
+                "guiSprites": false,
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            {
+                "name": "CIRCLE_BIG_FLOOR",
+                "shapeType": "Z_FLAT",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 48,
+                    "height": 48
+                },
+                "guiSprites": false,
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            {
+                "name": "SHOCKWAVE_B_SHOCK",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 288,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "renderMode": "lighter",
+                "time": 0.4,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "SHOCK_BALL_DOT2",
+                "sheet": {
+                    "src": "media\/entity\/effects\/particles1.png ",
+                    "xCount": 2,
+                    "offX": 176,
+                    "offY": 72,
+                    "width": 8,
+                    "height": 16
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.05,
+                "flipX": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "ARROW",
                 "sheet": {
                     "src": "media\/entity\/effects\/particles1.png  ",
@@ -139,6 +213,31 @@
                     0,
                     1,
                     2
+                ]
+            },
+            {
+                "name": "SHOCK_SHADOW",
+                "pivot": {
+                    "x": 12,
+                    "y": 8
+                },
+                "sheet": {
+                    "src": "media\/entity\/effects\/triblader.png",
+                    "offX": 0,
+                    "offY": 160,
+                    "width": 24,
+                    "height": 24
+                },
+                "guiSprites": true,
+                "renderMode": "source-over",
+                "time": 0.025,
+                "repeat": true,
+                "flipX": true,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
                 ]
             },
             {
@@ -480,6 +579,23 @@
                 "name": "COLD_WAVE_BIG",
                 "sheet": {
                     "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 192,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 1,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "SHOCK_WAVE_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
                     "offX": 288,
                     "offY": 0,
                     "width": 96,
@@ -493,6 +609,7 @@
                     0
                 ]
             },
+
             {
                 "name": "SWEEP_SHOCK",
                 "sheet": {
@@ -542,6 +659,27 @@
                     "width": 32,
                     "height": 32,
                     "offY": 128
+                },
+                "time": 0.04,
+                "repeat": false,
+                "pivot": {
+                    "x": 16,
+                    "y": 16
+                },
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            {
+                "name": "SWEEP_COLD",
+                "sheet": {
+                    "src": "media\/entity\/effects\/sweep2.png",
+                    "width": 32,
+                    "height": 32,
+                    "offY": 64
                 },
                 "time": 0.04,
                 "repeat": false,
@@ -1523,7 +1661,7 @@
                 "name": "HomingWisp",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 0,
+                    "offX": 24,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1538,7 +1676,7 @@
                 "name": "DivingSpark",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 24,
+                    "offX": 0,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1553,7 +1691,7 @@
                 "name": "RadiantSwarm",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 48,
+                    "offX": 72,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1568,7 +1706,7 @@
                 "name": "ChainBlitz",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 72,
+                    "offX": 48,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1583,7 +1721,7 @@
                 "name": "CelestialLegion",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 96,
+                    "offX": 120,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1598,7 +1736,7 @@
                 "name": "Mjolnir",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 120,
+                    "offX": 96,
                     "offY": 240,
                     "width": 24,
                     "height": 24
@@ -1928,7 +2066,7 @@
                 "name": "WarpDecoy",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 192,
+                    "offX": 216,
                     "offY": 288,
                     "width": 24,
                     "height": 24
@@ -1943,7 +2081,7 @@
                 "name": "VerdantStrike",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 216,
+                    "offX": 192,
                     "offY": 288,
                     "width": 24,
                     "height": 24
@@ -1958,7 +2096,7 @@
                 "name": "ToxicRevenant",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 0,
+                    "offX": 24,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -1973,7 +2111,7 @@
                 "name": "VerdantStream",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 24,
+                    "offX": 0,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -1988,7 +2126,7 @@
                 "name": "Gungnir",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 48,
+                    "offX": 72,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2003,7 +2141,7 @@
                 "name": "VortexTide",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 72,
+                    "offX": 48,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2018,7 +2156,7 @@
                 "name": "PainGrip",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 96,
+                    "offX": 120,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2033,7 +2171,7 @@
                 "name": "GuardingGale",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 120,
+                    "offX": 96,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2048,7 +2186,7 @@
                 "name": "CircleOfValor",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 144,
+                    "offX": 168,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2063,7 +2201,7 @@
                 "name": "Poltergeist",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
-                    "offX": 168,
+                    "offX": 144,
                     "offY": 312,
                     "width": 24,
                     "height": 24
@@ -2907,6 +3045,209 @@
         ]
     },
     "EFFECTS": {
+        "FatalHowl": [
+            {
+                "volume": 1.5,
+                "global": false,
+                "loop": false,
+                "speed": 2.4,
+                "sound": "media\/sound\/scenes\/swoosh-rise-long.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "size": "XXXL",
+                "fadeIn": 1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "size": "XXXL",
+                "fadeIn": 1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "numParticles": 24,
+                "duration": 0,
+                "centralAngle": 1,
+                "startAngle": 0,
+                "startDist": 8,
+                "uniformRandom": 0.3,
+                "flipRightParticles": true,
+                "moveDist": 50,
+                "keySpline": "LINEAR",
+                "rotateWithTime": false,
+                "collision": false,
+                "pAlpha": {
+                    "init": 1
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.05,
+                            "y": 0.05
+                        },
+                        "spline": "EASE_IN"
+                    }
+                },
+                "inverse": true,
+                "moveWithTarget": 1,
+                "moveRotate": 1,
+                "moveDuration": 0.4,
+                "particleRotate": 1,
+                "particleDuration": 0.6,
+                "anim": "SHOCK_SHADOW",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.5,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3343,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 2.2,
+                        "y": 2.2
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.2,
+                            "y": 0.2
+                        },
+                        "spline": ""
+                    }
+                },
+                "particleDuration": 1.3,
+                "anim": "CIRCLE_BIG_FLOOR",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.7,
+                    "start": {
+                        "value": 0,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1.05,
+                        "y": 1.05
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.1,
+                            "y": 0.1
+                        },
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 1,
+                "anim": "SHOCKWAVE_B_SHOCK",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "numParticles": 24,
+                "duration": 1,
+                "centralAngle": 1,
+                "startAngle": 0,
+                "startDist": 48,
+                "uniformRandom": 0.3,
+                "flipRightParticles": true,
+                "moveDist": 16,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 1,
+                "anim": "DUST_UP_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "numParticles": 24,
+                "duration": 1,
+                "centralAngle": 1,
+                "startAngle": 0.51,
+                "startDist": 48,
+                "uniformRandom": 0.3,
+                "flipRightParticles": true,
+                "moveDist": 16,
+                "keySpline": "EASE_OUT",
+                "collision": false,
+                "moveWithTarget": 1,
+                "anim": "DUST_UP_BIG",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "numParticles": 8,
+                "duration": 0,
+                "centralAngle": 1,
+                "startDist": 32,
+                "uniformRandom": 0.9,
+                "particleRotate": true,
+                "moveDist": 160,
+                "moveVariance": 4,
+                "keySpline": "EASE_OUT",
+                "moveRotate": 0,
+                "inverse": false,
+                "collision": false,
+                "pAlpha": {
+                    "init": 1,
+                    "end": {
+                        "value": 0,
+                        "time": 0.15,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 3
+                        },
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 0.35,
+                "anim": "SHOCK_BALL_DOT2",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
         "Supernova": [
             {
                 "numParticles": 200,
@@ -3357,7 +3698,7 @@
                 },
                 "moveWithTarget": 1,
                 "particleDuration": 5,
-                "anim": "COLD_WAVE_BIG",
+                "anim": "SHOCK_WAVE_BIG",
                 "type": "PLAY_ANIM"
             },
             {
@@ -5129,7 +5470,7 @@
                 "collision": false,
                 "moveWithTarget": 0,
                 "useTargetAngle": true,
-                "anim": "SWEEP_WAVE",
+                "anim": "SWEEP_COLD",
                 "type": "OFFSET_PARTICLE_CIRCLE"
             },
             {

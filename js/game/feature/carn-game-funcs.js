@@ -1,14 +1,32 @@
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
- ig.ACTION_STEP.MOVE_TO_DIR.inject({
-    run: function(b) {
+  ig.ACTION_STEP.COMBAT_SWEEP.inject({
+    run: function (a) {
+      if (!ig.vars.storage.tmp.isCarn || !this.sweepType || !a ||
+        !(
+          a.hidePets !== undefined ||
+          (a.name && a.name == "Lea") ||
+          (a.animSheet && a.animSheet.cacheKey && a.animSheet.cacheKey == "player")
+        )
+      ) return this.parent(a);
+      let oldDamageFactor = this.sweepType.force.attack.damageFactor;
+      var b = sc.combat.getElementMode(a);
+      this.sweepType.force.attack.damageFactor *= 1.55;
+      sc.CombatSweep.show(this.sweepType, a, b, this.faceCount, this.reversed, this.flipLeftFace);
+      this.sweepType.force.attack.damageFactor = oldDamageFactor;
+      return true
+    }
+  });
+
+  ig.ACTION_STEP.MOVE_TO_DIR.inject({
+    run: function (b) {
       if (!ig.vars.storage.tmp.isCarn) return this.parent(b);
-      if( 
+      if (
         (
-          b.hidePets !== undefined || 
-          (b.name && b.name == "Lea") || 
+          b.hidePets !== undefined ||
+          (b.name && b.name == "Lea") ||
           (b.animSheet && b.animSheet.cacheKey && b.animSheet.cacheKey == "player")
-      ) && (b.currentAction && (["DASH", "DASH_SLOW", "DASH_LONG"].includes(b.currentAction.name)))
+        ) && (b.currentAction && (["DASH", "DASH_SLOW", "DASH_LONG"].includes(b.currentAction.name)))
       ) {
         //console.log("MOVE_TO_DIR: " + b.coll.relativeVel, b,  this);
         b.coll.relativeVel < 1.5 ? b.coll.relativeVel = 1.5 : null;
@@ -19,16 +37,34 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       }
     }
   });
- 
+
   ig.ACTION_STEP.SHOOT_PROXY_PLAYER.inject({
-   run: function(a) {
-    //console.log(this, a, a.overrideBall)
-    if (a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) this.elementProxy = "CHARGED"
-    else if (!a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) delete this.elementProxy
-    return this.parent(a);
+    run: function (a) {
+      //console.log(this, a, a.overrideBall)
+      //draconic class puzzle support
+      if (a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) this.elementProxy = "CHARGED"
+      else if (!a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) delete this.elementProxy
       
+      
+      
+      //carnellio m1 buff
+      if (!ig.vars.storage.tmp.isCarn || !this.elementProxy || !a ||
+        !(
+          a.hidePets !== undefined ||
+          (a.name && a.name == "Lea") ||
+          (a.animSheet && a.animSheet.cacheKey && a.animSheet.cacheKey == "player")
+        )
+      ) return this.parent(a);
+      let b = sc.combat.getElementMode(a);
+      b = sc.PlayerConfig.getElementBall(a, b, this.elementProxy == "CHARGED")
+      let oldDamageFactor = b.data.attack.damageFactor;
+      b.data.attack.damageFactor *= 1.45;
+      let res = this.parent(a);
+      b.data.attack.damageFactor = oldDamageFactor;
+      return res;
+
     }
- })
+  })
 
   ig.ACTION_STEP.MOD_ACTION_BUFF_PARAM.inject({
     start: function (a) {
@@ -404,9 +440,9 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       } else {
         x = a.getCombatant();
         a.tmpTarget = x;
-       // return !a || a.isBall ? null : a.getCombatant()
+        // return !a || a.isBall ? null : a.getCombatant()
       }
-      
+
     }
   });
   ig.ACTION_STEP.SAVE_TARGET = ig.ActionStepBase.extend({
@@ -905,13 +941,13 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
       let originalOverkill = Math.floor(p.stunData.overkill);
       ig.game.namedEntities.Carnellio.cancelAction();
 
-      let livesLost = Math.floor(p.stunData.overkill / p.params.baseParams.hp);
-      p.stunData.overkill -= livesLost * p.params.baseParams.hp;
-      let extraDmg = Math.floor(Math.min(p.stunData.overkill, p.params.currentHp - 1));
+      let livesLost = Math.floor(p.stunData.overkill / p.params.baseParams.hp / 2);
+      p.stunData.overkill -= livesLost * p.params.baseParams.hp * 2;
+      let extraDmg = Math.floor(Math.min(p.stunData.overkill/2, p.params.currentHp - 1));
       e = new ig.GUI.ARBox(e, `Overkill Damage: ${originalOverkill}\nExtra Lives Lost: ${livesLost}\nExtra Damage Taken: ${extraDmg}`, f, "NO_FILL", "RED");
       ig.gui.addGuiElement(e);
       e.setAttachedEntity(p)
-      p.stunData.overkill -= extraDmg;
+      p.stunData.overkill = 0;
       sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] = Math.min(sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] + livesLost, 5);
       p.params.reduceHp(extraDmg);
       if (sc.pvp.points[sc.COMBATANT_PARTY.ENEMY] >= 5) {
@@ -1101,7 +1137,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
     },
     setBaseParams: function (a, b) {
       //console.log(this, a, b)
-      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || !this.combatant || !this.combatant.animSheet || this.combatant.animSheet.cacheKey == 'carnanims' ) return this.parent(a, b);
+      if (!ig.vars.storage.tmp.isCarn || !ig.vars.storage.tmp.nrStacks || !this.combatant || !this.combatant.animSheet || this.combatant.animSheet.cacheKey == 'carnanims') return this.parent(a, b);
       var c = this.getStat("hp") - this.currentHp, d;
       for (d in this.baseParams) this.baseParams[d] = a[d] || this.baseParams[d];
       this.baseParams.hp = this.baseParams.hp / (2 ** ig.vars.storage.tmp.nrStacks);
@@ -1145,7 +1181,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       if (!ig.vars.storage.tmp.isCarn || !this.buffs || sc.pvp.state >= 3) return this.parent(a);
       //console.trace();
       //console.log('num weakens',  this.buffs.filter((item) => item.name == "sergeyWeaken").length);
-      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length))*0.85));
+      this.currentHp = Math.min(this.getStat("hp"), this.currentHp + Math.floor(Math.max(0, (a - a * 0.3 * this.buffs.filter((item) => item.name == "sergeyWeaken").length)) * 0.85));
       if (this.currentHp > 0) this.defeated = false;
       sc.Model.notifyObserver(this, sc.COMBAT_PARAM_MSG.HP_CHANGED)
     },
@@ -1180,9 +1216,9 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       }
     },
 
-    update: function() {
+    update: function () {
       if (!ig.vars.storage.tmp.isCarn) return this.parent();
-      if(this.hidePets !== undefined || (this.name && this.name == "Lea") || (this.animSheet && this.animSheet.cacheKey && this.animSheet.cacheKey == "player")) {
+      if (this.hidePets !== undefined || (this.name && this.name == "Lea") || (this.animSheet && this.animSheet.cacheKey && this.animSheet.cacheKey == "player")) {
         this.old_regenFactor = this.regenFactor;
         this.regenFactor < 1.6 ? this.regenFactor = 1.6 : null;
         let res = this.parent();
@@ -1191,7 +1227,7 @@ ig.module("game.feature.combat.model.combat-params.carn").requires("game.feature
       } else {
         return this.parent();
       }
-      
+
     },
 
 
@@ -1262,7 +1298,9 @@ ig.module("game.feature.combat.combat-shield.carn").requires("game.feature.comba
       if (!ig.vars.storage.tmp.isCarn) return this.parent(a, b, e, f, g);
       if (a.params.getModifier("GUARD_SP") && !this.noShieldDamage) {
         b = a.params.getModifier("GUARD_SP");
-        a.params.addSp(b / 1.5 * e.damageFactor * (g ? 2 : 1))
+        //console.log('a', e.damageFactor)
+        let damageModder = e.damageFactor > 1 ? e.damageFactor ** 0.4 : e.damageFactor;
+        a.params.addSp(b / 1.5 * damageModder * (g ? 2 : 1))
       }
       if (this.noShieldDamage || g) return true;
       g = this.getDefenseRatio(e, a);
@@ -1319,7 +1357,7 @@ ig.BGM_TRACK_LIST["gaiaPno"] = {
 
 ig.BGM_TRACK_LIST["welcomePno"] = {
   path: "media/bgm/welcome_pno.ogg",
-  loopEnd: 169,
+  loopEnd: 109,
   volume: 2.4
 }
 ig.BGM_TRACK_LIST["sanctumDeus"] = {
@@ -1331,5 +1369,5 @@ ig.BGM_TRACK_LIST["sanctumDeus"] = {
 ig.BGM_TRACK_LIST["justicePno"] = {
   path: "media/bgm/justice_pno.mp3",
   loopEnd: 171,
-  volume: 1.4
+  volume: 1.2
 }
