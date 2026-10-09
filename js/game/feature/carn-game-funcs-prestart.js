@@ -74,8 +74,15 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
     start: function() {
     },
     run: function(b) {
+      let c;
       Vec2.assignC(b.coll.accelDir, 0, 0);
-      var c = b.combatant.face;
+      if (true) {
+        c = {
+          x: b.combatant.face.x + b.combatant.coll.pos.x - b.coll.pos.x,
+          y: b.combatant.face.y + b.combatant.coll.pos.y - b.coll.pos.y,
+        }
+      }
+      else c = b.combatant.face;
       if (this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
       Vec2.assign(b.face, c);
       return true
@@ -108,12 +115,21 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
     start: function() {
     },
     run: function(b) {
+      let c;
       ig.vars.storage.tmp.saveFace = {
         x: b.face.x,
         y: b.face.y
       }
       Vec2.assignC(b.coll.accelDir, 0, 0);
-      var c = b.combatant.face;
+      //console.log('aa', this, b)
+      if (true) {
+        c = {
+          x: b.combatant.face.x + b.combatant.coll.pos.x - b.coll.pos.x,
+          y: b.combatant.face.y + b.combatant.coll.pos.y - b.coll.pos.y,
+        }
+      }
+      else c = b.combatant.face;
+      //console.log('aa', this, b, c);
       if (this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
       Vec2.assign(b.face, c);
       return true
