@@ -8028,7 +8028,7 @@
         "dragonBulletNeutral": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 2,
+            "maxBounce": 1,
             "timer": 10,
             "trail": true,
             "multiHit": false,
@@ -8069,7 +8069,7 @@
         "dragonBulletHeat": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 2,
+            "maxBounce": 1,
             "timer": 10,
             "trail": true,
             "multiHit": false,
@@ -8110,7 +8110,7 @@
         "dragonBulletCold": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 2,
+            "maxBounce": 1,
             "timer": 10,
             "trail": true,
             "multiHit": false,
@@ -8151,7 +8151,7 @@
         "dragonBulletShock": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 2,
+            "maxBounce": 1,
             "timer": 10,
             "trail": true,
             "multiHit": false,
@@ -8192,7 +8192,7 @@
         "dragonBulletWave": {
             "effects": "ball",
             "speed": 600,
-            "maxBounce": 2,
+            "maxBounce": 1,
             "timer": 10,
             "trail": true,
             "multiHit": false,
