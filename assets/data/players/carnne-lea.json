@@ -6631,11 +6631,11 @@
                         {
                             "align": "BOTTOM",
                             "centralAngle": 0,
-                            "angleVary": 0,
+                            "angleVary": 0.05,
                             "startDistCollide": "NONE",
                             "random": false,
-                            "count": 1,
-                            "duration": 0,
+                            "count": 3,
+                            "duration": 0.1,
                             "clockwise": false,
                             "flipLeftFace": 0,
                             "circularArea": false,
@@ -8051,14 +8051,11 @@
             "attack": {
                 "type": "LIGHT",
                 "element": "NEUTRAL",
-                "damageFactor": 0.9,
+                "damageFactor": 0.25,
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                "hints": [
-                    "CHARGED",
-                    "STANDARD"
-                ],
+                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8092,14 +8089,11 @@
             "attack": {
                 "type": "LIGHT",
                 "element": "HEAT",
-                "damageFactor": 0.9,
+                "damageFactor": 0.25,
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                "hints": [
-                    "CHARGED",
-                    "STANDARD"
-                ],
+                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8133,14 +8127,11 @@
             "attack": {
                 "type": "LIGHT",
                 "element": "COLD",
-                "damageFactor": 0.9,
+                "damageFactor": 0.25,
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                "hints": [
-                    "CHARGED",
-                    "STANDARD"
-                ],
+                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8174,14 +8165,11 @@
             "attack": {
                 "type": "LIGHT",
                 "element": "SHOCK",
-                "damageFactor": 0.9,
+                "damageFactor": 0.25,
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                "hints": [
-                    "CHARGED",
-                    "STANDARD"
-                ],
+                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8215,14 +8203,11 @@
             "attack": {
                 "type": "LIGHT",
                 "element": "WAVE",
-                "damageFactor": 0.9,
+                "damageFactor": 0.25,
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                "hints": [
-                    "CHARGED",
-                    "STANDARD"
-                ],
+                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8234,17 +8219,6 @@
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
-                {
-                    "posType": "TARGET",
-                    "align": "CENTER",
-                    "type": "SET_HIT_PROXY",
-                    "proxy": "playerWeaken",
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
                 {
                     "value": false,
                     "immediately": true,
@@ -23275,7 +23249,7 @@
                             {
                                 "withElse": true,
                                 "type": "IF",
-                                "condition": "tmp.redirectCount < 5",
+                                "condition": "tmp.redirectCount < 999",
                                 "thenStep": [
                                     {
                                         "changeType": "add",
@@ -23285,7 +23259,7 @@
                                     },
                                     {
                                         "text": {
-                                            "en_US": "Command \\c[3]\\v[tmp.redirectCount]\/5\\c[0]"
+                                            "en_US": "Command"
                                         },
                                         "mode": "NO_LINE",
                                         "color": "PURPLE",
@@ -23458,7 +23432,7 @@
                             {
                                 "withElse": true,
                                 "type": "IF",
-                                "condition": "tmp.redirectCount < 5",
+                                "condition": "tmp.redirectCount < 999",
                                 "thenStep": [
                                     {
                                         "changeType": "add",
@@ -23468,7 +23442,7 @@
                                     },
                                     {
                                         "text": {
-                                            "en_US": "Command \\c[3]\\v[tmp.redirectCount]\/5\\c[0]"
+                                            "en_US": "Command"
                                         },
                                         "mode": "NO_LINE",
                                         "color": "PURPLE",
