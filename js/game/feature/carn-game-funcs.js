@@ -44,9 +44,9 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       //draconic class puzzle support
       if (a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) this.elementProxy = "CHARGED"
       else if (!a.overrideBall && this.proxySrc && (this.proxySrc == "summonProxy" || this.proxySrc == "attackCommandShoot")) delete this.elementProxy
-      
-      
-      
+
+
+
       //carnellio m1 buff
       if (!ig.vars.storage.tmp.isCarn || !this.elementProxy || !a ||
         !(
@@ -943,7 +943,7 @@ ig.module("impact.feature.base.event-steps.carn").requires("impact.base.utils", 
 
       let livesLost = Math.floor(p.stunData.overkill / p.params.baseParams.hp / 2);
       p.stunData.overkill -= livesLost * p.params.baseParams.hp * 2;
-      let extraDmg = Math.floor(Math.min(p.stunData.overkill/2, p.params.currentHp - 1));
+      let extraDmg = Math.floor(Math.min(p.stunData.overkill / 2, p.params.currentHp - 1));
       e = new ig.GUI.ARBox(e, `Overkill Damage: ${originalOverkill}\nExtra Lives Lost: ${livesLost}\nExtra Damage Taken: ${extraDmg}`, f, "NO_FILL", "RED");
       ig.gui.addGuiElement(e);
       e.setAttachedEntity(p)
@@ -1327,47 +1327,144 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
 })
 
 
+ig.module("game.feature.carnMusic").defines(function () {
+  ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
+    path: "media/bgm/Burning_Out_the_Blue.ogg",
+    loopEnd: 386,
+    volume: 0.75
+  }
 
 
-ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
-  path: "media/bgm/Burning_Out_the_Blue.ogg",
-  loopEnd: 386,
-  volume: 0.75
-}
 
 
-ig.BGM_TRACK_LIST["awakenedPno"] = {
-  path: "media/bgm/awakened_pno.ogg",
-  loopEnd: 134,
-  volume: 2.2
-}
+  ig.BGM_TRACK_LIST["welcomePno"] = {
+    path: "media/bgm/welcome_pno.ogg",
+    loopEnd: 109,
+    volume: 2.4
+  }
+
+  ig.BGM_TRACK_LIST["awakenedPno"] = {
+    path: "media/bgm/awakened_pno.ogg",
+    loopEnd: 134,
+    volume: 2.2
+  }
+
+  ig.BGM_TRACK_LIST["gaiaPno"] = {
+    path: "media/bgm/gaia_pno.ogg",
+    loopEnd: 177,
+    volume:
+      2
+  }
+  ig.BGM_TRACK_LIST["justicePno"] = {
+    path: "media/bgm/justice_pno.ogg",
+    loopEnd: 171,
+    volume: 1.2
+  }
+
+  let pnoList = ["welcomePno", "awakenedPno", "gaiaPno", "justicePno"];
 
 
-ig.BGM_TRACK_LIST["bloodDrainBkcore"] = {
-  path: "media/bgm/blood_drain_ozeronty.ogg",
-  loopEnd: 209,
-  volume: 1.9
-}
+  ig.BGM_TRACK_LIST["bloodDrainBkcore"] = {
+    path: "media/bgm/blood_drain_ozeronty.ogg",
+    loopEnd: 209,
+    volume: 1.9
+  }
 
-ig.BGM_TRACK_LIST["gaiaPno"] = {
-  path: "media/bgm/gaia_pno.ogg",
-  loopEnd: 177,
-  volume: 2
-}
 
-ig.BGM_TRACK_LIST["welcomePno"] = {
-  path: "media/bgm/welcome_pno.ogg",
-  loopEnd: 109,
-  volume: 2.4
-}
-ig.BGM_TRACK_LIST["sanctumDeus"] = {
-  path: "media/bgm/sanctum_maledictus_deus.ogg",
-  loopEnd: 222,
-  volume: 2
-}
+  ig.BGM_TRACK_LIST["sanctumDeus"] = {
+    path: "media/bgm/sanctum_maledictus_deus.ogg",
+    loopEnd: 222,
+    volume: 2
+  }
 
-ig.BGM_TRACK_LIST["justicePno"] = {
-  path: "media/bgm/justice_pno.mp3",
-  loopEnd: 171,
-  volume: 1.2
-}
+
+
+  pnoList.forEach((item, i) => {
+    var f = new XMLHttpRequest();
+    let filepath = ig.BGM_TRACK_LIST[item].path
+    f.open("HEAD", filepath, true);
+
+    f.onload = function () {
+      if (f.status === 200) {
+        // File exists
+      } else {
+        if (item == "welcomePno") {
+          ig.BGM_TRACK_LIST["welcomePno"] = {
+            path: "media/bgm/muApollo.mp3",
+            loopEnd: 44.689,
+            volume: 0.5,
+            introPath: "media/bgm/muApollo-i.mp3",
+            introEnd: 10.758
+          }
+        } else if (item == "awakenedPno") {
+          ig.BGM_TRACK_LIST["awakenedPno"] = {
+            path: "media/bgm/muAwakened.mp3",
+            loopEnd: 130.068,
+            volume: 0.5
+          }
+        } else if (item == "gaiaPno") {
+          ig.BGM_TRACK_LIST["gaiaPno"] = {
+            path: "media/bgm/muBattle2.mp3",
+            loopEnd: 122.482,
+            volume: 0.5
+          }
+        } else if (item == "justicePno") {
+          ig.BGM_TRACK_LIST["justicePno"] = {
+            introPath: "media/bgm/muGodBattle-i.mp3",
+            introEnd: 42.27,
+            path: "media/bgm/muGodBattle.mp3",
+            loopEnd: 190.78,
+            volume: 0.5
+          }
+        }
+        // File does not exist or request failed
+      }
+    };
+
+    f.onerror = function () {
+      if (item == "welcomePno") {
+          ig.BGM_TRACK_LIST["welcomePno"] = {
+            path: "media/bgm/muApollo.mp3",
+            loopEnd: 44.689,
+            volume: 0.5,
+            introPath: "media/bgm/muApollo-i.mp3",
+            introEnd: 10.758
+          }
+        } else if (item == "awakenedPno") {
+          ig.BGM_TRACK_LIST["awakenedPno"] = {
+            path: "media/bgm/muAwakened.mp3",
+            loopEnd: 130.068,
+            volume: 0.5
+          }
+        } else if (item == "gaiaPno") {
+          ig.BGM_TRACK_LIST["gaiaPno"] = {
+            path: "media/bgm/muBattle2.mp3",
+            loopEnd: 122.482,
+            volume: 0.5
+          }
+        } else if (item == "justicePno") {
+          ig.BGM_TRACK_LIST["justicePno"] = {
+            introPath: "media/bgm/muGodBattle-i.mp3",
+            introEnd: 42.27,
+            path: "media/bgm/muGodBattle.mp3",
+            loopEnd: 190.78,
+            volume: 0.5
+          }
+        }
+      // Network error or request blocked
+    };
+
+    f.send();
+  })
+  
+
+
+
+
+
+
+  //copyright replacers
+
+
+})
+

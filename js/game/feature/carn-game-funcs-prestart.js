@@ -1,6 +1,6 @@
 
 ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.base.action", "impact.base.actor-entity").defines(function () {
- ig.ACTION_STEP._SUMMON_LFW = ig.ActionStepBase.extend({
+  ig.ACTION_STEP._SUMMON_LFW = ig.ActionStepBase.extend({
     _wm: new ig.Config({
       attributes: {
       }
@@ -40,10 +40,10 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
         }
       }
     }),
-    init: function(b) {
+    init: function (b) {
       this.commonEventType = b.commonEventType
     },
-    start: function() {
+    start: function () {
       //console.log('called at least', this)
       sc.commonEvents.triggerEvent(this.commonEventType, {})
     }
@@ -66,14 +66,14 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
         }
       }
     }),
-    init: function(a) {
+    init: function (a) {
       this.rotate =
         a.rotate || false;
       this.rotateSpeed = a.rotateSpeed || 3
     },
-    start: function() {
+    start: function () {
     },
-    run: function(b) {
+    run: function (b) {
       let c;
       Vec2.assignC(b.coll.accelDir, 0, 0);
       if (true) {
@@ -107,14 +107,14 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
         }
       }
     }),
-    init: function(a) {
+    init: function (a) {
       this.rotate =
         a.rotate || false;
       this.rotateSpeed = a.rotateSpeed || 3
     },
-    start: function() {
+    start: function () {
     },
-    run: function(b) {
+    run: function (b) {
       let c;
       ig.vars.storage.tmp.saveFace = {
         x: b.face.x,
@@ -135,7 +135,7 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
       return true
     }
   });
-ig.ACTION_STEP.SET_PLAYER_ELEM_VAR = ig.ActionStepBase.extend({
+  ig.ACTION_STEP.SET_PLAYER_ELEM_VAR = ig.ActionStepBase.extend({
     _wm: new ig.Config({
       attributes: {
       }
@@ -165,14 +165,14 @@ ig.ACTION_STEP.SET_PLAYER_ELEM_VAR = ig.ActionStepBase.extend({
         }
       }
     }),
-    init: function(a) {
+    init: function (a) {
       this.rotate =
         a.rotate || false;
       this.rotateSpeed = a.rotateSpeed || 3
     },
-    start: function() {
+    start: function () {
     },
-    run: function(b) {
+    run: function (b) {
       Vec2.assignC(b.coll.accelDir, 0, 0);
       var c = ig.vars.storage.tmp.saveFace;
       if (this.rotate) return Vec2.rotateToward(b.face, c, Math.PI * 2 * ig.system.tick * this.rotateSpeed);
@@ -181,9 +181,43 @@ ig.ACTION_STEP.SET_PLAYER_ELEM_VAR = ig.ActionStepBase.extend({
     }
   });
 })
+// ig.module("impact.base.sound.carnPre").requires("impact.base.loader", "impact.base.system.web-audio").defines(function () {
+//   var e = window.Vec2;
+//   var g = window.Vec3;
+//   function a(b) {
+//     b = ig.root + b.match(/^(.*)\.[^\.]+$/)[1] + "." + ig.soundManager.format.ext + ig.getCacheSuffix();
+//     return ig.getFilePath(b)
+//   }
+//   var b = 0,
+//     c = 2 / 60,
+//     d = e.create(),
+//     f = g.create(),
+//     h = {};
+//   ig.SoundManager.inject({
+//     loadWebAudio: function (c, d) {
+//       //console.log('proper inject')
+//       if (c && c.includes("||BACKUP||")) {
+//         let [prime, back] = c.split("||BACKUP||")
+//         try {
+//           //console.log('try')
+//           c = prime;
+//           ig.soundManager.buffers[prime] = ig.soundManager.buffers[back];
+//         } catch (e) {
+//           //console.log('catch')
+//           ig.soundManager.buffers[prime] = ig.soundManager.buffers[back];
+//         }
+//       } else {
+//         //console.log('run')
+//         return this.parent(c, d);
+//       }
 
 
-ig.module("game.feature.combat.combat-sweep.carnPre").requires("impact.feature.effect.effect-sheet").defines(function() {
+//     }
+//   })
+
+// })
+
+ig.module("game.feature.combat.combat-sweep.carnPre").requires("impact.feature.effect.effect-sheet").defines(function () {
   sc.COMBAT_SWEEPS.CARN = {
     sheet: new ig.EffectSheet("sweeps"),
     keys: ["default", "heat", "cold", "shock", "wave"],
@@ -205,9 +239,9 @@ ig.module("game.feature.combat.combat-sweep.carnPre").requires("impact.feature.e
   //sc.ELEMENT.DRACONIC = 554540;
 })
 
-ig.module("game.feature.player.player-config.carnPre").defines(function() {
+ig.module("game.feature.player.player-config.carnPre").defines(function () {
   sc.PlayerConfig.inject({
-    onload: function(a) {
+    onload: function (a) {
       this.parent(a);
       if (this.dracActionsBK) return;
       var b = a;
@@ -1483,133 +1517,133 @@ ig.module("game.feature.player.player-config.carnPre").defines(function() {
 
 //code i stole from open-world tweaks, if this ever conflicts go with open-world tweaks
 ig.module("game.feature.ar.gui.ar-box2.carn").requires("game.feature.ar.gui.ar-box").defines(function () {
-    sc.AR_COLOR.BLUE = { rgb: "#17446a", yOff: 16 };
-    ig.GUI.OW_ARBox_CARN = ig.GUI.ARBox.extend({
-      yOffset: null,
-      init: function (b, a, d, c, e, f) {
-        this.parent();
-        this.setPivot(0, 4);
-        this.hook.zIndex = -50;
-        this.target = b;
-        this.text = a;
-        this.yOffset = f;
-        this.maxTime = this.timer = d || 0;
-        this.mode = c || false;
-        this.color = e || sc.AR_COLOR.GREEN;
-        this.hook.invisibleUpdate = true;
-        b = new sc.TextGui(this.text, { speed: ig.TextBlock.SPEED.NORMAL, font: sc.fontsystem.smallFont, });
-        b.setAlign(ig.GUI_ALIGN.X_CENTER, ig.GUI_ALIGN.Y_CENTER);
-        this.addChildGui(b);
-        this.setSize( b.hook.size.x + 8, b.hook.size.y + 4 + (this.mode ? 2 : 0) );
-        this.hook.pivot.y = b.hook.size.y / 2 + 2;
-        this.doStateTransition("HIDDEN", true);
-        this.target
-          ? this._updatePos(false)
-          : this.doStateTransition("DEFAULT");
-      },
-      _updatePos: function (b) {
-        var a = this.hook,
-          d = this.target.getCenter(),
-          c = Math.round(d.x) - ig.game.screen.x,
-          d = Math.round( d.y - this.target.coll.pos.z - this.target.coll.size.z / 2 - this.yOffset) - ig.game.screen.y,
-          e = this.target.coll.size.x / 2,
-          f = (this.target.coll.size.y + this.target.coll.size.z) / 2 - 4,
-          g = Math.max(e, f),
-          h = c - ig.system.width / 2,
-          i = h > 0 ? 1 : -1;
-        if (b) {
-          if (i != this.prevMove.x && Math.abs(h) > 16) this.prevMove.x = i; this.delta.x = this.delta.x * 0.9 + this.prevMove.x * 0.1; this.delta.y = this.delta.y * 0.9 + this.prevMove.y * 0.1;
-        } else { this.prevMove.x = this.delta.x = i; this.prevMove.y = this.delta.y = -1; }
-        a.pos.x = c + this.delta.x * (e + a.size.x / 2) - a.size.x / 2;
-        a.pos.y = d + this.delta.y * (f + a.size.y / 2) - a.size.y / 2;
-        if (!this.hideOutsideOfScreen) {
-          a.pos.x = a.pos.x.limit(0, ig.system.width - a.size.x);
-          b = sc.gui.statusHud.getFreeScreenMinY(a.pos.x);
-          a.pos.y = a.pos.y.limit(b, ig.system.height - a.size.y);
-          a.removeAfterTransition || this.doStateTransition("DEFAULT");
-        }
-        this.arrowX = c - a.pos.x;
-        this.hideOutsideOfScreen && !a.removeAfterTransition && (this.arrowX < -8 - g || this.arrowX > a.size.x + g + 8 || a.pos.y > d || a.pos.y < d - g - a.size.y - 8
-            ? this.doStateTransition("HIDDEN")
-            : this.doStateTransition("DEFAULT"));
-      },
-    });
+  sc.AR_COLOR.BLUE = { rgb: "#17446a", yOff: 16 };
+  ig.GUI.OW_ARBox_CARN = ig.GUI.ARBox.extend({
+    yOffset: null,
+    init: function (b, a, d, c, e, f) {
+      this.parent();
+      this.setPivot(0, 4);
+      this.hook.zIndex = -50;
+      this.target = b;
+      this.text = a;
+      this.yOffset = f;
+      this.maxTime = this.timer = d || 0;
+      this.mode = c || false;
+      this.color = e || sc.AR_COLOR.GREEN;
+      this.hook.invisibleUpdate = true;
+      b = new sc.TextGui(this.text, { speed: ig.TextBlock.SPEED.NORMAL, font: sc.fontsystem.smallFont, });
+      b.setAlign(ig.GUI_ALIGN.X_CENTER, ig.GUI_ALIGN.Y_CENTER);
+      this.addChildGui(b);
+      this.setSize(b.hook.size.x + 8, b.hook.size.y + 4 + (this.mode ? 2 : 0));
+      this.hook.pivot.y = b.hook.size.y / 2 + 2;
+      this.doStateTransition("HIDDEN", true);
+      this.target
+        ? this._updatePos(false)
+        : this.doStateTransition("DEFAULT");
+    },
+    _updatePos: function (b) {
+      var a = this.hook,
+        d = this.target.getCenter(),
+        c = Math.round(d.x) - ig.game.screen.x,
+        d = Math.round(d.y - this.target.coll.pos.z - this.target.coll.size.z / 2 - this.yOffset) - ig.game.screen.y,
+        e = this.target.coll.size.x / 2,
+        f = (this.target.coll.size.y + this.target.coll.size.z) / 2 - 4,
+        g = Math.max(e, f),
+        h = c - ig.system.width / 2,
+        i = h > 0 ? 1 : -1;
+      if (b) {
+        if (i != this.prevMove.x && Math.abs(h) > 16) this.prevMove.x = i; this.delta.x = this.delta.x * 0.9 + this.prevMove.x * 0.1; this.delta.y = this.delta.y * 0.9 + this.prevMove.y * 0.1;
+      } else { this.prevMove.x = this.delta.x = i; this.prevMove.y = this.delta.y = -1; }
+      a.pos.x = c + this.delta.x * (e + a.size.x / 2) - a.size.x / 2;
+      a.pos.y = d + this.delta.y * (f + a.size.y / 2) - a.size.y / 2;
+      if (!this.hideOutsideOfScreen) {
+        a.pos.x = a.pos.x.limit(0, ig.system.width - a.size.x);
+        b = sc.gui.statusHud.getFreeScreenMinY(a.pos.x);
+        a.pos.y = a.pos.y.limit(b, ig.system.height - a.size.y);
+        a.removeAfterTransition || this.doStateTransition("DEFAULT");
+      }
+      this.arrowX = c - a.pos.x;
+      this.hideOutsideOfScreen && !a.removeAfterTransition && (this.arrowX < -8 - g || this.arrowX > a.size.x + g + 8 || a.pos.y > d || a.pos.y < d - g - a.size.y - 8
+        ? this.doStateTransition("HIDDEN")
+        : this.doStateTransition("DEFAULT"));
+    },
   });
+});
 
-  ig.module("game.feature.ar.ar-steps2.carn").requires("game.feature.ar.ar-steps").defines(function () { 
-    ig.EVENT_STEP.SHOW_OW_AR_MSG_CARN = ig.EVENT_STEP.SHOW_AR_MSG.extend({
-      yOffset: null,
-      _wm: new ig.Config({
-        attributes: {
-          entity: { _type: "Entity", _info: "Entity to show AR Message on" },
-          text: { _type: "LangLabel", _info: "AR Text to display" },
-          time: {
-            _type: "NumberExpression",
-            _info: "Time in seconds the message should be visible. 0 = forever",
-          },
-          mode: {
-            _type: "String",
-            _info: "Mode of AR display.",
-            _select: sc.AR_BOX_MODE,
-          },
-          color: {
-            _type: "String",
-            _info: "Color of AR display.",
-            _select: sc.AR_COLOR,
-          },
-          hideOutsideOfScreen: {
-            _type: "Boolean",
-            _info: "If defined: don't show offscreen-msg",
-          },
-          partName: {
-            _type: "String",
-            _info: "If provided: Show AR display to sub part of entity",
-            _optional: true,
-          },
-          varFill: {
-            _type: "VarName",
-            _info: "Filling of AR Message depends on value of variable",
-            _optional: true,
-          },
-          varFillMax: {
-            _type: "NumberExpression",
-            _info: "Maximum Number of variable to fill bar",
-            _optional: true,
-          },
+ig.module("game.feature.ar.ar-steps2.carn").requires("game.feature.ar.ar-steps").defines(function () {
+  ig.EVENT_STEP.SHOW_OW_AR_MSG_CARN = ig.EVENT_STEP.SHOW_AR_MSG.extend({
+    yOffset: null,
+    _wm: new ig.Config({
+      attributes: {
+        entity: { _type: "Entity", _info: "Entity to show AR Message on" },
+        text: { _type: "LangLabel", _info: "AR Text to display" },
+        time: {
+          _type: "NumberExpression",
+          _info: "Time in seconds the message should be visible. 0 = forever",
         },
-        width: 400,
-      }),
-      init: function (a) {
-        this.entity = a.entity;
-        this.text = new ig.LangLabel(a.text);
-        this.time = a.time;
-        this.mode = sc.AR_BOX_MODE[a.mode];
-        this.color = sc.AR_COLOR[a.color];
-        this.partName = a.partName;
-        this.varFill = a.varFill;
-        this.varFillMax = a.varFillMax;
-        this.yOffset = a.yOffset
+        mode: {
+          _type: "String",
+          _info: "Mode of AR display.",
+          _select: sc.AR_BOX_MODE,
+        },
+        color: {
+          _type: "String",
+          _info: "Color of AR display.",
+          _select: sc.AR_COLOR,
+        },
+        hideOutsideOfScreen: {
+          _type: "Boolean",
+          _info: "If defined: don't show offscreen-msg",
+        },
+        partName: {
+          _type: "String",
+          _info: "If provided: Show AR display to sub part of entity",
+          _optional: true,
+        },
+        varFill: {
+          _type: "VarName",
+          _info: "Filling of AR Message depends on value of variable",
+          _optional: true,
+        },
+        varFillMax: {
+          _type: "NumberExpression",
+          _info: "Maximum Number of variable to fill bar",
+          _optional: true,
+        },
       },
-      start: function (a, b) {
-        var c = ig.Event.getEntity(this.entity, b),
-          e = c,
-          f = ig.Event.getExpressionValue(this.time);
-        if (this.partName)
-          for (var g = c.coll.subColls, h = g.length; h--; )
-            if (g[h].entity.partName == this.partName) {
-              e = g[h].entity;
-              break;
-            }
-        e = new ig.GUI.OW_ARBox_CARN(e, this.text.toString(), f, this.mode, this.color, this.yOffset);
-        ig.gui.addGuiElement(e);
-        if (this.hideOutsideOfScreen) e.hideOutsideOfScreen = true;
-        this.varFill &&
-          e.setVarFill(
-            this.varFill,
-            ig.Event.getExpressionValue(this.varFillMax),
-            c
-          );
-        e.setAttachedEntity(c);
-      },
-    });
+      width: 400,
+    }),
+    init: function (a) {
+      this.entity = a.entity;
+      this.text = new ig.LangLabel(a.text);
+      this.time = a.time;
+      this.mode = sc.AR_BOX_MODE[a.mode];
+      this.color = sc.AR_COLOR[a.color];
+      this.partName = a.partName;
+      this.varFill = a.varFill;
+      this.varFillMax = a.varFillMax;
+      this.yOffset = a.yOffset
+    },
+    start: function (a, b) {
+      var c = ig.Event.getEntity(this.entity, b),
+        e = c,
+        f = ig.Event.getExpressionValue(this.time);
+      if (this.partName)
+        for (var g = c.coll.subColls, h = g.length; h--;)
+          if (g[h].entity.partName == this.partName) {
+            e = g[h].entity;
+            break;
+          }
+      e = new ig.GUI.OW_ARBox_CARN(e, this.text.toString(), f, this.mode, this.color, this.yOffset);
+      ig.gui.addGuiElement(e);
+      if (this.hideOutsideOfScreen) e.hideOutsideOfScreen = true;
+      this.varFill &&
+        e.setVarFill(
+          this.varFill,
+          ig.Event.getExpressionValue(this.varFillMax),
+          c
+        );
+      e.setAttachedEntity(c);
+    },
   });
+});

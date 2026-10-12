@@ -6682,6 +6682,9 @@
                             "value": false
                         },
                         {
+                            "type": "MATCH_LEA_FACE_SAVE"
+                        },
+                        {
                             "align": "BOTTOM",
                             "centralAngle": 0,
                             "angleVary": 0.1,
@@ -6715,6 +6718,9 @@
                         {
                             "time": 1.85,
                             "type": "WAIT"
+                        },
+                        {
+                            "type": "MATCH_LEA_FACE_LOAD"
                         }
                     ],
                     "elseStep": [
@@ -8055,7 +8061,6 @@
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8093,7 +8098,6 @@
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8131,7 +8135,6 @@
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8169,7 +8172,6 @@
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -8207,7 +8209,6 @@
                 "status": 1.2,
                 "reverse": false,
                 "spFactor": 1.2,
-                
                 "guardable": "",
                 "skillBonus": "RANGED_DMG",
                 "limiter": ""
@@ -22778,32 +22779,32 @@
                 "status": false,
                 "steps": [
                     {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": 0,
-                            "charge": 0.3,
-                            "action": 0.7,
-                            "move": 0.8,
-                            "reaim": 0.9
-                        }
-                    },
-                    {
                         "name": "retrieveDone",
                         "type": "SET_ATTRIB_BOOL",
                         "value": false
-                    },
-                    {
-                        "followUp": "attackEndRev",
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackRev"
                     },
                     {
                         "withElse": true,
                         "type": "IF",
                         "condition": "entity.attrib.summonAlive && tmp.heartbeat",
                         "thenStep": [
+                            {
+                                "type": "SET_PLAYER_ACTION_BLOCK",
+                                "blockData": {
+                                    "dash": 0,
+                                    "charge": 0.6,
+                                    "action": 0.9,
+                                    "move": 1,
+                                    "reaim": 1.1
+                                }
+                            },
+                            {
+                                "followUp": "attackEndRev",
+                                "wait": false,
+                                "viaWalkConfig": false,
+                                "type": "SHOW_ANIMATION",
+                                "anim": "attackRev"
+                            },
                             {
                                 "name": "retrieval",
                                 "type": "SET_ATTRIB_BOOL",
@@ -22832,15 +22833,6 @@
                                 "value": false
                             },
                             {
-                                "type": "SET_PLAYER_ACTION_BLOCK",
-                                "blockData": {
-                                    "dash": 0,
-                                    "action": -1,
-                                    "move": -1,
-                                    "reaim": -1
-                                }
-                            },
-                            {
                                 "type": "WAIT_UNTIL",
                                 "condition": "entity.attrib.retrieveDone",
                                 "maxTime": 8
@@ -22863,6 +22855,23 @@
                             }
                         ],
                         "elseStep": [
+                            {
+                                "type": "SET_PLAYER_ACTION_BLOCK",
+                                "blockData": {
+                                    "dash": 0,
+                                    "charge": 0.3,
+                                    "action": 0.7,
+                                    "move": 0.8,
+                                    "reaim": 0.9
+                                }
+                            },
+                            {
+                                "followUp": "attackEndRev",
+                                "wait": false,
+                                "viaWalkConfig": false,
+                                "type": "SHOW_ANIMATION",
+                                "anim": "attackRev"
+                            },
                             {
                                 "sticking": false,
                                 "group": "playerSummon",
