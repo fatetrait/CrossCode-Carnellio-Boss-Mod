@@ -1360,8 +1360,15 @@ ig.module("game.feature.carnMusic").defines(function () {
     loopEnd: 171,
     volume: 1.2
   }
+  ig.BGM_TRACK_LIST["godBoss"] = {
+      introPath: "media/bgm/muGodBattle-i.ogg",
+      introEnd: 42.27,
+      path: "media/bgm/muGodBattle.ogg",
+      loopEnd: 190.78,
+      volume: 0.5
+    }
 
-  let pnoList = ["welcomePno", "awakenedPno", "gaiaPno", "justicePno"];
+  let pnoList = ["welcomePno", "awakenedPno", "gaiaPno", "justicePno", "godBoss"];
 
 
   ig.BGM_TRACK_LIST["bloodDrainBkcore"] = {
@@ -1416,6 +1423,14 @@ ig.module("game.feature.carnMusic").defines(function () {
             loopEnd: 190.78,
             volume: 0.5
           }
+        } else if (item == "godBoss") {
+          ig.BGM_TRACK_LIST["godBoss"] = {
+            path: "media/bgm/muChallenge1.mp3",
+            loopEnd: 89.6,
+            volume: 0.5,
+            introPath: "media/bgm/muChallenge1-i.mp3",
+            introEnd: 2.8
+          }
         }
         // File does not exist or request failed
       }
@@ -1449,6 +1464,14 @@ ig.module("game.feature.carnMusic").defines(function () {
             path: "media/bgm/muGodBattle.mp3",
             loopEnd: 190.78,
             volume: 0.5
+          }
+        } else if (item == "godBoss") {
+          ig.BGM_TRACK_LIST["godBoss"] = {
+            path: "media/bgm/muChallenge1.mp3",
+            loopEnd: 89.6,
+            volume: 0.5,
+            introPath: "media/bgm/muChallenge1-i.mp3",
+            introEnd: 2.8
           }
         }
       // Network error or request blocked
