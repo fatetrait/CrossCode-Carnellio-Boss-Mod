@@ -22792,11 +22792,12 @@
                                 "type": "SET_PLAYER_ACTION_BLOCK",
                                 "blockData": {
                                     "dash": 0,
-                                    "charge": 0.6,
-                                    "action": 0.9,
-                                    "move": 1,
-                                    "reaim": 1.1
+                                    "charge": 0.3,
+                                    "action": 0.7,
+                                    "move": 0.8,
+                                    "reaim": 0.9
                                 }
+                                
                             },
                             {
                                 "followUp": "attackEndRev",
@@ -39187,10 +39188,10 @@
             },
             "ATTACK_SPECIAL2_A": {
                 "name": {
-                    "en_US": "Sweeping Decapitate"
+                    "en_US": "Decapitate"
                 },
                 "description": {
-                    "en_US": "Grab nearby enemies, then slash at them for massive lifsteal damage. Dash-cancel before the slash to save 2 SP for your own combo."
+                    "en_US": "Slash at nearby enemies for massive lifsteal damage."
                 },
                 "dmgType": "MELEE",
                 "stunType": "LOCK",
@@ -39200,148 +39201,10 @@
                         "value": "MASSIVE",
                         "type": "SET_HIT_STABLE"
                     },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirr"
-                    },
-                    {
-                        "type": "CONSUME_SP",
-                        "sp": -2
-                    },
-                    {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": 0,
-                            "action": -1,
-                            "move": -1,
-                            "reaim": -1
-                        }
-                    },
-                    {
-                        "text": {
-                            "en_US": "Sweeping Seize"
-                        },
-                        "mode": "NO_LINE",
-                        "color": "PURPLE",
-                        "actionDetached": true,
-                        "hideOutsideOfScreen": false,
-                        "type": "SHOW_AR_MSG",
-                        "time": 1
-                    },
-                    {
-                        "factor": 0.3,
-                        "time": 2,
-                        "keepEntityStatic": false,
-                        "inversAccelerate": true,
-                        "type": "ADD_SLOW_MOTION"
-                    },
-                    {
-                        "time": 0.05,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_FORWARD"
-                    },
-                    {
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "value": 0.3,
-                        "type": "SET_RELATIVE_SPEED"
-                    },
-                    {
-                        "align": "BOTTOM",
-                        "centralAngle": 0,
-                        "startAngle": 0,
-                        "angleVary": 0,
-                        "startDistCollide": "NONE",
-                        "count": 1,
-                        "duration": 0,
-                        "clockwise": false,
-                        "flipLeftFace": 1,
-                        "circularArea": false,
-                        "aimAtTarget": false,
-                        "uniformDir": 1,
-                        "offset": {
-                            "x": 10,
-                            "y": 0
-                        },
-                        "delay": 0,
-                        "repeat": false,
-                        "type": "SHOOT_PROXY_RANGE",
-                        "proxy": "sweepSeizeProxy"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "time": 0.3,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "attackMirrEnd"
-                    },
-                    {
-                        "time": 0.1,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
+                
                     {
                         "value": 1,
                         "type": "SET_RELATIVE_SPEED"
-                    },
-                    {
-                        "time": 0.2,
-                        "removeEntityStatic": false,
-                        "type": "CLEAR_SLOW_MOTION"
                     },
                     {
                         "text": {
@@ -39375,22 +39238,11 @@
                         "type": "SET_RELATIVE_SPEED"
                     },
                     {
-                        "time": 0.1,
-                        "rotateSpeed": 1,
-                        "stopBeforeEdge": true,
-                        "allowStop": false,
-                        "type": "PLAYER_MOVE_TO_DIR"
-                    },
-                    {
                         "followUp": "attackEnd",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "spinShort"
-                    },
-                    {
-                        "type": "CONSUME_SP",
-                        "sp": 2
                     },
                     {
                         "duration": 0.3,
