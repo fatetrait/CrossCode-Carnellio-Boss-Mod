@@ -3,6 +3,23 @@
     "ANIMS": {
         "SUB": [
             {
+                "name": "SNOWFLAKE1",
+                "sheet": {
+                    "src": "media\/entity\/effects\/particles1.png ",
+                    "offX": 224,
+                    "offY": 32,
+                    "width": 8,
+                    "height": 8
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "CIRCLE_BIG_BACK",
                 "sheet": {
                     "src": "media\/entity\/effects\/lighter-particle.png",
@@ -1048,6 +1065,19 @@
                 "name": "timeFreeze",
                 "sheet": {
                     "src": "media/entity/effects/sigils/timeFreeze.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+             {
+                "name": "airsnipe",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/airsnipe.png",
                     "width": 500,
                     "height": 500
                 },
@@ -3045,6 +3075,79 @@
         ]
     },
     "EFFECTS": {
+        "airsnipeTrail": [
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "variance": 0.1,
+                "sound": "media\/sound\/designer\/ball-gong-high.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "speed": 1.2,
+                "sound": "media\/sound\/battle\/shiny-effect.ogg",
+                "type": "PLAY_SOUND"
+            },
+            {
+                "color": "white",
+                "alpha": 1,
+                "fadeIn": 0.2,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "noLighter": false,
+                "type": "FADE_COLOR"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "numParticles": 4,
+                "duration": 0,
+                "centralAngle": 1,
+                "startDist": 0,
+                "uniformRandom": 2,
+                "moveDist": 3,
+                "moveVariance": 1,
+                "keySpline": "EASE_OUT",
+                "rotateWithTime": true,
+                "collision": false,
+                "pScale": {
+                    "init": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "pRotate": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.2,
+                        "spline": ""
+                    }
+                },
+                "particleDuration": 0.5,
+                "anim": "SNOWFLAKE1",
+                "type": "OFFSET_PARTICLE_CIRCLE"
+            },
+            {
+                "time": 0.001,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
         "FatalHowl": [
             {
                 "volume": 1.5,
@@ -4102,6 +4205,25 @@
             },
             {
                 "type": "LOOP_END"
+            }
+        ],
+        "airsnipeTarget": [
+            {
+                "numParticles": 4,
+                "duration": 0,
+                "centralAngle": 1,
+                "startDist": 24,
+                "particleRotate": true,
+                "moveDist": 0,
+                "keySpline": "LINEAR",
+                "moveRotate": 1,
+                "inverse": true,
+                "collision": false,
+                "moveWithTarget": 1,
+                "particleDuration": 1,
+                "cancelable": true,
+                "anim": "ARROW",
+                "type": "OFFSET_PARTICLE_CIRCLE"
             }
         ],
         "WanderingFlame": [
@@ -6924,6 +7046,45 @@
                 "particleDuration": 3,
                 "cancelable": true,
                 "anim": "timeFreeze",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 3,
+                "type": "WAIT"
+            }
+        ],
+        "AirsnipeSigil": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 2,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.8,
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 3,
+                "cancelable": true,
+                "anim": "airsnipe",
                 "type": "PLAY_ANIM"
             },
             {

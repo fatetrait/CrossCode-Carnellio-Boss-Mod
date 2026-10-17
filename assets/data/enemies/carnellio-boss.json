@@ -262,7 +262,7 @@
                         {
                             "negated": false,
                             "type": "VAR_CONDITION",
-                            "condition": "false"
+                            "condition": "true"
                         }
                     ],
                     "action": "DEBUG2BETTER"
@@ -6941,6 +6941,33 @@
                 {
                     "withElse": false,
                     "type": "IF",
+                    "condition": "tmp.currentSigil == 100002",
+                    "thenStep": [
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": true,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.carnfx",
+                                "name": "AirsnipeSigil"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 32,
+                                "z": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
                     "condition": "tmp.currentSigil == 100001",
                     "thenStep": [
                         {
@@ -7333,6 +7360,202 @@
             },
             "config": {
                 "collType": "IGNORE"
+            },
+            "type": "GENERIC"
+        },
+        "airsnipe": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [
+                {
+                    "value": true,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                },
+                {
+                    "duration": -1,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "target": "TARGET",
+                    "effect": {
+                        "sheet": "specials.carnfx",
+                        "name": "airsnipeTarget"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "time": 0.4,
+                    "type": "WAIT"
+                },
+                {
+                    "type": "CLEAR_EFFECTS"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "violetViperProxyGroup",
+            "effects": "",
+            "speed": 300,
+            "maxBounce": 0,
+            "timer": 2,
+            "trail": false,
+            "multiHit": true,
+            "noLightGlow": false,
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "true"
+            },
+            "timeBoni": null,
+            "behaviors": null,
+            "size": {
+                "x": 40,
+                "y": 40,
+                "z": 40
+            },
+            "config": {
+                "collType": "IGNORE"
+            },
+            "type": "GENERIC"
+        },
+        "airsnipeProjectileOLD": {
+            "effects": "ball",
+            "speed": 1000,
+            "maxBounce": 0,
+            "timer": 1.5,
+            "trail": true,
+            "multiHit": false,
+            "noLightGlow": false,
+            "type": "BALL",
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media\/entity\/balls\/default.png",
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 0.05,
+                "repeat": true,
+                "frames": [
+                    0,
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "attack": {
+                "type": "HEAVY",
+                "element": "NEUTRAL",
+                "damageFactor": 1.3,
+                "reverse": false,
+                "spFactor": 1,
+                "hints": [
+                    "CHARGED",
+                    "STANDARD"
+                ],
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": [],
+            "config": {
+                "collType": "PROJECTILE",
+                "accelSpeed": 1,
+                "airFriction": 1,
+                "maxVel": 1000,
+                "zGravityFactor": 3,
+                "bounciness": 0.0001
+            }
+        },
+        "airsnipeProjectile": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "trail": true,
+            "action": [
+                {
+                    "duration": -1,
+                    "align": "CENTER",
+                    "rotateFace": -1,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "trail",
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "specials.carnfx",
+                        "name": "airsnipeTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "value": false,
+                    "immediately": true,
+                    "type": "FACE_TO_TARGET"
+                },
+                {
+                    "value": 3,
+                    "type": "SET_Z_GRAVITY_FACTOR"
+                },
+                {
+                    "speedTime": 0.1,
+                    "moveTime": 0.1,
+                    "type": "SET_FACE_SPEED_PREDICT",
+                    "dontSlower": false
+                },
+                {
+                    "time": 0.2,
+                    "cancelOnHit": false,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "MASSIVE",
+                        "element": "COLD",
+                        "damageFactor": 5,
+                        "fly": "HEAVY",
+                        "reverse": false,
+                        "stunSteps": [
+                            {
+                                "type": "BLOCK_XY"
+                            }
+                        ],
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "skillBonus": "RANGED_DMG"
+                    }
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 4,
+                "y": 4,
+                "z": 4
+            },
+            "config": {
+                "collType": "TRIGGER"
             },
             "type": "GENERIC"
         },
@@ -10848,7 +11071,6 @@
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [
-                
                 {
                     "type": "IF",
                     "condition": "!entity.target.attrib.nrHitChecker",
@@ -24967,6 +25189,17 @@
                     {
                         "withElse": false,
                         "type": "IF",
+                        "condition": "tmp.currentExe == 100002",
+                        "thenStep": [
+                            {
+                                "type": "DO_ENEMY_ACTION_INLINE",
+                                "actionName": "Airsnipe"
+                            }
+                        ]
+                    },
+                    {
+                        "withElse": false,
+                        "type": "IF",
                         "condition": "tmp.currentExe == 200001 || tmp.currentExe == 200002",
                         "thenStep": [
                             {
@@ -25235,6 +25468,26 @@
                 "combo": "hailstorm -> es -> wf -> brawler -> flickering stars -> summon -> maw -> nr -> dr -> es -> dr -> es -> fatalhowl"
             },
             {
+                "type": "SET_COMBO_CARN",
+                "combo": "airsnipe -> fakeout -> airsnipe -> realout -> airsnipe"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "crimsonstream -> thunderdart -> thunderdart -> airsnipe"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "ss -> snowflawke -> ro -> airsnipe"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "airsnipe -> vv -> snowflawke -> elvenorb -> airsnipe -> riposte"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "shadowflame -> airsnipe -> brawler -> summon -> calamitytrigger -> maw -> rdct -> firewhirl -> rmda  -> firewhirl -> ragnarok"
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilCount > 34",
@@ -25306,6 +25559,10 @@
                     "y": 0,
                     "z": 0
                 }
+            },
+            {
+                "value": 0,
+                "type": "SET_SPEED"
             },
             {
                 "text": {
@@ -30794,6 +31051,38 @@
                 "time": 0.05,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
+            },
+            {
+                "selectType": "PREVIOUSLY_HIT",
+                "hitDir": "AWAY",
+                "align": "BOTTOM",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "MASSIVE",
+                    "reverse": false,
+                    "status": 0,
+                    "soundType": "none",
+                    "damageFactor": 0.0001,
+                    "guardable": "NEVER",
+                    "hitInvincible": true,
+                    "skillBonus": "RANGED_DMG",
+                    "noIronStance": true,
+                    "limiter": "NO_HIT_PROXY",
+                    "stunSteps": [
+                        {
+                            "type": "START_LOCK"
+                        },
+                        {
+                            "type": "BLOCK_FALL",
+                            "duration": 0.6
+                        },
+                        {
+                            "type": "END_LOCK"
+                        }
+                    ]
+                }
             }
         ],
         "Deadspike": [
@@ -47074,7 +47363,7 @@
                 "options": [
                     {
                         "0": " ",
-                        "count": 6,
+                        "count": 7,
                         "weight": 1,
                         "activeCondition": "true"
                     }
@@ -47234,6 +47523,12 @@
                         "varName": "tmp.sigil1",
                         "value": 200002
                     }
+                ],
+                "0_6": [
+                    {
+                        "type": "SET_COMBO_CARN",
+                        "combo": "ss -> snowflawke -> ro -> airsnipe"
+                    }
                 ]
             },
             {
@@ -47379,7 +47674,7 @@
                 "options": [
                     {
                         "0": " ",
-                        "count": 9,
+                        "count": 10,
                         "weight": 1,
                         "activeCondition": "true"
                     }
@@ -47742,6 +48037,12 @@
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil4",
                         "value": 200001
+                    }
+                ],
+                "0_9": [
+                    {
+                        "type": "SET_COMBO_CARN",
+                        "combo": "crimsonstream -> thunderdart -> thunderdart -> airsnipe"
                     }
                 ]
             },
@@ -50517,7 +50818,7 @@
                 "options": [
                     {
                         "0": " ",
-                        "count": 5,
+                        "count": 6,
                         "weight": 1,
                         "activeCondition": "true"
                     }
@@ -50626,6 +50927,12 @@
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.sigil1",
                         "value": 15
+                    }
+                ],
+                "0_5": [
+                    {
+                        "type": "SET_COMBO_CARN",
+                        "combo": "shadowflame -> ro -> airsnipe -> fo"
                     }
                 ]
             },
@@ -51362,7 +51669,7 @@
                         "options": [
                             {
                                 "0": " ",
-                                "count": 10,
+                                "count": 12,
                                 "weight": 1,
                                 "activeCondition": "true"
                             }
@@ -51914,6 +52221,18 @@
                                 "varName": "tmp.sigil7",
                                 "value": 30002
                             }
+                        ],
+                        "0_10": [
+                            {
+                                "type": "SET_COMBO_CARN",
+                                "combo": "dr -> summon -> maw -> rdct -> fracture -> airsnipe"
+                            }
+                        ],
+                        "0_11": [
+                            {
+                                "type": "SET_COMBO_CARN",
+                                "combo": "airsnipe -> vv -> snowflawke -> elvenorb -> airsnipe -> riposte"
+                            }
                         ]
                     }
                 ]
@@ -52246,7 +52565,7 @@
                                 "options": [
                                     {
                                         "0": " ",
-                                        "count": 11,
+                                        "count": 12,
                                         "weight": 1,
                                         "activeCondition": "true"
                                     }
@@ -52848,6 +53167,12 @@
                                         "varName": "tmp.sigil12",
                                         "value": 21002
                                     }
+                                ],
+                                "0_11": [
+                                    {
+                                        "type": "SET_COMBO_CARN",
+                                        "combo": "shadowflame -> airsnipe -> brawler -> summon -> calamitytrigger -> maw -> rdct -> firewhirl -> rmda  -> firewhirl -> ragnarok"
+                                    }
                                 ]
                             }
                         ]
@@ -53399,6 +53724,11 @@
                 "hideOutsideOfScreen": false,
                 "type": "SHOW_AR_MSG",
                 "time": 1
+            },
+            {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
             },
             {
                 "type": "SET_PLAYER_ACTION_BLOCK",
@@ -54339,11 +54669,10 @@
                 "type": "ADD_DARKNESS"
             },
             {
-                "followUp": "specialSidePrep",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialSidePrepPre"
+                "anim": "spinFull"
             },
             {
                 "offsetX": 0,
@@ -54408,11 +54737,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "specialSwirlEndBottom",
+                "followUp": "meleeEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialSwirlShort"
+                "anim": "spinFullRev"
             },
             {
                 "duration": 0,
@@ -54503,10 +54832,11 @@
                 "type": "WAIT"
             },
             {
+                "followUp": "meleeEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialCrossUp"
+                "anim": "spinShort"
             },
             {
                 "duration": 0,
@@ -54586,11 +54916,11 @@
                 "type": "WAIT"
             },
             {
-                "followUp": "specialSidePrep",
+                "followUp": "meleeEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialSidePrepPre"
+                "anim": "spinShortRev"
             },
             {
                 "time": 0.05,
@@ -54632,11 +54962,10 @@
                 "type": "CLEAR_EFFECTS"
             },
             {
-                "followUp": "specialSwirlEndTop",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialSwirlLong"
+                "anim": "spinFull"
             },
             {
                 "zoomType": "LIGHT",
@@ -54744,21 +55073,22 @@
                 "type": "WAIT"
             },
             {
+                "followUp": "meleeEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialAirSaltoPre"
+                "anim": "spinShortRev"
             },
             {
                 "time": 0.15,
                 "type": "WAIT"
             },
             {
-                "followUp": "specialAirCharge",
+                "followUp": "meleeEnd",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialAirSalto"
+                "anim": "spinShort"
             },
             {
                 "zoom": 2,
@@ -54898,11 +55228,10 @@
                 }
             },
             {
-                "followUp": "specialHitDown",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialHitDownPre"
+                "anim": "spinFull"
             },
             {
                 "value": -600,
@@ -54919,11 +55248,11 @@
                 "type": "SET_CAMERA_ZOOM"
             },
             {
-                "followUp": "specialHitDownImpact",
+                "followUp": "meleeEndRev",
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
-                "anim": "specialHitDownImpactPre"
+                "anim": "spinFullRev"
             },
             {
                 "type": "WAIT_UNTIL_ON_GROUND"
@@ -76569,6 +76898,120 @@
             {
                 "time": 0.5,
                 "type": "WAIT"
+            }
+        ],
+        "Airsnipe": [
+            {
+                "text": {
+                    "en_US": "Airsnipe"
+                },
+                "mode": "NO_LINE",
+                "color": "PURPLE",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": 0.7
+            },
+            {
+                "element": "COLD",
+                "skipEffect": false,
+                "type": "SET_ENEMY_ELEMENT_MODE"
+            },
+            {
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "airsnipe",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "value": "BREAK",
+                "type": "SET_HIT_STABLE"
+            },
+            {
+                "zoomType": "LIGHT",
+                "fadeIn": 0.1,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            },
+            {
+                "factor": 0.01,
+                "time": 0.01,
+                "keepEntityStatic": false,
+                "inversAccelerate": true,
+                "type": "ADD_SLOW_MOTION"
+            },
+            {
+                "time": 0.2,
+                "type": "WAIT"
+            },
+            {
+                "time": 0.1,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            },
+            {
+                "followUp": "meleeEndRev",
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "spinFullRev"
+            },
+            {
+                "speedTime": 0.3,
+                "moveTime": 0.3,
+                "type": "SET_FACE_SPEED_PREDICT",
+                "dontSlower": true
+            },
+            {
+                "value": 0,
+                "type": "SET_AIR_FRICTION"
+            },
+            {
+                "value": -3,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "time": 0.15,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "align": "CENTER",
+                "type": "SHOOT_PROXY",
+                "proxy": "airsnipeProjectile",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "value": 2,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+                "time": 0.30,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            },
+            {
+                "time": 0.3,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
             }
         ]
     },
