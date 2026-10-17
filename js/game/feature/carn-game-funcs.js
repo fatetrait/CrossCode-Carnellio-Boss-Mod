@@ -1,3 +1,4 @@
+import sigilList from "./sigilList.json" with { type: "json" };
 
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
   ig.ACTION_STEP.COMBAT_SWEEP.inject({
@@ -145,6 +146,27 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     },
     start: function (a) {
       ig.vars.set("tmp.pShieldCheck", ig.vars.storage.playerVar.input.perfectShield);
+    }
+  });
+
+  //latest sigil added, dont remember, probably brawler/shooter
+  ig.ACTION_STEP.SET_COMBO_CARN = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+        combo: {
+          _type: "String",
+          _info: "Combo string to set"
+        },
+      }
+    }),
+    init: function (a) {
+      this.combo = a.combo.replaceAll(' ', '').split('->');
+    },
+    start: function () {
+      ig.vars.set("tmp.sigilCount", this.combo.length);
+      this.combo.forEach((item, i) => {
+        ig.vars.set("tmp.sigil"+i, sigilList[item]);
+      })
     }
   });
 
@@ -1328,6 +1350,24 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
 
 
 ig.module("game.feature.carnMusic").defines(function () {
+
+  sc.STAT_CHANGE_SETTINGS["HP-MINUS-CARN"] = {
+    change: sc.STAT_CHANGE_TYPE.STATS,
+    type: sc.STAT_PARAM_TYPE.HP,
+    value: 0.5,
+    icon: "stat-hp",
+    grade: "stat-rank-down-3"
+  };
+
+  sc.STAT_CHANGE_SETTINGS["HACK-CARN"] = {
+    change: sc.STAT_CHANGE_TYPE.STATS,
+    type: sc.STAT_PARAM_TYPE.ATTACK,
+    value: 1,
+    icon: "stat-attack",
+    grade: "stat-rank-2"
+  };
+
+
   ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
     path: "media/bgm/Burning_Out_the_Blue.ogg",
     loopEnd: 386,
