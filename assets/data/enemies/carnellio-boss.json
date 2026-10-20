@@ -262,7 +262,7 @@
                         {
                             "negated": false,
                             "type": "VAR_CONDITION",
-                            "condition": "true"
+                            "condition": "false"
                         }
                     ],
                     "action": "DEBUG2BETTER"
@@ -2533,6 +2533,269 @@
                             "type": "SET_ATTRIB_BOOL",
                             "changeConnected": "PROXY_OWNER",
                             "value": false
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.attrib.summonGatling",
+                    "thenStep": [
+                        {
+                            "name": "summonGatling",
+                            "type": "SET_ATTRIB_BOOL",
+                            "changeConnected": "PROXY_OWNER",
+                            "value": false
+                        },
+                        {
+                            "zoomType": "LIGHT",
+                            "fadeIn": 0.1,
+                            "duration": 0.2,
+                            "fadeOut": 0.2,
+                            "type": "SET_ZOOM_BLUR"
+                        },
+                        {
+                            "offsetX": 0,
+                            "offsetY": 0,
+                            "speed": "FASTER",
+                            "transition": "EASE_OUT",
+                            "wait": false,
+                            "waitSkip": 0,
+                            "zoom": 2,
+                            "focusType": "SELF",
+                            "keepPlayerOffset": 0.5,
+                            "type": "FOCUS_CAMERA"
+                        },
+                        {
+                            "value": "FIXED",
+                            "type": "SET_GROUND_CONNECTED"
+                        },
+                        {
+                            "value": -1,
+                            "type": "SET_WEIGHT"
+                        },
+                        {
+                            "value": "BREAK",
+                            "type": "SET_HIT_STABLE"
+                        },
+                        {
+                            "duration": 3,
+                            "align": "BOTTOM",
+                            "rotateFace": -1,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.cold",
+                                "name": "turretAura"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "duration": 3,
+                            "align": "BOTTOM",
+                            "rotateFace": -1,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.icicles",
+                                "name": "turret"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "time": 0.1,
+                            "type": "WAIT"
+                        },
+                        {
+                            "align": "BOTTOM",
+                            "centralAngle": 1,
+                            "angleVary": 0,
+                            "startDist": 32,
+                            "startDistCollide": "DROP",
+                            "random": false,
+                            "count": 9,
+                            "duration": 0.2,
+                            "clockwise": true,
+                            "flipLeftFace": 0,
+                            "circularArea": true,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "maxGroundDistance": 16,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "icicleSmallTurret",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "value": true,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
+                        },
+                        {
+                            "time": 0.15,
+                            "type": "WAIT"
+                        },
+                        {
+                            "speed": "SLOWER",
+                            "transition": "EASE_IN_OUT",
+                            "wait": false,
+                            "waitSkip": 0,
+                            "type": "RESET_CAMERA"
+                        },
+                        {
+                            "time": 0.3,
+                            "removeEntityStatic": false,
+                            "type": "CLEAR_SLOW_MOTION"
+                        },
+                        {
+                            "value": true,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
+                        },
+                        {
+                            "time": 0.15,
+                            "type": "WAIT"
+                        },
+                        {
+                            "duration": 3,
+                            "rotOffset": {
+                                "x": 0,
+                                "y": -36
+                            },
+                            "align": "BOTTOM",
+                            "rotateFace": -1,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "group": "charge",
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.cold",
+                                "name": "turretCharge"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 16
+                            }
+                        },
+                        {
+                            "value": true,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
+                        },
+                        {
+                            "time": 1.5,
+                            "type": "WAIT"
+                        },
+                        {
+                            "group": "charge",
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                            "align": "BOTTOM",
+                            "centralAngle": 0.015,
+                            "angleVary": 0,
+                            "startDist": 24,
+                            "startDistCollide": "CLOSER",
+                            "random": true,
+                            "count": 9,
+                            "duration": 0.3,
+                            "clockwise": true,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": true,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "iceSpecialSmallTurret",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 12
+                            }
+                        },
+                        {
+                            "duration": 3,
+                            "rotOffset": {
+                                "x": 0,
+                                "y": -36
+                            },
+                            "align": "BOTTOM",
+                            "rotateFace": -1,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.cold",
+                                "name": "turretPermaShoot"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 16
+                            }
+                        },
+                        {
+                            "duration": -1,
+                            "align": "BOTTOM",
+                            "rotateFace": -1,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.cold",
+                                "name": "turretShootSnowflake"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "value": true,
+                            "immediately": true,
+                            "type": "FACE_TO_TARGET"
+                        },
+                        {
+                            "time": 3,
+                            "type": "WAIT"
+                        },
+                        {
+                            "type": "STOP_REPEATING_FORCE"
+                        },
+                        {
+                            "name": "done",
+                            "type": "GOTO_LABEL"
                         }
                     ]
                 },
@@ -6929,6 +7192,33 @@
                             "effect": {
                                 "sheet": "specials.carnfx",
                                 "name": "ShooterSigil"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 32,
+                                "z": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "tmp.currentSigil == 211003",
+                    "thenStep": [
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": true,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "specials.carnfx",
+                                "name": "GatlingArctillerySigil"
                             },
                             "offset": {
                                 "x": 0,
@@ -24215,6 +24505,17 @@
                     {
                         "withElse": false,
                         "type": "IF",
+                        "condition": "tmp.currentExe == 211003",
+                        "thenStep": [
+                            {
+                                "type": "DO_ENEMY_ACTION_INLINE",
+                                "actionName": "SummonGatlingArctillery"
+                            }
+                        ]
+                    },
+                    {
+                        "withElse": false,
+                        "type": "IF",
                         "condition": "tmp.currentExe == 11101",
                         "thenStep": [
                             {
@@ -25486,6 +25787,10 @@
             {
                 "type": "SET_COMBO_CARN",
                 "combo": "shadowflame -> airsnipe -> brawler -> summon -> calamitytrigger -> maw -> rdct -> firewhirl -> rmda  -> firewhirl -> ragnarok"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> maw -> maw -> summonGatling -> gatlingArctillery"
             },
             {
                 "withElse": true,
@@ -61292,6 +61597,29 @@
             },
             {
                 "time": 0.5,
+                "type": "WAIT"
+            }
+        ],
+        "SummonGatlingArctillery": [
+            {
+                "text": {
+                    "en_US": "Augment: Gatling Arctillery"
+                },
+                "mode": "NO_LINE",
+                "color": "PURPLE",
+                "actionDetached": true,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
+                "time": 0.7
+            },
+            {
+                
+                "name": "summonGatling",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            },
+            {
+                "time": 1,
                 "type": "WAIT"
             }
         ],
