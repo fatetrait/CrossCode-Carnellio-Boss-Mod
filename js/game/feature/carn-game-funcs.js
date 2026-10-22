@@ -1,5 +1,5 @@
-import sigilList from "./sigilList.json" with { type: "json" };
-
+import sigilListTemp from "./sigilList.json" with { type: "json" };
+var sigilList = Object.fromEntries(Object.entries(sigilListTemp).map(([k, v]) => [k.toLowerCase(), v]));
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
   ig.ACTION_STEP.COMBAT_SWEEP.inject({
     run: function (a) {
@@ -160,12 +160,12 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       }
     }),
     init: function (a) {
-      this.combo = a.combo.replaceAll(' ', '').split('->');
+      this.combo = a.combo.toLowerCase().replaceAll(' ', '').split('->');
     },
     start: function () {
       ig.vars.set("tmp.sigilCount", this.combo.length);
       this.combo.forEach((item, i) => {
-        ig.vars.set("tmp.sigil"+i, sigilList[item]);
+        ig.vars.set("tmp.sigil" + i, sigilList[item]);
       })
     }
   });
@@ -179,6 +179,19 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     },
     start: function (a) {
       ig.vars.set("tmp.currentExe", ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.exeIndex]);
+    }
+  });
+
+  ig.ACTION_STEP.SET_PEEK_NEXT_EXE_SIGIL = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+      }
+    }),
+    init: function () {
+    },
+    start: function (a) {
+      if (ig.vars.storage.tmp.exeIndex + 1 >= ig.vars.storage.tmp.sigilCount) return;
+      ig.vars.set("tmp.nextExe", ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.exeIndex+1]);
     }
   });
 
@@ -584,6 +597,8 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       if (!b || b.hidePets === undefined) return true;
       //if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
       sc.model.player.itemBlockTimer += this.time
+      sc.gui.statusHud.lowerGui.itemTimerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
+      sc.gui.statusHud.lowerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
 
 
 
@@ -1348,7 +1363,6 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
   })
 })
 
-
 ig.module("game.feature.carnMusic").defines(function () {
 
   sc.STAT_CHANGE_SETTINGS["HP-MINUS-CARN"] = {
@@ -1364,8 +1378,17 @@ ig.module("game.feature.carnMusic").defines(function () {
     type: sc.STAT_PARAM_TYPE.ATTACK,
     value: 1,
     icon: "stat-attack",
-    grade: "stat-rank-2"
+    grade: "stat-rank-3"
   };
+
+  sc.STAT_CHANGE_SETTINGS["WEAKEN-CARN"] = {
+    change: sc.STAT_CHANGE_TYPE.STATS,
+    type: sc.STAT_PARAM_TYPE.ATTACK,
+    value: 1,
+    icon: "stat-attack",
+    grade: "stat-rank-down-1"
+  };
+
 
 
   ig.BGM_TRACK_LIST["burningOutTheBlue"] = {
@@ -1374,6 +1397,28 @@ ig.module("game.feature.carnMusic").defines(function () {
     volume: 0.75
   }
 
+  ig.BGM_TRACK_LIST["purpleWizardGuy"] = {
+    path: "media/bgm/purple_wizard_guy.ogg",
+    loopEnd: 118,
+    volume: 2
+  }
+
+  ig.BGM_TRACK_LIST["nightmareReq3Pno"] = {
+    path: "media/bgm/Nightmare_Requiem_3_Piano.ogg",
+    loopEnd: 48,
+    volume: 1.8
+  }
+
+  ig.BGM_TRACK_LIST["presenceFinal"] = {
+    path: "media/bgm/Presence_final.ogg",
+    loopEnd: 319,
+    volume: 1.9
+  }
+  ig.BGM_TRACK_LIST["nightmareReq3"] = {
+    path: "media/bgm/evil_mozart_Nightmare_Requiem_3.ogg",
+    loopEnd: 91,
+    volume: 2
+  }
 
 
 
@@ -1401,12 +1446,12 @@ ig.module("game.feature.carnMusic").defines(function () {
     volume: 1.2
   }
   ig.BGM_TRACK_LIST["godBoss"] = {
-      introPath: "media/bgm/muGodBattle-i.ogg",
-      introEnd: 42.27,
-      path: "media/bgm/muGodBattle.ogg",
-      loopEnd: 190.78,
-      volume: 0.5
-    }
+    introPath: "media/bgm/muGodBattle-i.ogg",
+    introEnd: 42.27,
+    path: "media/bgm/muGodBattle.ogg",
+    loopEnd: 190.78,
+    volume: 0.5
+  }
 
   let pnoList = ["welcomePno", "awakenedPno", "gaiaPno", "justicePno", "godBoss"];
 
@@ -1437,31 +1482,32 @@ ig.module("game.feature.carnMusic").defines(function () {
       } else {
         if (item == "welcomePno") {
           ig.BGM_TRACK_LIST["welcomePno"] = {
-            path: "media/bgm/muApollo.mp3",
-            loopEnd: 44.689,
-            volume: 0.5,
-            introPath: "media/bgm/muApollo-i.mp3",
-            introEnd: 10.758
+            path: "media/bgm/purple_wizard_guy.ogg",
+            loopEnd: 118,
+            volume: 2
           }
+
+
         } else if (item == "awakenedPno") {
           ig.BGM_TRACK_LIST["awakenedPno"] = {
-            path: "media/bgm/muAwakened.mp3",
-            loopEnd: 130.068,
-            volume: 0.5
+            path: "media/bgm/Nightmare_Requiem_3_Piano.ogg",
+            loopEnd: 48,
+            volume: 1.8
           }
+
+
         } else if (item == "gaiaPno") {
           ig.BGM_TRACK_LIST["gaiaPno"] = {
-            path: "media/bgm/muBattle2.mp3",
-            loopEnd: 122.482,
-            volume: 0.5
+            path: "media/bgm/Presence_final.ogg",
+            loopEnd: 319,
+            volume: 1.9
           }
+
         } else if (item == "justicePno") {
           ig.BGM_TRACK_LIST["justicePno"] = {
-            introPath: "media/bgm/muGodBattle-i.mp3",
-            introEnd: 42.27,
-            path: "media/bgm/muGodBattle.mp3",
-            loopEnd: 190.78,
-            volume: 0.5
+            path: "media/bgm/evil_mozart_Nightmare_Requiem_3.ogg",
+            loopEnd: 91,
+            volume: 2
           }
         } else if (item == "godBoss") {
           ig.BGM_TRACK_LIST["godBoss"] = {
@@ -1478,48 +1524,49 @@ ig.module("game.feature.carnMusic").defines(function () {
 
     f.onerror = function () {
       if (item == "welcomePno") {
-          ig.BGM_TRACK_LIST["welcomePno"] = {
-            path: "media/bgm/muApollo.mp3",
-            loopEnd: 44.689,
-            volume: 0.5,
-            introPath: "media/bgm/muApollo-i.mp3",
-            introEnd: 10.758
-          }
-        } else if (item == "awakenedPno") {
-          ig.BGM_TRACK_LIST["awakenedPno"] = {
-            path: "media/bgm/muAwakened.mp3",
-            loopEnd: 130.068,
-            volume: 0.5
-          }
-        } else if (item == "gaiaPno") {
-          ig.BGM_TRACK_LIST["gaiaPno"] = {
-            path: "media/bgm/muBattle2.mp3",
-            loopEnd: 122.482,
-            volume: 0.5
-          }
-        } else if (item == "justicePno") {
-          ig.BGM_TRACK_LIST["justicePno"] = {
-            introPath: "media/bgm/muGodBattle-i.mp3",
-            introEnd: 42.27,
-            path: "media/bgm/muGodBattle.mp3",
-            loopEnd: 190.78,
-            volume: 0.5
-          }
-        } else if (item == "godBoss") {
-          ig.BGM_TRACK_LIST["godBoss"] = {
-            path: "media/bgm/muChallenge1.mp3",
-            loopEnd: 89.6,
-            volume: 0.5,
-            introPath: "media/bgm/muChallenge1-i.mp3",
-            introEnd: 2.8
-          }
+        ig.BGM_TRACK_LIST["welcomePno"] = {
+          path: "media/bgm/purple_wizard_guy.ogg",
+          loopEnd: 118,
+          volume: 2
         }
+
+
+      } else if (item == "awakenedPno") {
+        ig.BGM_TRACK_LIST["awakenedPno"] = {
+          path: "media/bgm/Nightmare_Requiem_3_Piano.ogg",
+          loopEnd: 48,
+          volume: 1.8
+        }
+
+
+      } else if (item == "gaiaPno") {
+        ig.BGM_TRACK_LIST["gaiaPno"] = {
+          path: "media/bgm/Presence_final.ogg",
+          loopEnd: 319,
+          volume: 1.9
+        }
+
+      } else if (item == "justicePno") {
+        ig.BGM_TRACK_LIST["justicePno"] = {
+          path: "media/bgm/evil_mozart_Nightmare_Requiem_3.ogg",
+          loopEnd: 91,
+          volume: 2
+        }
+      } else if (item == "godBoss") {
+        ig.BGM_TRACK_LIST["godBoss"] = {
+          path: "media/bgm/muChallenge1.mp3",
+          loopEnd: 89.6,
+          volume: 0.5,
+          introPath: "media/bgm/muChallenge1-i.mp3",
+          introEnd: 2.8
+        }
+      }
       // Network error or request blocked
     };
 
     f.send();
   })
-  
+
 
 
 

@@ -9,7 +9,7 @@
             1.05,
             1.10,
             1.20,
-            1.10
+            1.08
         ],
         "statusInflict": [
             0.78,
@@ -24,7 +24,7 @@
             0.5
         ]
     },
-    "ballFactor": 0.9,
+    "ballFactor": 0.89,
     "damageFactor": 0.50,
     "elementModes": {
         "HEAT": {
@@ -36,7 +36,7 @@
                 1.05,
                 1.10,
                 1.20,
-                1.10
+                1.08
             ]
         },
         "COLD": {
@@ -48,7 +48,7 @@
                 1.05,
                 1.10,
                 1.20,
-                1.10
+                1.08
             ]
         },
         "SHOCK": {
@@ -60,7 +60,7 @@
                 1.05,
                 1.10,
                 1.20,
-                1.10
+                1.08
             ]
         },
         "WAVE": {
@@ -72,7 +72,7 @@
                 1.05,
                 1.10,
                 1.20,
-                1.10
+                1.08
             ]
         }
     },
@@ -1039,7 +1039,7 @@
                     "type": "CLEAR_DARKNESS"
                 },
                 {
-                    "intensity": 0.4,
+                    "intensity": 0.2,
                     "duration": -1,
                     "fadeIn": 0.2,
                     "fadeOut": 0.2,
@@ -1078,7 +1078,7 @@
                     "type": "CLEAR_DARKNESS"
                 },
                 {
-                    "intensity": 0.3,
+                    "intensity": 0.15,
                     "duration": -1,
                     "fadeIn": 0.2,
                     "fadeOut": 0.2,
@@ -1117,7 +1117,7 @@
                     "type": "CLEAR_DARKNESS"
                 },
                 {
-                    "intensity": 0.2,
+                    "intensity": 0.1,
                     "duration": -1,
                     "fadeIn": 0.2,
                     "fadeOut": 0.2,
@@ -1156,7 +1156,7 @@
                     "type": "CLEAR_DARKNESS"
                 },
                 {
-                    "intensity": 0.5,
+                    "intensity": 0.25,
                     "duration": -1,
                     "fadeIn": 0.2,
                     "fadeOut": 0.2,
@@ -1510,15 +1510,12 @@
                         "skillBonus": "RANGED_DMG",
                         "stunSteps": [
                             {
-                                "type": "BLOCK_XY"
-                            },
-                            {
                                 "type": "START_LOCK"
                             },
                             {
                                 "accel": 1,
                                 "offZ": 4,
-                                "maxTime": 3,
+                                "maxTime": 2.2,
                                 "type": "Z_PULL"
                             },
                             {
@@ -1528,7 +1525,7 @@
                                     "y": 6,
                                     "z": 4
                                 },
-                                "maxTime": 3,
+                                "maxTime": 2.2,
                                 "type": "FORCE_POS"
                             }
                         ]
@@ -1607,30 +1604,62 @@
                     "type": "WAIT"
                 },
                 {
-                    "selectType": "STUN_LOCKED",
-                    "hitDir": "AWAY",
-                    "align": "BOTTOM",
-                    "hitCount": 1,
-                    "hitDelay": 0,
-                    "type": "DIRECT_HIT",
-                    "attack": {
-                        "type": "LIGHT",
-                        "element": "HEAT",
-                        "reverse": false,
-                        "damageFactor": 0,
-                        "stunSteps": [
-                            {
-                                "type": "END_LOCK"
-                            }
-                        ],
-                        "status": 1,
-                        "guardable": "",
-                        "skillBonus": "",
-                        "limiter": ""
-                    }
+                    "type": "CLEAR_EFFECTS"
                 },
                 {
-                    "type": "CLEAR_EFFECTS"
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.hpBreak == 0",
+                    "thenStep": [
+                        {
+                            "time": 0.45,
+                            "type": "WAIT"
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.hpBreak == 1",
+                    "thenStep": [
+                        {
+                            "time": 0.31,
+                            "type": "WAIT"
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.hpBreak == 2",
+                    "thenStep": [
+                        {
+                            "time": 0.26,
+                            "type": "WAIT"
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.hpBreak == 3",
+                    "thenStep": [
+                        {
+                            "time": 0.21,
+                            "type": "WAIT"
+                        }
+                    ]
+                },
+                {
+                    "withElse": false,
+                    "type": "IF",
+                    "condition": "entity.owner.hpBreak >= 4",
+                    "thenStep": [
+                        {
+                            "time": 0.16,
+                            "type": "WAIT"
+                        }
+                    ]
                 }
             ],
             "invisible": false,
@@ -2318,10 +2347,10 @@
                             }
                         },
                         {
-                            "strength": "NO_ESCAPE",
+                            "strength": "DASH_ESCAPE",
                             "pull": true,
-                            "radius": 0,
-                            "fadeRadius": 30,
+                            "radius": 30,
+                            "fadeRadius": 0,
                             "minRadius": 0,
                             "zHeight": 32,
                             "duration": -1,
@@ -2335,8 +2364,8 @@
                         {
                             "strength": "DASH_ESCAPE",
                             "pull": true,
-                            "radius": 45,
-                            "fadeRadius": 25,
+                            "radius": 25,
+                            "fadeRadius": 45,
                             "minRadius": 0,
                             "zHeight": 32,
                             "duration": -1,
@@ -2548,6 +2577,13 @@
                             "value": false
                         },
                         {
+                            "factor": 0.1,
+                            "time": 0.1,
+                            "keepEntityStatic": false,
+                            "inversAccelerate": true,
+                            "type": "ADD_SLOW_MOTION"
+                        },
+                        {
                             "zoomType": "LIGHT",
                             "fadeIn": 0.1,
                             "duration": 0.2,
@@ -2579,7 +2615,25 @@
                             "type": "SET_HIT_STABLE"
                         },
                         {
-                            "duration": 3,
+                            "actionDetached": false,
+                            "type": "ADD_SHIELD",
+                            "shield": {
+                                "type": "PLAYER",
+                                "settings": {
+                                    "baseFactor": 0.2,
+                                    "strength": "BLOCK_ABOVE",
+                                    "hitResist": "MASSIVE",
+                                    "stableOverride": "MASSIVE",
+                                    "duration": -1,
+                                    "range": 1,
+                                    "back": false,
+                                    "noShieldDamage": true,
+                                    "noDefaultFX": true
+                                }
+                            }
+                        },
+                        {
+                            "duration": 5,
                             "align": "BOTTOM",
                             "rotateFace": -1,
                             "flipLeftFace": false,
@@ -2599,7 +2653,7 @@
                             }
                         },
                         {
-                            "duration": 3,
+                            "duration": 5,
                             "align": "BOTTOM",
                             "rotateFace": -1,
                             "flipLeftFace": false,
@@ -2677,7 +2731,7 @@
                             "type": "WAIT"
                         },
                         {
-                            "duration": 3,
+                            "duration": 4.5,
                             "rotOffset": {
                                 "x": 0,
                                 "y": -36
@@ -3566,8 +3620,11 @@
                     ]
                 },
                 {
-                    "time": 8,
+                    "time": 4,
                     "type": "WAIT"
+                },
+                {
+                    "type": "CLEAR_STUN_LOCKED"
                 }
             ],
             "invisible": true,
@@ -3731,13 +3788,13 @@
                         "visualType": "LIGHT",
                         "element": "HEAT",
                         "type": "LIGHT",
-                        "fly": "LIGHT",
                         "damageFactor": 1.4,
                         "status": 4,
                         "reverse": false,
                         "spFactor": 0,
                         "guardable": "ALWAYS",
                         "skillBonus": "RAMGED_DMG"
+                        
                     },
                     "offset": {
                         "x": 0,
@@ -3865,7 +3922,6 @@
                         "visualType": "LIGHT",
                         "element": "HEAT",
                         "type": "LIGHT",
-                        "fly": "LIGHT",
                         "damageFactor": 1.4,
                         "reverse": false,
                         "status": 4,
@@ -7218,7 +7274,7 @@
                             "type": "SHOW_EFFECT",
                             "effect": {
                                 "sheet": "specials.carnfx",
-                                "name": "GatlingArctillerySigil"
+                                "name": "SummonGatlingArctillerySigil"
                             },
                             "offset": {
                                 "x": 0,
@@ -9674,7 +9730,7 @@
                 },
                 {
                     "text": {
-                        "en_US": "Regained 2 lives. Good luck."
+                        "en_US": "Regained 1 life. Good luck."
                     },
                     "mode": "NO_LINE",
                     "color": "GREEN",
@@ -10629,6 +10685,168 @@
             },
             "type": "GENERIC"
         },
+        "playerHackCondense": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [
+                {
+                    "time": 0.1,
+                    "type": "WAIT"
+                },
+                {
+                    "target": "TARGET",
+                    "name": "sergeyHax",
+                    "hacked": true,
+                    "type": "ADD_ACTION_BUFF",
+                    "stats": [
+                        "HACK-CARN"
+                    ]
+                },
+                {
+                    "target": "TARGET",
+                    "name": "sergeyHax",
+                    "param": "attack",
+                    "changeType": "set",
+                    "value": 17,
+                    "type": "MOD_ACTION_BUFF_PARAM"
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "value": 1,
+                    "type": "SET_AIR_FRICTION"
+                },
+                {
+                    "text": {
+                        "en_US": "Balancing..."
+                    },
+                    "mode": "NO_LINE",
+                    "color": "RED",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 5
+                },
+                {
+                    "duration": 2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "scene.hacking",
+                        "name": "hackTrail"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "min": 0,
+                    "max": 12,
+                    "maxTime": 10,
+                    "forceTime": false,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DISTANCE"
+                },
+                {
+                    "group": "slug",
+                    "type": "CLEAR_EFFECTS"
+                },
+                {
+                    "type": "CLEAR_AR_MSG"
+                },
+                {
+                    "text": {
+                        "en_US": "Attack stat multiplied by 17!"
+                    },
+                    "mode": "NO_LINE",
+                    "color": "GREEN",
+                    "actionDetached": false,
+                    "hideOutsideOfScreen": false,
+                    "type": "SHOW_AR_MSG",
+                    "time": 0
+                },
+                {
+                    "volume": 1.5,
+                    "global": false,
+                    "loop": false,
+                    "speed": 0.8,
+                    "type": "PLAY_SOUND",
+                    "sound": "media\/sound\/upgrade\/blow-fast.ogg"
+                },
+                {
+                    "time": 0.3,
+                    "removeEntityStatic": false,
+                    "type": "CLEAR_SLOW_MOTION"
+                },
+                {
+                    "target": "TARGET",
+                    "align": "BOTTOM",
+                    "duration": 0.4,
+                    "type": "STICK_TO_TARGET",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "group": "slug",
+                    "type": "CLEAR_EFFECTS"
+                },
+                {
+                    "type": "CLEAR_AR_MSG"
+                },
+                {
+                    "time": -1,
+                    "type": "WAIT"
+                }
+            ],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "timeDisconnect": false,
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 24
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 600,
+                "floatVariance": 0,
+                "flyHeight": 2
+            },
+            "type": "GENERIC"
+        },
         "playerHack": {
             "copyOwnerAnims": false,
             "breakType": "NEVER",
@@ -11120,20 +11338,8 @@
             "breakType": "NEVER",
             "action": [
                 {
-                    "time": 0.3,
-                    "type": "WAIT"
-                },
-                {
                     "kind": "PLAYER",
                     "type": "SET_TEMP_TARGET"
-                },
-                {
-                    "min": 0,
-                    "max": 12,
-                    "maxTime": 10,
-                    "forceTime": false,
-                    "stopBeforeEdge": false,
-                    "type": "MOVE_TO_DISTANCE"
                 },
                 {
                     "target": "TARGET",
@@ -11266,7 +11472,7 @@
                             "hacked": true,
                             "type": "ADD_ACTION_BUFF",
                             "stats": [
-                                "HACK"
+                                "WEAKEN-CARN"
                             ]
                         },
                         {
@@ -20074,7 +20280,7 @@
                     "changeType": "set",
                     "proxyOwner": false,
                     "type": "SET_ATTRIB_NUMBER",
-                    "value": 8
+                    "value": 5
                 },
                 {
                     "value": 5,
@@ -20897,6 +21103,12 @@
             "breakType": "COMBATANT",
             "action": [
                 {
+                    "name": "unfreeze",
+                    "type": "SET_ATTRIB_BOOL",
+                    "changeConnected": "PROXY_OWNER",
+                    "value": false
+                },
+                {
                     "duration": -1,
                     "align": "CENTER",
                     "rotateFace": 0,
@@ -20952,11 +21164,18 @@
                     "type": "ADD_SLOW_MOTION"
                 },
                 {
-                    "time": 3.5,
-                    "type": "WAIT"
+                    "type": "WAIT_UNTIL",
+                    "condition": "entity.owner.attrib.unfreeze",
+                    "maxTime": 4
                 },
                 {
-                    "time": 1,
+                    "name": "unfreeze",
+                    "type": "SET_ATTRIB_BOOL",
+                    "changeConnected": "PROXY_OWNER",
+                    "value": false
+                },
+                {
+                    "time": 0.3,
                     "removeEntityStatic": false,
                     "type": "CLEAR_SLOW_MOTION"
                 }
@@ -23343,7 +23562,7 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
-                        "proxy": "playerHack",
+                        "proxy": "playerHackCondense",
                         "offset": {
                             "x": 0,
                             "y": 0,
@@ -23362,19 +23581,8 @@
                         }
                     },
                     {
-                        "kind": "PLAYER",
+                        "kind": "PARTY_0",
                         "type": "SET_TEMP_TARGET"
-                    },
-                    {
-                        "align": "CENTER",
-                        "posType": "TARGET",
-                        "type": "SHOOT_PROXY",
-                        "proxy": "playerHack2",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
                     },
                     {
                         "align": "CENTER",
@@ -23388,19 +23596,8 @@
                         }
                     },
                     {
-                        "kind": "PLAYER",
+                        "kind": "PLAYER_1",
                         "type": "SET_TEMP_TARGET"
-                    },
-                    {
-                        "align": "CENTER",
-                        "posType": "TARGET",
-                        "type": "SHOOT_PROXY",
-                        "proxy": "playerHack3",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
                     },
                     {
                         "align": "CENTER",
@@ -23744,6 +23941,27 @@
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.p5Reach",
                 "value": true
+            },
+            {
+                "withElse": false,
+                "type": "IF",
+                "condition": "tmp.isFate",
+                "thenStep": [
+                    {
+                        "type": "PVP_GAIN_LIFE"
+                    },
+                    {
+                        "align": "CENTER",
+                        "posType": "TARGET",
+                        "type": "SHOOT_PROXY",
+                        "proxy": "lifeRegainDisplay",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                ]
             }
         ],
         "funeralReach": [
@@ -23938,7 +24156,7 @@
                 "value": true
             },
             {
-                "value": 1,
+                "value": 1.5,
                 "type": "FACE_TO_TARGET_SPEED"
             },
             {
@@ -25534,6 +25752,19 @@
                     {
                         "type": "DO_ENEMY_ACTION_INLINE",
                         "actionName": "MovePhaseAmount"
+                    },
+                    {
+                        "type": "SET_PEEK_NEXT_EXE_SIGIL"
+                    },
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": "!((tmp.nextExe && tmp.nextExe == 20) || tmp.currentExe == 20)",
+                        "thenStep": [
+                            {
+                                "type": "CLEAR_STUN_LOCKED"
+                            }
+                        ]
                     }
                 ]
             }
@@ -25758,7 +25989,7 @@
                     },
                     {
                         "basedOn": "MAX_HP",
-                        "factor": 0.95,
+                        "factor": 0.60,
                         "hitNumberFactor": 1,
                         "type": "REDUCE_HP"
                     }
@@ -25790,7 +26021,11 @@
             },
             {
                 "type": "SET_COMBO_CARN",
-                "combo": "summon -> maw -> maw -> summonGatling -> gatlingArctillery"
+                "combo": "essencedrain -> thunderdart -> ballofsteel -> flareburn -> verdantstrike -> wavemotionbeam -> brawler -> fh -> summon -> maw -> nr -> summonGatling -> gatlingArctillery"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "ss -> sv -> dr -> sv -> ds"
             },
             {
                 "withElse": true,
@@ -28493,12 +28728,12 @@
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.fateFuneralState",
-                        "value": 5.5
+                        "value": 6
                     },
                     {
                         "noStateReset": true,
                         "type": "DO_ENEMY_ACTION",
-                        "actionName": "FateFuneralUltimatePart1"
+                        "actionName": "FateFuneralUltimate"
                     }
                 ]
             },
@@ -28602,9 +28837,6 @@
                 "type": "PVP_GAIN_LIFE"
             },
             {
-                "type": "PVP_GAIN_LIFE"
-            },
-            {
                 "align": "CENTER",
                 "posType": "TARGET",
                 "type": "SHOOT_PROXY",
@@ -28616,100 +28848,8 @@
                 }
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 15
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 4
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 53001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 52101
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 12
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 3
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 9
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 19
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 50001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 1
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> dr -> guardsphere -> azurestrike -> rdct -> rdct -> maw -> nr -> ballofboomerang -> tr -> decap -> fatalhowl -> sweep -> spiraldance -> bd -> timefreeze"
             },
             {
                 "withElse": true,
@@ -28814,6 +28954,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -28823,6 +28968,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -28838,11 +28995,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -28862,100 +29014,8 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 15
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 5
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 15
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 10001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 10
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 11002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 12001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 7
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 22
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 13003
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> tr -> ds -> brawler -> realout -> icetwirl -> rdct -> fakeout -> rdct -> hailstorm -> rdct -> indigorush -> fracture -> airsnipe -> vv -> brawler -> fimbulvetr -> timefreeze"
             },
             {
                 "withElse": true,
@@ -29062,6 +29122,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -29071,6 +29136,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -29086,198 +29163,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
-            },
-            {
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "pointingBrake"
-            },
-            {
-                "noStateReset": true,
-                "type": "DO_ENEMY_ACTION",
-                "actionName": "ExecuteCombo"
-            }
-        ],
-        "FateFuneralColdOLD": [
-            {
-                "value": "BREAK",
-                "type": "SET_HIT_STABLE"
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 4
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 10001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 12002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 7
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 3
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 9
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 19
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 13003
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 100001
-            },
-            {
-                "withElse": true,
-                "type": "IF",
-                "condition": "tmp.sigilCount > 34",
-                "thenStep": [
-                    {
-                        "changeType": "set",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": {
-                            "varName": "tmp.sigilCount"
-                        }
-                    },
-                    {
-                        "changeType": "mul",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": 0.05
-                    },
-                    {
-                        "changeType": "add",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": 2
-                    }
-                ],
-                "elseStep": [
-                    {
-                        "changeType": "set",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": {
-                            "varName": "tmp.sigilCount"
-                        }
-                    },
-                    {
-                        "changeType": "mul",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": 0.1
-                    },
-                    {
-                        "changeType": "add",
-                        "type": "CHANGE_VAR_NUMBER",
-                        "varName": "tmp.sigilDrawTime",
-                        "value": 0.3
-                    }
-                ]
-            },
-            {
-                "align": "BOTTOM",
-                "centralAngle": 0,
-                "angleVary": 0,
-                "startDistCollide": "NONE",
-                "random": false,
-                "clockwise": false,
-                "flipLeftFace": 0,
-                "circularArea": false,
-                "uniformDir": 0,
-                "delay": 0,
-                "repeat": false,
-                "duration": {
-                    "varName": "tmp.sigilDrawTime"
-                },
-                "count": 1,
-                "type": "SHOOT_PROXY_RANGE",
-                "proxy": "sigilDrawProxy",
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            },
-            {
-                "text": {
-                    "en_US": "(Cold) Funeral. (2/7)"
-                },
-                "mode": "LINE_FILL",
-                "color": "darkviolet",
-                "actionDetached": false,
-                "hideOutsideOfScreen": false,
-                "type": "SHOW_AR_MSG",
-                "time": {
-                    "varName": "tmp.sigilDrawTime"
-                }
-            },
-            {
-                "wait": false,
-                "viaWalkConfig": false,
-                "type": "SHOW_ANIMATION",
-                "anim": "pointing"
-            },
-            {
-                "time": {
-                    "varName": "tmp.sigilDrawTime"
-                },
-                "type": "WAIT"
             },
             {
                 "wait": false,
@@ -29297,112 +29182,8 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 23
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 2
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 21002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 12
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 14
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 15
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 16
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 20
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 22002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 22101
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil15",
-                "value": 20103
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil16",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> wf -> db -> flareburn -> wf -> rdct -> tr -> rdct -> sv -> flamejab -> nr -> maw -> rdct -> rmda -> shooter -> realout -> shadowflame -> minevalley -> calamitytrigger -> crimsonstrike -> vermillionecho -> timefreeze"
             },
             {
                 "withElse": true,
@@ -29509,6 +29290,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -29518,6 +29304,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -29533,11 +29331,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -29557,106 +29350,8 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 16
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 22
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 23
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 18
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 30101
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 2
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 32102
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 10
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 2
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 4
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 2
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 1
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 32103
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 18
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil15",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> vv -> wf -> riposte -> rdct -> amberstrike -> db -> stormwalker -> fakeout -> db -> dr -> db -> bd -> lightningprophecy -> shooter -> timefreeze"
             },
             {
                 "withElse": true,
@@ -29763,6 +29458,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -29772,6 +29472,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -29787,11 +29499,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -29811,112 +29518,8 @@
                 "type": "SET_HIT_STABLE"
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 23
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 42002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 10
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 43102
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 8
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 40001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 41003
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil15",
-                "value": 21
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil16",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> wf -> toxicrevenant -> elvenorb -> rdct -> fakeout -> poltergeist -> maw -> rdct -> faeround -> tr -> maw -> rdct -> es -> tr -> kithrust -> wavemotionbeam -> tr -> timefreeze"
             },
             {
                 "withElse": true,
@@ -30023,6 +29626,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -30032,6 +29640,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -30049,11 +29669,6 @@
                 ]
             },
             {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
-            },
-            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -30065,112 +29680,14 @@
                 "actionName": "ExecuteCombo"
             }
         ],
-        "FateFuneralUltimatePart1": [
+        "FateFuneralUltimate": [
             {
                 "value": "BREAK",
                 "type": "SET_HIT_STABLE"
             },
             {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigilCount",
-                "value": 16
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil0",
-                "value": 17
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil1",
-                "value": 23
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil2",
-                "value": 13001
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil3",
-                "value": 41002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil4",
-                "value": 11
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil5",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil6",
-                "value": 4
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil7",
-                "value": 13
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil8",
-                "value": 2
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil9",
-                "value": 6
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil10",
-                "value": 10003
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil11",
-                "value": 200002
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil12",
-                "value": 16
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil13",
-                "value": 23003
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil14",
-                "value": 43101
-            },
-            {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.sigil15",
-                "value": 100001
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> wf -> briskbarrier -> vitalpulse -> maw -> rdct -> dr -> rdct -> db -> dsh -> polarpirouette -> shooter -> shadowflame -> igniteembers -> guardinggale -> vv -> snowflawke -> mjolnir -> guardsphere -> ringoffire -> fakeout -> hailflurry -> tr -> ds -> fakeout -> fatalhowl -> vortextide -> frigidflawke -> shadowflame -> frigidflawke -> tr -> decap -> elvenorb -> airsnipe -> flamejab -> timefreeze"
             },
             {
                 "withElse": true,
@@ -30277,6 +29794,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -30286,6 +29808,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -30303,9 +29837,172 @@
                 ]
             },
             {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointingBrake"
+            },
+            {
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "ExecuteCombo"
+            }
+        ],
+        "FateFuneralUltimatePart1": [
+            {
+                "value": "BREAK",
+                "type": "SET_HIT_STABLE"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "summon -> wf -> briskbarrier -> vitalpulse -> maw -> rdct -> dr -> rdct -> db -> dsh -> polarpirouette -> shooter -> shadowflame -> igniteembers -> guardinggale -> timefreeze"
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.sigilCount > 34",
+                "thenStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": {
+                            "varName": "tmp.sigilCount"
+                        }
+                    },
+                    {
+                        "changeType": "mul",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 0.05
+                    },
+                    {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 2
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": {
+                            "varName": "tmp.sigilCount"
+                        }
+                    },
+                    {
+                        "changeType": "mul",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 0.1
+                    },
+                    {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilDrawTime",
+                        "value": 0.3
+                    }
+                ]
+            },
+            {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "duration": {
+                    "varName": "tmp.sigilDrawTime"
+                },
+                "count": 1,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "sigilDrawProxy",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            },
+            {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.sigilTimerAdder",
+                "value": 0
+            },
+            {
+                "text": {
+                    "en_US": "(Ult. Experience) Funeral. (6/7)"
+                },
+                "mode": "LINE_FILL",
+                "color": "darkviolet",
+                "actionDetached": false,
+                "hideOutsideOfScreen": false,
+                "type": "SHOW_AR_MSG",
                 "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
+                "varFill": "tmp.sigilTimerAdder",
+                "varFillMax": {
+                    "varName": "tmp.sigilDrawTime"
+                }
+            },
+            {
+                "wait": false,
+                "viaWalkConfig": false,
+                "type": "SHOW_ANIMATION",
+                "anim": "pointing"
+            },
+            {
+                "name": "sigilAdder",
+                "type": "LABEL"
+            },
+            {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
+                "withElse": true,
+                "type": "IF",
+                "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
+                "thenStep": [
+                    {
+                        "type": "CLEAR_AR_MSG"
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
+                    {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.sigilTimerAdder",
+                        "value": 0.1
+                    },
+                    {
+                        "time": 0.1,
+                        "type": "WAIT"
+                    },
+                    {
+                        "name": "sigilAdder",
+                        "type": "GOTO_LABEL"
+                    }
+                ]
             },
             {
                 "wait": false,
@@ -30549,6 +30246,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -30558,6 +30260,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -30573,11 +30287,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -30773,6 +30482,11 @@
                 "type": "LABEL"
             },
             {
+                "name": "unfreeze",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            },
+            {
                 "withElse": true,
                 "type": "IF",
                 "condition": "tmp.sigilTimerAdder >= tmp.sigilDrawTime",
@@ -30782,6 +30496,18 @@
                     }
                 ],
                 "elseStep": [
+                    {
+                        "withElse": false,
+                        "type": "IF",
+                        "condition": " tmp.sigilDrawTime - tmp.sigilTimerAdder <= 0.2",
+                        "thenStep": [
+                            {
+                                "name": "unfreeze",
+                                "type": "SET_ATTRIB_BOOL",
+                                "value": true
+                            }
+                        ]
+                    },
                     {
                         "changeType": "add",
                         "type": "CHANGE_VAR_NUMBER",
@@ -30797,11 +30523,6 @@
                         "type": "GOTO_LABEL"
                     }
                 ]
-            },
-            {
-                "time": 0,
-                "removeEntityStatic": false,
-                "type": "CLEAR_SLOW_MOTION"
             },
             {
                 "wait": false,
@@ -31281,13 +31002,13 @@
                 "collideSlip": false,
                 "type": "TACKLE",
                 "attack": {
-                    "type": "MASSIVE",
+                    "type": "BREAK",
                     "element": "SHOCK",
                     "damageFactor": 1.4,
                     "fly": "MASSIVE+",
                     "reverse": false,
                     "spFactor": 0,
-                    "guardable": null,
+                    "guardable": "NEVER",
                     "stunSteps": [
                         {
                             "type": "START_LOCK"
@@ -31295,6 +31016,10 @@
                         {
                             "value": 400,
                             "type": "Z_VEL"
+                        },
+                        {
+                            "type": "BLOCK_FALL",
+                            "duration": 0.7
                         },
                         {
                             "accel": 3,
@@ -31305,11 +31030,13 @@
                         {
                             "distance": 26,
                             "speed": 800,
-                            "maxTime": 0,
+                            "maxTime": 0.7,
                             "type": "PULL"
                         }
                     ],
+                    "stunType": "INTERRUPT",
                     "status": 3,
+                    "hitInvincible": false,
                     "skillBonus": "RANGED_DMG",
                     "limiter": null,
                     "noIronStance": true
@@ -31356,38 +31083,6 @@
                 "time": 0.05,
                 "stopBeforeEdge": false,
                 "type": "MOVE_FORWARD"
-            },
-            {
-                "selectType": "PREVIOUSLY_HIT",
-                "hitDir": "AWAY",
-                "align": "BOTTOM",
-                "hitCount": 1,
-                "hitDelay": 0,
-                "type": "DIRECT_HIT",
-                "attack": {
-                    "type": "MASSIVE",
-                    "reverse": false,
-                    "status": 0,
-                    "soundType": "none",
-                    "damageFactor": 0.0001,
-                    "guardable": "NEVER",
-                    "hitInvincible": true,
-                    "skillBonus": "RANGED_DMG",
-                    "noIronStance": true,
-                    "limiter": "NO_HIT_PROXY",
-                    "stunSteps": [
-                        {
-                            "type": "START_LOCK"
-                        },
-                        {
-                            "type": "BLOCK_FALL",
-                            "duration": 0.6
-                        },
-                        {
-                            "type": "END_LOCK"
-                        }
-                    ]
-                }
             }
         ],
         "Deadspike": [
@@ -32263,6 +31958,10 @@
                 "type": "SET_HIT_STABLE"
             },
             {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "element": "HEAT",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
@@ -32874,6 +32573,10 @@
                         "miss": []
                     },
                     {
+                        "value": "BLOCK",
+                        "type": "SET_COLL_TYPE"
+                    },
+                    {
                         "name": "nrHit",
                         "type": "SET_ATTRIB_BOOL",
                         "value": false
@@ -33401,6 +33104,10 @@
                 "actionName": "SetRevolverSpeed"
             },
             {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "wait": false,
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
@@ -33439,6 +33146,10 @@
                 "anim": "pointingBrake"
             },
             {
+                "value": "BLOCK",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "time": 0.2,
                 "type": "MOVE_FORWARD"
             }
@@ -33447,6 +33158,10 @@
             {
                 "value": "BREAK",
                 "type": "SET_HIT_STABLE"
+            },
+            {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
             },
             {
                 "element": "SHOCK",
@@ -33914,8 +33629,15 @@
                 ]
             },
             {
+                "value": "BLOCK",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "type": "DO_ENEMY_ACTION_INLINE",
                 "actionName": "SetPhaseSpeed"
+            },
+            {
+                "type": "CLEAR_STUN_LOCKED"
             },
             {
                 "time": 0.1,
@@ -34580,6 +34302,10 @@
                 }
             },
             {
+                "value": "IGNORE",
+                "type": "SET_COLL_TYPE"
+            },
+            {
                 "value": 1400,
                 "type": "SET_SPEED"
             },
@@ -35062,6 +34788,10 @@
                 "name": "vvSet",
                 "type": "SET_ATTRIB_BOOL",
                 "value": false
+            },
+            {
+                "value": "BLOCK",
+                "type": "SET_COLL_TYPE"
             },
             {
                 "time": 0.6,
@@ -56693,9 +56423,6 @@
         ],
         "Burn": [
             {
-                "type": "CLEAR_HIT_PROXY"
-            },
-            {
                 "element": "HEAT",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
@@ -61613,7 +61340,6 @@
                 "time": 0.7
             },
             {
-                
                 "name": "summonGatling",
                 "type": "SET_ATTRIB_BOOL",
                 "value": true
@@ -61704,7 +61430,7 @@
                 }
             },
             {
-                "duration": 3,
+                "duration": 5,
                 "align": "BOTTOM",
                 "rotateFace": -1,
                 "flipLeftFace": false,
@@ -61724,7 +61450,7 @@
                 }
             },
             {
-                "duration": 3,
+                "duration": 5,
                 "align": "BOTTOM",
                 "rotateFace": -1,
                 "flipLeftFace": false,
@@ -61802,7 +61528,7 @@
                 "type": "WAIT"
             },
             {
-                "duration": 3,
+                "duration": 4.5,
                 "rotOffset": {
                     "x": 0,
                     "y": -36
@@ -63730,10 +63456,10 @@
                 }
             },
             {
-                "strength": "NO_ESCAPE",
+                "strength": "DASH_ESCAPE",
                 "pull": true,
-                "radius": 500,
-                "fadeRadius": 500,
+                "radius": 200,
+                "fadeRadius": 600,
                 "minRadius": 0,
                 "zHeight": 32,
                 "duration": 0.7,
@@ -63772,9 +63498,9 @@
                 "type": "WAIT"
             },
             {
-                "strength": "DASH_ESCAPE",
+                "strength": "RUN_ESCAPE",
                 "pull": true,
-                "radius": 500,
+                "radius": 100,
                 "fadeRadius": 500,
                 "minRadius": 0,
                 "zHeight": 32,
@@ -67744,6 +67470,13 @@
                         "type": "WAIT"
                     },
                     {
+                        "speed": "NORMAL",
+                        "transition": "EASE_IN_OUT",
+                        "wait": false,
+                        "waitSkip": 0,
+                        "type": "RESET_CAMERA"
+                    },
+                    {
                         "time": 0.1,
                         "removeEntityStatic": false,
                         "type": "CLEAR_SLOW_MOTION"
@@ -69445,7 +69178,7 @@
                 "type": "SET_Z_GRAVITY_FACTOR"
             },
             {
-                "value": 1250,
+                "value": 1050,
                 "type": "SET_SPEED"
             },
             {
@@ -71630,7 +71363,7 @@
                         "anim": "itemEffect"
                     },
                     {
-                        "factor": 15,
+                        "factor": 10,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -71877,7 +71610,7 @@
                         "anim": "itemEffect"
                     },
                     {
-                        "factor": 15,
+                        "factor": 8,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -72406,7 +72139,7 @@
                         "type": "WAIT"
                     },
                     {
-                        "factor": 50,
+                        "factor": 20,
                         "type": "ABSORB_BLOCKED_DAMAGE"
                     },
                     {
@@ -74963,7 +74696,7 @@
                 "type": "MOVE_FORWARD"
             },
             {
-                "time": 0.92,
+                "time": 0.4,
                 "type": "WAIT"
             }
         ],
@@ -77124,6 +76857,11 @@
                 "condition": "entity.attrib.throws > 1",
                 "thenStep": [
                     {
+                        "value": false,
+                        "immediately": true,
+                        "type": "FACE_TO_TARGET"
+                    },
+                    {
                         "changeType": "sub",
                         "attribName": "throws",
                         "proxyOwner": false,
@@ -77152,6 +76890,10 @@
                     {
                         "time": 0.18,
                         "type": "WAIT"
+                    },
+                    {
+                        "projectileSpeed": 550,
+                        "type": "SET_FACE_TARGET_PREDICT"
                     },
                     {
                         "followUp": "attackEnd",

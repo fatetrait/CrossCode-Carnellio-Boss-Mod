@@ -576,6 +576,55 @@
                 ]
             },
             {
+                "name": "COLD_CIRCLE",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle.png",
+                    "offX": 0,
+                    "offY": 96,
+                    "width": 48,
+                    "height": 48
+                },
+                "renderMode": "lighter",
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "COLD_WAVE",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle.png",
+                    "offX": 208,
+                    "offY": 96,
+                    "width": 48,
+                    "height": 48
+                },
+                "renderMode": "lighter",
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "NEUTRAL_WAVE_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 0,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
                 "name": "HEAT_WAVE_BIG",
                 "sheet": {
                     "src": "media\/entity\/effects\/lighter-particle-big.png",
@@ -614,6 +663,23 @@
                 "sheet": {
                     "src": "media\/entity\/effects\/lighter-particle-big.png",
                     "offX": 288,
+                    "offY": 0,
+                    "width": 96,
+                    "height": 96
+                },
+                "guiSprites": true,
+                "renderMode": "lighter",
+                "time": 0.04,
+                "repeat": true,
+                "frames": [
+                    0
+                ]
+            },
+            {
+                "name": "WAVE_WAVE_BIG",
+                "sheet": {
+                    "src": "media\/entity\/effects\/lighter-particle-big.png",
+                    "offX": 384,
                     "offY": 0,
                     "width": 96,
                     "height": 96
@@ -922,6 +988,19 @@
                 "name": "rmda",
                 "sheet": {
                     "src": "media/entity/effects/sigils/rmda.png",
+                    "width": 500,
+                    "height": 500
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "SummonGatlingArctillery",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/gatling.png",
                     "width": 500,
                     "height": 500
                 },
@@ -1463,13 +1542,26 @@
                 "renderMode": "source-over"
             },
             {
-                "name": "GatlingArctillery",
+                "name": "OldGatlingArctillery",
                 "sheet": {
                     "src": "media/gui/circuit-icons.png",
                     "offX": 96,
                     "offY": 192,
                     "width": 24,
                     "height": 24
+                },
+                "time": 3,
+                "frames": [
+                    0
+                ],
+                "renderMode": "source-over"
+            },
+            {
+                "name": "GatlingArctillery",
+                "sheet": {
+                    "src": "media/entity/effects/sigils/gatling_aria.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -3077,7 +3169,7 @@
     "EFFECTS": {
         "airsnipeTrail": [
             {
-                "volume": 1,
+                "volume": 1.4,
                 "global": false,
                 "loop": false,
                 "variance": 0.1,
@@ -3085,7 +3177,7 @@
                 "type": "PLAY_SOUND"
             },
             {
-                "volume": 1,
+                "volume": 1.6,
                 "global": false,
                 "loop": false,
                 "speed": 1.2,
@@ -3813,6 +3905,14 @@
             }
         ],
         "summon": [
+            {
+                "size": "XS",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            },
             {
                 "useTargetAngle": true,
                 "offset": {
@@ -6080,6 +6180,41 @@
         ],
         "bdSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6118,6 +6253,41 @@
             }
         ],
         "dbSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6158,6 +6328,41 @@
         ],
         "decapSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6196,6 +6401,41 @@
             }
         ],
         "drSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6236,6 +6476,41 @@
         ],
         "dsSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6274,6 +6549,41 @@
             }
         ],
         "dshSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6314,6 +6624,41 @@
         ],
         "efSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6352,6 +6697,41 @@
             }
         ],
         "esSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6392,6 +6772,14 @@
         ],
         "fhSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6430,6 +6818,41 @@
             }
         ],
         "foSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6470,6 +6893,41 @@
         ],
         "mwruSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6508,6 +6966,41 @@
             }
         ],
         "nrSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6548,6 +7041,41 @@
         ],
         "rdctSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6586,6 +7114,41 @@
             }
         ],
         "rmdaSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6626,6 +7189,41 @@
         ],
         "roSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6664,6 +7262,41 @@
             }
         ],
         "sfSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6704,6 +7337,41 @@
         ],
         "smnSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6742,6 +7410,41 @@
             }
         ],
         "srSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6782,6 +7485,41 @@
         ],
         "ssSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6820,6 +7558,41 @@
             }
         ],
         "svSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6860,6 +7633,41 @@
         ],
         "trSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6898,6 +7706,41 @@
             }
         ],
         "vvSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -6938,6 +7781,41 @@
         ],
         "wfSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -6976,6 +7854,41 @@
             }
         ],
         "supernovaSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7016,6 +7929,41 @@
         ],
         "TimeFreezeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7054,6 +8002,41 @@
             }
         ],
         "AirsnipeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7094,6 +8077,41 @@
         ],
         "BrawlerSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7132,6 +8150,41 @@
             }
         ],
         "ShooterSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7172,6 +8225,41 @@
         ],
         "BurnSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7210,6 +8298,41 @@
             }
         ],
         "FlareBurnSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7250,6 +8373,41 @@
         ],
         "FireWhirlSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7288,6 +8446,41 @@
             }
         ],
         "FlameJabSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7328,6 +8521,41 @@
         ],
         "CalamityTriggerSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7366,6 +8594,41 @@
             }
         ],
         "BlazingDragonSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7406,6 +8669,41 @@
         ],
         "RagnarokSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7444,6 +8742,41 @@
             }
         ],
         "VermillionEchoSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7484,6 +8817,41 @@
         ],
         "AshenMineSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7522,6 +8890,41 @@
             }
         ],
         "CrimsonStrikeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7562,6 +8965,41 @@
         ],
         "MineValleySigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7600,6 +9038,41 @@
             }
         ],
         "CrimsonStreamSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7640,6 +9113,41 @@
         ],
         "ScarletRainSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7678,6 +9186,41 @@
             }
         ],
         "RecoilTrumpetSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7718,6 +9261,41 @@
         ],
         "RingOfFireSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7756,6 +9334,41 @@
             }
         ],
         "KindlingFanfareSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7796,6 +9409,41 @@
         ],
         "BurningPulseSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7834,6 +9482,41 @@
             }
         ],
         "IgniteEmbersSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7874,6 +9557,41 @@
         ],
         "AncientSunSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7912,6 +9630,41 @@
             }
         ],
         "HailFlurrySigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -7952,6 +9705,41 @@
         ],
         "SnowFlawkeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -7990,6 +9778,41 @@
             }
         ],
         "HailStormSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8030,6 +9853,41 @@
         ],
         "FrigidFlawkeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8069,6 +9927,42 @@
         ],
         "GatlingArctillerySigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8091,8 +9985,8 @@
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
@@ -8106,7 +10000,116 @@
                 "type": "WAIT"
             }
         ],
+        "SummonGatlingArctillerySigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "offset": {
+                    "x": 0,
+                    "y": 32,
+                    "z": 32
+                },
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 1,
+                        "time": 0.2,
+                        "spline": "EASE_IN"
+                    },
+                    "end": {
+                        "value": 0.4,
+                        "time": 2.5,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.05,
+                        "y": 0.05
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 3,
+                "cancelable": true,
+                "anim": "SummonGatlingArctillery",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "time": 3,
+                "type": "WAIT"
+            }
+        ],
         "IceTwirlSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8147,6 +10150,41 @@
         ],
         "FrozenStarSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8185,6 +10223,41 @@
             }
         ],
         "IceTornadoSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8225,6 +10298,41 @@
         ],
         "BlizzardHawkSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8263,6 +10371,41 @@
             }
         ],
         "PolarPirouetteSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8303,6 +10446,41 @@
         ],
         "EternalWinterSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8341,6 +10519,41 @@
             }
         ],
         "IndigoStrikeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8381,6 +10594,41 @@
         ],
         "IndigoRushSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8419,6 +10667,41 @@
             }
         ],
         "BriskBarrierSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8459,6 +10742,41 @@
         ],
         "FrozenStanceSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8497,6 +10815,41 @@
             }
         ],
         "IcyBastionSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8537,6 +10890,41 @@
         ],
         "FreezeFrameSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8575,6 +10963,41 @@
             }
         ],
         "FimbulvetrSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8615,6 +11038,41 @@
         ],
         "CrystalKeeperSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "COLD_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8653,6 +11111,41 @@
             }
         ],
         "HomingWispSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8693,6 +11186,41 @@
         ],
         "DivingSparkSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8731,6 +11259,41 @@
             }
         ],
         "RadiantSwarmSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8771,6 +11334,41 @@
         ],
         "ChainBlitzSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8809,6 +11407,41 @@
             }
         ],
         "CelestialLegionSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8849,6 +11482,41 @@
         ],
         "MjolnirSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8887,6 +11555,41 @@
             }
         ],
         "TeslaTwistSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -8927,6 +11630,41 @@
         ],
         "PlasmaSpikeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -8965,6 +11703,41 @@
             }
         ],
         "TeslaWaltzSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9005,6 +11778,41 @@
         ],
         "BatteryAssaultSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9043,6 +11851,41 @@
             }
         ],
         "SongOfStormsSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9083,6 +11926,41 @@
         ],
         "AmberStrikeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9121,6 +11999,41 @@
             }
         ],
         "ThunderDartSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9161,6 +12074,41 @@
         ],
         "AmberBreakerSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9199,6 +12147,41 @@
             }
         ],
         "StormWalkerSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9239,6 +12222,41 @@
         ],
         "FlickeringStarsSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9277,6 +12295,41 @@
             }
         ],
         "LightningProphecySigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9317,6 +12370,41 @@
         ],
         "ClockBlockSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9355,6 +12443,41 @@
             }
         ],
         "GlitchTimeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "SHOCK_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9395,6 +12518,41 @@
         ],
         "EssenceDrainSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9433,6 +12591,41 @@
             }
         ],
         "FaeRoundSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9473,6 +12666,41 @@
         ],
         "VitalPulseSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9511,6 +12739,41 @@
             }
         ],
         "ElvenOrbSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9551,6 +12814,41 @@
         ],
         "WaveMotionBeamSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9589,6 +12887,41 @@
             }
         ],
         "EtherSnipeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9629,6 +12962,41 @@
         ],
         "KiThrustSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9667,6 +13035,41 @@
             }
         ],
         "SpiritBlastSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9707,6 +13110,41 @@
         ],
         "WarpDecoySigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9745,6 +13183,41 @@
             }
         ],
         "VerdantStrikeSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9785,6 +13258,41 @@
         ],
         "ToxicRevenantSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9823,6 +13331,41 @@
             }
         ],
         "VerdantStreamSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9863,6 +13406,41 @@
         ],
         "GungnirSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9901,6 +13479,41 @@
             }
         ],
         "VortexTideSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -9941,6 +13554,41 @@
         ],
         "PainGripSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -9979,6 +13627,41 @@
             }
         ],
         "GuardingGaleSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10019,6 +13702,41 @@
         ],
         "CircleOfValorSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10057,6 +13775,41 @@
             }
         ],
         "PoltergeistSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10097,6 +13850,41 @@
         ],
         "KarmaScaleSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "WAVE_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10135,6 +13923,41 @@
             }
         ],
         "BallOfSteelSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10175,6 +13998,41 @@
         ],
         "BulletRainSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10213,6 +14071,41 @@
             }
         ],
         "BallOfBoomerangSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10253,6 +14146,41 @@
         ],
         "BulletInfernoSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10291,6 +14219,41 @@
             }
         ],
         "SpinDanceSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10331,6 +14294,41 @@
         ],
         "SphereSawSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10369,6 +14367,41 @@
             }
         ],
         "SpiralDanceSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10409,6 +14442,41 @@
         ],
         "SphereStormSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10447,6 +14515,41 @@
             }
         ],
         "FirstCutSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10487,6 +14590,41 @@
         ],
         "AzureStrikeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10525,6 +14663,41 @@
             }
         ],
         "FinalShowdownSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10565,6 +14738,41 @@
         ],
         "AzureSurgeSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10603,6 +14811,41 @@
             }
         ],
         "GuardSphereSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
@@ -10643,6 +14886,41 @@
         ],
         "ProximityBlastSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10682,6 +14960,41 @@
         ],
         "BladeSphereSigil": [
             {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
                 "useTargetAngle": false,
                 "keepAngleSync": false,
                 "offset": {
@@ -10720,6 +15033,41 @@
             }
         ],
         "VortexBlastSigil": [
+            {
+                "size": "S",
+                "fadeIn": 0.1,
+                "fadeOut": 0.2,
+                "duration": -1,
+                "glow": true,
+                "type": "LIGHT"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.15,
+                    "start": {
+                        "value": 0.2,
+                        "time": 0.2,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.3,
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.265,
+                        "y": 0.265
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": 3.3,
+               "anim": "NEUTRAL_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
             {
                 "useTargetAngle": false,
                 "keepAngleSync": false,

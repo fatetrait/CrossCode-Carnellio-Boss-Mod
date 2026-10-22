@@ -4853,6 +4853,138 @@
                 "condAnims": [],
                 "spawnCondition": ""
             }
+        },
+        {
+            "type": "XenoDialog",
+            "x": 553,
+            "y": 704,
+            "level": 0,
+            "settings": {
+                "dialog": [
+                    {
+                        "entity": {
+                            "global": true,
+                            "name": "fateDifficulty"
+                        },
+                        "text": {
+                            "en_US": "Difficulty 5/5"
+                        }
+                    }
+                ],
+                "ignoreZ": true,
+                "mapId": 334,
+                "name": "fateDialog"
+            }
+        },
+        {
+            "type": "XenoDialog",
+            "x": 744,
+            "y": 573,
+            "level": 0,
+            "settings": {
+                "dialog": [
+                    {
+                        "entity": {
+                            "global": true,
+                            "name": "carnDifficulty"
+                        },
+                        "text": {
+                            "en_US": "Difficulty 3/5"
+                        }
+                    }
+                ],
+                "ignoreZ": true,
+                "mapId": 335,
+                "name": "carnDialog"
+            }
+        },
+        {
+            "type": "XenoDialog",
+            "x": 942,
+            "y": 710,
+            "level": 0,
+            "settings": {
+                "dialog": [
+                    {
+                        "entity": {
+                            "global": true,
+                            "name": "gwasDifficulty"
+                        },
+                        "text": {
+                            "en_US": "Difficulty 4/5"
+                        }
+                    }
+                ],
+                "ignoreZ": true,
+                "mapId": 336,
+                "name": "gwasDialog"
+            }
+        },
+        {
+            "type": "NPC",
+            "x": 738,
+            "y": 550,
+            "level": 0,
+            "settings": {
+                "characterName": "objects.cc-player",
+                "npcStates": [
+                    {
+                        "reactType": "",
+                        "face": "NORTH_WEST",
+                        "action": [],
+                        "hidden": false,
+                        "condition": "",
+                        "config": "normal",
+                        "event": []
+                    }
+                ],
+                "mapId": 337,
+                "name": "carnDifficulty"
+            }
+        },
+        {
+            "type": "NPC",
+            "x": 536,
+            "y": 687,
+            "level": 0,
+            "settings": {
+                "characterName": "objects.cc-player",
+                "npcStates": [
+                    {
+                        "reactType": "",
+                        "face": "NORTH_WEST",
+                        "action": [],
+                        "hidden": false,
+                        "condition": "",
+                        "config": "normal",
+                        "event": []
+                    }
+                ],
+                "mapId": 338,
+                "name": "fateDifficulty"
+            }
+        },
+        {
+            "type": "NPC",
+            "x": 937,
+            "y": 691,
+            "level": 0,
+            "settings": {
+                "characterName": "objects.cc-player",
+                "npcStates": [
+                    {
+                        "reactType": "",
+                        "face": "NORTH_WEST",
+                        "action": [],
+                        "hidden": false,
+                        "condition": "",
+                        "config": "normal",
+                        "event": []
+                    }
+                ],
+                "mapId": 339,
+                "name": "gwasDifficulty"
+            }
         }
     ],
     "layer": [
