@@ -263,19 +263,21 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       }
     }),
     init: function (a) {
-      this.p1 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "brawler", "shooter", "spindance","spiraldance","spheresaw","spherestorm","ballofsteel","ballofboomerang","bulletrain","bulletinferno","firstcut","finalshowdown","azurestrike","azuresurge","guardsphere","bladesphere","proximityblast","vortexblast"];
-      this.p2 = [...this.p1, "airsnipe", "dr", "ds", "sf", "sv", "icetwirl","icetornado","frozenstar","blizzardhawk","hailflurry","hailstorm","snowflawke","frigidflawke","indigostrike","indigorush","briskbarrier","icybastion","frozenstance","freezeframe"]
+      this.p1 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "brawler", "shooter", "spindance", "spiraldance", "spheresaw", "spherestorm", "ballofsteel", "ballofboomerang", "bulletrain", "bulletinferno", "firstcut", "finalshowdown", "azurestrike", "azuresurge", "guardsphere", "bladesphere", "proximityblast", "vortexblast"];
+      this.p2 = [...this.p1, "airsnipe", "dr", "ds", "sf", "sv", "icetwirl", "icetornado", "frozenstar", "blizzardhawk", "hailflurry", "hailstorm", "snowflawke", "frigidflawke", "indigostrike", "indigorush", "briskbarrier", "icybastion", "frozenstance", "freezeframe"]
 
-      this.p3 = [...this.p2, "smn", "firewhirl","calamitytrigger","flamejab","blazingdragon","burn","flareburn","ashenmine","minevalley","crimsonstrike","crimsonstream","recoiltrumpet","kindlingfanfare","ringoffire","burningpulse"];
-      this.p3Summon = [...this.p2, "maw", "rdct", "bd", "rmda", "firewhirl","calamitytrigger","flamejab","blazingdragon","burn","flareburn","ashenmine","minevalley","crimsonstrike","crimsonstream","recoiltrumpet","kindlingfanfare","ringoffire","burningpulse"];
+      this.p3 = [...this.p2, "smn", "firewhirl", "calamitytrigger", "flamejab", "blazingdragon", "burn", "flareburn", "ashenmine", "minevalley", "crimsonstrike", "crimsonstream", "recoiltrumpet", "kindlingfanfare", "ringoffire", "burningpulse"];
+      this.p3Summon = [...this.p2, "maw", "rdct", "bd", "rmda", "firewhirl", "calamitytrigger", "flamejab", "blazingdragon", "burn", "flareburn", "ashenmine", "minevalley", "crimsonstrike", "crimsonstream", "recoiltrumpet", "kindlingfanfare", "ringoffire", "burningpulse"];
       this.p3Force = ["bd", "rmda"];
-      this.p4 = [...this.p3, "sr", "teslatwist","teslawaltz","plasmaspike","batteryassault","homingwisp","radiantswarm","divingspark","chainblitz","amberstrike","amberbreaker","thunderdart","stormwalker","clockblock","glitchtime","kithrust","spiritblast","essencedrain","vitalpulse","faeround","elvenorb","warpdecoy","toxicrevenant","verdantstrike","verdantstream","paingrip","circleofvalor","guardinggale","poltergeist"];
-      this.p4Summon = [...this.p3Summon, "sr", "ef", "es", "db", "teslatwist","teslawaltz","plasmaspike","batteryassault","homingwisp","radiantswarm","divingspark","chainblitz","amberstrike","amberbreaker","thunderdart","stormwalker","clockblock","glitchtime","kithrust","spiritblast","essencedrain","vitalpulse","faeround","elvenorb","warpdecoy","toxicrevenant","verdantstrike","verdantstream","paingrip","circleofvalor","guardinggale","poltergeist"];
+      this.p4 = [...this.p3, "sr", "teslatwist", "teslawaltz", "plasmaspike", "batteryassault", "homingwisp", "radiantswarm", "divingspark", "chainblitz", "amberstrike", "amberbreaker", "thunderdart", "stormwalker", "clockblock", "glitchtime", "kithrust", "spiritblast", "essencedrain", "vitalpulse", "faeround", "elvenorb", "warpdecoy", "toxicrevenant", "verdantstrike", "verdantstream", "paingrip", "circleofvalor", "guardinggale", "poltergeist"];
+      this.p4Summon = [...this.p3Summon, "sr", "ef", "es", "db", "teslatwist", "teslawaltz", "plasmaspike", "batteryassault", "homingwisp", "radiantswarm", "divingspark", "chainblitz", "amberstrike", "amberbreaker", "thunderdart", "stormwalker", "clockblock", "glitchtime", "kithrust", "spiritblast", "essencedrain", "vitalpulse", "faeround", "elvenorb", "warpdecoy", "toxicrevenant", "verdantstrike", "verdantstream", "paingrip", "circleofvalor", "guardinggale", "poltergeist"];
       this.p4Force = [...this.p3Force, "ef", "es"];
-      this.p5 = [...this.p4, "fh", "polarpirouette","eternalwinter","gatlingarctillery","fimbulvetr","crystalkeeper","ragnarok","vermillionecho","scarletrain","igniteembers","songofstorms","celestiallegion","mjolnir","flickeringstars","lightningprophecy","wavemotionbeam","ethersnipe","gungnir","vortextide"];
-      this.p5Summon = [...this.p4Summon, "fh", "dsh", "nr", "polarpirouette","eternalwinter","gatlingarctillery","fimbulvetr","crystalkeeper","ragnarok","vermillionecho","scarletrain","igniteembers","songofstorms","celestiallegion","mjolnir","flickeringstars","lightningprophecy","wavemotionbeam","ethersnipe","gungnir","vortextide"];
+      this.p5 = [...this.p4, "fh", "polarpirouette", "eternalwinter", "gatlingarctillery", "fimbulvetr", "crystalkeeper", "ragnarok", "vermillionecho", "scarletrain", "igniteembers", "songofstorms", "celestiallegion", "mjolnir", "flickeringstars", "lightningprophecy", "wavemotionbeam", "ethersnipe", "gungnir", "vortextide"];
+      this.p5Summon = [...this.p4Summon, "fh", "dsh", "nr", "polarpirouette", "eternalwinter", "gatlingarctillery", "fimbulvetr", "crystalkeeper", "ragnarok", "vermillionecho", "scarletrain", "igniteembers", "songofstorms", "celestiallegion", "mjolnir", "flickeringstars", "lightningprophecy", "wavemotionbeam", "ethersnipe", "gungnir", "vortextide"];
       this.p5Force = [...this.p4Force, "dsh"];
       this.lengths = [[2, 2], [2, 4], [4, 6], [6, 8], [7, 10], [7, 10]]
+      this.budgets = [2, 4, 8, 12, 16, 16]
+      this.specialBudgets = [21, 30, 39]
       this.specialLengths = [[14, 14], [20, 20], [26, 26]]
       this.phase = a.phase
       this.isInitial = a.isInitial
@@ -309,34 +311,59 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
 
       let combo = "";
       let summoned = false;
-      let rand;
+      let hasNonSummon = false;
+      let rand, curMoves, move;
+      let curBudget = this.isInitial ? this.specialBudgets[this.phase - 3] : this.budgets[this.phase];
+      const smnMoves = ["smn", "rmda", "bd", "ef", "es", "dsh"]
+      const spCosts = [1, 1, 3, 6];
       for (let i = 0; i < length; i++) {
+
         if (i + 1 == length && summoned) {
-          const curMoves = movesForce
-          rand = Math.floor(Math.random() * curMoves.length)
-          const move = curMoves[rand]
-          combo += (i > 0 ? " -> " : "") + move;
+          curMoves = movesForce
         } else {
-          const curMoves = summoned ? movesSummon : moves;
-          rand = Math.floor(Math.random() * curMoves.length)
-          const move = curMoves[rand]
-          switch (move) {
-            case "smn":
-              summoned = true;
-              break;
-            case "rmda":
-            case "bd":
-            case "ef":
-            case "es":
-            case "dsh":
-              summoned = false;
-              break;
-          }
-          combo += (i > 0 ? " -> " : "") + move;
+          curMoves = summoned ? movesSummon : moves;
         }
+        do {
+          rand = Math.floor(Math.random() * curMoves.length)
+          move = curMoves[rand]
+        } while (
+          String(sigilList[move]).length === 5 && curBudget - spCosts[sigilList[move] % 10] < 0
+        )
+        if (String(sigilList[move]).length === 5) curBudget -= spCosts[sigilList[move] % 10]
+        switch (move) {
+          case "smn":
+            summoned = true;
+            break;
+          case "rmda":
+          case "bd":
+          case "ef":
+          case "es":
+          case "dsh":
+            summoned = false;
+            break;
+          default:
+            hasNonSummon = true;
+        }
+        combo += (i > 0 ? " -> " : "") + move;
       }
 
       combo = combo.toLowerCase().replaceAll(' ', '').split('->');
+      if (hasNonSummon) {
+        for (let i = combo.length - 1; i > 0; i--) {
+          if (!smnMoves.includes(combo[i])) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let retryCount = 0;
+            while (retryCount < 10 && smnMoves.includes(combo[j])){
+              j = Math.floor(Math.random() * (i + 1));
+              retryCount++;
+            }
+            if (retryCount < 10) {
+              [combo[i], combo[j]] = [combo[j], combo[i]];
+            }
+            
+          }
+        }
+      }
       ig.vars.set("tmp.sigilCount", combo.length);
       combo.forEach((item, i) => {
         ig.vars.set("tmp.sigil" + i, sigilList[item]);
@@ -804,7 +831,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       if (b && b.model && b.model.healing) b.model.healing.cooldown += this.time
       if (!b || b.hidePets === undefined) return true;
       //if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
-      sc.model.player.itemBlockTimer = Math.max(sc.model.player.itemBlockTimer + this.time, 0);
+      sc.model.player.itemBlockTimer = Math.max(sc.model.player.itemBlockTimer + this.time, 0.3);
       sc.gui.statusHud.lowerGui.itemTimerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
       sc.gui.statusHud.lowerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
 
