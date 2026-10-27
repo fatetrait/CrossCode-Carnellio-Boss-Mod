@@ -5738,7 +5738,7 @@
                 "duration": 0.3,
                 "clockwise": false,
                 "centralAngle": 0.4,
-                "startAngle": -0.4,
+                "startAngle": -0.35,
                 "startDist": 64,
                 "particleRotate": true,
                 "offset": {
@@ -5763,7 +5763,7 @@
                 "duration": 0.3,
                 "clockwise": false,
                 "centralAngle": 0.4,
-                "startAngle": -0.35,
+                "startAngle": -0.3,
                 "startDist": 32,
                 "particleRotate": true,
                 "offset": {

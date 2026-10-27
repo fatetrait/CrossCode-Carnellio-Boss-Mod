@@ -137,6 +137,214 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     }
   });
 
+  ig.ACTION_STEP.MAKE_RANDOM_COMBO = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+        isInitial: {
+          _type: "Boolean",
+          _info: "isinitial"
+        },
+        phase: {
+          _type: "Number",
+          _info: "phase",
+        },
+      }
+    }),
+    init: function (a) {
+      this.p1 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr"]
+      this._p2 = ["dr", "ds", "sf", "sv"]
+      this._p3 = ["smn", "maw", "rdct", "bd", "rmda"]
+      this._p4 = ["sr", "ef", "es", "db"]
+      this._p5 = ["fh", "dsh", "nr"]
+
+      this.p2 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv"]
+      this.p3 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "smn"]
+      this.p3Summon = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "maw", "rdct", "bd", "rmda"]
+      this.p3Force = ["bd", "rmda"]
+      this.p4 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "smn", "sr"]
+      this.p4Summon = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "maw", "rdct", "bd", "rmda", "sr", "ef", "es", "db"]
+      this.p4Force = ["bd", "rmda", "ef", "es"]
+      this.p5 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "smn", "sr", "fh"]
+      this.p5Summon = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "dr", "ds", "sf", "sv", "maw", "rdct", "bd", "rmda", "sr", "ef", "es", "db", "sr", "fh", "dsh", "nr"]
+      this.p5Force = ["bd", "rmda", "ef", "es", "dsh"]
+
+      // this.p1 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr"];
+      // this.p2 = [...this.p1, "dr", "ds", "sf", "sv"];
+      // this.p3 = [...this.p2, "smn"];
+      // this.p3Summon = [...this.p2, "maw", "rdct", "bd", "rmda"];
+      // this.p3Force = ["bd", "rmda"];
+      // this.p4 = [...this.p3, "sr"];
+      // this.p4Summon = [...this.p3Summon, "sr", "ef", "es", "db"];
+      // this.p4Force = [...this.p3Force, "ef", "es"];
+      // this.p5 = [...this.p4, "fh"];
+      // this.p5Summon = [...this.p4Summon, "fh", "dsh", "nr"];
+      // this.p5Force = [...this.p4Force, "dsh"];
+      this.lengths = [[2, 2], [2, 3], [4, 5], [5, 6], [6, 7], [6, 7]]
+      this.specialLengths = [[9, 9], [15, 15], [22, 22]]
+      this.phase = a.phase
+      this.isInitial = a.isInitial
+    },
+
+    start: function (a) {
+      const [minLength, maxLength] = this.isInitial ? this.specialLengths[this.phase - 3] : this.lengths[this.phase];
+
+      const length = Math.random() < 0.5 ? minLength : maxLength;
+
+      const moves =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3 :
+              this.phase === 3 ? this.p4 :
+                this.p5;
+
+      const movesSummon =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3Summon :
+              this.phase === 3 ? this.p4Summon :
+                this.p5Summon;
+
+      const movesForce =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3Force :
+              this.phase === 3 ? this.p4Force :
+                this.p5Force;
+
+      let combo = "";
+      let summoned = false;
+      let rand;
+      for (let i = 0; i < length; i++) {
+        if (i + 1 == length && summoned) {
+          const curMoves = movesForce
+          rand = Math.floor(Math.random() * curMoves.length)
+          const move = curMoves[rand]
+          combo += (i > 0 ? " -> " : "") + move;
+        } else {
+          const curMoves = summoned ? movesSummon : moves;
+          rand = Math.floor(Math.random() * curMoves.length)
+          const move = curMoves[rand]
+          switch (move) {
+            case "smn":
+              summoned = true;
+              break;
+            case "rmda":
+            case "bd":
+            case "ef":
+            case "es":
+            case "dsh":
+              summoned = false;
+              break;
+          }
+          combo += (i > 0 ? " -> " : "") + move;
+        }
+      }
+
+      combo = combo.toLowerCase().replaceAll(' ', '').split('->');
+      ig.vars.set("tmp.sigilCount", combo.length);
+      combo.forEach((item, i) => {
+        ig.vars.set("tmp.sigil" + i, sigilList[item]);
+      })
+      //return combo;
+    }
+  });
+
+  ig.ACTION_STEP.MAKE_RANDOM_COMBO_FATE = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+        isInitial: {
+          _type: "Boolean",
+          _info: "isinitial"
+        },
+        phase: {
+          _type: "Number",
+          _info: "phase",
+        },
+      }
+    }),
+    init: function (a) {
+      this.p1 = ["ss", "decap", "vv", "ro", "fo", "wf", "tr", "brawler", "shooter", "spindance","spiraldance","spheresaw","spherestorm","ballofsteel","ballofboomerang","bulletrain","bulletinferno","firstcut","finalshowdown","azurestrike","azuresurge","guardsphere","bladesphere","proximityblast","vortexblast"];
+      this.p2 = [...this.p1, "airsnipe", "dr", "ds", "sf", "sv", "icetwirl","icetornado","frozenstar","blizzardhawk","hailflurry","hailstorm","snowflawke","frigidflawke","indigostrike","indigorush","briskbarrier","icybastion","frozenstance","freezeframe"]
+
+      this.p3 = [...this.p2, "smn", "firewhirl","calamitytrigger","flamejab","blazingdragon","burn","flareburn","ashenmine","minevalley","crimsonstrike","crimsonstream","recoiltrumpet","kindlingfanfare","ringoffire","burningpulse"];
+      this.p3Summon = [...this.p2, "maw", "rdct", "bd", "rmda", "firewhirl","calamitytrigger","flamejab","blazingdragon","burn","flareburn","ashenmine","minevalley","crimsonstrike","crimsonstream","recoiltrumpet","kindlingfanfare","ringoffire","burningpulse"];
+      this.p3Force = ["bd", "rmda"];
+      this.p4 = [...this.p3, "sr", "teslatwist","teslawaltz","plasmaspike","batteryassault","homingwisp","radiantswarm","divingspark","chainblitz","amberstrike","amberbreaker","thunderdart","stormwalker","clockblock","glitchtime","kithrust","spiritblast","essencedrain","vitalpulse","faeround","elvenorb","warpdecoy","toxicrevenant","verdantstrike","verdantstream","paingrip","circleofvalor","guardinggale","poltergeist"];
+      this.p4Summon = [...this.p3Summon, "sr", "ef", "es", "db", "teslatwist","teslawaltz","plasmaspike","batteryassault","homingwisp","radiantswarm","divingspark","chainblitz","amberstrike","amberbreaker","thunderdart","stormwalker","clockblock","glitchtime","kithrust","spiritblast","essencedrain","vitalpulse","faeround","elvenorb","warpdecoy","toxicrevenant","verdantstrike","verdantstream","paingrip","circleofvalor","guardinggale","poltergeist"];
+      this.p4Force = [...this.p3Force, "ef", "es"];
+      this.p5 = [...this.p4, "fh", "polarpirouette","eternalwinter","gatlingarctillery","fimbulvetr","crystalkeeper","ragnarok","vermillionecho","scarletrain","igniteembers","songofstorms","celestiallegion","mjolnir","flickeringstars","lightningprophecy","wavemotionbeam","ethersnipe","gungnir","vortextide"];
+      this.p5Summon = [...this.p4Summon, "fh", "dsh", "nr", "polarpirouette","eternalwinter","gatlingarctillery","fimbulvetr","crystalkeeper","ragnarok","vermillionecho","scarletrain","igniteembers","songofstorms","celestiallegion","mjolnir","flickeringstars","lightningprophecy","wavemotionbeam","ethersnipe","gungnir","vortextide"];
+      this.p5Force = [...this.p4Force, "dsh"];
+      this.lengths = [[2, 2], [2, 4], [4, 6], [6, 8], [7, 10], [7, 10]]
+      this.specialLengths = [[14, 14], [20, 20], [26, 26]]
+      this.phase = a.phase
+      this.isInitial = a.isInitial
+    },
+
+    start: function (a) {
+      const [minLength, maxLength] = this.isInitial ? this.specialLengths[this.phase - 3] : this.lengths[this.phase];
+
+      const length = Math.random() < 0.5 ? minLength : maxLength;
+
+      const moves =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3 :
+              this.phase === 3 ? this.p4 :
+                this.p5;
+
+      const movesSummon =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3Summon :
+              this.phase === 3 ? this.p4Summon :
+                this.p5Summon;
+
+      const movesForce =
+        this.phase === 0 ? this.p1 :
+          this.phase === 1 ? this.p2 :
+            this.phase === 2 ? this.p3Force :
+              this.phase === 3 ? this.p4Force :
+                this.p5Force;
+
+      let combo = "";
+      let summoned = false;
+      let rand;
+      for (let i = 0; i < length; i++) {
+        if (i + 1 == length && summoned) {
+          const curMoves = movesForce
+          rand = Math.floor(Math.random() * curMoves.length)
+          const move = curMoves[rand]
+          combo += (i > 0 ? " -> " : "") + move;
+        } else {
+          const curMoves = summoned ? movesSummon : moves;
+          rand = Math.floor(Math.random() * curMoves.length)
+          const move = curMoves[rand]
+          switch (move) {
+            case "smn":
+              summoned = true;
+              break;
+            case "rmda":
+            case "bd":
+            case "ef":
+            case "es":
+            case "dsh":
+              summoned = false;
+              break;
+          }
+          combo += (i > 0 ? " -> " : "") + move;
+        }
+      }
+
+      combo = combo.toLowerCase().replaceAll(' ', '').split('->');
+      ig.vars.set("tmp.sigilCount", combo.length);
+      combo.forEach((item, i) => {
+        ig.vars.set("tmp.sigil" + i, sigilList[item]);
+      })
+      //return combo;
+    }
+  });
+
   ig.ACTION_STEP.PLAYER_PERFECT_PARRY_PRE = ig.ActionStepBase.extend({
     _wm: new ig.Config({
       attributes: {}
@@ -191,7 +399,7 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
     },
     start: function (a) {
       if (ig.vars.storage.tmp.exeIndex + 1 >= ig.vars.storage.tmp.sigilCount) return;
-      ig.vars.set("tmp.nextExe", ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.exeIndex+1]);
+      ig.vars.set("tmp.nextExe", ig.vars.storage.tmp["sigil" + ig.vars.storage.tmp.exeIndex + 1]);
     }
   });
 
@@ -596,7 +804,7 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       if (b && b.model && b.model.healing) b.model.healing.cooldown += this.time
       if (!b || b.hidePets === undefined) return true;
       //if (!b || b.params.combatant.animSheet.cacheKey != "player") return true;
-      sc.model.player.itemBlockTimer += this.time
+      sc.model.player.itemBlockTimer = Math.max(sc.model.player.itemBlockTimer + this.time, 0);
       sc.gui.statusHud.lowerGui.itemTimerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
       sc.gui.statusHud.lowerGui.modelChanged(sc.model.player, sc.PLAYER_MSG.ITEM_USED);
 
