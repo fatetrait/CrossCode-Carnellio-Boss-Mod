@@ -2,6 +2,13 @@
 Adds a series of optional, challenging bosses utilizing a unique combo system. 
 Crossover with Skill Based Boss Fights!
 
+Currently, 5 modes:
+Base Carnellio, including all combos in the original fight
+Gwas Combos Carnellio, including all combos from the original fight
+Fate Combos Carnellio, completely new combos including new sigils and OST, courtesy of F6R1 and finalnoobboss respectively
+Random Combos, randomized combos
+Random Fate Combos, randomized combos including the new sigils
+
 
 
 # Installation
