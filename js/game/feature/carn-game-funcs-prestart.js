@@ -29,6 +29,59 @@ ig.module("game.feature.combat.combat-action-steps.carnPre").requires("impact.ba
       ig.game.spawnEntity("Enemy", a.coll.pos.x, a.coll.pos.y, a.coll.pos.z, lily_spawn);
     }
   });
+
+  sc.COMBAT_CONDITION.PLAYER_HAS_SHIELD = ig.Class.extend({
+    name: null,
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function (a) {
+    },
+    check: function (a) {
+      return ig.game.playerEntity.hasShield()
+    }
+  });
+
+  sc.COMBAT_CONDITION.PLAYER_PERFECT_PARRY = ig.Class.extend({
+    name: null,
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function (a) {
+    },
+    check: function (a) {
+      return ig.vars.storage.playerVar.input.perfectShield > ig.vars.storage.tmp.pShieldCheck
+    }
+  });
+
+  sc.COMBAT_CONDITION.RESET_BLOCKED_HITS = ig.Class.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function (a) {
+    },
+    check: function (a) {
+      if (a && a.combo) a.combo.guardedHits = 0;
+      return true;
+    }
+  });
+
+  sc.COMBAT_CONDITION.NEED_NEW_TARGET = ig.Class.extend({
+    _wm: new ig.Config({
+      attributes: {}
+    }),
+    init: function () { },
+    check: function (a) {
+      //return false;
+      let tempTarg = a.getTarget();
+      let returner = (!tempTarg || tempTarg.params.defeated);
+      //console.log(returner, a, tempTarg)
+      return returner
+    }
+  });
+
+
+
   ig.ACTION_STEP.TRIGGER_COMMON_EVENTS = ig.ActionStepBase.extend({
     commonEventType: null,
     _wm: new ig.Config({

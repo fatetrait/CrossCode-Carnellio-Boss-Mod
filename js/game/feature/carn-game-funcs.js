@@ -1,6 +1,150 @@
-import sigilListTemp from "./sigilList.json" with { type: "json" };
-var sigilList = Object.fromEntries(Object.entries(sigilListTemp).map(([k, v]) => [k.toLowerCase(), v]));
 ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.animation", "impact.base.action", "impact.base.entity", "game.feature.combat.entities.drop", "game.feature.combat.entities.combatant", "game.feature.combat.entities.combat-proxy", "impact.feature.effect.effect-steps", "game.feature.combat.combat-sweep").defines(function () {
+  const sigilListTemp = {
+    "bd": 1,
+    "db": 2,
+    "decap": 3,
+    "dr": 4,
+    "ds": 5,
+    "drink": 6,
+    "drinkard": 6,
+    "dsh": 6,
+    "ef": 7,
+    "drill": 7,
+    "fracture": 7,
+    "es": 8,
+    "fh": 9,
+    "fatalhowl": 9,
+    "fo": 10,
+    "fakeout": 10,
+    "mwru": 11,
+    "mawaru": 11,
+    "maw": 11,
+    "nr": 12,
+    "rdct": 13,
+    "rmda": 14,
+    "ro": 15,
+    "realout": 15,
+    "sf": 16,
+    "shadowflame": 16,
+    "smn": 17,
+    "summon": 17,
+    "sr": 18,
+    "riposte": 18,
+    "ss": 19,
+    "seize": 19,
+    "sweep": 19,
+    "sv": 20,
+    "tr": 21,
+    "vv": 22,
+    "wf": 23,
+    "supernova": 24,
+    "icetwirl": 10001,
+    "icetornado": 10002,
+    "polarpirouette": 10003,
+    "frozenstar": 10101,
+    "blizzardhawk": 10102,
+    "eternalwinter": 10103,
+    "hailflurry": 11001,
+    "hailstorm": 11002,
+    "gatlingarctillery": 11003,
+    "snowflawke": 11101,
+    "frigidflawke": 11102,
+    "indigostrike": 12001,
+    "indigorush": 12002,
+    "briskbarrier": 13001,
+    "icybastion": 13002,
+    "fimbulvetr": 13003,
+    "frozenstance": 13101,
+    "freezeframe": 13102,
+    "crystalkeeper": 13103,
+    "firewhirl": 20001,
+    "calamitytrigger": 20002,
+    "ragnarok": 20003,
+    "flamejab": 20101,
+    "blazingdragon": 20102,
+    "vermillionecho": 20103,
+    "burn": 21001,
+    "flareburn": 21002,
+    "ashenmine": 22001,
+    "minevalley": 22002,
+    "scarletrain": 22003,
+    "crimsonstrike": 22101,
+    "crimsonstream": 22102,
+    "recoiltrumpet": 23001,
+    "kindlingfanfare": 23002,
+    "igniteembers": 23003,
+    "ringoffire": 23101,
+    "burningpulse": 23102,
+    "ancientsun": 23103,
+    "teslatwist": 30001,
+    "teslawaltz": 30002,
+    "songofstorms": 30003,
+    "plasmaspike": 30101,
+    "batteryassault": 30102,
+    "homingwisp": 31001,
+    "radiantswarm": 31002,
+    "celestiallegion": 31003,
+    "divingspark": 31101,
+    "chainblitz": 31102,
+    "mjolnir": 31103,
+    "amberstrike": 32001,
+    "amberbreaker": 32002,
+    "flickeringstars": 32003,
+    "thunderdart": 32101,
+    "stormwalker": 32102,
+    "lightningprophecy": 32103,
+    "clockblock": 33001,
+    "glitchtime": 33002,
+    "kithrust": 40001,
+    "spiritblast": 40102,
+    "essencedrain": 41001,
+    "vitalpulse": 41002,
+    "wavemotionbeam": 41003,
+    "faeround": 41101,
+    "elvenorb": 41102,
+    "ethersnipe": 41103,
+    "warpdecoy": 42001,
+    "toxicrevenant": 42002,
+    "gungnir": 42003,
+    "verdantstrike": 42101,
+    "verdantstream": 42102,
+    "vortextide": 42103,
+    "paingrip": 43001,
+    "circleofvalor": 43002,
+    "karmascale": 43003,
+    "guardinggale": 43101,
+    "poltergeist": 43102,
+    "spindance": 50001,
+    "spiraldance": 50002,
+    "spheresaw": 50101,
+    "spherestorm": 50102,
+    "ballofsteel": 51001,
+    "ballofboomerang": 51002,
+    "bulletrain": 51101,
+    "bulletinferno": 51102,
+    "firstcut": 52001,
+    "finalshowdown": 52002,
+    "azurestrike": 52101,
+    "azuresurge": 52102,
+    "guardsphere": 53001,
+    "bladesphere": 53002,
+    "proximityblast": 53101,
+    "vortexblast": 53102,
+    "brawler": 200001,
+    "shooter": 200002,
+    "timefreeze": 100001,
+    "timestop": 100001,
+    "airsnipe": 100002,
+    "summonGatling": 211003
+  };
+  //var sigilList = Object.fromEntries(Object.entries(sigilListTemp).map(([k, v]) => [k.toLowerCase(), v]));
+  var sigilList = {};
+
+  for (var k in sigilListTemp) {
+    if (Object.prototype.hasOwnProperty.call(sigilListTemp, k)) {
+      sigilList[k.toLowerCase()] = sigilListTemp[k];
+    }
+  }
   ig.ACTION_STEP.COMBAT_SWEEP.inject({
     run: function (a) {
       if (!ig.vars.storage.tmp.isCarn || !this.sweepType || !a ||
@@ -240,7 +384,7 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
         }
       }
 
-      combo = combo.toLowerCase().replaceAll(' ', '').split('->');
+      combo = combo.toLowerCase().replace(/ /g, '').split('->');
       ig.vars.set("tmp.sigilCount", combo.length);
       combo.forEach((item, i) => {
         ig.vars.set("tmp.sigil" + i, sigilList[item]);
@@ -347,20 +491,20 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
         combo += (i > 0 ? " -> " : "") + move;
       }
 
-      combo = combo.toLowerCase().replaceAll(' ', '').split('->');
+      combo = combo.toLowerCase().replace(/ /g, '').split('->');
       if (hasNonSummon) {
         for (let i = combo.length - 1; i > 0; i--) {
           if (!smnMoves.includes(combo[i])) {
             let j = Math.floor(Math.random() * (i + 1));
             let retryCount = 0;
-            while (retryCount < 10 && smnMoves.includes(combo[j])){
+            while (retryCount < 10 && smnMoves.includes(combo[j])) {
               j = Math.floor(Math.random() * (i + 1));
               retryCount++;
             }
             if (retryCount < 10) {
               [combo[i], combo[j]] = [combo[j], combo[i]];
             }
-            
+
           }
         }
       }
@@ -395,7 +539,7 @@ ig.module("game.feature.combat.combat-action-steps.carn").requires("impact.base.
       }
     }),
     init: function (a) {
-      this.combo = a.combo.toLowerCase().replaceAll(' ', '').split('->');
+      this.combo = a.combo.toLowerCase().replace(/ /g, '').split('->');
     },
     start: function () {
       ig.vars.set("tmp.sigilCount", this.combo.length);
@@ -563,41 +707,8 @@ ig.module("game.feature.player.player-steps.carn").requires("impact.base.animati
 
 
 ig.module("game.feature.combat.model.combat-condition.carn").requires("impact.base.action", "impact.base.actor-entity", "game.feature.combat.model.combat-params", "impact.base.animation", "impact.base.entity", "game.feature.player.player-config").defines(function () {
-  sc.COMBAT_CONDITION.PLAYER_HAS_SHIELD = ig.Class.extend({
-    name: null,
-    _wm: new ig.Config({
-      attributes: {}
-    }),
-    init: function (a) {
-    },
-    check: function (a) {
-      return ig.game.playerEntity.hasShield()
-    }
-  });
 
-  sc.COMBAT_CONDITION.PLAYER_PERFECT_PARRY = ig.Class.extend({
-    name: null,
-    _wm: new ig.Config({
-      attributes: {}
-    }),
-    init: function (a) {
-    },
-    check: function (a) {
-      return ig.vars.storage.playerVar.input.perfectShield > ig.vars.storage.tmp.pShieldCheck
-    }
-  });
 
-  sc.COMBAT_CONDITION.RESET_BLOCKED_HITS = ig.Class.extend({
-    _wm: new ig.Config({
-      attributes: {}
-    }),
-    init: function (a) {
-    },
-    check: function (a) {
-      if (a && a.combo) a.combo.guardedHits = 0;
-      return true;
-    }
-  });
 
 
 })
@@ -745,6 +856,124 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
       ig.vars.storage.tmp.currentSigilPlayer = ig.vars.storage.tmp["sigilPlayer" + ig.vars.storage.tmp.sigilIndexPlayer];
     }
   });
+  var r = Vec2.create()
+  var u = {
+    PLAYER: function () {
+      return ig.game.playerEntity;
+    },
+    PARTY_0: function () {
+      return sc.party.getPartyMemberEntityByIndex(0, true);
+    },
+    PARTY_1: function () {
+      return sc.party.getPartyMemberEntityByIndex(1, true);
+    },
+    COLLAB_ENTITY: function (a) {
+      return a.collabAttribs && a.collabAttribs.entity;
+    },
+    COLLAB_LABELED_ENTITY: function (a, b) {
+      return a.collaboration ? a.collaboration.getLabeledParticipant(b) : null;
+    },
+    CLOSEST_ENEMY: function (a) {
+      for (
+        var b = a.getAlignedPos(ig.ENTITY_ALIGN.BOTTOM, j),
+        c = Math.PI * 2,
+        b = ig.game.getEntitiesInCircle(b, ig.system.width / 2, 1, 32, a.face, -c / 2, c / 2, a),
+        c = console.log(b),
+        c = null,
+        d = 0,
+        e = b.length;
+        e--;
+
+      ) {
+        var f = b[e];
+        if (f instanceof ig.ENTITY.Combatant && f.party != a.party) {
+          var g = ig.CollTools.getDistVec2(a.coll, f.coll, r),
+            g = Vec2.length(g);
+          if (!c || g < d) {
+            c = f;
+            d = g;
+          }
+        }
+      }
+      return c;
+    },
+    GUARDED_ATTACKER: function (a) {
+      a = a.combo.guardedEntity;
+      return !a || a.isBall ? null : a.getCombatant();
+    },
+    FIRST_HIT: function (a) {
+      return a.combo.hitCombatants[0];
+    },
+    PROXY_OWNER: function (a) {
+      return a.getCombatantRoot();
+    },
+    ENEMY_OWNER: function (a) {
+      return a.getCombatantRoot().ownerEnemy;
+    },
+    ENEMY_OWNER_ACTION_PROXY: function (b, c) {
+      if (!b.getCombatantRoot().ownerEnemy) return null;
+      var d = b.getCombatantRoot().ownerEnemy.actionAttached;
+      return a(d, c);
+    },
+    PROXY_SRC: function (a) {
+      return a.sourceEntity;
+    },
+    ACTION_PROXY: function (b, c) {
+      return a(b.actionAttached, c);
+    },
+    PROXY: function (b, c) {
+      return a(b.entityAttached, c);
+    },
+    PROXY_OWNER_ACTION_PROXY: function (b, c) {
+      var d = b.getCombatantRoot().actionAttached;
+      return a(d, c);
+    },
+    PROXY_SRC_ACTION_PROXY: function (b, c) {
+      return a(b.sourceEntity.actionAttached, c);
+    },
+    NAMED_ENTITY: function (a, b) {
+      return ig.game.namedEntities[b];
+    },
+    ATTRIB_ENTITY: function (a, b) {
+      return ig.Event.getEntity(a.getAttribute(b));
+    },
+    THREAT: function (a) {
+      return a.threat;
+    },
+    ENTITY_VIA_ID: function (a, b) {
+      return ig.game.entities[b];
+    },
+    PART_TARGET_ROOT: function (a) {
+      a = a.getTarget();
+      return a instanceof sc.CombatantAnimPartEntity ? a.getCombatantRoot() : a;
+    },
+  };
+  ig.ACTION_STEP.SET_REAL_TARGET = ig.ActionStepBase.extend({
+    _wm: new ig.Config({
+      attributes: {
+        kind: {
+          _type: "String",
+          _info: "Kind of temp target",
+          _select: u,
+        },
+        key: {
+          _type: "StringExpression",
+          _info: "Additional String key to fetch named entities etc.",
+          _optional: true,
+        },
+      },
+    }),
+    init: function (a) {
+      this.kind = u[a.kind] || u.PLAYER;
+      this.key = a.key;
+    },
+    start: function (a) {
+      var b = ig.Event.getExpressionValue(this.key),
+        b = this.kind(a, b);
+      if (a instanceof sc.BasicCombatant) a.tmpTarget = b;
+      a.tmpTarget && a.setTarget(a.tmpTarget);
+    },
+  });
 
   ig.ACTION_STEP.LOAD_TARGET = ig.ActionStepBase.extend({
     _wm: new ig.Config({
@@ -770,24 +999,12 @@ ig.module("game.feature.msg.msg-steps.carn").requires("game.feature.combat.model
     }),
     init: function () { },
     start: function (a) {
-      //console.log("ACTUAL WAS CLALLED");
+      //console.log("ACTUAL WAS CLALLED", a, a.tmpTarget);
       a.tmpTarget && a.setTarget(a.tmpTarget);
     }
   });
 
-  sc.COMBAT_CONDITION.NEED_NEW_TARGET = ig.Class.extend({
-    _wm: new ig.Config({
-      attributes: {}
-    }),
-    init: function () { },
-    check: function (a) {
-      //return false;
-      let tempTarg = a.getTarget();
-      let returner = (!tempTarg || tempTarg.params.defeated);
-      //console.log(returner, a, tempTarg)
-      return returner
-    }
-  });
+
 
   ig.ACTION_STEP.CLEAR_FIRST_HIT = ig.ActionStepBase.extend({
     _wm: new ig.Config({
@@ -1301,7 +1518,7 @@ ig.module("game.feature.party.entities.party-member-entity.carn").requires("game
       var b = 0.5;
       (a = a.getCombatant()) && (b = sc.EnemyAnno.getUnderstandFactor(a, this, 1));
       a = sc.party.getStrategy("BEHAVIOUR");
-      return ((1 - b) * a.dodgeMin + b * a.dodgeMax) * (ig.vars.storage.tmp.isCarn ? 0.3 : 1)
+      return ((1 - b) * a.dodgeMin + b * a.dodgeMax) * (ig.vars.storage.tmp.isCarn ? 1 : 1)
     },
   })
 })
@@ -1598,7 +1815,7 @@ ig.module("game.feature.menu.gui.enemies.enemy-pages.carn").requires("impact.fea
   })
 })
 
-ig.module("game.feature.carnMusic").defines(function () {
+ig.module("game.feature.carnMusic").requires("impact.feature.gui.base.box", "impact.feature.gui.gui", "impact.feature.gui.base.basic-gui", "game.feature.combat.gui.enemy-display-gui", "game.feature.menu.gui.menu-misc", "game.feature.gui.base.misc").defines(function () {
 
   sc.STAT_CHANGE_SETTINGS["HP-MINUS-CARN"] = {
     change: sc.STAT_CHANGE_TYPE.STATS,
@@ -1611,7 +1828,7 @@ ig.module("game.feature.carnMusic").defines(function () {
   sc.STAT_CHANGE_SETTINGS["HACK-CARN"] = {
     change: sc.STAT_CHANGE_TYPE.STATS,
     type: sc.STAT_PARAM_TYPE.ATTACK,
-    value: 1,
+    value: 17,
     icon: "stat-attack",
     grade: "stat-rank-3"
   };
@@ -1812,4 +2029,7 @@ ig.module("game.feature.carnMusic").defines(function () {
 
 
 })
+
+
+
 

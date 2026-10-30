@@ -10834,141 +10834,141 @@
             "breakType": "NEVER",
             "action": [
                 {
-                    "time": 0.1,
-                    "type": "WAIT"
-                },
-                {
-                    "target": "TARGET",
-                    "name": "sergeyHax",
-                    "hacked": true,
-                    "type": "ADD_ACTION_BUFF",
-                    "stats": [
-                        "HACK-CARN"
+                    "type": "IF",
+                    "condition": "!entity.target.attrib.buffApplied",
+                    "thenStep": [
+                        {
+                            "name": "buffApplied",
+                            "type": "SET_ATTRIB_BOOL",
+                            "value": true,
+                            "changeConnected": "TARGET"
+                        },
+                        {
+                            "target": "TARGET",
+                            "name": "sergeyHax",
+                            "hacked": true,
+                            "type": "ADD_ACTION_BUFF",
+                            "stats": [
+                                "HACK-CARN"
+                            ]
+                        },
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "scene.hacking",
+                                "name": "hackTrail"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "value": 1,
+                            "type": "SET_AIR_FRICTION"
+                        },
+                        {
+                            "text": {
+                                "en_US": "Balancing..."
+                            },
+                            "mode": "NO_LINE",
+                            "color": "RED",
+                            "actionDetached": false,
+                            "hideOutsideOfScreen": false,
+                            "type": "SHOW_AR_MSG",
+                            "time": 5
+                        },
+                        {
+                            "duration": 2,
+                            "align": "BOTTOM",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "actionDetached": false,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                                "sheet": "scene.hacking",
+                                "name": "hackTrail"
+                            },
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "min": 0,
+                            "max": 12,
+                            "maxTime": 10,
+                            "forceTime": false,
+                            "stopBeforeEdge": false,
+                            "type": "MOVE_TO_DISTANCE"
+                        },
+                        {
+                            "group": "slug",
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                            "type": "CLEAR_AR_MSG"
+                        },
+                        {
+                            "text": {
+                                "en_US": "Attack stat multiplied by 17!"
+                            },
+                            "mode": "NO_LINE",
+                            "color": "GREEN",
+                            "actionDetached": false,
+                            "hideOutsideOfScreen": false,
+                            "type": "SHOW_AR_MSG",
+                            "time": 0
+                        },
+                        {
+                            "volume": 1.5,
+                            "global": false,
+                            "loop": false,
+                            "speed": 0.8,
+                            "type": "PLAY_SOUND",
+                            "sound": "media\/sound\/upgrade\/blow-fast.ogg"
+                        },
+                        {
+                            "time": 0.3,
+                            "removeEntityStatic": false,
+                            "type": "CLEAR_SLOW_MOTION"
+                        },
+                        {
+                            "target": "TARGET",
+                            "align": "BOTTOM",
+                            "duration": 0.4,
+                            "type": "STICK_TO_TARGET",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 0
+                            }
+                        },
+                        {
+                            "group": "slug",
+                            "type": "CLEAR_EFFECTS"
+                        },
+                        {
+                            "type": "CLEAR_AR_MSG"
+                        },
+                        {
+                            "time": -1,
+                            "type": "WAIT"
+                        }
                     ]
-                },
-                {
-                    "target": "TARGET",
-                    "name": "sergeyHax",
-                    "param": "attack",
-                    "changeType": "set",
-                    "value": 17,
-                    "type": "MOD_ACTION_BUFF_PARAM"
-                },
-                {
-                    "duration": 2,
-                    "align": "BOTTOM",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": false,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "scene.hacking",
-                        "name": "hackTrail"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "value": 1,
-                    "type": "SET_AIR_FRICTION"
-                },
-                {
-                    "text": {
-                        "en_US": "Balancing..."
-                    },
-                    "mode": "NO_LINE",
-                    "color": "RED",
-                    "actionDetached": false,
-                    "hideOutsideOfScreen": false,
-                    "type": "SHOW_AR_MSG",
-                    "time": 5
-                },
-                {
-                    "duration": 2,
-                    "align": "BOTTOM",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": false,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "scene.hacking",
-                        "name": "hackTrail"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "min": 0,
-                    "max": 12,
-                    "maxTime": 10,
-                    "forceTime": false,
-                    "stopBeforeEdge": false,
-                    "type": "MOVE_TO_DISTANCE"
-                },
-                {
-                    "group": "slug",
-                    "type": "CLEAR_EFFECTS"
-                },
-                {
-                    "type": "CLEAR_AR_MSG"
-                },
-                {
-                    "text": {
-                        "en_US": "Attack stat multiplied by 17!"
-                    },
-                    "mode": "NO_LINE",
-                    "color": "GREEN",
-                    "actionDetached": false,
-                    "hideOutsideOfScreen": false,
-                    "type": "SHOW_AR_MSG",
-                    "time": 0
-                },
-                {
-                    "volume": 1.5,
-                    "global": false,
-                    "loop": false,
-                    "speed": 0.8,
-                    "type": "PLAY_SOUND",
-                    "sound": "media\/sound\/upgrade\/blow-fast.ogg"
-                },
-                {
-                    "time": 0.3,
-                    "removeEntityStatic": false,
-                    "type": "CLEAR_SLOW_MOTION"
-                },
-                {
-                    "target": "TARGET",
-                    "align": "BOTTOM",
-                    "duration": 0.4,
-                    "type": "STICK_TO_TARGET",
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "group": "slug",
-                    "type": "CLEAR_EFFECTS"
-                },
-                {
-                    "type": "CLEAR_AR_MSG"
-                },
-                {
-                    "time": -1,
-                    "type": "WAIT"
                 }
             ],
             "invisible": false,
@@ -23587,11 +23587,6 @@
                 "type": "REMOVE_SHIELD"
             },
             {
-                "active": "ATTACK",
-                "passive": "WEAK",
-                "type": "CHANGE_ENEMY_ANNOTATION"
-            },
-            {
                 "type": "INITIALIZE_CARN"
             },
             {
@@ -23775,6 +23770,17 @@
                         "align": "CENTER",
                         "posType": "TARGET",
                         "type": "SHOOT_PROXY",
+                        "proxy": "playerHackCondense",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    },
+                    {
+                        "align": "CENTER",
+                        "posType": "TARGET",
+                        "type": "SHOOT_PROXY",
                         "proxy": "playerSpeedCorrection",
                         "offset": {
                             "x": 0,
@@ -23783,8 +23789,19 @@
                         }
                     },
                     {
-                        "kind": "PLAYER_1",
+                        "kind": "PARTY_1",
                         "type": "SET_TEMP_TARGET"
+                    },
+                    {
+                        "align": "CENTER",
+                        "posType": "TARGET",
+                        "type": "SHOOT_PROXY",
+                        "proxy": "playerHackCondense",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
                     },
                     {
                         "align": "CENTER",
@@ -23865,10 +23882,7 @@
             },
             {
                 "kind": "CLOSEST_ENEMY",
-                "type": "SET_TEMP_TARGET"
-            },
-            {
-                "type": "ACTUALIZE_TARGET"
+                "type": "SET_REAL_TARGET"
             },
             {
                 "sticking": false,
@@ -23937,10 +23951,7 @@
             },
             {
                 "kind": "CLOSEST_ENEMY",
-                "type": "SET_TEMP_TARGET"
-            },
-            {
-                "type": "ACTUALIZE_TARGET"
+                "type": "SET_REAL_TARGET"
             },
             {
                 "sticking": false,
@@ -23955,10 +23966,7 @@
             },
             {
                 "kind": "CLOSEST_ENEMY",
-                "type": "SET_TEMP_TARGET"
-            },
-            {
-                "type": "ACTUALIZE_TARGET"
+                "type": "SET_REAL_TARGET"
             },
             {
                 "sticking": false,
@@ -24326,6 +24334,10 @@
                 "condition": "!tmp.continueCombo",
                 "thenStep": [
                     {
+                        "kind": "CLOSEST_ENEMY",
+                        "type": "SET_REAL_TARGET"
+                    },
+                    {
                         "changeType": "set",
                         "type": "CHANGE_VAR_NUMBER",
                         "varName": "tmp.exeIndex",
@@ -24373,10 +24385,7 @@
                 "thenStep": [
                     {
                         "kind": "CLOSEST_ENEMY",
-                        "type": "SET_TEMP_TARGET"
-                    },
-                    {
-                        "type": "ACTUALIZE_TARGET"
+                        "type": "SET_REAL_TARGET"
                     }
                 ]
             },
@@ -26186,7 +26195,7 @@
                     },
                     {
                         "basedOn": "MAX_HP",
-                        "factor": 0.60,
+                        "factor": 0.0,
                         "hitNumberFactor": 1,
                         "type": "REDUCE_HP"
                     }
@@ -26226,7 +26235,7 @@
             },
             {
                 "type": "SET_COMBO_CARN",
-                "combo": "sv -> dr -> sv -> vv -> fo -> ro -> sv -> decap -> fo -> sv -> ds -> vv "
+                "combo": "timefreeze -> vv"
             },
             {
                 "withElse": true,
@@ -32781,11 +32790,6 @@
                                         }
                                     },
                                     {
-                                        "active": "POST_ATTACK",
-                                        "passive": "VULNERABLE",
-                                        "type": "CHANGE_ENEMY_ANNOTATION"
-                                    },
-                                    {
                                         "time": 1,
                                         "type": "WAIT"
                                     }
@@ -33551,12 +33555,6 @@
                         "type": "SET_SPEED"
                     },
                     {
-                        "distance": 32,
-                        "speed": 200,
-                        "maxTime": 0,
-                        "type": "PULL"
-                    },
-                    {
                         "value": false,
                         "immediately": true,
                         "type": "FACE_TO_TARGET"
@@ -33705,12 +33703,6 @@
                             {
                                 "value": 100,
                                 "type": "SET_SPEED"
-                            },
-                            {
-                                "distance": 32,
-                                "speed": 200,
-                                "maxTime": 0,
-                                "type": "PULL"
                             },
                             {
                                 "value": false,

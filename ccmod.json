@@ -1,7 +1,7 @@
 {
 	"id": "carn",
 	"title": "Carnellio SBBF Crossover",
-	"version": "1.4.1",
+	"version": "1.5.0",
 	"description": "Adds optional, challenging bosses and a playable class (replaces shock). Crossover with Skill Based Boss Fights!",
 	"icons": {
 		"24": "icon-24.png"

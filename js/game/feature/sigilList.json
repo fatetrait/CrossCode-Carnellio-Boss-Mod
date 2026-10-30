@@ -132,6 +132,7 @@
     "brawler": 200001,
     "shooter": 200002,
     "timefreeze": 100001,
+    "timestop": 100001,
     "airsnipe": 100002,
     "summonGatling": 211003
 }
