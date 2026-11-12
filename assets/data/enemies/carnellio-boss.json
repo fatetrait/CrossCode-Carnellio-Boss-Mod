@@ -26195,12 +26195,16 @@
                     },
                     {
                         "basedOn": "MAX_HP",
-                        "factor": 0.0,
+                        "factor": 0.85,
                         "hitNumberFactor": 1,
                         "type": "REDUCE_HP"
                     }
                 ]
             },
+            {
+                        "time": 1,
+                        "type": "WAIT"
+                    },
             {
                 "type": "SET_COMBO_CARN",
                 "combo": "hailstorm -> es -> wf -> brawler -> flickering stars -> summon -> maw -> nr -> dr -> es -> dr -> es -> fatalhowl"
@@ -26236,6 +26240,10 @@
             {
                 "type": "SET_COMBO_CARN",
                 "combo": "timefreeze -> vv"
+            },
+            {
+                "type": "SET_COMBO_CARN",
+                "combo": "shooter -> ashenmine -> fakeout -> minevalley -> tr -> spheresaw -> ragnarok -> ballofsteel"
             },
             {
                 "withElse": true,

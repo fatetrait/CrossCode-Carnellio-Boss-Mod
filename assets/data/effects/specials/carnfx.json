@@ -1289,11 +1289,9 @@
             {
                 "name": "Ragnarok",
                 "sheet": {
-                    "src": "media/gui/circuit-icons.png",
-                    "offX": 144,
-                    "offY": 144,
-                    "width": 24,
-                    "height": 24
+                    "src": "media/entity/effects/sigils/Ragnarok.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -1319,11 +1317,9 @@
             {
                 "name": "AshenMine",
                 "sheet": {
-                    "src": "media/gui/circuit-icons.png",
-                    "offX": 216,
-                    "offY": 144,
-                    "width": 24,
-                    "height": 24
+                    "src": "media/entity/effects/sigils/AshenMine.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -1349,11 +1345,9 @@
             {
                 "name": "MineValley",
                 "sheet": {
-                    "src": "media/gui/circuit-icons.png",
-                    "offX": 24,
-                    "offY": 168,
-                    "width": 24,
-                    "height": 24
+                    "src": "media/entity/effects/sigils/MineValley.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -2352,11 +2346,9 @@
             {
                 "name": "BallOfSteel",
                 "sheet": {
-                    "src": "media/gui/circuit-icons.png",
-                    "offX": 0,
-                    "offY": 96,
-                    "width": 24,
-                    "height": 24
+                    "src": "media/entity/effects/sigils/BallOfSteel.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -2427,11 +2419,9 @@
             {
                 "name": "SphereSaw",
                 "sheet": {
-                    "src": "media/gui/circuit-icons.png",
-                    "offX": 120,
-                    "offY": 96,
-                    "width": 24,
-                    "height": 24
+                    "src": "media/entity/effects/sigils/SphereSaw.png",
+                    "width": 500,
+                    "height": 500
                 },
                 "time": 3,
                 "frames": [
@@ -8714,20 +8704,20 @@
                 "pAlpha": {
                     "init": 0,
                     "start": {
-                        "value": 1,
+                        "value": 2,
                         "time": 0.2,
                         "spline": "EASE_IN"
                     },
                     "end": {
-                        "value": 0.4,
+                        "value": 0.8,
                         "time": 2.5,
                         "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
@@ -8862,20 +8852,20 @@
                 "pAlpha": {
                     "init": 0,
                     "start": {
-                        "value": 1,
+                        "value": 2,
                         "time": 0.2,
                         "spline": "EASE_IN"
                     },
                     "end": {
-                        "value": 0.4,
+                        "value": 0.8,
                         "time": 2.5,
                         "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
@@ -9010,20 +9000,20 @@
                 "pAlpha": {
                     "init": 0,
                     "start": {
-                        "value": 1,
+                        "value": 2,
                         "time": 0.2,
                         "spline": "EASE_IN"
                     },
                     "end": {
-                        "value": 0.4,
+                        "value": 0.8,
                         "time": 2.5,
                         "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
@@ -13969,20 +13959,20 @@
                 "pAlpha": {
                     "init": 0,
                     "start": {
-                        "value": 1,
+                        "value": 2,
                         "time": 0.2,
                         "spline": "EASE_IN"
                     },
                     "end": {
-                        "value": 0.4,
+                        "value": 0.8,
                         "time": 2.5,
                         "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
@@ -14339,20 +14329,20 @@
                 "pAlpha": {
                     "init": 0,
                     "start": {
-                        "value": 1,
+                        "value": 2,
                         "time": 0.2,
                         "spline": "EASE_IN"
                     },
                     "end": {
-                        "value": 0.4,
+                        "value": 0.8,
                         "time": 2.5,
                         "spline": "EASE_OUT"
                     }
                 },
                 "pScale": {
                     "init": {
-                        "x": 1.041,
-                        "y": 1.041
+                        "x": 0.05,
+                        "y": 0.05
                     }
                 },
                 "moveWithTarget": 0,
